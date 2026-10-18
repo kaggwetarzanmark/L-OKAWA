@@ -1,0 +1,1416 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// ── Services bar ──────────────────────────────────────────────
+const services = [
+  { name: 'Tour Packages',     icon: 'M4 8h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1zM9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2' },
+  { name: 'Safari Adventures', icon: 'M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1zM12 10.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6z' },
+  { name: 'Hotel Bookings',    icon: 'M5 3h14v18H5zM9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M11 21v-3h2v3' },
+  { name: 'Airport Transfers', icon: 'M21 3L10 14M21 3l-7 18-4-7-7-4 18-7z' },
+  { name: 'Group Travel',      icon: 'M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M17 10a2.5 2.5 0 1 0 0-5M17 14c2.5 0 4.5 2 4.5 5' },
+];
+
+// ── Why choose us images ──────────────────────────────────────
+const mosaicImages = [
+  { src: '/images/gorillas/gorilla-mother-infant-closeup.jpg', alt: 'Mother mountain gorilla with infant in Bwindi Impenetrable Forest Uganda', height: 230 },
+  { src: '/images/wildlife/elephants-crossing-river.jpg',      alt: 'African elephants crossing river on Uganda wildlife safari',               height: 160 },
+  { src: '/images/wildlife/cheetah-mother-cub.jpg',            alt: 'Cheetah mother and cub on Kenya safari Masai Mara',                       height: 160 },
+  { src: '/images/wildlife/tree-climbing-lion-ishasha.jpg',    alt: 'Tree-climbing lion in Ishasha Queen Elizabeth National Park Uganda',      height: 230 },
+];
+
+// ── Wildlife facts strip ──────────────────────────────────────
+const facts = [
+  { stat: '1,066+', label: 'Bird Species in Uganda' },
+  { stat: '19',     label: 'Gorilla Families in Bwindi' },
+  { stat: '4',      label: 'Countries Covered' },
+  { stat: '32+',    label: 'Safari Packages' },
+];
+
+// ── Promise cards ─────────────────────────────────────────────
+const promises = [
+  {
+    kicker: 'A taste of the extraordinary',
+    title:  'Romance, relaxation and wild encounters',
+    text:   'From misty gorilla forests to breathtaking sunset game drives, we craft journeys that blend adventure, culture and real comfort however you travel.',
+  },
+  {
+    kicker: 'High quality, affordable tours',
+    title:  'Safaris that change how you see the world',
+    text:   'Fly-in or by road, budget camp or luxury lodge, every package is built around your time, your budget and the wildlife you most want to experience.',
+  },
+  {
+    kicker: 'Travel in comfort',
+    title:  'Safari-ready vehicles and local expertise',
+    text:   'Our 4x4 safari vehicles have roof hatches for game viewing, clean interiors and experienced drivers who know every road and every animal watering hole.',
+  },
+];
+
+// ── Destination cards ─────────────────────────────────────────
+const destinations = [
+  {
+    name: 'Bwindi Impenetrable National Park',
+    href: '/destinations/uganda/bwindi-impenetrable-national-park/',
+    img:  '/images/gorillas/silverback-gorilla-group.jpg',
+    alt:  'Silverback mountain gorilla family in Bwindi Impenetrable National Park Uganda gorilla trekking',
+    tag:  'Uganda',
+  },
+  {
+    name: 'Masai Mara National Reserve',
+    href: '/destinations/kenya/masai-mara/',
+    img:  '/images/wildlife/safari-vehicle-lions.jpg',
+    alt:  'Safari vehicle with lions in Masai Mara National Reserve Kenya game drive',
+    tag:  'Kenya',
+  },
+  {
+    name: 'Murchison Falls National Park',
+    href: '/destinations/uganda/murchison-falls-national-park/',
+    img:  '/images/wildlife/giraffe-uganda-murchison.jpg',
+    alt:  'Rothschild giraffe feeding in Murchison Falls National Park Uganda safari',
+    tag:  'Uganda',
+  },
+  {
+    name: 'Queen Elizabeth National Park',
+    href: '/destinations/uganda/queen-elizabeth-national-park/',
+    img:  '/images/wildlife/tree-climbing-lion-ishasha.jpg',
+    alt:  'Lioness in fig tree Ishasha sector Queen Elizabeth National Park Uganda',
+    tag:  'Uganda',
+  },
+];
+
+// ── Popular tours (8) ─────────────────────────────────────────
+const tours = [
+  {
+    title:    '3 Days Uganda Gorilla Safari',
+    country:  'Uganda',
+    blurb:    'Hike into Bwindi Impenetrable Forest for a face-to-face hour with wild mountain gorillas. Gorilla permit and all meals included.',
+    duration: '3 Days',
+    price:    'From $1,400',
+    href:     '/tours/3-days-uganda-gorilla-safari/',
+    img:      '/images/gorillas/gorilla-amber-eyes-closeup.jpg',
+    alt:      'Mountain gorilla with amber eyes in Bwindi Impenetrable Forest Uganda gorilla trekking',
+  },
+  {
+    title:    '3 Days Murchison Falls Safari',
+    country:  'Uganda',
+    blurb:    'Game drives, a Nile boat cruise and rhino tracking at Ziwa Sanctuary. Three days from Kampala, all meals included.',
+    duration: '3 Days',
+    price:    'From $650',
+    href:     '/tours/3-days-murchison-falls-safari/',
+    img:      '/images/wildlife/giraffe-uganda-murchison.jpg',
+    alt:      'Giraffe on game drive in Murchison Falls National Park Uganda safari',
+  },
+  {
+    title:    '3 Days Queen Elizabeth Safari',
+    country:  'Uganda',
+    blurb:    'Tree-climbing lions in Ishasha, the Kazinga Channel boat cruise and over 600 bird species.',
+    duration: '3 Days',
+    price:    'From $600',
+    href:     '/tours/3-days-queen-elizabeth-national-park-safari/',
+    img:      '/images/wildlife/hippos-in-grass-kazinga.jpg',
+    alt:      'Hippos resting on banks of Kazinga Channel Queen Elizabeth National Park Uganda',
+  },
+  {
+    title:    '3 Days Masai Mara Safari Kenya',
+    country:  'Kenya',
+    blurb:    'Big cats, the Great Wildebeest Migration and wide open plains in Africa\'s most celebrated reserve.',
+    duration: '3 Days',
+    price:    'From $899',
+    href:     '/tours/3-days-masai-mara-safari/',
+    img:      '/images/wildlife/lion-kidepo-rock-sunset.jpg',
+    alt:      'Male lion on rock at sunset Kenya Masai Mara safari game drive',
+  },
+  {
+    title:    '5 Days Uganda Primates Safari',
+    country:  'Uganda',
+    blurb:    'Chimpanzee trekking in Kibale Forest and mountain gorilla trekking in Bwindi. Both permits included.',
+    duration: '5 Days',
+    price:    'From $2,100',
+    href:     '/tours/5-days-uganda-primates-safari/',
+    img:      '/images/primates/chimpanzees-pair-feeding.jpg',
+    alt:      'Wild chimpanzees feeding together in Kibale Forest National Park Uganda primate safari',
+  },
+  {
+    title:    '4 Days Rwanda Gorilla Trekking',
+    country:  'Rwanda',
+    blurb:    'Trek mountain gorillas and golden monkeys in Volcanoes National Park. Gorilla permit included.',
+    duration: '4 Days',
+    price:    'From $2,500',
+    href:     '/tours/4-days-rwanda-gorilla-trekking/',
+    img:      '/images/primates/golden-monkey-mother-baby.jpg',
+    alt:      'Golden monkey mother and baby in Volcanoes National Park Rwanda gorilla trekking',
+  },
+  {
+    title:    '7 Days Uganda Wildlife Safari',
+    country:  'Uganda',
+    blurb:    'Gorillas, chimps, game drives and a Nile boat cruise. Uganda\'s classic 7-day safari circuit.',
+    duration: '7 Days',
+    price:    'From $2,800',
+    href:     '/tours/7-days-uganda-gorilla-chimp-wildlife-safari/',
+    img:      '/images/gorillas/gorilla-mother-baby-bwindi.jpg',
+    alt:      'Mountain gorilla mother carrying baby in Bwindi Impenetrable Forest Uganda',
+  },
+  {
+    title:    '3 Days Ssese Islands Uganda',
+    country:  'Uganda',
+    blurb:    'White sandy beaches, birding and canoe rides on Lake Victoria. Uganda\'s hidden beach paradise.',
+    duration: '3 Days',
+    price:    'From $350',
+    href:     '/tours/3-days-ssese-islands-uganda/',
+    img:      '/images/wildlife/hippo-walking-water.jpg',
+    alt:      'Hippo walking through Lake Victoria water near Ssese Islands Uganda',
+  },
+];
+
+// ── Testimonials ──────────────────────────────────────────────
+const testimonials = [
+  {
+    name:    'Sarah M.',
+    country: 'United Kingdom',
+    tour:    '5 Days Uganda Primates Safari',
+    rating:  5,
+    text:    'An absolutely life-changing experience. Our guide knew exactly where the gorilla family would be and we spent a full hour watching them. L\'okawa handled every detail perfectly from pickup at Entebbe to the final drop-off.',
+    flag:    '🇬🇧',
+  },
+  {
+    name:    'James & Priya K.',
+    country: 'United States',
+    tour:    '7 Days Uganda Wildlife Safari',
+    rating:  5,
+    text:    'We saw tree-climbing lions, tracked chimps in Kibale and came face to face with gorillas in Bwindi all in one trip. The 4x4 vehicle was spotless, our driver was brilliant and the lodges were perfect. Highly recommend.',
+    flag:    '🇺🇸',
+  },
+  {
+    name:    'Lukas B.',
+    country: 'Germany',
+    tour:    '3 Days Murchison Falls Safari',
+    rating:  5,
+    text:    'Best value safari I have done in East Africa. The rhino tracking at Ziwa was a bonus I did not expect. Very well organised, honest pricing and the Nile boat cruise at sunset was unforgettable.',
+    flag:    '🇩🇪',
+  },
+];
+
+// ── FAQ ───────────────────────────────────────────────────────
+const faqs = [
+  {
+    q: 'How much does gorilla trekking in Uganda cost?',
+    a: 'A Uganda gorilla trekking permit costs USD 800 per person for foreign non-residents. This is set by the Uganda Wildlife Authority and covers your ranger guide, conservation fees and one hour with a gorilla family. L\'okawa tour packages include the permit in the total price.',
+  },
+  {
+    q: 'What is the best time to visit Uganda for a safari?',
+    a: 'Uganda can be visited year-round for gorilla trekking. The best conditions are during the two dry seasons: June to September and December to February. These months have drier trails and easier trekking. However, gorillas can be tracked in any month.',
+  },
+  {
+    q: 'How difficult is gorilla trekking in Bwindi?',
+    a: 'Gorilla trekking ranges from moderate to strenuous depending on where the gorilla family is located that day. Treks can take between 30 minutes and 8 hours through steep, muddy forest terrain. A reasonable level of fitness is recommended. Porters are available for hire at the trailhead.',
+  },
+  {
+    q: 'How far in advance should I book a gorilla permit?',
+    a: 'We recommend booking your gorilla permit at least 3 to 6 months in advance, especially for travel during the peak dry seasons (June to September and December to February). Permits sell out quickly and are limited to 96 visitors per day across all Bwindi sectors.',
+  },
+  {
+    q: 'What countries does L\'okawa Tours cover?',
+    a: 'L\'okawa Tours and Travel offers safari packages in Uganda, Kenya, Tanzania and Rwanda. Our main focus is Uganda gorilla trekking and wildlife safaris, but we also offer Masai Mara safaris in Kenya, Serengeti tours in Tanzania and gorilla trekking in Rwanda\'s Volcanoes National Park.',
+  },
+  {
+    q: 'Are all meals and park fees included in the tour price?',
+    a: 'Yes. All L\'okawa tour packages include all meals as specified in the itinerary (breakfast, lunch and dinner), park entrance fees, English-speaking driver/guide, private 4x4 safari vehicle and bottled water. Gorilla and chimpanzee permits are included where the activity is listed in the itinerary.',
+  },
+];
+
+// ── JSON-LD: WebPage + FAQPage schema ────────────────────────
+const homepageSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://lokawatours.com/",
+      "url": "https://lokawatours.com/",
+      "name": "Uganda Gorilla Trekking Tours & East Africa Safari Packages | L'okawa Tours",
+      "description": "Book affordable Uganda gorilla trekking, Kenya safaris and Tanzania tours with L'okawa Tours. Expert local guides, 4x4 vehicles, all permits included.",
+      "inLanguage": "en-US",
+      "isPartOf": { "@id": "https://lokawatours.com/#website" },
+      "about": {
+        "@type": "TouristDestination",
+        "name": "East Africa",
+        "includesAttraction": [
+          { "@type": "TouristAttraction", "name": "Bwindi Impenetrable National Park" },
+          { "@type": "TouristAttraction", "name": "Queen Elizabeth National Park" },
+          { "@type": "TouristAttraction", "name": "Murchison Falls National Park" },
+          { "@type": "TouristAttraction", "name": "Masai Mara National Reserve" },
+          { "@type": "TouristAttraction", "name": "Serengeti National Park" },
+          { "@type": "TouristAttraction", "name": "Volcanoes National Park Rwanda" }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    }
+  ]
+});
+
+// ── Country circles — removed, replaced by boarding pass cards ──
+---
+
+<BaseLayout
+  title="Uganda Gorilla Trekking Tours & East Africa Safari Packages | L'okawa Tours"
+  description="Book affordable Uganda gorilla trekking safaris, Kenya wildlife tours and Tanzania packages with L'okawa Tours. Local guides, 4x4 vehicles, all permits included. Est. Kampala 2021."
+  ogImage="/images/wildlife/safari-vehicle-lions.jpg"
+  schema={homepageSchema}
+>
+
+<!-- ═══════════════════════════════════════════════════════
+  1. HERO
+══════════════════════════════════════════════════════════ -->
+<section class="hero" aria-label="L'okawa Tours and Travel Uganda East Africa Safari">
+
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+
+  <svg class="hero__svg" viewBox="0 0 1440 660" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <circle cx="1090" cy="410" r="140" fill="#ffd45a" opacity=".15"/>
+    <circle cx="1090" cy="410" r="96"  fill="#ffd45a" opacity=".55"/>
+    <path d="M0 520 C220 480 400 510 580 480 C780 450 940 510 1140 480 C1280 460 1370 490 1440 480 L1440 660 L0 660Z" fill="#1d3315" opacity=".8"/>
+    <path d="M0 580 C240 548 440 580 660 560 C880 540 1100 580 1440 550 L1440 660 L0 660Z" fill="#0d1a0a"/>
+    <g fill="#0d1a0a">
+      <rect x="1236" y="420" width="10" height="150"/>
+      <ellipse cx="1241" cy="412" rx="104" ry="26"/>
+      <ellipse cx="1180" cy="430" rx="62"  ry="17"/>
+      <ellipse cx="1300" cy="428" rx="62"  ry="17"/>
+    </g>
+    <g fill="#0d1a0a">
+      <ellipse cx="800" cy="550" rx="62" ry="30"/>
+      <circle  cx="864" cy="534" r="20"/>
+      <path    d="M878 536 C900 540 906 568 898 584 L890 584 C892 566 886 552 872 548Z"/>
+      <rect x="756" y="568" width="14" height="30"/>
+      <rect x="782" y="568" width="14" height="30"/>
+      <rect x="818" y="568" width="14" height="30"/>
+    </g>
+  </svg>
+
+  <div class="hero__content">
+    <p class="hero__kicker">Find your special tour today</p>
+    <h1 class="hero__h1">
+      Uganda Gorilla Trekking<br class="hero__br" /> and East Africa Safaris
+    </h1>
+    <p class="hero__sub">
+      Where Nature Meets Attraction. Expert-guided gorilla trekking in Uganda, Kenya wildlife safaris, Tanzania tours and Rwanda gorilla packages. All permits included.
+    </p>
+    <div class="btn-group hero__ctas">
+      <a href="/contact/" class="btn btn--primary btn--lg">Request Quotation</a>
+      <a href="/tours/"   class="btn btn--outline btn--lg">View Safari Packages</a>
+    </div>
+
+    <div class="hero__trust" role="list">
+      <span class="hero__trust-item" role="listitem">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Est. 2021, Kampala
+      </span>
+      <span class="hero__trust-item" role="listitem">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Local Ugandan Guides
+      </span>
+      <span class="hero__trust-item" role="listitem">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        Private 4x4 Safari Vehicles
+      </span>
+      <span class="hero__trust-item" role="listitem">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        All Gorilla Permits Included
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+  2. SERVICES BAR — infinite horizontal marquee
+══════════════════════════════════════════════════════════ -->
+<div class="services-bar" aria-label="L'okawa Tours services">
+  <!-- Track is duplicated so the loop is seamless -->
+  <div class="services-bar__track" aria-hidden="true">
+    <!-- First copy -->
+    <div class="services-bar__set">
+      {services.map((s) => (
+        <div class="service-item">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d={s.icon}/>
+          </svg>
+          <span>{s.name}</span>
+        </div>
+      ))}
+    </div>
+    <!-- Second copy — keeps the loop gapless -->
+    <div class="services-bar__set" aria-hidden="true">
+      {services.map((s) => (
+        <div class="service-item">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d={s.icon}/>
+          </svg>
+          <span>{s.name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+  <!-- Accessible static list for screen readers only -->
+  <ul class="sr-only">
+    {services.map((s) => <li>{s.name}</li>)}
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+  3. WHY CHOOSE US
+══════════════════════════════════════════════════════════ -->
+<section class="why section" aria-labelledby="why-heading">
+  <div class="container why__inner">
+
+    <div class="why__text">
+      <h2 id="why-heading" class="why__heading">
+        Why choose
+        <span class="why__brand">L'OKAWA</span>
+      </h2>
+      <p class="body-lg">
+        L'okawa Tours and Travel (U) Ltd is a Uganda-based safari company established in 2021, offering gorilla trekking tours, wildlife safaris, hotel bookings, airport transfers and group travel across Uganda, Kenya, Tanzania and Rwanda. Our itineraries are built around your pace, your budget and the wildlife you most want to see.
+      </p>
+      <p class="body-lg why__para2">
+        As a locally owned operator based in Kiwatule, Kampala, we have on-the-ground knowledge that no international booking platform can match. From the best gorilla families in Bwindi to the optimal boat cruise timing on the Kazinga Channel, we know every detail that makes a safari unforgettable.
+      </p>
+      <a href="/about/" class="btn btn--secondary btn--lg">More About Us</a>
+    </div>
+
+    <div class="why__mosaic" aria-hidden="true">
+      <div class="why__col why__col--left">
+        <img src={mosaicImages[0].src} alt={mosaicImages[0].alt} class="why__img" style={`height: ${mosaicImages[0].height}px;`} loading="lazy" width="220" height="230"/>
+        <img src={mosaicImages[1].src} alt={mosaicImages[1].alt} class="why__img" style={`height: ${mosaicImages[1].height}px;`} loading="lazy" width="220" height="160"/>
+      </div>
+      <div class="why__col why__col--right">
+        <img src={mosaicImages[2].src} alt={mosaicImages[2].alt} class="why__img" style={`height: ${mosaicImages[2].height}px;`} loading="lazy" width="220" height="160"/>
+        <img src={mosaicImages[3].src} alt={mosaicImages[3].alt} class="why__img" style={`height: ${mosaicImages[3].height}px;`} loading="lazy" width="220" height="230"/>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+  4. WILDLIFE FACTS STRIP
+══════════════════════════════════════════════════════════ -->
+<div class="facts-strip section--forest" aria-label="East Africa safari facts">
+  <div class="facts-strip__inner container">
+    {facts.map((f) => (
+      <div class="facts-strip__item">
+        <span class="facts-strip__stat">{f.stat}</span>
+        <span class="facts-strip__label">{f.label}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+  5. PROMISE CARDS
+══════════════════════════════════════════════════════════ -->
+<section class="section--parchment section--sm" aria-labelledby="promises-heading">
+  <div class="container">
+    <h2 id="promises-heading" class="sr-only">Our promise to every traveler</h2>
+    <div class="promises">
+      {promises.map((p) => (
+        <article class="promise-card">
+          <p class="promise-card__kicker">{p.kicker}</p>
+          <h3 class="promise-card__title">{p.title}</h3>
+          <p class="promise-card__text">{p.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+  6. DESTINATIONS GRID
+══════════════════════════════════════════════════════════ -->
+<section class="section destinations-section" aria-labelledby="destinations-heading">
+  <div class="container">
+    <div class="section-heading">
+      <span class="kicker">Browse our safari tours</span>
+      <h2 id="destinations-heading">Top Safari Destinations in East Africa</h2>
+      <div class="section-heading__divider"></div>
+    </div>
+    <div class="destinations-grid">
+      {destinations.map((d) => (
+        <a href={d.href} class="dest-card" aria-label={`Explore ${d.name} safari tours`}>
+          <img src={d.img} alt={d.alt} class="dest-card__img" loading="lazy"/>
+          <span class="dest-card__tag badge">{d.tag}</span>
+          <div class="dest-card__overlay"></div>
+          <div class="dest-card__label">{d.name}</div>
+        </a>
+      ))}
+    </div>
+    <div class="destinations-section__cta">
+      <a href="/destinations/" class="btn btn--secondary">Explore All Destinations</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+  7. TOURS GRID
+══════════════════════════════════════════════════════════ -->
+<section class="section tours-section" aria-labelledby="tours-heading">
+  <div class="container">
+    <div class="section-heading">
+      <span class="kicker">Take a look at our</span>
+      <h2 id="tours-heading">Most Popular Safari Packages</h2>
+      <div class="section-heading__divider"></div>
+    </div>
+    <div class="tours-grid">
+      {tours.map((t) => (
+        <article class="tour-card">
+          <a href={t.href} class="tour-card__img-link" tabindex="-1" aria-hidden="true">
+            <img src={t.img} alt={t.alt} class="tour-card__img" loading="lazy"/>
+            <span class="badge tour-card__badge">{t.country}</span>
+          </a>
+          <div class="tour-card__body">
+            <h3 class="tour-card__title">
+              <a href={t.href} class="tour-card__title-link">{t.title}</a>
+            </h3>
+            <p class="tour-card__blurb">{t.blurb}</p>
+            <div class="tour-card__footer">
+              <span class="tour-card__meta">{t.duration} &middot; {t.price}</span>
+              <a href={t.href} class="arrow-circle" aria-label={`View ${t.title}`}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+    <div class="tours-section__cta">
+      <a href="/tours/" class="btn btn--secondary btn--lg">View All 32 Safari Packages</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+  8. COUNTRY BAND — Round dashed-orbit flag circles
+══════════════════════════════════════════════════════════ -->
+<section class="country-band" aria-labelledby="countries-heading">
+  <span class="kicker country-band__kicker">Find a safari tour by</span>
+  <h2 id="countries-heading" class="country-band__heading">Country Across East Africa</h2>
+  <div class="country-band__divider"></div>
+
+  <div class="country-band__grid">
+
+        <!-- Uganda -->
+        <a href="/destinations/uganda/" class="fl" aria-label="Explore Uganda safari tours">
+          <div class="fl__orbit-wrap">
+            <div class="dash"></div>
+            <div class="fl__flag-circle">
+              <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block" aria-label="Uganda flag">
+                <rect width="300" height="200" fill="#000"/>
+                <rect y="33.3"  width="300" height="33.4" fill="#FCDC04"/>
+                <rect y="66.7"  width="300" height="33.3" fill="#D90000"/>
+                <rect y="100"   width="300" height="33.3" fill="#000"/>
+                <rect y="133.3" width="300" height="33.4" fill="#FCDC04"/>
+                <rect y="166.7" width="300" height="33.3" fill="#D90000"/>
+                <circle cx="150" cy="100" r="38" fill="#fff"/>
+                <g fill="#3d3d3d">
+                  <ellipse cx="146" cy="106" rx="15" ry="10"/>
+                  <path d="M156 100 C165 92 164 84 160 80 L155 82 C158 87 157 92 151 98Z"/>
+                  <circle cx="159" cy="78" r="5"/>
+                  <rect x="142" y="113" width="2.6" height="14"/>
+                  <rect x="150" y="113" width="2.6" height="14"/>
+                </g>
+              </svg>
+            </div>
+            <span class="badge fl__badge" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#12210f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+          <div class="fl__label">
+            <div class="fl__name">Uganda</div>
+            <div class="fl__count">19 tours</div>
+          </div>
+        </a>
+
+        <!-- Kenya -->
+        <a href="/destinations/kenya/" class="fl" aria-label="Explore Kenya safari tours">
+          <div class="fl__orbit-wrap">
+            <div class="dash"></div>
+            <div class="fl__flag-circle">
+              <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block" aria-label="Kenya flag">
+                <rect width="300" height="200" fill="#fff"/>
+                <rect width="300" height="58"  fill="#000"/>
+                <rect y="68"  width="300" height="64" fill="#BB0000"/>
+                <rect y="142" width="300" height="58" fill="#006600"/>
+                <path d="M112 56 L188 144 M188 56 L112 144" stroke="#fff" stroke-width="4"/>
+                <ellipse cx="150" cy="100" rx="27" ry="47" fill="#000"/>
+                <ellipse cx="150" cy="100" rx="23" ry="43" fill="#BB0000"/>
+                <ellipse cx="150" cy="100" rx="10" ry="31" fill="#fff"/>
+                <ellipse cx="150" cy="100" rx="4"  ry="22" fill="#000"/>
+              </svg>
+            </div>
+            <span class="badge fl__badge" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#12210f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+          <div class="fl__label">
+            <div class="fl__name">Kenya</div>
+            <div class="fl__count">2 tours</div>
+          </div>
+        </a>
+
+        <!-- Tanzania -->
+        <a href="/destinations/tanzania/" class="fl" aria-label="Explore Tanzania safari tours">
+          <div class="fl__orbit-wrap">
+            <div class="dash"></div>
+            <div class="fl__flag-circle">
+              <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block" aria-label="Tanzania flag">
+                <rect width="300" height="200" fill="#1EB53A"/>
+                <polygon points="300,200 300,0 0,200" fill="#00A3DD"/>
+                <line x1="-15" y1="212" x2="315" y2="-12" stroke="#FCD116" stroke-width="84"/>
+                <line x1="-15" y1="212" x2="315" y2="-12" stroke="#000"    stroke-width="58"/>
+              </svg>
+            </div>
+            <span class="badge fl__badge" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#12210f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+          <div class="fl__label">
+            <div class="fl__name">Tanzania</div>
+            <div class="fl__count">2 tours</div>
+          </div>
+        </a>
+
+        <!-- Rwanda -->
+        <a href="/destinations/rwanda/" class="fl" aria-label="Explore Rwanda safari tours">
+          <div class="fl__orbit-wrap">
+            <div class="dash"></div>
+            <div class="fl__flag-circle">
+              <svg viewBox="0 0 300 200" preserveAspectRatio="xMaxYMid slice" style="width:100%;height:100%;display:block" aria-label="Rwanda flag">
+                <rect width="300" height="200" fill="#00A1DE"/>
+                <rect y="100" width="300" height="50" fill="#FAD201"/>
+                <rect y="150" width="300" height="50" fill="#20603D"/>
+                <circle cx="238" cy="50" r="15" fill="#E5BE01"/>
+                <circle cx="238" cy="50" r="27" fill="none" stroke="#E5BE01" stroke-width="10" stroke-dasharray="2.6 4.47"/>
+              </svg>
+            </div>
+            <span class="badge fl__badge" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#12210f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+          <div class="fl__label">
+            <div class="fl__name">Rwanda</div>
+            <div class="fl__count">1 tour</div>
+          </div>
+        </a>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+  9. TESTIMONIALS
+══════════════════════════════════════════════════════════ -->
+<section class="section--parchment section testimonials-section" aria-labelledby="testimonials-heading">
+  <div class="container">
+    <div class="section-heading">
+      <span class="kicker">Real experiences</span>
+      <h2 id="testimonials-heading">What Our Travelers Say</h2>
+      <div class="section-heading__divider"></div>
+    </div>
+    <div class="testimonials-grid">
+      {testimonials.map((t) => (
+        <article class="testimonial-card">
+          <div class="testimonial-card__stars" aria-label={`${t.rating} out of 5 stars`}>
+            {Array.from({ length: t.rating }).map(() => (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--color-amber)" aria-hidden="true">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            ))}
+          </div>
+          <blockquote class="testimonial-card__quote">
+            <p>"{t.text}"</p>
+          </blockquote>
+          <footer class="testimonial-card__footer">
+            <span class="testimonial-card__flag">{t.flag}</span>
+            <div>
+              <p class="testimonial-card__name">{t.name}</p>
+              <p class="testimonial-card__meta">{t.country} &middot; {t.tour}</p>
+            </div>
+          </footer>
+        </article>
+      ))}
+    </div>
+    <div class="testimonials-section__cta">
+      <a href="/reviews/" class="btn btn--secondary">Read All Reviews</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+  10. FAQ ACCORDION
+      JSON-LD FAQPage schema injected via BaseLayout schema prop
+══════════════════════════════════════════════════════════ -->
+<section class="section faq-section" aria-labelledby="faq-heading">
+  <div class="container faq-container">
+
+    <div class="faq-intro">
+      <span class="kicker">Before you book</span>
+      <h2 id="faq-heading">Gorilla Trekking and Safari FAQ</h2>
+      <div class="section-heading__divider" style="margin: 16px 0 0;"></div>
+      <p class="faq-intro__sub">
+        Everything you need to know about Uganda gorilla trekking, safari costs and how to book your East Africa adventure.
+      </p>
+      <a href="/plan/faq/" class="btn btn--secondary faq-intro__btn">View Full FAQ</a>
+    </div>
+
+    <div class="faq-list">
+      {faqs.map((f, i) => (
+        <details class="faq-item" name="faq-group">
+          <summary class="faq-item__q">
+            {f.q}
+            <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </summary>
+          <div class="faq-item__a">
+            <p>{f.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+  11. FINAL CTA BANNER
+══════════════════════════════════════════════════════════ -->
+<section class="cta-banner" aria-labelledby="cta-heading">
+  <div class="cta-banner__inner container">
+    <div class="cta-banner__text">
+      <h2 id="cta-heading" class="cta-banner__heading">Ready for Your East Africa Safari?</h2>
+      <p class="cta-banner__sub">
+        Tell us where you want to go and we will build your perfect itinerary. No obligation, no pressure. We respond within 24 hours.
+      </p>
+      <p class="cta-banner__contact">
+        <a href="tel:+256761512966" class="cta-banner__contact-link">+256 761 512 966</a>
+        &nbsp;&middot;&nbsp;
+        <a href="mailto:lokawatoursandtravelultd@gmail.com" class="cta-banner__contact-link">lokawatoursandtravelultd@gmail.com</a>
+      </p>
+    </div>
+    <div class="btn-group cta-banner__btns">
+      <a href="/contact/" class="btn btn--primary btn--lg">Get a Free Quote</a>
+      <a href="/tours/"   class="btn btn--outline btn--lg">Browse All Tours</a>
+    </div>
+  </div>
+</section>
+
+</BaseLayout>
+
+<style>
+/* ── Screen-reader only ──────────────────────────────────── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ════════════════════════════════════════════════════════
+   HERO
+════════════════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 660px;
+  background: linear-gradient(180deg, #16290f 0%, #2f4d20 36%, #b8561a 76%, #f4b41a 100%);
+  display: flex;
+  align-items: center;
+}
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/wildlife/safari-vehicle-lions.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  opacity: 0.35;
+}
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    rgba(10,20,8,.88) 0%,
+    rgba(10,20,8,.55) 45%,
+    rgba(10,20,8,.1)  75%,
+    rgba(10,20,8,0)   100%);
+}
+.hero__svg {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+.hero__content {
+  position: relative;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: 120px var(--section-pad-x) 150px;
+  box-sizing: border-box;
+  width: 100%;
+}
+.hero__kicker {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 24px;
+  color: var(--color-gold);
+  margin-bottom: 12px;
+  display: block;
+}
+.hero__h1 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-hero);
+  line-height: var(--leading-tight);
+  color: var(--color-white);
+  max-width: 720px;
+  margin: 0;
+}
+.hero__br { display: none; }
+.hero__sub {
+  max-width: 540px;
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-cream);
+  margin: 22px 0 34px;
+}
+.hero__ctas { flex-wrap: wrap; }
+.hero__trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 32px;
+}
+.hero__trust-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-cream);
+  opacity: 0.85;
+}
+
+/* ════════════════════════════════════════════════════════
+   SERVICES BAR — infinite marquee
+════════════════════════════════════════════════════════ */
+.services-bar {
+  background-color: var(--color-amber);
+  color: var(--color-forest-deep);
+  overflow: hidden;            /* clip the scrolling track */
+  position: relative;
+}
+
+/* Fade edges so items appear to scroll in/out smoothly */
+.services-bar::before,
+.services-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.services-bar::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-amber), transparent);
+}
+.services-bar::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-amber), transparent);
+}
+
+/* The scrolling track — two identical sets side by side */
+.services-bar__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+
+/* Pause on hover so users can read */
+.services-bar:hover .services-bar__track {
+  animation-play-state: paused;
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .services-bar__track { animation: none; }
+  .services-bar::before,
+  .services-bar::after  { display: none; }
+}
+
+/* One set of items */
+.services-bar__set {
+  display: flex;
+  flex-shrink: 0;
+}
+
+/* Individual service item — keep global .service-item for the inner style */
+.services-bar .service-item {
+  flex-shrink: 0;
+  padding: 22px 28px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-base);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  border-right: 1px solid rgba(18, 33, 15, 0.2);
+  white-space: nowrap;
+}
+
+/* Marquee keyframe: translate one full set-width to the left */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }  /* -50% = one set, second set takes over */
+}
+
+/* ════════════════════════════════════════════════════════
+   WHY CHOOSE US
+════════════════════════════════════════════════════════ */
+.why__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 56px;
+  align-items: center;
+}
+.why__text { flex: 1 1 500px; min-width: 0; }
+.why__heading {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-5xl);
+  line-height: var(--leading-snug);
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin-bottom: 22px;
+}
+.why__brand {
+  background: var(--color-forest);
+  color: var(--color-white);
+  padding: 2px 14px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+.why__para2 { margin: 16px 0 28px; }
+.why__mosaic {
+  flex: 1 1 440px;
+  min-width: 0;
+  display: flex;
+  gap: 14px;
+}
+.why__col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.why__col--right { padding-top: 40px; }
+.why__img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  display: block;
+}
+
+/* ════════════════════════════════════════════════════════
+   FACTS STRIP
+════════════════════════════════════════════════════════ */
+.facts-strip {
+  padding: 48px 0;
+}
+.facts-strip__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 32px;
+  text-align: center;
+}
+.facts-strip__item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 160px;
+}
+.facts-strip__stat {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-hero);
+  line-height: 1;
+  color: var(--color-gold);
+}
+.facts-strip__label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-extrabold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-cream);
+  opacity: 0.85;
+}
+
+/* ════════════════════════════════════════════════════════
+   PROMISES
+════════════════════════════════════════════════════════ */
+.promises {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+/* ════════════════════════════════════════════════════════
+   DESTINATIONS SECTION
+════════════════════════════════════════════════════════ */
+.destinations-section { padding-bottom: 30px; }
+.destinations-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.dest-card {
+  flex: 1 1 230px;
+  height: 250px;
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  display: block;
+  cursor: pointer;
+}
+.dest-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.dest-card:hover .dest-card__img { transform: scale(1.06); }
+.dest-card__tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+}
+.destinations-section__cta {
+  text-align: center;
+  margin-top: 32px;
+}
+
+/* ════════════════════════════════════════════════════════
+   TOURS SECTION
+════════════════════════════════════════════════════════ */
+.tours-section { padding-top: 60px; }
+.tours-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.tour-card {
+  flex: 1 1 240px;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.tour-card__img-link {
+  display: block;
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.tour-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.tour-card:hover .tour-card__img { transform: scale(1.04); }
+.tour-card__badge { position: absolute; left: 10px; top: 10px; }
+.tour-card__body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.tour-card__title {
+  font-weight: var(--weight-extrabold);
+  font-size: 18px;
+  line-height: var(--leading-normal);
+  color: var(--color-forest);
+}
+.tour-card__title-link {
+  color: inherit;
+  transition: color var(--transition-fast);
+}
+.tour-card__title-link:hover { color: var(--color-amber); }
+.tour-card__blurb {
+  flex: 1;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+.tour-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--color-card-border);
+  padding-top: 12px;
+  margin-top: 6px;
+}
+.tour-card__meta {
+  font-size: 14px;
+  font-weight: var(--weight-bold);
+  color: var(--color-text-body);
+}
+.tours-section__cta {
+  text-align: center;
+  margin-top: 38px;
+}
+
+/* ════════════════════════════════════════════════════════
+   COUNTRY BAND — Round dashed-orbit flag circles
+════════════════════════════════════════════════════════ */
+.country-band {
+  background: var(--color-forest);
+  padding: 84px var(--section-pad-x) 90px;
+  text-align: center;
+}
+.country-band__kicker { color: var(--color-gold); font-size: 20px; }
+.country-band__heading {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-4xl);
+  line-height: 1.15;
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin: 6px 0 0;
+}
+.country-band__divider {
+  width: 64px;
+  height: 4px;
+  background: var(--color-gold);
+  margin: 16px auto 52px;
+}
+
+/* Centered flex grid — no animation */
+.country-band__grid {
+  max-width: 1100px;
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 44px 56px;
+  justify-content: center;
+}
+
+/* Each country link */
+.fl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+/* Orbit container */
+.fl__orbit-wrap {
+  position: relative;
+  width: 153px;
+  height: 153px;
+}
+
+/* Dashed orbit ring */
+.dash {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px dashed rgba(243, 236, 216, .5);
+  transition: border-color .25s ease, transform .4s ease;
+}
+.fl:hover .dash {
+  border-color: var(--color-gold);
+  transform: rotate(25deg);
+}
+
+/* Flag circle */
+.fl__flag-circle {
+  position: absolute;
+  left: 12px; top: 12px;
+  width: 129px; height: 129px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Gold arrow badge */
+.fl__badge {
+  position: absolute;
+  right: 3px; bottom: 8px;
+  width: 35px; height: 35px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  border: 3px solid var(--color-forest);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .25s ease;
+}
+.fl:hover .fl__badge { transform: scale(1.12); }
+
+/* Text below */
+.fl__label { text-align: center; }
+.fl__name {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 24px;
+  line-height: 1.1;
+  color: var(--color-white);
+}
+.fl__count {
+  font-size: 13px;
+  font-weight: var(--weight-bold);
+  color: var(--color-gold);
+  margin-top: 4px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .country-band       { padding: 60px 24px 70px; }
+  .country-band__heading { font-size: var(--text-3xl); }
+  .country-band__grid { gap: 32px 28px; }
+  .fl__orbit-wrap     { width: 130px; height: 130px; }
+  .fl__flag-circle    { left: 10px; top: 10px; width: 110px; height: 110px; }
+  .fl__badge          { width: 30px; height: 30px; right: 2px; bottom: 6px; }
+  .fl__name           { font-size: 20px; }
+}
+
+/* ════════════════════════════════════════════════════════
+   TESTIMONIALS
+════════════════════════════════════════════════════════ */
+.testimonials-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.testimonial-card {
+  flex: 1 1 300px;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  box-shadow: var(--shadow-card);
+  border-top: 4px solid var(--color-amber);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.testimonial-card__stars {
+  display: flex;
+  gap: 2px;
+}
+.testimonial-card__quote {
+  flex: 1;
+  font-size: var(--text-base);
+  line-height: var(--leading-loose);
+  color: var(--color-text-body);
+  font-style: italic;
+  margin: 0;
+}
+.testimonial-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-card-border);
+}
+.testimonial-card__flag { font-size: 28px; line-height: 1; }
+.testimonial-card__name {
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-base);
+  color: var(--color-forest);
+}
+.testimonial-card__meta {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+.testimonials-section__cta {
+  text-align: center;
+  margin-top: 32px;
+}
+
+/* ════════════════════════════════════════════════════════
+   FAQ
+════════════════════════════════════════════════════════ */
+.faq-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  align-items: flex-start;
+}
+.faq-intro {
+  flex: 1 1 280px;
+  position: sticky;
+  top: 100px;
+}
+.faq-intro h2 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-4xl);
+  line-height: var(--leading-snug);
+  color: var(--color-text-primary);
+  margin: 6px 0 0;
+}
+.faq-intro__sub {
+  margin: 16px 0 24px;
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-body);
+}
+.faq-intro__btn { margin-top: 8px; }
+.faq-list {
+  flex: 2 1 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.faq-item {
+  background: var(--color-white);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.faq-item[open] { border-color: var(--color-amber); }
+.faq-item__q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  font-family: var(--font-body);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-base);
+  color: var(--color-forest);
+  cursor: pointer;
+  list-style: none;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.faq-item__q::-webkit-details-marker { display: none; }
+.faq-item[open] .faq-item__q {
+  background: var(--color-parchment);
+  color: var(--color-amber);
+  border-bottom: 1px solid var(--color-card-border);
+}
+.faq-item__q:hover { background: var(--color-parchment); }
+.faq-item__icon {
+  flex-shrink: 0;
+  transition: transform var(--transition-base);
+  color: var(--color-amber);
+}
+.faq-item[open] .faq-item__icon { transform: rotate(180deg); }
+.faq-item__a {
+  padding: 16px 22px 20px;
+  font-size: var(--text-base);
+  line-height: var(--leading-loose);
+  color: var(--color-text-body);
+}
+
+/* ════════════════════════════════════════════════════════
+   CTA BANNER
+════════════════════════════════════════════════════════ */
+.cta-banner {
+  background: linear-gradient(135deg, var(--color-forest) 0%, var(--color-forest-mid) 100%);
+  padding: 80px var(--section-pad-x);
+}
+.cta-banner__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: center;
+  justify-content: space-between;
+}
+.cta-banner__text { flex: 1 1 400px; }
+.cta-banner__heading {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-4xl);
+  color: var(--color-white);
+  margin-bottom: 12px;
+  line-height: var(--leading-snug);
+}
+.cta-banner__sub {
+  font-size: var(--text-lg);
+  color: var(--color-cream);
+  line-height: var(--leading-relaxed);
+  opacity: 0.9;
+  margin-bottom: 12px;
+}
+.cta-banner__contact {
+  font-size: var(--text-base);
+  color: var(--color-cream);
+  opacity: 0.8;
+}
+.cta-banner__contact-link {
+  color: var(--color-gold);
+  font-weight: var(--weight-semibold);
+  transition: opacity var(--transition-fast);
+}
+.cta-banner__contact-link:hover { opacity: 0.8; }
+.cta-banner__btns {
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+/* ════════════════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════════════════ */
+@media (max-width: 960px) {
+  .why__mosaic { display: none; }
+  .why__text   { flex: 1 1 100%; }
+  .faq-intro   { position: static; flex: 1 1 100%; }
+}
+@media (max-width: 768px) {
+  .hero__h1      { font-size: clamp(36px, 8vw, var(--text-hero)); }
+  .hero__br      { display: block; }
+  .hero__content { padding: 80px var(--section-pad-x) 100px; }
+  .tour-card     { flex: 1 1 300px; }
+  .dest-card     { flex: 1 1 280px; }
+  .cta-banner__inner { flex-direction: column; text-align: center; }
+  .cta-banner__btns  { justify-content: center; }
+  .facts-strip__stat { font-size: var(--text-6xl); }
+}
+@media (max-width: 600px) {
+  .hero__content { padding: 60px 24px 80px; }
+  .hero__h1      { font-size: clamp(32px, 9vw, 52px); }
+  .hero__trust   { gap: 8px 16px; }
+  .services-bar__inner { flex-direction: column; }
+  .service-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(18,33,15,.2);
+    justify-content: flex-start;
+    padding: 16px 24px;
+  }
+  .service-item:last-child { border-bottom: none; }
+  .why__heading  { font-size: var(--text-4xl); }
+  .country-band  { padding: 60px 24px 70px; }
+  .cta-banner    { padding: 60px 24px; }
+  .facts-strip__inner { gap: 20px; }
+  .facts-strip__stat  { font-size: var(--text-5xl); }
+}
+</style>

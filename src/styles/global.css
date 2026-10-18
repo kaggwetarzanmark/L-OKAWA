@@ -1,0 +1,716 @@
+/* ============================================================
+   L'OKAWA TOURS & TRAVEL — GLOBAL DESIGN SYSTEM
+   Extracted from: design/Redesign1.dc.html
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. GOOGLE FONTS IMPORT
+   Playfair Display — headings / serif display
+   Source Sans 3    — body / UI text
+   ------------------------------------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700;800&display=swap');
+
+/* ------------------------------------------------------------
+   2. DESIGN TOKENS — CSS CUSTOM PROPERTIES
+   ------------------------------------------------------------ */
+:root {
+
+  /* --- COLOUR PALETTE --- */
+
+  /* Brand greens */
+  --color-forest:        #1e3a1a;   /* primary dark green — nav bg, buttons, headings */
+  --color-forest-deep:   #12210f;   /* darkest green — footer bg, overlays */
+  --color-forest-mid:    #2f4d20;   /* mid green — hero gradient, accents */
+  --color-forest-light:  #9bb05a;   /* light green — destination card accent */
+
+  /* Brand ambers / oranges */
+  --color-amber:         #ee8a0c;   /* primary accent — CTA buttons, active nav, borders */
+  --color-gold:          #f4b41a;   /* secondary accent — hero italic text, icon strokes */
+  --color-amber-deep:    #d9531e;   /* deep orange — alternate accent option */
+
+  /* Neutrals / warm whites */
+  --color-cream:         #f3ecd8;   /* warm off-white — top bar text, footer links */
+  --color-parchment:     #fbf6ea;   /* section background — promises section bg */
+  --color-card-border:   #eee7d6;   /* card borders, dividers */
+  --color-white:         #ffffff;
+
+  /* Text colours */
+  --color-text-primary:  #1c1c1a;   /* near-black — main body text */
+  --color-text-body:     #3b3b36;   /* body paragraphs */
+  --color-text-muted:    #5d5d55;   /* secondary text — card blurbs, captions */
+  --color-text-on-dark:  #d9d3bd;   /* footer body text on dark bg */
+
+  /* Semantic aliases */
+  --color-bg:            var(--color-white);
+  --color-bg-subtle:     var(--color-parchment);
+  --color-bg-dark:       var(--color-forest-deep);
+  --color-accent:        var(--color-amber);
+  --color-accent-alt:    var(--color-gold);
+  --color-primary:       var(--color-forest);
+
+  /* WhatsApp green */
+  --color-whatsapp:      #25D366;
+
+  /* --- TYPOGRAPHY --- */
+
+  /* Font families */
+  --font-display:   'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body:      'Source Sans 3', system-ui, -apple-system, sans-serif;
+
+  /* Font sizes — fluid scale */
+  --text-xs:    11px;
+  --text-sm:    13px;
+  --text-base:  15px;
+  --text-md:    17px;
+  --text-lg:    19px;
+  --text-xl:    22px;
+  --text-2xl:   24px;
+  --text-3xl:   28px;
+  --text-4xl:   36px;
+  --text-5xl:   40px;
+  --text-6xl:   56px;
+  --text-hero:  70px;
+
+  /* Font weights */
+  --weight-regular:   400;
+  --weight-semibold:  600;
+  --weight-bold:      700;
+  --weight-extrabold: 800;
+
+  /* Line heights */
+  --leading-tight:   1.04;
+  --leading-snug:    1.15;
+  --leading-normal:  1.3;
+  --leading-relaxed: 1.6;
+  --leading-loose:   1.75;
+
+  /* Letter spacing */
+  --tracking-tight:  -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.04em;
+  --tracking-wider:  0.07em;
+  --tracking-widest: 0.08em;
+
+  /* --- SPACING --- */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-7:   28px;
+  --space-8:   32px;
+  --space-9:   36px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-14:  56px;
+  --space-16:  64px;
+  --space-20:  80px;
+  --space-24:  96px;
+  --space-28: 112px;
+
+  /* Section padding (vertical) */
+  --section-pad-y:       90px;
+  --section-pad-y-sm:    60px;
+  --section-pad-x:       48px;
+
+  /* --- LAYOUT --- */
+  --max-width:          1200px;
+  --max-width-text:      640px;
+  --max-width-narrow:    520px;
+
+  /* --- BORDERS & RADIUS --- */
+  --radius-sm:    3px;
+  --radius-md:    4px;
+  --radius-lg:    8px;
+  --radius-xl:   10px;
+  --radius-full: 999px;
+
+  /* Card top accent border */
+  --border-card-top: 4px solid var(--color-accent);
+
+  /* --- SHADOWS --- */
+  --shadow-card:    0 6px 22px rgba(18, 33, 15, 0.08);
+  --shadow-card-md: 0 6px 22px rgba(18, 33, 15, 0.12);
+  --shadow-nav:     0 2px 14px rgba(18, 33, 15, 0.08);
+
+  /* --- TRANSITIONS --- */
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+
+  /* --- TOP BAR --- */
+  --topbar-bg:         var(--color-forest);
+  --topbar-color:      var(--color-cream);
+  --topbar-font-size:  var(--text-sm);
+  --topbar-padding:    9px var(--section-pad-x);
+
+  /* --- NAV --- */
+  --nav-bg:            var(--color-white);
+  --nav-color:         var(--color-forest);
+  --nav-active-color:  var(--color-amber);
+  --nav-font-size:     var(--text-sm);
+  --nav-font-weight:   var(--weight-extrabold);
+  --nav-letter-spacing: var(--tracking-wider);
+  --nav-padding:       10px var(--section-pad-x);
+
+  /* --- BUTTONS --- */
+  --btn-radius:        var(--radius-md);
+  --btn-font-size:     var(--text-sm);
+  --btn-font-weight:   var(--weight-extrabold);
+  --btn-letter-spacing: var(--tracking-wider);
+  --btn-text-transform: uppercase;
+  --btn-pad-y:         13px;
+  --btn-pad-x:         22px;
+  --btn-pad-y-lg:      17px;
+  --btn-pad-x-lg:      32px;
+
+  /* Button — primary (amber) */
+  --btn-primary-bg:     var(--color-accent);
+  --btn-primary-color:  var(--color-forest-deep);
+
+  /* Button — secondary (dark green) */
+  --btn-secondary-bg:   var(--color-forest);
+  --btn-secondary-color: var(--color-white);
+
+  /* Button — outline (white border on dark bg) */
+  --btn-outline-border: 2px solid var(--color-white);
+  --btn-outline-color:  var(--color-white);
+
+  /* --- CARDS --- */
+  --card-bg:            var(--color-white);
+  --card-radius:        var(--radius-lg);
+  --card-shadow:        var(--shadow-card);
+  --card-shadow-md:     var(--shadow-card-md);
+  --card-image-height:  180px;
+
+  /* --- SECTION DIVIDER / UNDERLINE --- */
+  --divider-color:      var(--color-forest);
+  --divider-width:      64px;
+  --divider-height:     4px;
+
+  /* --- SERVICES BAR --- */
+  --services-bg:        var(--color-amber);
+  --services-color:     var(--color-forest-deep);
+  --services-border:    1px solid rgba(18, 33, 15, 0.2);
+
+  /* --- FOOTER --- */
+  --footer-bg:          var(--color-forest-deep);
+  --footer-color:       var(--color-text-on-dark);
+  --footer-heading-color: var(--color-white);
+  --footer-border:      1px solid #2c4326;
+}
+
+
+/* ------------------------------------------------------------
+   3. CSS RESET & BASE STYLES
+   ------------------------------------------------------------ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, video, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+
+/* ------------------------------------------------------------
+   4. TYPOGRAPHY SCALE
+   ------------------------------------------------------------ */
+
+/* Display headings — Playfair Display */
+.display-hero {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-hero);
+  line-height: var(--leading-tight);
+  color: var(--color-white);
+}
+
+.display-xl {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-5xl);
+  line-height: var(--leading-snug);
+  text-transform: uppercase;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-4xl);
+  line-height: var(--leading-snug);
+  text-transform: uppercase;
+}
+
+.display-md {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-3xl);
+  line-height: var(--leading-normal);
+}
+
+.display-sm {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-normal);
+}
+
+/* Italic kicker — the small italic line above section headings */
+.kicker {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: var(--text-xl);
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* Card heading */
+.card-title {
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+  color: var(--color-forest);
+}
+
+/* UI labels — nav, buttons, badges */
+.label {
+  font-family: var(--font-body);
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+/* Body text */
+.body-lg {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-body);
+}
+
+.body-md {
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-body);
+}
+
+.body-sm {
+  font-size: var(--text-base);
+  line-height: var(--leading-loose);
+  color: var(--color-text-muted);
+}
+
+
+/* ------------------------------------------------------------
+   5. LAYOUT UTILITIES
+   ------------------------------------------------------------ */
+
+/* Centred content wrapper */
+.container {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--section-pad-x);
+}
+
+/* Standard section vertical padding */
+.section {
+  padding-block: var(--section-pad-y);
+}
+
+.section--sm {
+  padding-block: var(--section-pad-y-sm);
+}
+
+/* Section that has a coloured background */
+.section--parchment {
+  background-color: var(--color-bg-subtle);
+}
+
+.section--dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-cream);
+}
+
+.section--forest {
+  background-color: var(--color-forest);
+  color: var(--color-white);
+}
+
+.section--amber {
+  background-color: var(--color-amber);
+  color: var(--color-forest-deep);
+}
+
+
+/* ------------------------------------------------------------
+   6. SECTION HEADING BLOCK (kicker + title + underline)
+   Usage: wrap in .section-heading, centred by default
+   ------------------------------------------------------------ */
+.section-heading {
+  text-align: center;
+  margin-bottom: var(--space-9);
+}
+
+.section-heading .kicker {
+  font-size: var(--text-xl);
+}
+
+.section-heading h2 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-4xl);
+  text-transform: uppercase;
+  margin-top: 6px;
+  color: var(--color-text-primary);
+}
+
+.section-heading__divider {
+  width: var(--divider-width);
+  height: var(--divider-height);
+  background-color: var(--color-forest);
+  margin: var(--space-4) auto 0;
+}
+
+/* Left-aligned variant */
+.section-heading--left {
+  text-align: left;
+}
+
+.section-heading--left .section-heading__divider {
+  margin-inline-start: 0;
+}
+
+/* On dark backgrounds */
+.section-heading--light h2 {
+  color: var(--color-white);
+}
+
+.section-heading--light .section-heading__divider {
+  background-color: var(--color-accent);
+}
+
+
+/* ------------------------------------------------------------
+   7. BUTTON SYSTEM
+   ------------------------------------------------------------ */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: var(--btn-font-weight);
+  font-size: var(--btn-font-size);
+  letter-spacing: var(--btn-letter-spacing);
+  text-transform: var(--btn-text-transform);
+  padding: var(--btn-pad-y) var(--btn-pad-x);
+  border-radius: var(--btn-radius);
+  border: none;
+  cursor: pointer;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Primary — amber */
+.btn--primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
+}
+
+/* Secondary — dark green */
+.btn--secondary {
+  background-color: var(--btn-secondary-bg);
+  color: var(--btn-secondary-color);
+}
+
+/* Outline — white border (use on dark/hero backgrounds) */
+.btn--outline {
+  background-color: transparent;
+  border: var(--btn-outline-border);
+  color: var(--btn-outline-color);
+}
+
+/* Large size */
+.btn--lg {
+  padding: var(--btn-pad-y-lg) var(--btn-pad-x-lg);
+  font-size: var(--text-base);
+}
+
+/* Button group */
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+
+/* ------------------------------------------------------------
+   8. BADGE / TAG
+   ------------------------------------------------------------ */
+.badge {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: var(--color-forest-deep);
+  font-family: var(--font-body);
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: var(--radius-sm);
+  line-height: 1.4;
+}
+
+
+/* ------------------------------------------------------------
+   9. CARD BASE
+   ------------------------------------------------------------ */
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Promise card — with amber top border */
+.card--promise {
+  padding: 30px;
+  box-shadow: var(--card-shadow);
+  border-top: var(--border-card-top);
+}
+
+/* Tour card image area */
+.card__image {
+  height: var(--card-image-height);
+  position: relative;
+  background-color: var(--color-forest-mid);
+  flex-shrink: 0;
+}
+
+.card__body {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+}
+
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--color-card-border);
+  padding-top: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+
+/* ------------------------------------------------------------
+   10. DESTINATION CARD (image card with text overlay)
+   ------------------------------------------------------------ */
+.dest-card {
+  border-radius: var(--radius-lg);
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  flex: 1 1 230px;
+}
+
+.dest-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(10,20,8,0.88) 100%);
+}
+
+.dest-card__label {
+  position: absolute;
+  left: var(--space-5);
+  right: var(--space-5);
+  bottom: var(--space-5);
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-xl);
+  line-height: 1.2;
+  color: var(--color-white);
+}
+
+
+/* ------------------------------------------------------------
+   11. PROMISE / FEATURE CARD
+   ------------------------------------------------------------ */
+.promise-card {
+  flex: 1 1 300px;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: 30px;
+  box-shadow: var(--card-shadow);
+  border-top: var(--border-card-top);
+}
+
+.promise-card__kicker {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--color-accent);
+  margin-bottom: 6px;
+}
+
+.promise-card__title {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-2xl);
+  line-height: 1.2;
+  color: var(--color-forest);
+  margin-bottom: var(--space-3);
+}
+
+.promise-card__text {
+  font-size: var(--text-md);
+  line-height: var(--leading-loose);
+  color: var(--color-text-body);
+}
+
+
+/* ------------------------------------------------------------
+   12. ARROW CTA CIRCLE (tour card arrow button)
+   ------------------------------------------------------------ */
+.arrow-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+
+/* ------------------------------------------------------------
+   13. COUNTRY CIRCLE LINKS
+   ------------------------------------------------------------ */
+.country-circle {
+  width: 176px;
+  height: 176px;
+  border-radius: var(--radius-full);
+  border: 3px solid var(--color-cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-base);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  text-align: center;
+  transition: border-color var(--transition-base), background-color var(--transition-base);
+}
+
+.country-circle:hover {
+  border-color: var(--color-accent-alt);
+  background-color: rgba(244, 180, 26, 0.1);
+}
+
+
+/* ------------------------------------------------------------
+   14. SERVICES BAR ITEM
+   ------------------------------------------------------------ */
+.service-item {
+  flex: 1 1 200px;
+  padding: 22px 16px;
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-base);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  border-right: var(--services-border);
+}
+
+.service-item:last-child {
+  border-right: none;
+}
+
+
+/* ------------------------------------------------------------
+   15. DIVIDER LINE
+   ------------------------------------------------------------ */
+.divider {
+  width: var(--divider-width);
+  height: var(--divider-height);
+  background-color: var(--divider-color);
+}
+
+.divider--centered {
+  margin-inline: auto;
+}
+
+.divider--accent {
+  background-color: var(--color-accent);
+}
+
+
+/* ------------------------------------------------------------
+   16. FOCUS / ACCESSIBILITY
+   ------------------------------------------------------------ */
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+
+/* ------------------------------------------------------------
+   17. SELECTION
+   ------------------------------------------------------------ */
+::selection {
+  background-color: var(--color-amber);
+  color: var(--color-forest-deep);
+}

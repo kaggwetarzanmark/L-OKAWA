@@ -1,0 +1,240 @@
+---
+/**
+ * Footer.astro
+ * Four-column footer matching the design:
+ *   Col 1 — Logo + about blurb
+ *   Col 2 — Destinations links
+ *   Col 3 — Important links
+ *   Col 4 — Contact details
+ * Bottom bar — copyright + WhatsApp CTA
+ */
+---
+
+<footer class="footer">
+  <div class="footer__inner">
+
+    <!-- Col 1: Brand -->
+    <div class="footer__col footer__col--brand">
+      <a href="/" aria-label="L'okawa Tours – Home">
+        <div class="footer__logo-wrap">
+          <img src="/images/logo.png" alt="L'okawa Tours and Travel (U) Ltd logo" width="84" height="84" />
+        </div>
+      </a>
+      <h2 class="footer__heading">About L'okawa</h2>
+      <p class="footer__text">
+        Safaris, gorilla trekking, hotel bookings, airport transfers and group travel across Uganda, Kenya, Tanzania and Rwanda.
+      </p>
+      <div class="footer__socials">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="footer__social-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="footer__social-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://wa.me/256761512966" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="footer__social-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Col 2: Destinations -->
+    <div class="footer__col">
+      <h2 class="footer__heading">Destinations</h2>
+      <ul class="footer__list">
+        <li><a href="/destinations/uganda/" class="footer__link">Uganda</a></li>
+        <li><a href="/destinations/kenya/" class="footer__link">Kenya</a></li>
+        <li><a href="/destinations/tanzania/" class="footer__link">Tanzania</a></li>
+        <li><a href="/destinations/rwanda/" class="footer__link">Rwanda</a></li>
+        <li><a href="/destinations/uganda/bwindi-impenetrable-national-park/" class="footer__link">Bwindi NP</a></li>
+        <li><a href="/destinations/uganda/queen-elizabeth-national-park/" class="footer__link">Queen Elizabeth NP</a></li>
+        <li><a href="/destinations/uganda/murchison-falls-national-park/" class="footer__link">Murchison Falls</a></li>
+        <li><a href="/destinations/kenya/masai-mara/" class="footer__link">Masai Mara</a></li>
+        <li><a href="/destinations/tanzania/serengeti-national-park/" class="footer__link">Serengeti</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 3: Important links -->
+    <div class="footer__col">
+      <h2 class="footer__heading">Important Links</h2>
+      <ul class="footer__list">
+        <li><a href="/tours/" class="footer__link">All Safari Packages</a></li>
+        <li><a href="/tours/3-days-uganda-gorilla-safari/" class="footer__link">Gorilla Trekking</a></li>
+        <li><a href="/plan/gorilla-permit-guide/" class="footer__link">Gorilla Permit Guide</a></li>
+        <li><a href="/plan/safari-cost-guide/" class="footer__link">Safari Cost Guide</a></li>
+        <li><a href="/plan/faq/" class="footer__link">Safari FAQ</a></li>
+        <li><a href="/about/" class="footer__link">About Us</a></li>
+        <li><a href="/reviews/" class="footer__link">Traveler Reviews</a></li>
+        <li><a href="/how-it-works/" class="footer__link">How It Works</a></li>
+        <li><a href="/contact/" class="footer__link">Responsible Travel</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 4: Contact -->
+    <div class="footer__col">
+      <h2 class="footer__heading">Contact Us</h2>
+      <ul class="footer__list footer__list--contact">
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Kiwatule, Kampala, Uganda
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+256761512966" class="footer__link">+256 761 512 966</a>
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:lokawatoursandtravelultd@gmail.com" class="footer__link">lokawatoursandtravelultd@gmail.com</a>
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Mon – Sat, 8:00am – 6:00pm
+        </li>
+      </ul>
+
+      <a href="/contact/" class="btn btn--primary footer__quote-btn">
+        Get a Free Quote
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer__bottom">
+    <div class="footer__bottom-inner">
+      <span>© {new Date().getFullYear()} L'okawa Tours &amp; Travel (U) Ltd. Est. 2021. All rights reserved.</span>
+      <div class="footer__bottom-links">
+        <a href="/contact/" class="footer__link">Privacy Policy</a>
+        <span aria-hidden="true">·</span>
+        <a href="/contact/" class="footer__link">Terms &amp; Conditions</a>
+      </div>
+      <a href="https://wa.me/256761512966" target="_blank" rel="noopener noreferrer" class="footer__whatsapp">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        Need help? Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+.footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-color);
+}
+
+/* ── Main grid ───────────────────────────────────── */
+.footer__inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: 72px var(--section-pad-x) 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer__col { flex: 1 1 200px; }
+.footer__col--brand { flex: 1 1 260px; }
+
+/* ── Logo ────────────────────────────────────────── */
+.footer__logo-wrap {
+  width: 96px;
+  height: 96px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.footer__logo-wrap img { width: 84px; height: 84px; object-fit: contain; }
+
+/* ── Heading ─────────────────────────────────────── */
+.footer__heading {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-lg);
+  color: var(--footer-heading-color);
+  margin-bottom: 14px;
+}
+
+/* ── Text ────────────────────────────────────────── */
+.footer__text {
+  font-size: var(--text-base);
+  line-height: var(--leading-loose);
+  margin-bottom: 18px;
+}
+
+/* ── Socials ─────────────────────────────────────── */
+.footer__socials { display: flex; gap: 12px; }
+.footer__social-link {
+  color: var(--footer-color);
+  transition: color var(--transition-fast);
+}
+.footer__social-link:hover { color: var(--color-gold); }
+
+/* ── List ────────────────────────────────────────── */
+.footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: var(--text-base);
+}
+.footer__list--contact { gap: 12px; }
+.footer__list--contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.footer__list--contact svg { flex-shrink: 0; margin-top: 2px; }
+
+/* ── Link ────────────────────────────────────────── */
+.footer__link {
+  color: var(--footer-color);
+  transition: color var(--transition-fast);
+}
+.footer__link:hover { color: var(--color-gold); }
+
+/* ── Quote button ────────────────────────────────── */
+.footer__quote-btn {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* ── Bottom bar ──────────────────────────────────── */
+.footer__bottom {
+  border-top: var(--footer-border);
+  margin-top: 52px;
+}
+.footer__bottom-inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: 22px var(--section-pad-x);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-sm);
+}
+.footer__bottom-links { display: flex; gap: 12px; align-items: center; }
+
+/* WhatsApp pill */
+.footer__whatsapp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-whatsapp);
+  color: #0b2b14;
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-sm);
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  transition: opacity var(--transition-fast);
+}
+.footer__whatsapp:hover { opacity: 0.88; }
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 600px) {
+  .footer__inner { padding-top: 48px; gap: 32px; }
+  .footer__bottom-inner { flex-direction: column; align-items: flex-start; }
+}
+</style>
