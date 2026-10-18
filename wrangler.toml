@@ -1,0 +1,15 @@
+#:schema node_modules/wrangler/config-schema.json
+
+# L'okawa Tours & Travel — Cloudflare Workers Static Assets deployment
+#
+# This is a fully static site (Astro output: 'static').
+# No Worker script is used — Wrangler uploads the dist/ directory
+# as static assets and serves them directly from Cloudflare's network.
+# No 'main' entry = no Worker JS = no Astro version check triggered.
+
+name = "l-okawa"
+compatibility_date = "2025-01-01"
+
+[assets]
+directory = "./dist"
+not_found_handling = "404-page"
