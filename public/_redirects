@@ -1,3 +1,3 @@
-# Cloudflare Pages redirect rules
-# 404 fallback — serves the custom 404 page for any unmatched route
-/*    /404.html    404
+# Cloudflare Workers static assets redirect rules
+# Note: 404 handling is configured via wrangler.toml not_found_handling = "404-page"
+# Valid redirect status codes here: 200, 301, 302, 303, 307, 308 only
