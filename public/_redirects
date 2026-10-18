@@ -1,0 +1,3 @@
+# Cloudflare Pages redirect rules
+# 404 fallback — serves the custom 404 page for any unmatched route
+/*    /404.html    404
