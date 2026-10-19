@@ -1,7 +1,546 @@
 ﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const values = [
+  {
+    icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z',
+    title: 'Exceptional Quality',
+    text: 'Every itinerary is hand-crafted. We visit the lodges, know the guides personally, and select only experiences we would recommend to our own families.',
+  },
+  {
+    icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
+    title: 'Your Safety First',
+    text: 'All our vehicles are well-maintained 4x4s with roof hatches and first-aid kits. Our guides are licensed, experienced, and know every national park intimately.',
+  },
+  {
+    icon: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75',
+    title: 'Locally Owned',
+    text: 'Founded by a Ugandan, run by Ugandans. Every dollar you spend stays in the community — supporting guides, lodge staff, porters, and conservation projects.',
+  },
+  {
+    icon: 'M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10',
+    title: 'Responsible Tourism',
+    text: 'We follow strict gorilla trekking protocols, support anti-poaching initiatives, and partner with community-run lodges that benefit local families directly.',
+  },
+  {
+    icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-5.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z',
+    title: 'Transparent Pricing',
+    text: 'No hidden fees. Our quotes include everything listed in the itinerary. We are upfront about what is excluded and always explain exactly where your money goes.',
+  },
+  {
+    icon: 'M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3',
+    title: 'Tailor-Made',
+    text: 'No two safaris are the same. We adapt every itinerary to your pace, budget, fitness level, and the wildlife encounters you care most about.',
+  },
+];
+
+const milestones = [
+  { year: '2021', event: 'L\'okawa Tours & Travel founded in Kiwatule, Kampala by a passionate local guide with a vision to share Uganda\'s extraordinary wildlife with the world.' },
+  { year: '2022', event: 'Secured our first international clients from the UK and USA, operating gorilla trekking safaris and Murchison Falls tours. Positive word-of-mouth grew quickly.' },
+  { year: '2023', event: 'Expanded operations to Kenya and Rwanda, adding the Masai Mara and Rwanda gorilla trekking to our portfolio. Fleet grew to 4 dedicated safari vehicles.' },
+  { year: '2024', event: 'Added Tanzania Serengeti packages and launched our multi-country East Africa itineraries. Introduced birding specialist guides for Uganda\'s 1,066+ bird species.' },
+  { year: '2025', event: 'Serving clients from 20+ countries. Over 32 curated safari packages across Uganda, Kenya, Tanzania and Rwanda. Continued commitment to affordable, high-quality travel.' },
+];
+
+const stats = [
+  { number: '32+',  label: 'Safari Packages' },
+  { number: '4',    label: 'Countries Covered' },
+  { number: '20+',  label: 'Countries We Serve Clients From' },
+  { number: '2021', label: 'Year Established' },
+];
 ---
 
-<BaseLayout title="About L'okawa Tours & Travel | Local Uganda Safari Experts" description="Learn about L'okawa Tours and Travel, a Uganda-based safari company offering gorilla trekking, wildlife safaris and multi-country tours across East Africa.">
+<BaseLayout
+  title="About L'okawa Tours & Travel | Local Uganda Safari Experts Since 2021"
+  description="L'okawa Tours and Travel is a Uganda-based safari company founded in 2021. We offer gorilla trekking, wildlife safaris and multi-country tours across East Africa with experienced local guides."
+>
+
+<!-- ── Hero ───────────────────────────────────────────── -->
+<section class="about-hero">
+  <div class="about-hero__inner">
+    <span class="kicker">Our story</span>
+    <h1 class="about-hero__h1">
+      Uganda-Grown Safaris.<br class="about-hero__br"/>
+      World-Class Experiences.
+    </h1>
+    <p class="about-hero__sub">
+      Founded in Kampala in 2021, L'okawa Tours and Travel is a proudly Ugandan-owned company dedicated to sharing the extraordinary wildlife and landscapes of East Africa with travelers from around the world.
+    </p>
+  </div>
+  <!-- Stat strip -->
+  <div class="about-stats">
+    {stats.map(s => (
+      <div class="about-stat">
+        <span class="about-stat__number">{s.number}</span>
+        <span class="about-stat__label">{s.label}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- ── Our story ───────────────────────────────────────── -->
+<section class="about-story section">
+  <div class="container about-story__grid">
+
+    <div class="about-story__images">
+      <div class="about-story__img-main">
+        <img
+          src="/images/gorillas/gorilla-mother-infant-closeup.jpg"
+          alt="Mountain gorilla mother with infant in Bwindi Impenetrable Forest Uganda"
+          loading="lazy"
+        />
+      </div>
+      <div class="about-story__img-secondary">
+        <img
+          src="/images/wildlife/safari-vehicle-lions.jpg"
+          alt="L'okawa Tours 4x4 safari vehicle with lions in East Africa"
+          loading="lazy"
+        />
+        <div class="about-story__badge">
+          <div class="about-story__badge-year">Est.</div>
+          <div class="about-story__badge-num">2021</div>
+          <div class="about-story__badge-loc">Kampala, Uganda</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-story__text">
+      <span class="kicker">Who we are</span>
+      <h2 class="about-story__heading">
+        Why choose
+        <span class="about-story__brand">L'OKAWA</span>
+      </h2>
+      <p class="body-lg">
+        L'okawa Tours and Travel (U) Ltd was founded by a local Ugandan with deep roots in East Africa's tourism landscape. Our name reflects our mission: bringing travelers into close, meaningful contact with nature — from misty gorilla forests in Bwindi to the thundering Nile at Murchison Falls.
+      </p>
+      <p class="body-lg about-story__p2">
+        We are not a faceless booking platform. We are a small, passionate team based in Kiwatule, Kampala, who know every road, every park sector, every season, and every lodge worth recommending. When you book with us, you deal with people who have personally trekked the gorillas, tracked chimps in Kibale, and watched tree-climbing lions at Ishasha.
+      </p>
+      <p class="body-lg about-story__p2">
+        Our safaris cover Uganda, Kenya, Tanzania and Rwanda — each tailored to your pace, your budget and the wildlife you most want to encounter. From a 3-day gorilla safari to a 21-day grand East Africa circuit, we handle every detail so you can focus entirely on the experience.
+      </p>
+      <div class="about-story__ctas btn-group">
+        <a href="/tours/" class="btn btn--secondary btn--lg">Browse Our Tours</a>
+        <a href="/contact/" class="btn btn--primary btn--lg">Get a Free Quote</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Our values ──────────────────────────────────────── -->
+<section class="about-values section--parchment section--sm">
+  <div class="container">
+    <div class="section-heading">
+      <span class="kicker">What drives us</span>
+      <h2>Our Values</h2>
+      <div class="section-heading__divider"></div>
+    </div>
+    <div class="values-grid">
+      {values.map(v => (
+        <div class="value-card">
+          <div class="value-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--color-amber)" aria-hidden="true">
+              <path d={v.icon}/>
+            </svg>
+          </div>
+          <h3 class="value-card__title">{v.title}</h3>
+          <p class="value-card__text">{v.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ── Timeline ────────────────────────────────────────── -->
+<section class="about-timeline section">
+  <div class="container about-timeline__inner">
+    <div class="section-heading section-heading--left">
+      <span class="kicker">Our journey</span>
+      <h2>How We Got Here</h2>
+      <div class="section-heading__divider"></div>
+    </div>
+    <div class="timeline">
+      {milestones.map((m, i) => (
+        <div class={`timeline-item ${i % 2 === 0 ? 'timeline-item--left' : 'timeline-item--right'}`}>
+          <div class="timeline-item__year">{m.year}</div>
+          <div class="timeline-item__dot"></div>
+          <div class="timeline-item__card">
+            <p>{m.event}</p>
+          </div>
+        </div>
+      ))}
+      <div class="timeline__line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── What's included ────────────────────────────────── -->
+<section class="about-includes section--parchment section--sm">
+  <div class="container">
+    <div class="section-heading">
+      <span class="kicker">Every safari includes</span>
+      <h2>What You Get With L'okawa</h2>
+      <div class="section-heading__divider"></div>
+    </div>
+    <div class="includes-grid">
+      {[
+        { icon: '🚗', title: 'Private 4x4 Safari Vehicle', desc: 'Roof-hatch 4x4 Land Cruiser or customised safari van, exclusively yours for the duration of your tour.' },
+        { icon: '🦺', title: 'Professional Driver-Guide', desc: 'Licensed, experienced English-speaking guide who knows every park, every animal track, and every birding hot spot.' },
+        { icon: '🍽️', title: 'Full Board Meals', desc: 'All meals as specified — breakfast, packed lunch and dinner. Dietary requirements are always accommodated.' },
+        { icon: '💧', title: 'Drinking Water', desc: 'Unlimited bottled drinking water throughout the entire safari, replenished daily.' },
+        { icon: '🏕️', title: 'Park Fees', desc: 'All national park entrance fees and community levies are included. No surprise charges on arrival.' },
+        { icon: '🦍', title: 'Permits Where Listed', desc: 'Gorilla, chimpanzee and rhino tracking permits are included in packages where those activities appear in the itinerary.' },
+        { icon: '🛥️', title: 'Boat Cruise Fees', desc: 'Nile and Kazinga Channel boat cruises included wherever listed — no extra payments at the jetty.' },
+        { icon: '📞', title: '24/7 Support', desc: 'Our team is reachable by WhatsApp throughout your safari. If anything needs adjusting, we handle it immediately.' },
+      ].map(item => (
+        <div class="includes-card">
+          <div class="includes-card__icon">{item.icon}</div>
+          <h3 class="includes-card__title">{item.title}</h3>
+          <p class="includes-card__desc">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ────────────────────────────────────────────── -->
+<section class="about-cta">
+  <div class="container about-cta__inner">
+    <div class="about-cta__text">
+      <h2 class="about-cta__heading">Ready to Plan Your East Africa Safari?</h2>
+      <p class="about-cta__sub">Send us an enquiry and we will have a tailored itinerary in your inbox within 24 hours.</p>
+    </div>
+    <div class="btn-group">
+      <a href="/contact/" class="btn btn--primary btn--lg">Get a Free Quote</a>
+      <a href="/tours/" class="btn btn--outline btn--lg">View All Tours</a>
+    </div>
+  </div>
+</section>
+
 </BaseLayout>
 
+<style>
+/* ── Hero ─────────────────────────────────────────────── */
+.about-hero {
+  background: linear-gradient(135deg, var(--color-forest) 0%, var(--color-forest-mid) 100%);
+  padding: 80px var(--section-pad-x) 0;
+  text-align: center;
+}
+.about-hero__inner { max-width: 760px; margin-inline: auto; padding-bottom: 64px; }
+.about-hero .kicker { color: var(--color-gold); display: block; margin-bottom: 12px; }
+.about-hero__h1 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-hero);
+  color: var(--color-white);
+  line-height: var(--leading-tight);
+  margin-bottom: 20px;
+}
+.about-hero__br { display: block; }
+.about-hero__sub {
+  font-size: var(--text-lg);
+  color: var(--color-cream);
+  line-height: var(--leading-relaxed);
+  max-width: 600px;
+  margin-inline: auto;
+  opacity: .9;
+}
+
+/* Stat strip */
+.about-stats {
+  background: var(--color-amber);
+  color: var(--color-forest-deep);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+}
+.about-stat {
+  flex: 1 1 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 20px;
+  border-right: 1px solid rgba(18,33,15,.15);
+  gap: 4px;
+}
+.about-stat:last-child { border-right: none; }
+.about-stat__number {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-5xl);
+  line-height: 1;
+  color: var(--color-forest-deep);
+}
+.about-stat__label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-extrabold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ── Story ────────────────────────────────────────────── */
+.about-story__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 56px;
+  align-items: center;
+}
+.about-story__images {
+  flex: 1 1 420px;
+  position: relative;
+  min-height: 440px;
+}
+.about-story__img-main {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 400px;
+}
+.about-story__img-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.about-story__img-secondary {
+  position: absolute;
+  bottom: -28px;
+  right: -28px;
+  width: 220px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card-md);
+  border: 4px solid var(--color-white);
+}
+.about-story__img-secondary img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+.about-story__badge {
+  background: var(--color-forest);
+  color: var(--color-white);
+  padding: 12px 16px;
+  text-align: center;
+}
+.about-story__badge-year { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .7; }
+.about-story__badge-num { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: 28px; line-height: 1; color: var(--color-gold); }
+.about-story__badge-loc { font-size: 11px; opacity: .8; margin-top: 2px; }
+
+.about-story__text {
+  flex: 1 1 460px;
+  min-width: 0;
+}
+.about-story__heading {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-5xl);
+  line-height: var(--leading-snug);
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin: 8px 0 22px;
+}
+.about-story__brand {
+  background: var(--color-forest);
+  color: var(--color-white);
+  padding: 2px 14px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+.about-story__p2 { margin-top: 16px; }
+.about-story__ctas { margin-top: 32px; }
+
+/* ── Values ──────────────────────────────────────────── */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.value-card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  box-shadow: var(--shadow-card);
+  border-top: 4px solid var(--color-amber);
+}
+.value-card__icon {
+  width: 44px;
+  height: 44px;
+  background: var(--color-parchment);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.value-card__title {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-xl);
+  color: var(--color-forest);
+  margin-bottom: 8px;
+}
+.value-card__text {
+  font-size: var(--text-base);
+  color: var(--color-text-body);
+  line-height: var(--leading-loose);
+}
+
+/* ── Timeline ────────────────────────────────────────── */
+.about-timeline__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.timeline__line {
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: var(--color-card-border);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  gap: 0;
+  align-items: start;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
+}
+.timeline-item__year {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-3xl);
+  color: var(--color-amber);
+  line-height: 1;
+  padding-top: 4px;
+}
+.timeline-item__dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-amber);
+  border: 3px solid var(--color-white);
+  box-shadow: 0 0 0 2px var(--color-amber);
+  margin: 6px auto 0;
+  flex-shrink: 0;
+}
+.timeline-item__card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-card);
+  font-size: var(--text-base);
+  color: var(--color-text-body);
+  line-height: var(--leading-relaxed);
+}
+
+/* Left items: year left, card right */
+.timeline-item--left .timeline-item__year { text-align: right; }
+.timeline-item--left .timeline-item__card { /* default */ }
+
+/* Right items: card left, year right — swap columns */
+.timeline-item--right {
+  grid-template-columns: 1fr 40px 1fr;
+}
+.timeline-item--right .timeline-item__year { grid-column: 3; text-align: left; grid-row: 1; }
+.timeline-item--right .timeline-item__dot  { grid-column: 2; grid-row: 1; }
+.timeline-item--right .timeline-item__card { grid-column: 1; grid-row: 1; }
+
+/* ── Includes ─────────────────────────────────────────── */
+.includes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.includes-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.includes-card__icon { font-size: 28px; line-height: 1; }
+.includes-card__title {
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-base);
+  color: var(--color-forest);
+}
+.includes-card__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-loose);
+}
+
+/* ── CTA ─────────────────────────────────────────────── */
+.about-cta {
+  background: linear-gradient(135deg, var(--color-forest) 0%, var(--color-forest-mid) 100%);
+  padding: 80px var(--section-pad-x);
+}
+.about-cta__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  align-items: center;
+  justify-content: space-between;
+}
+.about-cta__text { flex: 1 1 400px; }
+.about-cta__heading {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-4xl);
+  color: var(--color-white);
+  margin-bottom: 10px;
+  line-height: var(--leading-snug);
+}
+.about-cta__sub {
+  font-size: var(--text-lg);
+  color: var(--color-cream);
+  line-height: var(--leading-relaxed);
+  opacity: .9;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .about-timeline__inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  .about-story__images { display: none; }
+  .about-story__text { flex: 1 1 100%; }
+}
+@media (max-width: 768px) {
+  .about-hero__h1 { font-size: clamp(38px, 8vw, var(--text-hero)); }
+  .about-hero__br { display: none; }
+  .timeline__line { display: none; }
+  .timeline-item,
+  .timeline-item--right {
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: auto;
+  }
+  .timeline-item__year,
+  .timeline-item--right .timeline-item__year { grid-column: 1; grid-row: 1; font-size: var(--text-xl); text-align: left; }
+  .timeline-item__dot,
+  .timeline-item--right .timeline-item__dot { display: none; }
+  .timeline-item__card,
+  .timeline-item--right .timeline-item__card { grid-column: 2; grid-row: 1; }
+  .about-cta__inner { flex-direction: column; text-align: center; }
+  .about-cta__inner .btn-group { justify-content: center; }
+}
+@media (max-width: 600px) {
+  .about-hero { padding: 60px 24px 0; }
+  .about-stat { padding: 20px 12px; }
+  .about-stat__number { font-size: var(--text-4xl); }
+  .about-cta { padding: 60px 24px; }
+}
+</style>
