@@ -1,5 +1,6 @@
 ﻿---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CtaBand from '../../../components/CtaBand.astro';
 
 const categories = [
   {
@@ -171,15 +172,13 @@ const schema = JSON.stringify({
 <!-- ════════════════════════════════════════════════════
      BOTTOM CTA BAND
 ════════════════════════════════════════════════════ -->
-<div class="faq-cta-band">
-  <div class="container faq-cta-band__inner">
-    <h2 class="faq-cta-band__heading">Ready to plan your safari?</h2>
-    <div class="btn-group">
-      <a href="/contact/" class="btn faq-cta-band__btn-primary">Get a Free Quote</a>
-      <a href="/tours/" class="btn faq-cta-band__btn-outline">View Safari Packages</a>
-    </div>
-  </div>
-</div>
+<CtaBand
+  heading="Ready to plan your safari?"
+  btn1="Get a Free Quote"
+  btn1Href="/contact/"
+  btn2="View Safari Packages"
+  btn2Href="/tours/"
+/>
 
 </BaseLayout>
 

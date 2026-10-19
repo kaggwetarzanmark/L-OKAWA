@@ -1,5 +1,6 @@
 ﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaBand from '../../components/CtaBand.astro';
 
 const stats = [
   { value: '4+',    label: 'Years of Experience' },
@@ -257,23 +258,16 @@ const mosaicImages = [
 <!-- ════════════════════════════════════════════════════
      BOTTOM CTA BAND
 ════════════════════════════════════════════════════ -->
-<section class="about-cta-band" aria-labelledby="about-cta-heading">
-  <div class="container about-cta-band__inner">
-    <div class="about-cta-band__text">
-      <h2 id="about-cta-heading" class="about-cta-band__heading">Ready to Plan Your East Africa Safari?</h2>
-      <p class="about-cta-band__sub">Tell us where you want to go and we will build your perfect itinerary. No obligation, no pressure. We respond within 24 hours.</p>
-      <p class="about-cta-band__contact">
-        <a href="tel:+256761512966" class="about-cta-band__contact-link">+256 761 512 966</a>
-        &nbsp;&middot;&nbsp;
-        <a href="mailto:lokawatoursandtravelultd@gmail.com" class="about-cta-band__contact-link">lokawatoursandtravelultd@gmail.com</a>
-      </p>
-    </div>
-    <div class="btn-group about-cta-band__btns">
-      <a href="/contact/" class="btn btn--primary btn--lg">Get a Free Quote</a>
-      <a href="/tours/"   class="btn btn--outline btn--lg">Browse All Tours</a>
-    </div>
-  </div>
-</section>
+<CtaBand
+  heading="Ready to Plan Your East Africa Safari?"
+  sub="Tell us where you want to go and we will build your perfect itinerary. No obligation, no pressure. We respond within 24 hours."
+  contact='+256 761 512 966 &nbsp;&middot;&nbsp; <a href="mailto:lokawatoursandtravelultd@gmail.com">lokawatoursandtravelultd@gmail.com</a>'
+  btn1="Get a Free Quote"
+  btn1Href="/contact/"
+  btn2="Browse All Tours"
+  btn2Href="/tours/"
+  labelId="about-cta-heading"
+/>
 
 </BaseLayout>
 

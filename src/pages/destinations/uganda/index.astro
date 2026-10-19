@@ -1,5 +1,6 @@
 ﻿---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CtaBand from '../../../components/CtaBand.astro';
 
 // ══════════════════════════════════════════════════════════════
 //  COUNTRY DATA — Uganda
@@ -416,17 +417,13 @@ const schema = JSON.stringify({
 </section>
 
 <!-- CTA band -->
-<div class="cta-band cp-cta">
-  <div class="cta-band__inner container">
-    <div class="cta-band__text">
-      <h2 class="cta-band__heading">Ready for Your Uganda Safari?</h2>
-    </div>
-    <div class="cta-band__btns">
-      <a href="/contact/" class="btn cp-cta__btn-primary">Get a Free Quote</a>
-      <a href="/tours/"   class="btn cp-cta__btn-outline">Browse All Tours</a>
-    </div>
-  </div>
-</div>
+<CtaBand
+  heading="Ready for Your Uganda Safari?"
+  btn1="Get a Free Quote"
+  btn1Href="/contact/"
+  btn2="Browse All Tours"
+  btn2Href="/tours/"
+/>
 
 </BaseLayout>
 
@@ -546,12 +543,6 @@ const schema = JSON.stringify({
 .faq-item[open] .faq-item__chevron { transform:rotate(180deg); }
 .faq-item__a { padding:14px 20px 18px; font-size:var(--text-base); line-height:1.75; color:var(--color-text-body); }
 
-/* ── CTA band colours only — layout from .cta-band in global.css ── */
-.cp-cta__btn-primary { background:var(--color-amber); color:var(--color-forest-deep); font-weight:var(--weight-extrabold); font-size:14px; letter-spacing:var(--tracking-widest); text-transform:uppercase; padding:18px 34px; border-radius:var(--radius-md); transition:opacity var(--transition-fast); white-space:nowrap; }
-.cp-cta__btn-primary:hover { opacity:.88; }
-.cp-cta__btn-outline { border:2px solid var(--color-white); color:var(--color-white); font-weight:var(--weight-extrabold); font-size:14px; letter-spacing:var(--tracking-widest); text-transform:uppercase; padding:16px 34px; border-radius:var(--radius-md); transition:background var(--transition-fast); white-space:nowrap; }
-.cp-cta__btn-outline:hover { background:rgba(255,255,255,.1); }
-
 /* ── Responsive ──────────────────────────────────── */
 @media (max-width: 1024px) {
   .cp-intro__grid { grid-template-columns:1fr; }
@@ -561,12 +552,10 @@ const schema = JSON.stringify({
 }
 @media (max-width: 768px) {
   .month-grid { grid-template-columns:repeat(6,1fr); }
-  .cp-cta__inner { flex-direction:column; text-align:center; }
 }
 @media (max-width: 600px) {
   .cp-banner__content { padding:48px 24px 64px; }
   .cp-fact { border-right:none; border-bottom:1px solid rgba(243,236,216,.15); }
   .month-grid { grid-template-columns:repeat(4,1fr); }
-  .cp-cta__inner { padding:48px 24px; }
 }
 </style>

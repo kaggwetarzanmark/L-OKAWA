@@ -1,0 +1,171 @@
+---
+/**
+ * CtaBand.astro
+ * Reusable dark-green gradient CTA band used at the bottom of every page.
+ *
+ * Props:
+ *   heading  — main heading text (required)
+ *   sub      — optional sub-paragraph beneath heading
+ *   contact  — optional contact line (phone · email), shown as plain HTML
+ *   btn1     — primary button text (default: "Get a Free Quote")
+ *   btn1Href — primary button href (default: "/contact/")
+ *   btn2     — outline button text (optional, omit to show single button)
+ *   btn2Href — outline button href (default: "/tours/")
+ *   labelId  — id for the h2 (for aria-labelledby, optional)
+ */
+interface Props {
+  heading:  string;
+  sub?:     string;
+  contact?: string;         // raw HTML string e.g. "+256 ... &middot; email"
+  btn1?:    string;
+  btn1Href?:string;
+  btn2?:    string;
+  btn2Href?:string;
+  labelId?: string;
+}
+
+const {
+  heading,
+  sub,
+  contact,
+  btn1     = 'Get a Free Quote',
+  btn1Href = '/contact/',
+  btn2,
+  btn2Href = '/tours/',
+  labelId,
+} = Astro.props;
+---
+
+<section class="ctaband" aria-labelledby={labelId || undefined}>
+  <div class="ctaband__inner">
+
+    <div class="ctaband__text">
+      <h2 class="ctaband__heading" id={labelId || undefined} set:html={heading}></h2>
+      {sub     && <p  class="ctaband__sub"                  >{sub}</p>}
+      {contact && <p  class="ctaband__contact" set:html={contact}></p>}
+    </div>
+
+    <div class="ctaband__btns">
+      <a href={btn1Href} class="ctaband__btn ctaband__btn--primary">{btn1}</a>
+      {btn2 && (
+        <a href={btn2Href} class="ctaband__btn ctaband__btn--outline">{btn2}</a>
+      )}
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* ── Wrapper ─────────────────────────────────────── */
+.ctaband {
+  background: linear-gradient(135deg, var(--color-forest) 0%, var(--color-forest-mid) 100%);
+}
+
+/* ── Inner: row on desktop, column on mobile ─────── */
+.ctaband__inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: 72px var(--section-pad-x);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px 40px;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/* ── Text block ──────────────────────────────────── */
+.ctaband__text { flex: 1 1 380px; min-width: 0; }
+
+.ctaband__heading {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-4xl);
+  line-height: var(--leading-snug);
+  color: var(--color-white);
+  margin-bottom: 10px;
+}
+
+.ctaband__sub {
+  font-size: var(--text-lg);
+  color: var(--color-cream);
+  line-height: var(--leading-relaxed);
+  opacity: .9;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.ctaband__contact {
+  font-size: var(--text-base);
+  color: var(--color-cream);
+  opacity: .8;
+  margin: 0;
+}
+
+/* Styled contact links inside the contact line */
+.ctaband__contact :global(a) {
+  color: var(--color-gold);
+  font-weight: var(--weight-semibold);
+  transition: opacity var(--transition-fast);
+}
+.ctaband__contact :global(a:hover) { opacity: .8; }
+
+/* ── Button group ────────────────────────────────── */
+.ctaband__btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.ctaband__btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: opacity var(--transition-fast), background var(--transition-fast);
+  line-height: 1;
+}
+
+.ctaband__btn--primary {
+  background: var(--color-amber);
+  color: var(--color-forest-deep);
+  padding: 18px 34px;
+}
+.ctaband__btn--primary:hover { opacity: .88; }
+
+.ctaband__btn--outline {
+  background: transparent;
+  border: 2px solid var(--color-white);
+  color: var(--color-white);
+  padding: 16px 34px;
+}
+.ctaband__btn--outline:hover { background: rgba(255,255,255,.1); }
+
+/* ── Mobile: stack, centre, breathe ─────────────── */
+@media (max-width: 768px) {
+  .ctaband__inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+  .ctaband__btns {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .ctaband__inner { padding: 48px 24px; }
+  .ctaband__btn   { width: 100%; justify-content: center; }
+}
+</style>
