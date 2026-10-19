@@ -257,12 +257,23 @@ const mosaicImages = [
 <!-- ════════════════════════════════════════════════════
      BOTTOM CTA BAND
 ════════════════════════════════════════════════════ -->
-<div class="about-cta-band">
+<section class="about-cta-band" aria-labelledby="about-cta-heading">
   <div class="container about-cta-band__inner">
-    <h2 class="about-cta-band__heading">Ready to plan your safari with us?</h2>
-    <a href="/contact/" class="btn about-cta-band__btn">Contact us today</a>
+    <div class="about-cta-band__text">
+      <h2 id="about-cta-heading" class="about-cta-band__heading">Ready to Plan Your East Africa Safari?</h2>
+      <p class="about-cta-band__sub">Tell us where you want to go and we will build your perfect itinerary. No obligation, no pressure. We respond within 24 hours.</p>
+      <p class="about-cta-band__contact">
+        <a href="tel:+256761512966" class="about-cta-band__contact-link">+256 761 512 966</a>
+        &nbsp;&middot;&nbsp;
+        <a href="mailto:lokawatoursandtravelultd@gmail.com" class="about-cta-band__contact-link">lokawatoursandtravelultd@gmail.com</a>
+      </p>
+    </div>
+    <div class="btn-group about-cta-band__btns">
+      <a href="/contact/" class="btn btn--primary btn--lg">Get a Free Quote</a>
+      <a href="/tours/"   class="btn btn--outline btn--lg">Browse All Tours</a>
+    </div>
   </div>
-</div>
+</section>
 
 </BaseLayout>
 
@@ -722,27 +733,28 @@ const mosaicImages = [
    CTA BAND
 ══════════════════════════════════════════ */
 .about-cta-band {
-  background: var(--color-amber);
-  color: var(--color-forest-deep);
+  background: linear-gradient(135deg, var(--color-forest) 0%, var(--color-forest-mid) 100%);
+  color: var(--color-white);
 }
 .about-cta-band__inner {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px 32px;
+  gap: 32px;
   justify-content: space-between;
   align-items: center;
-  padding: 54px var(--section-pad-x);
+  padding: 80px var(--section-pad-x);
 }
 .about-cta-band__heading {
   font-family: var(--font-display);
   font-weight: var(--weight-bold);
   font-size: var(--text-4xl);
-  line-height: 1.1;
-  color: var(--color-forest-deep);
+  line-height: var(--leading-snug);
+  color: var(--color-white);
 }
 .about-cta-band__btn {
-  background: var(--color-forest-deep);
-  color: var(--color-gold);
+  background: var(--color-amber);
+  color: var(--color-forest-deep);
+  font-family: var(--font-body);
   font-weight: var(--weight-extrabold);
   font-size: 14px;
   letter-spacing: var(--tracking-widest);

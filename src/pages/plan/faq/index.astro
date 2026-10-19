@@ -385,36 +385,36 @@ const schema = JSON.stringify({
    CTA BAND
 ════════════════════════════════════════ */
 .faq-cta-band {
-  background: var(--color-amber);
-  color: var(--color-forest-deep);
+  background: linear-gradient(135deg, var(--color-forest) 0%, var(--color-forest-mid) 100%);
+  color: var(--color-white);
 }
 .faq-cta-band__inner {
-  display: flex; flex-wrap: wrap; gap: 20px 32px;
+  display: flex; flex-wrap: wrap; gap: 32px;
   justify-content: space-between; align-items: center;
-  padding: 54px var(--section-pad-x);
+  padding: 80px var(--section-pad-x);
 }
 .faq-cta-band__heading {
   font-family: var(--font-display); font-weight: var(--weight-bold);
-  font-size: var(--text-4xl); line-height: 1.1;
-  color: var(--color-forest-deep);
+  font-size: var(--text-4xl); line-height: var(--leading-snug);
+  color: var(--color-white);
 }
 .faq-cta-band__btn-primary {
-  background: var(--color-forest-deep); color: var(--color-gold);
-  font-weight: var(--weight-extrabold); font-size: 14px;
+  background: var(--color-amber); color: var(--color-forest-deep);
+  font-family: var(--font-body); font-weight: var(--weight-extrabold); font-size: 14px;
   letter-spacing: var(--tracking-widest); text-transform: uppercase;
   padding: 18px 34px; border-radius: var(--radius-md);
   white-space: nowrap; transition: opacity var(--transition-fast);
 }
 .faq-cta-band__btn-primary:hover { opacity: .85; }
 .faq-cta-band__btn-outline {
-  border: 2px solid var(--color-forest-deep);
-  color: var(--color-forest-deep);
-  font-weight: var(--weight-extrabold); font-size: 14px;
+  border: 2px solid var(--color-white);
+  color: var(--color-white);
+  font-family: var(--font-body); font-weight: var(--weight-extrabold); font-size: 14px;
   letter-spacing: var(--tracking-widest); text-transform: uppercase;
   padding: 16px 34px; border-radius: var(--radius-md);
   white-space: nowrap; transition: background var(--transition-fast);
 }
-.faq-cta-band__btn-outline:hover { background: rgba(0,0,0,.08); }
+.faq-cta-band__btn-outline:hover { background: rgba(255,255,255,.1); }
 
 /* ════════════════════════════════════════
    RESPONSIVE
@@ -435,6 +435,6 @@ const schema = JSON.stringify({
   .faq-item__a { padding: 14px 16px 18px; }
   .faq-section__title { font-size: var(--text-2xl); }
   .faq-cta-band { padding: 0; }
-  .faq-cta-band__inner { padding: 48px 24px; }
+  .faq-cta-band__inner { padding: 48px 24px; flex-direction: column; text-align: center; }
 }
 </style>
