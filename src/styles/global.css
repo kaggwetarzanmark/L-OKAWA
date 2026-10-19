@@ -714,3 +714,78 @@ ul, ol {
   background-color: var(--color-amber);
   color: var(--color-forest-deep);
 }
+
+
+/* ------------------------------------------------------------
+   GLOBAL MOBILE CTA BAND RESETS
+   Add class="cta-band" to any CTA section wrapper and these
+   rules apply automatically — no per-page mobile CSS needed.
+   ------------------------------------------------------------ */
+
+/* The wrapper — dark gradient by default, override per-page */
+.cta-band {
+  background: linear-gradient(135deg, var(--color-forest) 0%, var(--color-forest-mid) 100%);
+}
+
+/* Inner: flex row on desktop, centred column on mobile */
+.cta-band__inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: 72px var(--section-pad-x);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px 40px;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.cta-band__text { flex: 1 1 380px; }
+
+.cta-band__heading {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-4xl);
+  line-height: var(--leading-snug);
+  color: var(--color-white);
+  margin-bottom: 10px;
+}
+
+.cta-band__sub {
+  font-size: var(--text-lg);
+  color: var(--color-cream);
+  line-height: var(--leading-relaxed);
+  opacity: .9;
+  margin-bottom: 12px;
+}
+
+.cta-band__btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .cta-band__inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  .cta-band__btns {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .cta-band__inner {
+    padding: 48px 24px;
+  }
+  .cta-band__btns .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}

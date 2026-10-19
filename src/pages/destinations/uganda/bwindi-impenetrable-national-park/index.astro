@@ -303,13 +303,13 @@ const schema = JSON.stringify({
 </section>
 
 <!-- CTA band -->
-<div class="pp-cta">
-  <div class="container pp-cta__inner">
-    <div class="pp-cta__text">
-      <h2 class="pp-cta__heading">Ready to Trek Gorillas in Bwindi?</h2>
-      <p class="pp-cta__sub">Permits are limited. We recommend booking 3–6 months in advance. Get in touch and we will check availability and build your itinerary.</p>
+<div class="cta-band pp-cta">
+  <div class="cta-band__inner container">
+    <div class="cta-band__text">
+      <h2 class="cta-band__heading">Ready to Trek Gorillas in Bwindi?</h2>
+      <p class="cta-band__sub">Permits are limited. We recommend booking 3 to 6 months in advance. Get in touch and we will check availability and build your itinerary.</p>
     </div>
-    <div class="btn-group">
+    <div class="cta-band__btns">
       <a href="/contact/" class="btn pp-cta__btn-primary">Get a Free Quote</a>
       <a href="/destinations/uganda/" class="btn pp-cta__btn-outline">More Uganda Parks</a>
     </div>
@@ -409,12 +409,7 @@ const schema = JSON.stringify({
 .faq-item[open] .faq-item__chevron { transform:rotate(180deg); }
 .faq-item__a { padding:14px 20px 18px; font-size:var(--text-base); line-height:1.75; color:var(--color-text-body); }
 
-/* ── CTA band ────────────────────────────────────── */
-.pp-cta { background:linear-gradient(135deg,var(--color-forest) 0%,var(--color-forest-mid) 100%); }
-.pp-cta__inner { display:flex; flex-wrap:wrap; gap:28px; justify-content:space-between; align-items:center; padding:72px var(--section-pad-x); }
-.pp-cta__text { flex:1 1 400px; }
-.pp-cta__heading { font-family:var(--font-display); font-weight:var(--weight-bold); font-size:var(--text-4xl); line-height:1.1; color:var(--color-white); margin-bottom:10px; }
-.pp-cta__sub { font-size:var(--text-lg); color:var(--color-cream); line-height:var(--leading-relaxed); opacity:.9; }
+/* ── CTA band — button colours only (layout from .cta-band in global.css) ── */
 .pp-cta__btn-primary { background:var(--color-amber); color:var(--color-forest-deep); font-weight:var(--weight-extrabold); font-size:14px; letter-spacing:var(--tracking-widest); text-transform:uppercase; padding:18px 34px; border-radius:var(--radius-md); white-space:nowrap; transition:opacity var(--transition-fast); }
 .pp-cta__btn-primary:hover { opacity:.88; }
 .pp-cta__btn-outline { border:2px solid var(--color-white); color:var(--color-white); font-weight:var(--weight-extrabold); font-size:14px; letter-spacing:var(--tracking-widest); text-transform:uppercase; padding:16px 34px; border-radius:var(--radius-md); white-space:nowrap; transition:background var(--transition-fast); }
@@ -428,7 +423,6 @@ const schema = JSON.stringify({
   .pp-faq__intro { position:static; }
 }
 @media (max-width: 768px) {
-  .pp-cta__inner { flex-direction:column; text-align:center; }
   .pp-banner__h1 { font-size:clamp(26px,6vw,44px); }
 }
 @media (max-width: 600px) {
