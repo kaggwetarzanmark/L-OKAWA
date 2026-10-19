@@ -19,8 +19,8 @@ const navLinks = [
   { label: 'Home',         href: '/' },
   { label: 'Destinations', href: '/destinations/', hasDropdown: true },
   { label: 'Tours',        href: '/tours/',        hasDropdown: true },
-  { label: 'Reviews',      href: '/reviews/' },
   { label: 'About Us',     href: '/about/' },
+  { label: 'FAQs',         href: '/plan/faq/' },
 ];
 
 const destinationLinks = [
@@ -156,8 +156,8 @@ const planLinks = [
         <a href={t.href} class="nav__mobile-link nav__mobile-link--indent">{t.label}</a>
       ))}
 
-      <a href="/reviews/" class={`nav__mobile-link ${isActive('/reviews/') ? 'nav__mobile-link--active' : ''}`}>Reviews</a>
       <a href="/about/" class={`nav__mobile-link ${isActive('/about/') ? 'nav__mobile-link--active' : ''}`}>About Us</a>
+      <a href="/plan/faq/" class={`nav__mobile-link ${isActive('/plan/faq/') ? 'nav__mobile-link--active' : ''}`}>FAQs</a>
       <a href="/contact/" class="btn btn--primary nav__mobile-cta">Request Quotation</a>
     </nav>
   </div>
