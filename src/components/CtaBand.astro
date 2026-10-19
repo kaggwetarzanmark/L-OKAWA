@@ -65,17 +65,17 @@ const {
 .ctaband__inner {
   max-width: var(--max-width);
   margin-inline: auto;
-  padding: 72px var(--section-pad-x);
+  padding: 60px var(--section-pad-x);
   display: flex;
   flex-wrap: wrap;
-  gap: 28px 40px;
+  gap: 20px 40px;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
 }
 
 /* ── Text block ──────────────────────────────────── */
-.ctaband__text { flex: 1 1 380px; min-width: 0; }
+.ctaband__text { flex: 1 1 320px; min-width: 0; }
 
 .ctaband__heading {
   font-family: var(--font-display);
@@ -83,17 +83,22 @@ const {
   font-size: var(--text-4xl);
   line-height: var(--leading-snug);
   color: var(--color-white);
-  margin-bottom: 10px;
+  margin: 0;                   /* no default margin — sub adds its own top */
 }
+
+/* Only add bottom spacing when sub or contact follows */
+.ctaband__heading + .ctaband__sub,
+.ctaband__heading + .ctaband__contact { margin-top: 10px; }
 
 .ctaband__sub {
   font-size: var(--text-lg);
   color: var(--color-cream);
   line-height: var(--leading-relaxed);
   opacity: .9;
-  margin-top: 0;
-  margin-bottom: 10px;
+  margin: 0;
 }
+
+.ctaband__sub + .ctaband__contact { margin-top: 8px; }
 
 .ctaband__contact {
   font-size: var(--text-base);
