@@ -243,16 +243,32 @@ const contactDetails = [
           <div class="form-group">
             <label class="form-label">Interested in <span class="form-hint">(pick all that apply)</span></label>
             <div class="chip-row chip-row--wrap" role="group" aria-label="Safari interests">
-              {[
-                ['🦍','Gorilla trekking'],
-                ['🐘','Safari'],
-                ['🏨','Hotels'],
-                ['✈️','Airport transfer'],
-                ['👥','Group travel'],
-              ].map(([emoji, label]) => (
+              {([
+                {
+                  value: 'Gorilla trekking',
+                  icon: '<path d="M12 2C8.13 2 5 5.13 5 9c0 2.5 1.32 4.7 3.32 5.96C5.22 16.22 3 19.41 3 23h2c0-2.76 1.67-5.14 4.08-6.2A6.99 6.99 0 0 0 12 17c1.05 0 2.05-.23 2.92-.62C17.33 17.86 19 20.24 19 23h2c0-3.59-2.22-6.78-5.32-8.04A6.97 6.97 0 0 0 19 9c0-3.87-3.13-7-7-7z"/>',
+                },
+                {
+                  value: 'Safari',
+                  icon: '<path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3"/>',
+                },
+                {
+                  value: 'Hotels',
+                  icon: '<path d="M5 3h14v18H5zM9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M11 21v-3h2v3"/>',
+                },
+                {
+                  value: 'Airport transfer',
+                  icon: '<path d="M21 3L10 14M21 3l-7 18-4-7-7-4 18-7z"/>',
+                },
+                {
+                  value: 'Group travel',
+                  icon: '<path d="M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M17 10a2.5 2.5 0 1 0 0-5M17 14c2.5 0 4.5 2 4.5 5"/>',
+                },
+              ] as const).map(item => (
                 <label class="chip chip--toggle">
-                  <input type="checkbox" name="_interests_ui" value={label} class="chip__check" data-group="interests" />
-                  <span aria-hidden="true">{emoji}</span> {label}
+                  <input type="checkbox" name="_interests_ui" value={item.value} class="chip__check" data-group="interests" />
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={item.icon}></svg>
+                  {item.value}
                 </label>
               ))}
             </div>
