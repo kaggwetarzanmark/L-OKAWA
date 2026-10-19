@@ -2,53 +2,39 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const contactDetails = [
-  { icon: 'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z', label: 'Phone / WhatsApp', value: '+256 761 512 966',                         href: 'tel:+256761512966' },
-  { icon: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z M22 6l-10 7L2 6',                                                                                                                                                                                                                                                        label: 'Email',           value: 'lokawatoursandtravelultd@gmail.com',   href: 'mailto:lokawatoursandtravelultd@gmail.com' },
-  { icon: 'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z M12 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4',                                                                                                                                                                                                                                                                   label: 'Address',         value: 'Kiwatule, Kampala, Uganda',            href: 'https://maps.google.com/?q=Kiwatule+Kampala+Uganda' },
-  { icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z',                                                                                                                                                                            label: 'Office Hours',    value: 'Monday to Saturday, 8:00 am to 6:00 pm EAT', href: null },
-];
-
-const interests = [
-  'Gorilla Trekking Uganda','Chimpanzee Tracking',
-  'Wildlife Safari Uganda','Kenya Safari',
-  'Tanzania Safari','Rwanda Gorilla Trekking',
-  'Multi-Country Tour','Birding Safari',
-  'Family Safari','Honeymoon Safari',
-  'Budget Safari','Other / Not Sure Yet',
+  { icon: 'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z', label: 'Phone / WhatsApp', value: '+256 761 512 966', href: 'tel:+256761512966' },
+  { icon: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z M22 6l-10 7L2 6', label: 'Email', value: 'lokawatoursandtravelultd@gmail.com', href: 'mailto:lokawatoursandtravelultd@gmail.com' },
+  { icon: 'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z M12 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4', label: 'Address', value: 'Kiwatule, Kampala, Uganda', href: 'https://maps.google.com/?q=Kiwatule+Kampala+Uganda' },
+  { icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 5H11v6l5.25 3.15.75-1.23-4.5-2.67V7z', label: 'Office Hours', value: 'Mon to Sat, 8:00 am to 6:00 pm EAT', href: null },
 ];
 ---
 
 <BaseLayout
-  title="Contact L'okawa Tours | Get a Free Safari Quote"
-  description="Contact L'okawa Tours for a free personalised safari quote. Call or WhatsApp +256 761 512 966. We respond within 24 hours. Book gorilla trekking, wildlife safaris and East Africa tours."
+  title="Get a Free Quote | L'okawa Tours & Travel"
+  description="Get a free personalised East Africa safari quote from L'okawa Tours. Only your name and contact are required. WhatsApp, call or email us. We respond within 4 hours."
 >
 
 <!-- ════════════════════════════════════════════════════
      PAGE BANNER
 ════════════════════════════════════════════════════ -->
 <div class="ct-banner">
-  <svg viewBox="0 0 1440 340" preserveAspectRatio="xMidYMax slice" class="ct-banner__svg" aria-hidden="true">
-    <circle cx="1130" cy="230" r="110" fill="#ffd45a" opacity=".2"/>
-    <circle cx="1130" cy="230" r="72"  fill="#ffd45a"/>
-    <path d="M0 270 C220 240 400 266 580 244 C780 220 940 262 1140 242 C1280 228 1370 250 1440 244 L1440 340 L0 340Z" fill="#1d3315" opacity=".8"/>
-    <path d="M0 304 C240 282 440 304 660 292 C880 280 1100 306 1440 286 L1440 340 L0 340Z" fill="#0d1a0a"/>
-    <g fill="#0d1a0a">
-      <rect x="1246" y="206" width="9" height="90"/>
-      <ellipse cx="1250" cy="200" rx="86" ry="22"/>
-      <ellipse cx="1196" cy="214" rx="50" ry="14"/>
-      <ellipse cx="1306" cy="212" rx="50" ry="14"/>
-    </g>
+  <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" class="ct-banner__svg" aria-hidden="true">
+    <circle cx="1130" cy="200" r="100" fill="#ffd45a" opacity=".2"/>
+    <circle cx="1130" cy="200" r="65"  fill="#ffd45a"/>
+    <path d="M0 240 C220 210 400 236 580 214 C780 190 940 232 1140 212 C1280 198 1370 220 1440 214 L1440 300 L0 300Z" fill="#1d3315" opacity=".8"/>
+    <path d="M0 272 C240 252 440 272 660 262 C880 250 1100 274 1440 256 L1440 300 L0 300Z" fill="#0d1a0a"/>
+    <g fill="#0d1a0a"><rect x="1246" y="186" width="8" height="80"/><ellipse cx="1250" cy="180" rx="76" ry="20"/><ellipse cx="1200" cy="192" rx="44" ry="12"/><ellipse cx="1300" cy="190" rx="44" ry="12"/></g>
   </svg>
   <div class="ct-banner__overlay" aria-hidden="true"></div>
   <div class="ct-banner__content">
     <div class="ct-banner__breadcrumb">
       <a href="/" class="ct-banner__bc-link">Home</a>
       <span>&nbsp;/&nbsp;</span>
-      <span class="ct-banner__bc-cur">Contact Us</span>
+      <span class="ct-banner__bc-cur">Get a Free Quote</span>
     </div>
-    <p class="ct-banner__kicker">We are here to help</p>
-    <h1 class="ct-banner__h1">Get a Free<br class="ct-banner__br"/> Safari Quote</h1>
-    <p class="ct-banner__sub">Tell us where you want to go and we will build your perfect itinerary. No obligation, no pressure. We respond within 24 hours.</p>
+    <p class="ct-banner__kicker">No obligation. Free in 24 hours.</p>
+    <h1 class="ct-banner__h1">Get a Free Safari Quote</h1>
+    <p class="ct-banner__sub">Only your name and contact are required. The rest helps us tailor your trip.</p>
   </div>
 </div>
 
@@ -60,17 +46,13 @@ const interests = [
     {contactDetails.map(d => (
       <div class="ct-strip__item">
         <div class="ct-strip__icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d={d.icon}/>
-          </svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={d.icon}/></svg>
         </div>
         <div>
           <div class="ct-strip__label">{d.label}</div>
-          {d.href ? (
-            <a href={d.href} class="ct-strip__value ct-strip__link" target={d.href.startsWith('http') ? '_blank' : undefined} rel={d.href.startsWith('http') ? 'noopener noreferrer' : undefined}>{d.value}</a>
-          ) : (
-            <span class="ct-strip__value">{d.value}</span>
-          )}
+          {d.href
+            ? <a href={d.href} class="ct-strip__value ct-strip__link" target={d.href.startsWith('http') ? '_blank' : undefined} rel={d.href.startsWith('http') ? 'noopener noreferrer' : undefined}>{d.value}</a>
+            : <span class="ct-strip__value">{d.value}</span>}
         </div>
       </div>
     ))}
@@ -78,153 +60,371 @@ const interests = [
 </div>
 
 <!-- ════════════════════════════════════════════════════
-     MAIN GRID: form + sidebar
+     MAIN LAYOUT
 ════════════════════════════════════════════════════ -->
 <div class="ct-body">
   <div class="container ct-grid">
 
-    <!-- FORM -->
+    <!-- ══════════════════════════════════════
+         FORM CARD
+    ════════════════════════════════════════ -->
     <div class="ct-form-wrap">
+
+      <!-- Form header -->
       <div class="ct-form-head">
-        <span class="ct-form-head__kicker">Send us a message</span>
-        <h2 class="ct-form-head__title">Request a Safari Quotation</h2>
-        <p class="ct-form-head__sub">Fill in as much detail as you can. The more we know, the better we can tailor your safari.</p>
+        <div class="ct-form-head__top">
+          <h2 class="ct-form-head__title">Get a Free Safari Quote</h2>
+          <!-- WhatsApp quick-link beside heading -->
+          <a href="https://wa.me/256761512966" target="_blank" rel="noopener noreferrer" class="ct-head-wa" aria-label="Chat on WhatsApp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+        <!-- Progress indicator -->
+        <div class="ct-progress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="2" aria-label="Step 1 of 2">
+          <div class="ct-progress__steps">
+            <div class="ct-progress__step ct-progress__step--active" id="prog-step-1">
+              <span class="ct-progress__dot"></span>
+              <span class="ct-progress__lbl">Your details</span>
+            </div>
+            <div class="ct-progress__line"></div>
+            <div class="ct-progress__step" id="prog-step-2">
+              <span class="ct-progress__dot"></span>
+              <span class="ct-progress__lbl">Trip details</span>
+            </div>
+          </div>
+          <span class="ct-progress__text" id="prog-text">Step 1 of 2</span>
+        </div>
       </div>
 
-      <form class="ct-form" name="safari-quote" method="POST" data-netlify="true" action="/contact/thank-you/" novalidate>
-        <input type="hidden" name="form-name" value="safari-quote" />
+      <!-- ─────────────────────────────
+           THE FORM
+      ───────────────────────────── -->
+      <form
+        id="quote-form"
+        class="ct-form"
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        novalidate
+      >
+        <!-- Web3Forms access key — replace YOUR_WEB3FORMS_KEY with your key from web3forms.com -->
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY" />
+        <input type="hidden" name="subject"    value="New Safari Quote Request from L'okawa Website" />
+        <input type="hidden" name="from_name"  value="L'okawa Website" />
+        <input type="hidden" name="redirect"   value="false" />
 
-        <div class="form-row form-row--2">
-          <div class="form-group">
-            <label for="first-name" class="form-label">First Name <span class="form-req">*</span></label>
-            <input type="text" id="first-name" name="first_name" class="form-input" required placeholder="e.g. Sarah" />
-          </div>
-          <div class="form-group">
-            <label for="last-name" class="form-label">Last Name <span class="form-req">*</span></label>
-            <input type="text" id="last-name" name="last_name" class="form-input" required placeholder="e.g. Johnson" />
-          </div>
-        </div>
+        <!-- Honeypot spam field -->
+        <input type="text" name="bot_field" style="display:none" tabindex="-1" autocomplete="off" />
 
-        <div class="form-row form-row--2">
-          <div class="form-group">
-            <label for="email" class="form-label">Email Address <span class="form-req">*</span></label>
-            <input type="email" id="email" name="email" class="form-input" required placeholder="you@email.com" />
-          </div>
-          <div class="form-group">
-            <label for="phone" class="form-label">Phone / WhatsApp</label>
-            <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 234 567 8900" />
-          </div>
-        </div>
+        <!-- Hidden: time-to-submit guard -->
+        <input type="hidden" name="_loaded_at" id="loaded_at" />
 
-        <div class="form-row form-row--2">
-          <div class="form-group">
-            <label for="country" class="form-label">Country of Residence <span class="form-req">*</span></label>
-            <input type="text" id="country" name="country" class="form-input" required placeholder="e.g. United Kingdom" />
-          </div>
-          <div class="form-group">
-            <label for="travelers" class="form-label">Number of Travelers <span class="form-req">*</span></label>
-            <select id="travelers" name="travelers" class="form-input form-select" required>
-              <option value="" disabled selected>Select</option>
-              <option value="1">1 traveler (solo)</option>
-              <option value="2">2 travelers</option>
-              <option value="3-4">3 to 4 travelers</option>
-              <option value="5-8">5 to 8 travelers</option>
-              <option value="9+">9 or more</option>
-            </select>
-          </div>
-        </div>
+        <!-- Hidden: collected chip values passed as single fields -->
+        <input type="hidden" name="contact_method"  id="hid-contact-method"  value="email" />
+        <input type="hidden" name="travelers"        id="hid-travelers"        value="" />
+        <input type="hidden" name="interests"        id="hid-interests"        value="" />
+        <input type="hidden" name="trip_duration"    id="hid-duration"         value="" />
+        <input type="hidden" name="budget"           id="hid-budget"           value="Let us suggest" />
+        <input type="hidden" name="month_of_travel"  id="hid-month"            value="" />
+        <input type="hidden" name="country"          id="hid-country"          value="" />
 
-        <div class="form-row form-row--2">
-          <div class="form-group">
-            <label for="arrival" class="form-label">Approximate Arrival Date</label>
-            <input type="date" id="arrival" name="arrival_date" class="form-input" />
-          </div>
-          <div class="form-group">
-            <label for="duration" class="form-label">Trip Duration</label>
-            <select id="duration" name="duration" class="form-input form-select">
-              <option value="" disabled selected>Select</option>
-              <option value="1-3 days">1 to 3 days</option>
-              <option value="4-7 days">4 to 7 days</option>
-              <option value="8-14 days">8 to 14 days</option>
-              <option value="15+ days">15 or more days</option>
-              <option value="flexible">Flexible / Not sure yet</option>
-            </select>
-          </div>
-        </div>
+        <!-- ══════════════════
+             STEP 1
+        ═════════════════════ -->
+        <fieldset class="ct-step" id="step-1" aria-label="Step 1: Your details">
 
-        <div class="form-group">
-          <label class="form-label">I am interested in <span class="form-req">*</span></label>
-          <div class="form-checks">
-            {interests.map(item => (
-              <label class="form-check">
-                <input type="checkbox" name="interests" value={item} class="form-check__input" />
-                <span class="form-check__label">{item}</span>
+          <!-- Name -->
+          <div class="form-group">
+            <label for="full-name" class="form-label">
+              Your name
+              <span class="form-req" aria-hidden="true">*</span>
+            </label>
+            <input
+              type="text"
+              id="full-name"
+              name="name"
+              class="form-input"
+              autocomplete="name"
+              required
+              placeholder="e.g. Sarah Johnson"
+              aria-describedby="name-err"
+            />
+            <span id="name-err" class="form-err" role="alert" aria-live="polite"></span>
+          </div>
+
+          <!-- Contact method chips -->
+          <div class="form-group">
+            <label class="form-label">
+              How should we reply?
+              <span class="form-req" aria-hidden="true">*</span>
+            </label>
+            <div class="chip-row" role="radiogroup" aria-label="Preferred contact method" id="contact-method-group">
+              <label class="chip chip--radio">
+                <input type="radio" name="_contact_method_ui" value="email" class="chip__radio" checked />
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Email
               </label>
-            ))}
+              <label class="chip chip--radio">
+                <input type="radio" name="_contact_method_ui" value="whatsapp" class="chip__radio" />
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                WhatsApp
+              </label>
+              <label class="chip chip--radio">
+                <input type="radio" name="_contact_method_ui" value="phone" class="chip__radio" />
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                Phone call
+              </label>
+            </div>
+
+            <!-- Email input (shown by default) -->
+            <div id="input-email" class="contact-input-wrap">
+              <input
+                type="email"
+                id="contact-email"
+                name="email"
+                class="form-input"
+                autocomplete="email"
+                placeholder="you@email.com"
+                aria-label="Email address"
+                aria-describedby="contact-err"
+              />
+            </div>
+
+            <!-- Tel input (shown for WhatsApp / Phone) -->
+            <div id="input-tel" class="contact-input-wrap contact-input-wrap--hidden">
+              <div class="tel-wrap">
+                <select id="country-code" name="country_code" class="form-input tel-code" aria-label="Country code">
+                  <option value="+256">🇺🇬 +256</option>
+                  <option value="+254">🇰🇪 +254</option>
+                  <option value="+255">🇹🇿 +255</option>
+                  <option value="+250">🇷🇼 +250</option>
+                  <option value="+1">🇺🇸 +1</option>
+                  <option value="+44">🇬🇧 +44</option>
+                  <option value="+61">🇦🇺 +61</option>
+                  <option value="+49">🇩🇪 +49</option>
+                  <option value="+33">🇫🇷 +33</option>
+                  <option value="+31">🇳🇱 +31</option>
+                  <option value="+27">🇿🇦 +27</option>
+                  <option value="+91">🇮🇳 +91</option>
+                  <option value="+971">🇦🇪 +971</option>
+                  <option value="+55">🇧🇷 +55</option>
+                  <option value="+other">Other</option>
+                </select>
+                <input
+                  type="tel"
+                  id="contact-tel"
+                  name="phone"
+                  class="form-input tel-number"
+                  inputmode="tel"
+                  autocomplete="tel"
+                  placeholder="712 345 678"
+                  aria-label="Phone number"
+                  aria-describedby="contact-err"
+                />
+              </div>
+            </div>
+            <span id="contact-err" class="form-err" role="alert" aria-live="polite"></span>
+          </div>
+
+          <!-- Travelers -->
+          <div class="form-group">
+            <label class="form-label">Number of travelers</label>
+            <div class="chip-row" role="group" aria-label="Number of travelers">
+              {['Solo', '2', '3-4', '5-8', '9+'].map(v => (
+                <label class="chip chip--toggle">
+                  <input type="checkbox" name="_travelers_ui" value={v} class="chip__check chip--single" data-group="travelers" />
+                  {v}
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <!-- Interests -->
+          <div class="form-group">
+            <label class="form-label">Interested in <span class="form-hint">(pick all that apply)</span></label>
+            <div class="chip-row chip-row--wrap" role="group" aria-label="Safari interests">
+              {[
+                ['🦍','Gorilla trekking'],
+                ['🐘','Safari'],
+                ['🏨','Hotels'],
+                ['✈️','Airport transfer'],
+                ['👥','Group travel'],
+              ].map(([emoji, label]) => (
+                <label class="chip chip--toggle">
+                  <input type="checkbox" name="_interests_ui" value={label} class="chip__check" data-group="interests" />
+                  <span aria-hidden="true">{emoji}</span> {label}
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <button type="button" id="btn-continue" class="btn ct-form__cta">
+            Continue
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+
+        </fieldset>
+
+        <!-- ══════════════════
+             STEP 2
+        ═════════════════════ -->
+        <fieldset class="ct-step ct-step--hidden" id="step-2" aria-label="Step 2: Trip details (all optional)">
+
+          <p class="step2-optional-note">All fields on this step are optional.</p>
+
+          <!-- Month of travel -->
+          <div class="form-group">
+            <label for="travel-month" class="form-label">Month of travel</label>
+            <input
+              type="month"
+              id="travel-month"
+              name="_month_ui"
+              class="form-input"
+              min=""
+              aria-label="Month of travel"
+            />
+          </div>
+
+          <!-- Trip duration chips -->
+          <div class="form-group">
+            <label class="form-label">Trip duration</label>
+            <div class="chip-row chip-row--wrap" role="group" aria-label="Trip duration">
+              {['1-3 days','4-7 days','8-14 days','15+ days','Not sure yet'].map(v => (
+                <label class="chip chip--toggle">
+                  <input type="checkbox" name="_duration_ui" value={v} class="chip__check chip--single" data-group="duration" />
+                  {v}
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <!-- Budget chips -->
+          <div class="form-group">
+            <label class="form-label">Budget per person (USD)</label>
+            <div class="chip-row chip-row--wrap" role="group" aria-label="Budget per person">
+              {['Under $1,000','$1,000-2,000','$2,000-3,500','$3,500-5,000','$5,000+','Let us suggest'].map(v => (
+                <label class="chip chip--toggle">
+                  <input type="checkbox" name="_budget_ui" value={v} class={`chip__check chip--single${v === 'Let us suggest' ? ' chip--preselected' : ''}`} data-group="budget" data-default={v === 'Let us suggest' ? 'true' : undefined} />
+                  {v}
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <!-- Country searchable dropdown -->
+          <div class="form-group">
+            <label for="visitor-country" class="form-label">Your country <span class="form-hint">(auto-detected, change if needed)</span></label>
+            <select id="visitor-country" name="_country_ui" class="form-input form-select" aria-label="Country of residence">
+              <option value="">Loading...</option>
+            </select>
+          </div>
+
+          <!-- Notes (hidden behind link) -->
+          <div class="form-group">
+            <button type="button" id="btn-show-notes" class="notes-toggle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add a note (optional)
+            </button>
+            <div id="notes-wrap" class="notes-wrap notes-wrap--hidden">
+              <!-- Quick-tap chips that append text -->
+              <div class="chip-row chip-row--wrap chip-row--sm" role="group" aria-label="Note quick-chips">
+                {['Honeymoon','Family with kids','Photography','Birdwatching','Wheelchair accessible','First time in Africa','Need visa help'].map(v => (
+                  <button type="button" class="chip chip--append" data-append={v}>{v}</button>
+                ))}
+              </div>
+              <div class="notes-field-wrap">
+                <textarea
+                  id="notes"
+                  name="notes"
+                  class="form-input form-textarea"
+                  rows="2"
+                  maxlength="300"
+                  placeholder="e.g. Celebrating our 10th anniversary, love wildlife photography"
+                  aria-describedby="notes-counter notes-hint"
+                ></textarea>
+                <div class="notes-meta">
+                  <span id="notes-hint" class="form-hint">Short is fine. We will ask follow-up questions.</span>
+                  <span id="notes-counter" class="notes-counter" aria-live="polite">300</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 buttons -->
+          <div class="step2-btns">
+            <button type="button" id="btn-back" class="btn btn--ghost">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+              Back
+            </button>
+            <div class="step2-primary-btns">
+              <button type="submit" id="btn-skip" class="btn btn--ghost-sm">
+                Skip and send
+              </button>
+              <button type="submit" id="btn-submit" class="btn ct-form__cta">
+                Get my free safari quote
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+            </div>
+          </div>
+          <p class="submit-note">Reply in under 4 hours (Mon-Sat). No obligation.</p>
+
+        </fieldset>
+
+        <!-- ══════════════════
+             THANK-YOU STATE
+        ═════════════════════ -->
+        <div class="ct-thankyou ct-step--hidden" id="thankyou" aria-live="polite">
+          <div class="thankyou__icon" aria-hidden="true">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--color-amber)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3 class="thankyou__heading">Quote request sent!</h3>
+          <p class="thankyou__msg" id="thankyou-msg">We will get back to you within 4 hours (Mon-Sat, 8am-6pm EAT).</p>
+
+          <!-- Source question (after submit) -->
+          <div class="thankyou__source">
+            <p class="thankyou__source-q">One quick question: how did you hear about us?</p>
+            <div class="chip-row chip-row--wrap chip-row--center" id="source-chips">
+              {['Google search','Instagram','Facebook','Friend or family','Travel blog','TripAdvisor','Other'].map(v => (
+                <button type="button" class="chip chip--source" data-source={v}>{v}</button>
+              ))}
+            </div>
+            <p class="thankyou__source-thanks ct-step--hidden" id="source-thanks">Thanks! Enjoy your safari planning.</p>
           </div>
         </div>
 
-        <div class="form-group">
-          <label for="budget" class="form-label">Approximate Budget Per Person (USD)</label>
-          <select id="budget" name="budget" class="form-input form-select">
-            <option value="" disabled selected>Select a range</option>
-            <option value="Under $1,000">Under $1,000</option>
-            <option value="$1,000-$2,000">$1,000 to $2,000</option>
-            <option value="$2,000-$3,500">$2,000 to $3,500</option>
-            <option value="$3,500-$5,000">$3,500 to $5,000</option>
-            <option value="$5,000+">$5,000 or more</option>
-            <option value="Flexible">Flexible / Let us suggest</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="message" class="form-label">Additional Notes or Questions</label>
-          <textarea id="message" name="message" class="form-input form-textarea" rows="5" placeholder="Special requirements, physical limitations, dietary needs, or specific experiences you are hoping for..."></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="source" class="form-label">How Did You Hear About Us?</label>
-          <select id="source" name="source" class="form-input form-select">
-            <option value="" disabled selected>Select</option>
-            <option value="Google Search">Google Search</option>
-            <option value="Social Media">Social Media</option>
-            <option value="Friend / Family">Friend or Family Referral</option>
-            <option value="Travel Blog">Travel Blog or Article</option>
-            <option value="TripAdvisor">TripAdvisor</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-
-        <div class="ct-form__footer">
-          <button type="submit" class="btn ct-form__submit">
-            Send My Enquiry
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-          <p class="ct-form__note">By submitting you agree to be contacted by L'okawa Tours. We never share your details with third parties.</p>
-        </div>
       </form>
+
+      <!-- Alternative contact routes -->
+      <div class="ct-alt-routes">
+        <p class="ct-alt-routes__label">Or reach us directly</p>
+        <div class="ct-alt-routes__btns">
+          <a href="https://wa.me/256761512966?text=Hi+L%27okawa%2C+I+am+interested+in+a+safari+quote." target="_blank" rel="noopener noreferrer" id="wa-prefill" class="ct-alt-btn ct-alt-btn--wa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            Send via WhatsApp
+          </a>
+          <a href="#" id="mailto-prefill" class="ct-alt-btn ct-alt-btn--email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Send via email
+          </a>
+          <a href="tel:+256761512966" class="ct-alt-btn ct-alt-btn--call">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call +256 761 512 966
+          </a>
+        </div>
+      </div>
     </div>
 
-    <!-- SIDEBAR -->
+    <!-- ══════════════════════════════════════
+         SIDEBAR
+    ════════════════════════════════════════ -->
     <aside class="ct-sidebar">
-
-      <!-- WhatsApp card -->
-      <a href="https://wa.me/256761512966" target="_blank" rel="noopener noreferrer" class="ct-wa">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-        <div class="ct-wa__text">
-          <div class="ct-wa__title">Prefer to chat?</div>
-          <div class="ct-wa__sub">Message us on WhatsApp and we will reply fast.</div>
-        </div>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-
-      <!-- Why us -->
+      <!-- Why us card -->
       <div class="ct-card">
-        <h3 class="ct-card__heading">Why Book With Us?</h3>
+        <h3 class="ct-card__heading">Why book with us?</h3>
         <ul class="ct-why">
           {[
-            'Free personalised itinerary with no obligation',
-            'Response within 24 hours guaranteed',
+            'Free personalised itinerary, no obligation',
+            'Response within 4 hours (Mon-Sat)',
             'Local Uganda experts since 2021',
             'Gorilla permits secured immediately on deposit',
             'Private 4x4 vehicles and experienced guides',
@@ -232,7 +432,7 @@ const interests = [
           ].map(t => (
             <li class="ct-why__item">
               <span class="ct-why__check" aria-hidden="true">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#12210f" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#12210f" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
               </span>
               {t}
             </li>
@@ -240,27 +440,23 @@ const interests = [
         </ul>
       </div>
 
-      <!-- Response time -->
-      <div class="ct-response">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-        </svg>
-        <span>Average response time: <strong>under 4 hours</strong> during business hours</span>
-      </div>
-
-      <!-- Photo -->
+      <!-- Photo card -->
       <div class="ct-photo">
-        <img src="/images/wildlife/elephant-pair-greeting.jpg" alt="Two elephants on an East Africa safari with L'okawa Tours" loading="lazy" />
+        <img src="/images/gorillas/gorilla-amber-eyes-closeup.jpg" alt="Mountain gorilla close-up in Bwindi Uganda" loading="lazy"/>
         <div class="ct-photo__caption">Your adventure starts here</div>
       </div>
 
+      <!-- Response time -->
+      <div class="ct-response">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Average reply: <strong>under 4 hours</strong> Mon-Sat 8am-6pm EAT</span>
+      </div>
     </aside>
+
   </div>
 </div>
 
-<!-- ════════════════════════════════════════════════════
-     BOTTOM CTA BAND
-════════════════════════════════════════════════════ -->
+<!-- CTA band -->
 <div class="ct-cta-band">
   <div class="container ct-cta-band__inner">
     <h2 class="ct-cta-band__heading">Have questions before you enquire?</h2>
@@ -270,12 +466,13 @@ const interests = [
 
 </BaseLayout>
 
+<!-- ════════════════════════════════════════════════════
+     STYLES
+════════════════════════════════════════════════════ -->
 <style>
-/* ════════════════════════════════════════
-   BANNER
-════════════════════════════════════════ */
+/* ── Banner ──────────────────────────────────────── */
 .ct-banner {
-  position: relative; overflow: hidden; min-height: 320px;
+  position: relative; overflow: hidden; min-height: 300px;
   background: linear-gradient(180deg, #16290f 0%, #2f4d20 40%, #b8561a 82%, #f4b41a 100%);
 }
 .ct-banner::before {
@@ -284,292 +481,571 @@ const interests = [
   background-size: cover; background-position: center 45%;
   opacity: 0.22; z-index: 0;
 }
-.ct-banner__svg {
-  position: absolute; left: 0; bottom: 0;
-  width: 100%; height: 100%; pointer-events: none; z-index: 1;
-}
-.ct-banner__overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(90deg,
-    rgba(10,20,8,.82) 0%, rgba(10,20,8,.45) 55%, rgba(10,20,8,0) 85%);
-  z-index: 1;
-}
-.ct-banner__content {
-  position: relative; z-index: 2;
-  max-width: var(--max-width); margin-inline: auto;
-  padding: 70px var(--section-pad-x) 90px; box-sizing: border-box;
-}
-.ct-banner__breadcrumb {
-  font-size: 14px; font-weight: var(--weight-semibold);
-  letter-spacing: .06em; color: var(--color-cream); margin-bottom: 14px;
-}
+.ct-banner__svg { position: absolute; left: 0; bottom: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+.ct-banner__overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,20,8,.82) 0%, rgba(10,20,8,.45) 55%, rgba(10,20,8,0) 85%); z-index: 1; }
+.ct-banner__content { position: relative; z-index: 2; max-width: var(--max-width); margin-inline: auto; padding: 60px var(--section-pad-x) 80px; box-sizing: border-box; }
+.ct-banner__breadcrumb { font-size: 14px; font-weight: var(--weight-semibold); letter-spacing: .06em; color: var(--color-cream); margin-bottom: 12px; }
 .ct-banner__bc-link { color: var(--color-cream); transition: color var(--transition-fast); }
 .ct-banner__bc-link:hover { color: var(--color-gold); }
 .ct-banner__bc-cur { color: var(--color-gold); }
-.ct-banner__kicker {
-  font-family: var(--font-display); font-style: italic;
-  font-weight: 500; font-size: 22px; color: var(--color-gold);
-  margin-bottom: 6px; display: block;
-}
-.ct-banner__h1 {
-  font-family: var(--font-display); font-weight: var(--weight-bold);
-  font-size: 64px; line-height: var(--leading-tight);
-  color: var(--color-white); margin: 0 0 14px;
-}
-.ct-banner__br { display: block; }
-.ct-banner__sub {
-  font-size: var(--text-lg); color: var(--color-cream);
-  line-height: var(--leading-relaxed); max-width: 500px; opacity: .9;
-}
+.ct-banner__kicker { font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 20px; color: var(--color-gold); margin-bottom: 4px; display: block; }
+.ct-banner__h1 { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: clamp(38px, 5vw, 60px); line-height: 1.05; color: var(--color-white); margin: 0 0 12px; }
+.ct-banner__sub { font-size: var(--text-lg); color: var(--color-cream); opacity: .9; max-width: 480px; line-height: var(--leading-relaxed); }
 
-/* ════════════════════════════════════════
-   DETAILS STRIP
-════════════════════════════════════════ */
+/* ── Details strip ───────────────────────────────── */
 .ct-strip { background: var(--color-forest); }
-.ct-strip__inner {
-  display: flex; flex-wrap: wrap; gap: 0;
-  padding: 0; box-sizing: border-box;
-}
-.ct-strip__item {
-  flex: 1 1 220px; display: flex; gap: 14px; align-items: center;
-  padding: 24px 20px;
-  border-right: 1px solid rgba(243,236,216,.15);
-}
+.ct-strip__inner { display: flex; flex-wrap: wrap; max-width: var(--max-width); margin-inline: auto; }
+.ct-strip__item { flex: 1 1 200px; display: flex; gap: 12px; align-items: center; padding: 20px 18px; border-right: 1px solid rgba(243,236,216,.15); }
 .ct-strip__item:last-child { border-right: none; }
-.ct-strip__icon {
-  width: 44px; height: 44px; flex-shrink: 0;
-  border-radius: var(--radius-lg); background: rgba(244,180,26,.18);
-  display: flex; align-items: center; justify-content: center;
-}
-.ct-strip__icon svg { stroke: var(--color-gold); }
-.ct-strip__label {
-  font-size: var(--text-xs); font-weight: var(--weight-extrabold);
-  letter-spacing: var(--tracking-widest); text-transform: uppercase;
-  color: var(--color-gold); margin-bottom: 3px;
-}
-.ct-strip__value {
-  font-size: var(--text-sm); font-weight: var(--weight-semibold);
-  color: var(--color-cream); line-height: 1.4;
-}
+.ct-strip__icon { width: 38px; height: 38px; flex-shrink: 0; border-radius: var(--radius-lg); background: rgba(244,180,26,.18); display: flex; align-items: center; justify-content: center; }
+.ct-strip__label { font-size: var(--text-xs); font-weight: var(--weight-extrabold); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--color-gold); margin-bottom: 2px; }
+.ct-strip__value { font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--color-cream); line-height: 1.4; }
 .ct-strip__link { color: var(--color-cream); transition: color var(--transition-fast); }
 .ct-strip__link:hover { color: var(--color-gold); }
 
-/* ════════════════════════════════════════
-   BODY GRID
-════════════════════════════════════════ */
-.ct-body { padding: 64px 0 80px; background: var(--color-bg); }
-.ct-grid {
-  display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 48px; align-items: start;
-}
+/* ── Body ────────────────────────────────────────── */
+.ct-body { padding: 56px 0 72px; }
+.ct-grid { display: grid; grid-template-columns: 1fr 320px; gap: 40px; align-items: start; }
 
-/* ════════════════════════════════════════
-   FORM
-════════════════════════════════════════ */
-.ct-form-wrap {
-  background: var(--color-white);
-  border-radius: var(--radius-xl); overflow: hidden;
-  box-shadow: var(--shadow-card);
-}
-.ct-form-head {
-  background: var(--color-parchment);
-  padding: 32px 40px 28px;
-  border-bottom: 1px solid var(--color-card-border);
-}
-.ct-form-head__kicker {
-  font-family: var(--font-display); font-style: italic;
-  font-weight: 500; font-size: 18px; color: var(--color-amber);
-  margin-bottom: 4px; display: block;
-}
-.ct-form-head__title {
-  font-family: var(--font-display); font-weight: var(--weight-bold);
-  font-size: var(--text-3xl); color: var(--color-forest); margin-bottom: 6px;
-}
-.ct-form-head__sub {
-  font-size: var(--text-base); color: var(--color-text-muted);
-  line-height: var(--leading-relaxed);
-}
-.ct-form {
-  display: flex; flex-direction: column; gap: 20px;
-  padding: 32px 40px 40px;
-}
-.form-row { display: flex; gap: 16px; }
-.form-row--2 > .form-group { flex: 1; }
-.form-group { display: flex; flex-direction: column; gap: 6px; }
-.form-label {
-  font-size: var(--text-sm); font-weight: var(--weight-bold);
-  color: var(--color-forest); letter-spacing: .02em;
-}
+/* ── Form card ───────────────────────────────────── */
+.ct-form-wrap { background: var(--color-white); border-radius: var(--radius-xl); box-shadow: var(--shadow-card-md); overflow: hidden; }
+
+/* Form header */
+.ct-form-head { background: var(--color-parchment); padding: 28px 32px 24px; border-bottom: 1px solid var(--color-card-border); }
+.ct-form-head__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+.ct-form-head__title { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: var(--text-3xl); color: var(--color-forest); margin: 0; }
+.ct-head-wa { display: inline-flex; align-items: center; gap: 7px; background: #25D366; color: #0b2b14; border-radius: var(--radius-full); padding: 8px 16px; font-size: var(--text-sm); font-weight: var(--weight-extrabold); white-space: nowrap; transition: opacity var(--transition-fast); }
+.ct-head-wa:hover { opacity: .88; }
+
+/* Progress indicator */
+.ct-progress { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.ct-progress__steps { display: flex; align-items: center; gap: 0; flex: 1; }
+.ct-progress__step { display: flex; align-items: center; gap: 8px; }
+.ct-progress__dot { width: 10px; height: 10px; border-radius: 50%; background: var(--color-card-border); border: 2px solid var(--color-card-border); flex-shrink: 0; transition: background var(--transition-base), border-color var(--transition-base); }
+.ct-progress__step--active .ct-progress__dot { background: var(--color-amber); border-color: var(--color-amber); }
+.ct-progress__step--done .ct-progress__dot { background: var(--color-forest); border-color: var(--color-forest); }
+.ct-progress__lbl { font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--color-text-muted); }
+.ct-progress__step--active .ct-progress__lbl { color: var(--color-forest); font-weight: var(--weight-bold); }
+.ct-progress__line { flex: 1; height: 2px; background: var(--color-card-border); margin: 0 8px; }
+.ct-progress__text { font-size: var(--text-xs); font-weight: var(--weight-extrabold); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--color-amber); white-space: nowrap; }
+
+/* Form body */
+.ct-form { display: flex; flex-direction: column; }
+.ct-step { padding: 28px 32px 32px; display: flex; flex-direction: column; gap: 22px; border: none; }
+.ct-step--hidden { display: none !important; }
+.step2-optional-note { font-size: var(--text-sm); color: var(--color-text-muted); background: var(--color-parchment); border-radius: var(--radius-lg); padding: 10px 14px; }
+
+/* Form groups / inputs */
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-label { font-size: var(--text-sm); font-weight: var(--weight-bold); color: var(--color-forest); }
+.form-hint { font-weight: var(--weight-regular); color: var(--color-text-muted); }
 .form-req { color: var(--color-amber); }
 .form-input {
-  font-family: var(--font-body); font-size: var(--text-base);
-  color: var(--color-text-primary); background: var(--color-white);
-  border: 1.5px solid var(--color-card-border);
-  border-radius: var(--radius-lg); padding: 11px 14px;
-  width: 100%; transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-  outline: none; -webkit-appearance: none; appearance: none;
+  font-family: var(--font-body); font-size: var(--text-base); color: var(--color-text-primary);
+  background: var(--color-white); border: 1.5px solid var(--color-card-border);
+  border-radius: var(--radius-lg); padding: 12px 14px; width: 100%;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none; -webkit-appearance: none; appearance: none; box-sizing: border-box;
 }
-.form-input:focus {
-  border-color: var(--color-amber);
-  box-shadow: 0 0 0 3px rgba(238,138,12,.15);
-}
+.form-input:focus { border-color: var(--color-amber); box-shadow: 0 0 0 3px rgba(238,138,12,.15); }
 .form-input::placeholder { color: var(--color-text-muted); opacity: .7; }
-.form-select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235d5d55' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: right 14px center;
-  padding-right: 36px; cursor: pointer;
-}
-.form-textarea { resize: vertical; min-height: 120px; }
-.form-checks { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
-.form-check { display: flex; align-items: center; gap: 7px; cursor: pointer; }
-.form-check__input {
-  width: 16px; height: 16px;
+.form-input.is-invalid { border-color: #c0392b; }
+.form-err { font-size: var(--text-sm); color: #c0392b; min-height: 18px; }
+.form-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235d5d55' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
+.form-textarea { resize: vertical; min-height: 72px; }
+
+/* Tel wrap */
+.tel-wrap { display: flex; gap: 8px; }
+.tel-code { flex: 0 0 110px; min-width: 0; }
+.tel-number { flex: 1; }
+.contact-input-wrap { margin-top: 4px; }
+.contact-input-wrap--hidden { display: none; }
+
+/* ── Chips ───────────────────────────────────────── */
+.chip-row { display: flex; flex-wrap: nowrap; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 2px; }
+.chip-row::-webkit-scrollbar { display: none; }
+.chip-row--wrap { flex-wrap: wrap; overflow-x: visible; }
+.chip-row--sm .chip { font-size: var(--text-xs); padding: 5px 10px; }
+.chip-row--center { justify-content: center; }
+
+.chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 8px 14px; border-radius: var(--radius-full);
+  font-size: var(--text-sm); font-weight: var(--weight-semibold);
+  cursor: pointer; user-select: none; white-space: nowrap; flex-shrink: 0;
   border: 1.5px solid var(--color-card-border);
-  border-radius: 4px; accent-color: var(--color-amber);
-  cursor: pointer; flex-shrink: 0;
-}
-.form-check__label {
-  font-size: var(--text-sm); color: var(--color-text-body);
-  padding: 6px 12px; border: 1px solid var(--color-card-border);
-  border-radius: var(--radius-full); background: var(--color-parchment);
-  cursor: pointer; user-select: none;
+  background: var(--color-white); color: var(--color-text-body);
   transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
 }
-.form-check__input:checked + .form-check__label {
-  background: var(--color-forest); color: var(--color-white);
-  border-color: var(--color-forest);
-}
-.ct-form__footer {
-  display: flex; flex-direction: column; gap: 10px;
-  padding-top: 8px;
-  border-top: 1px solid var(--color-card-border);
-}
-.ct-form__submit {
-  display: inline-flex; align-items: center; gap: 10px;
-  align-self: flex-start;
+.chip:hover { border-color: var(--color-amber); color: var(--color-forest); }
+
+/* Radio chip */
+.chip--radio { position: relative; }
+.chip__radio { position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none; }
+.chip--radio:has(.chip__radio:checked),
+.chip--radio.is-selected { background: var(--color-forest); color: var(--color-white); border-color: var(--color-forest); }
+
+/* Toggle chip (checkbox) */
+.chip--toggle { position: relative; }
+.chip__check { position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none; }
+.chip--toggle:has(.chip__check:checked),
+.chip--toggle.is-selected { background: var(--color-forest); color: var(--color-white); border-color: var(--color-forest); }
+
+/* Append chip */
+.chip--append { background: var(--color-parchment); border-color: var(--color-card-border); }
+.chip--append:hover { background: var(--color-amber); color: var(--color-forest-deep); border-color: var(--color-amber); }
+
+/* Source chip (thank-you) */
+.chip--source { background: var(--color-parchment); }
+.chip--source.is-selected { background: var(--color-amber); color: var(--color-forest-deep); border-color: var(--color-amber); }
+
+/* ── Notes section ───────────────────────────────── */
+.notes-toggle { display: inline-flex; align-items: center; gap: 6px; font-size: var(--text-sm); font-weight: var(--weight-bold); color: var(--color-amber); background: none; border: none; cursor: pointer; padding: 0; transition: opacity var(--transition-fast); }
+.notes-toggle:hover { opacity: .75; }
+.notes-wrap { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+.notes-wrap--hidden { display: none; }
+.notes-field-wrap { position: relative; }
+.notes-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 4px; }
+.notes-counter { font-size: var(--text-xs); font-weight: var(--weight-bold); color: var(--color-text-muted); }
+
+/* ── Step 2 buttons ──────────────────────────────── */
+.step2-btns { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.step2-primary-btns { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.submit-note { font-size: var(--text-xs); color: var(--color-text-muted); text-align: right; }
+
+/* ── Button styles ───────────────────────────────── */
+.ct-form__cta {
+  display: inline-flex; align-items: center; gap: 8px;
   background: var(--color-forest); color: var(--color-white);
   font-weight: var(--weight-extrabold); font-size: 14px;
-  letter-spacing: var(--tracking-widest); text-transform: uppercase;
-  padding: 17px 32px; border-radius: var(--radius-md);
-  border: none; cursor: pointer;
-  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  letter-spacing: var(--tracking-wider); text-transform: uppercase;
+  padding: 16px 28px; border-radius: var(--radius-md); border: none;
+  cursor: pointer; transition: opacity var(--transition-fast), transform var(--transition-fast);
+  white-space: nowrap;
 }
-.ct-form__submit:hover { opacity: .88; transform: translateY(-1px); }
-.ct-form__note {
-  font-size: var(--text-xs); color: var(--color-text-muted);
-  line-height: var(--leading-relaxed);
-}
+.ct-form__cta:hover { opacity: .88; transform: translateY(-1px); }
+.btn--ghost { display: inline-flex; align-items: center; gap: 6px; background: none; border: 1.5px solid var(--color-card-border); color: var(--color-text-body); font-weight: var(--weight-semibold); font-size: var(--text-sm); padding: 10px 18px; border-radius: var(--radius-md); cursor: pointer; transition: border-color var(--transition-fast), color var(--transition-fast); }
+.btn--ghost:hover { border-color: var(--color-forest); color: var(--color-forest); }
+.btn--ghost-sm { display: inline-flex; align-items: center; background: none; border: none; color: var(--color-text-muted); font-size: var(--text-sm); font-weight: var(--weight-semibold); cursor: pointer; padding: 10px 6px; text-decoration: underline; transition: color var(--transition-fast); }
+.btn--ghost-sm:hover { color: var(--color-forest); }
 
-/* ════════════════════════════════════════
-   SIDEBAR
-════════════════════════════════════════ */
-.ct-sidebar {
-  display: flex; flex-direction: column; gap: 20px;
-  position: sticky; top: 100px;
-}
+/* ── Thank-you ───────────────────────────────────── */
+.ct-thankyou { padding: 40px 32px 36px; text-align: center; }
+.thankyou__icon { margin-bottom: 16px; display: flex; justify-content: center; }
+.thankyou__heading { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: var(--text-3xl); color: var(--color-forest); margin-bottom: 10px; }
+.thankyou__msg { font-size: var(--text-md); color: var(--color-text-body); margin-bottom: 28px; line-height: var(--leading-relaxed); }
+.thankyou__source { border-top: 1px solid var(--color-card-border); padding-top: 24px; }
+.thankyou__source-q { font-weight: var(--weight-bold); color: var(--color-forest); margin-bottom: 14px; font-size: var(--text-base); }
+.thankyou__source-thanks { font-size: var(--text-sm); color: var(--color-text-muted); margin-top: 14px; }
 
-/* WhatsApp */
-.ct-wa {
-  display: flex; align-items: center; gap: 14px;
-  background: #25D366; color: #0b2b14;
-  border-radius: var(--radius-xl); padding: 22px;
-  text-decoration: none;
-  transition: opacity var(--transition-fast), transform var(--transition-fast);
-}
-.ct-wa:hover { opacity: .92; transform: translateY(-2px); }
-.ct-wa__title { font-weight: var(--weight-extrabold); font-size: var(--text-base); margin-bottom: 2px; }
-.ct-wa__sub { font-size: var(--text-sm); opacity: .8; }
-.ct-wa > svg:last-child { margin-left: auto; flex-shrink: 0; }
+/* ── Alt routes ──────────────────────────────────── */
+.ct-alt-routes { padding: 20px 32px 28px; border-top: 1px solid var(--color-card-border); background: var(--color-parchment); }
+.ct-alt-routes__label { font-size: var(--text-xs); font-weight: var(--weight-extrabold); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 12px; }
+.ct-alt-routes__btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.ct-alt-btn { display: inline-flex; align-items: center; gap: 7px; padding: 10px 18px; border-radius: var(--radius-lg); font-size: var(--text-sm); font-weight: var(--weight-bold); text-decoration: none; transition: opacity var(--transition-fast), transform var(--transition-fast); }
+.ct-alt-btn:hover { opacity: .88; transform: translateY(-1px); }
+.ct-alt-btn--wa { background: #25D366; color: #0b2b14; }
+.ct-alt-btn--email { background: var(--color-white); color: var(--color-forest); border: 1.5px solid var(--color-card-border); }
+.ct-alt-btn--call { background: var(--color-white); color: var(--color-forest); border: 1.5px solid var(--color-card-border); }
 
-/* Card */
-.ct-card {
-  background: var(--color-white); border-radius: var(--radius-xl);
-  padding: 28px; box-shadow: var(--shadow-card);
-}
-.ct-card__heading {
-  font-family: var(--font-display); font-weight: var(--weight-bold);
-  font-size: var(--text-xl); color: var(--color-forest); margin-bottom: 16px;
-}
-
-/* Why list */
-.ct-why { display: flex; flex-direction: column; gap: 10px; }
-.ct-why__item {
-  display: flex; gap: 10px; align-items: flex-start;
-  font-size: var(--text-base); color: var(--color-text-body); line-height: 1.5;
-}
-.ct-why__check {
-  flex-shrink: 0; width: 22px; height: 22px; margin-top: 1px;
-  border-radius: 50%; background: var(--color-amber);
-  display: flex; align-items: center; justify-content: center;
-}
-
-/* Response badge */
-.ct-response {
-  display: flex; align-items: center; gap: 10px;
-  background: var(--color-parchment); border: 1px solid var(--color-card-border);
-  border-radius: var(--radius-lg); padding: 14px 18px;
-  font-size: var(--text-sm); color: var(--color-text-body); line-height: 1.5;
-}
+/* ── Sidebar ─────────────────────────────────────── */
+.ct-sidebar { display: flex; flex-direction: column; gap: 18px; position: sticky; top: 96px; }
+.ct-card { background: var(--color-white); border-radius: var(--radius-xl); padding: 24px; box-shadow: var(--shadow-card); }
+.ct-card__heading { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: var(--text-xl); color: var(--color-forest); margin-bottom: 14px; }
+.ct-why { display: flex; flex-direction: column; gap: 9px; }
+.ct-why__item { display: flex; gap: 9px; align-items: flex-start; font-size: var(--text-sm); color: var(--color-text-body); line-height: 1.5; }
+.ct-why__check { flex-shrink: 0; width: 20px; height: 20px; margin-top: 1px; border-radius: 50%; background: var(--color-amber); display: flex; align-items: center; justify-content: center; }
+.ct-photo { border-radius: var(--radius-xl); overflow: hidden; position: relative; box-shadow: var(--shadow-card); }
+.ct-photo img { width: 100%; height: 180px; object-fit: cover; display: block; }
+.ct-photo__caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(10,20,8,.75)); color: var(--color-cream); font-size: var(--text-sm); font-weight: var(--weight-semibold); padding: 24px 14px 12px; }
+.ct-response { display: flex; align-items: center; gap: 10px; background: var(--color-parchment); border: 1px solid var(--color-card-border); border-radius: var(--radius-lg); padding: 12px 16px; font-size: var(--text-sm); color: var(--color-text-body); }
 .ct-response strong { color: var(--color-forest); }
 
-/* Photo card */
-.ct-photo {
-  border-radius: var(--radius-xl); overflow: hidden;
-  position: relative; box-shadow: var(--shadow-card-md);
-}
-.ct-photo img {
-  width: 100%; height: 200px; object-fit: cover; display: block;
-}
-.ct-photo__caption {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(transparent, rgba(10,20,8,.75));
-  color: var(--color-cream); font-size: var(--text-sm);
-  font-weight: var(--weight-semibold); padding: 28px 16px 14px;
-}
-
-/* ════════════════════════════════════════
-   BOTTOM CTA
-════════════════════════════════════════ */
+/* ── CTA band ────────────────────────────────────── */
 .ct-cta-band { background: var(--color-forest); }
-.ct-cta-band__inner {
-  display: flex; flex-wrap: wrap; gap: 20px 32px;
-  justify-content: space-between; align-items: center;
-  padding: 54px var(--section-pad-x);
-}
-.ct-cta-band__heading {
-  font-family: var(--font-display); font-weight: var(--weight-bold);
-  font-size: var(--text-4xl); line-height: 1.1; color: var(--color-white);
-}
-.ct-cta-band__btn {
-  background: var(--color-amber); color: var(--color-forest-deep);
-  font-weight: var(--weight-extrabold); font-size: 14px;
-  letter-spacing: var(--tracking-widest); text-transform: uppercase;
-  padding: 18px 34px; border-radius: var(--radius-md);
-  white-space: nowrap; transition: opacity var(--transition-fast);
-}
+.ct-cta-band__inner { display: flex; flex-wrap: wrap; gap: 20px 32px; justify-content: space-between; align-items: center; padding: 48px var(--section-pad-x); }
+.ct-cta-band__heading { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: var(--text-4xl); line-height: 1.1; color: var(--color-white); }
+.ct-cta-band__btn { background: var(--color-amber); color: var(--color-forest-deep); font-weight: var(--weight-extrabold); font-size: 14px; letter-spacing: var(--tracking-widest); text-transform: uppercase; padding: 16px 32px; border-radius: var(--radius-md); transition: opacity var(--transition-fast); }
 .ct-cta-band__btn:hover { opacity: .88; }
 
-/* ════════════════════════════════════════
-   RESPONSIVE
-════════════════════════════════════════ */
+/* ── Responsive ──────────────────────────────────── */
 @media (max-width: 1024px) {
   .ct-grid { grid-template-columns: 1fr; }
-  .ct-sidebar { position: static; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .ct-sidebar { position: static; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 }
 @media (max-width: 768px) {
-  .ct-banner__h1 { font-size: clamp(38px, 8vw, 64px); }
-  .ct-form { padding: 24px 20px; }
-  .ct-form-head { padding: 24px 20px 20px; }
-  .form-row--2 { flex-direction: column; gap: 20px; }
+  .ct-grid { gap: 28px; }
+  .ct-step { padding: 22px 20px 26px; }
+  .ct-form-head { padding: 22px 20px 18px; }
+  .ct-alt-routes { padding: 18px 20px 22px; }
+  .ct-thankyou { padding: 32px 20px 28px; }
   .ct-sidebar { display: flex; flex-direction: column; }
   .ct-cta-band__inner { flex-direction: column; text-align: center; }
 }
 @media (max-width: 600px) {
-  .ct-banner__content { padding: 50px 24px 72px; }
-  .ct-banner__h1 { font-size: clamp(34px, 9vw, 50px); }
-  .ct-banner__br { display: none; }
+  .ct-banner__content { padding: 48px 24px 68px; }
   .ct-strip__item { border-right: none; border-bottom: 1px solid rgba(243,236,216,.15); }
-  .ct-cta-band__inner { padding: 48px 24px; }
+  .ct-cta-band__inner { padding: 40px 24px; }
+  .step2-btns { flex-direction: column; align-items: stretch; }
+  .step2-primary-btns { flex-direction: column; }
+  .ct-form__cta { justify-content: center; }
 }
 </style>
+
+<!-- ════════════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  // ── record load time for spam guard ──────────────────
+  const loadedAt = document.getElementById('loaded_at');
+  if (loadedAt) loadedAt.value = Date.now().toString();
+
+  // ── elements ─────────────────────────────────────────
+  const step1       = document.getElementById('step-1');
+  const step2       = document.getElementById('step-2');
+  const thankyou    = document.getElementById('thankyou');
+  const btnContinue = document.getElementById('btn-continue');
+  const btnBack     = document.getElementById('btn-back');
+  const form        = document.getElementById('quote-form');
+
+  // progress
+  const progText  = document.getElementById('prog-text');
+  const progStep1 = document.getElementById('prog-step-1');
+  const progStep2 = document.getElementById('prog-step-2');
+
+  // hidden value fields
+  const hidMethod   = document.getElementById('hid-contact-method');
+  const hidTravelers= document.getElementById('hid-travelers');
+  const hidInterests= document.getElementById('hid-interests');
+  const hidDuration = document.getElementById('hid-duration');
+  const hidBudget   = document.getElementById('hid-budget');
+  const hidMonth    = document.getElementById('hid-month');
+  const hidCountry  = document.getElementById('hid-country');
+
+  // contact method
+  const radioGroup  = document.getElementById('contact-method-group');
+  const inputEmail  = document.getElementById('input-email');
+  const inputTel    = document.getElementById('input-tel');
+  const emailInput  = document.getElementById('contact-email');
+  const telInput    = document.getElementById('contact-tel');
+
+  // ── Geo-detect country & smart contact default ────────
+  const whatsappCountries = ['UG','KE','TZ','RW','NG','GH','ZA','ET','CM','CI',
+    'AE','SA','QA','KW','IN','PK','BD','ID','PH','NG','MX','BR','CO','AR','PE'];
+
+  async function detectGeo() {
+    try {
+      const r = await fetch('https://ipapi.co/json/', { signal: AbortSignal.timeout(3000) });
+      const d = await r.json();
+      const cc = d.country_code || '';
+
+      // smart default: WhatsApp for certain regions
+      if (whatsappCountries.includes(cc)) {
+        const waRadio = document.querySelector('input[value="whatsapp"]');
+        if (waRadio) { waRadio.checked = true; waRadio.dispatchEvent(new Event('change', { bubbles: true })); }
+      }
+
+      // pre-select country picker
+      populateCountries(cc);
+    } catch {
+      populateCountries('');
+    }
+  }
+
+  function populateCountries(selected) {
+    const sel = document.getElementById('visitor-country');
+    if (!sel) return;
+    // Minimal country list — common safari travelers + all EA
+    const countries = [
+      ['AF','Afghanistan'],['AL','Albania'],['DZ','Algeria'],['AR','Argentina'],['AU','Australia'],
+      ['AT','Austria'],['BE','Belgium'],['BR','Brazil'],['CA','Canada'],['CN','China'],
+      ['CO','Colombia'],['HR','Croatia'],['CY','Cyprus'],['CZ','Czech Republic'],['DK','Denmark'],
+      ['EG','Egypt'],['ET','Ethiopia'],['FI','Finland'],['FR','France'],['DE','Germany'],
+      ['GH','Ghana'],['GR','Greece'],['HU','Hungary'],['IN','India'],['ID','Indonesia'],
+      ['IE','Ireland'],['IL','Israel'],['IT','Italy'],['JP','Japan'],['JO','Jordan'],
+      ['KE','Kenya'],['KW','Kuwait'],['LB','Lebanon'],['MY','Malaysia'],['MX','Mexico'],
+      ['NL','Netherlands'],['NZ','New Zealand'],['NG','Nigeria'],['NO','Norway'],['OM','Oman'],
+      ['PK','Pakistan'],['PE','Peru'],['PH','Philippines'],['PL','Poland'],['PT','Portugal'],
+      ['QA','Qatar'],['RO','Romania'],['RU','Russia'],['SA','Saudi Arabia'],['ZA','South Africa'],
+      ['ES','Spain'],['SE','Sweden'],['CH','Switzerland'],['TZ','Tanzania'],['TH','Thailand'],
+      ['UG','Uganda'],['AE','UAE'],['GB','United Kingdom'],['US','United States'],['RW','Rwanda'],
+      ['VN','Vietnam'],['ZM','Zambia'],['ZW','Zimbabwe'],['Other','Other'],
+    ];
+    sel.innerHTML = '<option value="">Select your country</option>' +
+      countries.map(([code, name]) =>
+        `<option value="${name}"${code === selected ? ' selected' : ''}>${name}</option>`
+      ).join('');
+    if (hidCountry && selected) {
+      const match = countries.find(([c]) => c === selected);
+      if (match) hidCountry.value = match[1];
+    }
+    sel.addEventListener('change', () => { if (hidCountry) hidCountry.value = sel.value; });
+  }
+
+  detectGeo();
+
+  // ── Contact method toggle ─────────────────────────────
+  function syncContactMethod() {
+    const checked = radioGroup && radioGroup.querySelector('.chip__radio:checked');
+    if (!checked) return;
+    const val = checked.value;
+    if (hidMethod) hidMethod.value = val;
+    inputEmail.classList.toggle('contact-input-wrap--hidden', val !== 'email');
+    inputTel.classList.toggle('contact-input-wrap--hidden', val === 'email');
+    // toggle required
+    if (emailInput) emailInput.required = val === 'email';
+    if (telInput)   telInput.required   = val !== 'email';
+  }
+
+  if (radioGroup) {
+    radioGroup.addEventListener('change', syncContactMethod);
+    syncContactMethod(); // init
+  }
+
+  // ── Single-select chip groups ─────────────────────────
+  document.querySelectorAll('.chip--single').forEach(input => {
+    input.addEventListener('change', function () {
+      const group = this.dataset.group;
+      document.querySelectorAll(`.chip--single[data-group="${group}"]`).forEach(c => {
+        if (c !== this) c.checked = false;
+      });
+      syncHiddenFields();
+    });
+  });
+
+  // Pre-select "Let us suggest" on budget
+  const budgetDefault = document.querySelector('.chip--preselected');
+  if (budgetDefault) { budgetDefault.checked = true; if (hidBudget) hidBudget.value = budgetDefault.value; }
+
+  // Multi-select chips
+  document.querySelectorAll('.chip__check:not(.chip--single)').forEach(input => {
+    input.addEventListener('change', syncHiddenFields);
+  });
+
+  function syncHiddenFields() {
+    if (hidTravelers) hidTravelers.value = [...document.querySelectorAll('.chip--single[data-group="travelers"]:checked')].map(c=>c.value).join('') || '';
+    if (hidInterests) hidInterests.value = [...document.querySelectorAll('.chip__check[data-group="interests"]:checked')].map(c=>c.value).join(', ') || '';
+    if (hidDuration)  hidDuration.value  = [...document.querySelectorAll('.chip--single[data-group="duration"]:checked')].map(c=>c.value).join('') || '';
+    if (hidBudget)    hidBudget.value    = [...document.querySelectorAll('.chip--single[data-group="budget"]:checked')].map(c=>c.value).join('') || 'Let us suggest';
+  }
+
+  // ── Month picker sync ─────────────────────────────────
+  const monthInput = document.getElementById('travel-month');
+  if (monthInput) {
+    // set min to current month
+    const now = new Date();
+    monthInput.min = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
+    monthInput.addEventListener('change', () => {
+      if (hidMonth) hidMonth.value = monthInput.value;
+    });
+  }
+
+  // ── Step navigation ───────────────────────────────────
+  function validateStep1() {
+    let ok = true;
+    const nameInput = document.getElementById('full-name');
+    const nameErr   = document.getElementById('name-err');
+    const contactErr = document.getElementById('contact-err');
+    const method = hidMethod ? hidMethod.value : 'email';
+
+    // Name
+    if (!nameInput || !nameInput.value.trim()) {
+      if (nameErr) nameErr.textContent = 'Please enter your name.';
+      if (nameInput) nameInput.classList.add('is-invalid');
+      ok = false;
+    } else {
+      if (nameErr) nameErr.textContent = '';
+      if (nameInput) nameInput.classList.remove('is-invalid');
+    }
+
+    // Contact
+    if (method === 'email') {
+      if (!emailInput || !emailInput.value.trim() || !emailInput.value.includes('@')) {
+        if (contactErr) contactErr.textContent = 'Please enter a valid email address.';
+        if (emailInput) emailInput.classList.add('is-invalid');
+        ok = false;
+      } else {
+        if (contactErr) contactErr.textContent = '';
+        if (emailInput) emailInput.classList.remove('is-invalid');
+      }
+    } else {
+      if (!telInput || !telInput.value.trim()) {
+        if (contactErr) contactErr.textContent = 'Please enter your phone number.';
+        if (telInput) telInput.classList.add('is-invalid');
+        ok = false;
+      } else {
+        if (contactErr) contactErr.textContent = '';
+        if (telInput) telInput.classList.remove('is-invalid');
+      }
+    }
+    return ok;
+  }
+
+  if (btnContinue) {
+    btnContinue.addEventListener('click', () => {
+      if (!validateStep1()) return;
+      syncHiddenFields();
+      step1.classList.add('ct-step--hidden');
+      step2.classList.remove('ct-step--hidden');
+      // progress
+      if (progText)  progText.textContent = 'Step 2 of 2';
+      if (progStep1) { progStep1.classList.remove('ct-progress__step--active'); progStep1.classList.add('ct-progress__step--done'); }
+      if (progStep2) progStep2.classList.add('ct-progress__step--active');
+      // scroll to top of form
+      document.getElementById('quote-form').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  }
+
+  if (btnBack) {
+    btnBack.addEventListener('click', () => {
+      step2.classList.add('ct-step--hidden');
+      step1.classList.remove('ct-step--hidden');
+      if (progText)  progText.textContent = 'Step 1 of 2';
+      if (progStep1) { progStep1.classList.add('ct-progress__step--active'); progStep1.classList.remove('ct-progress__step--done'); }
+      if (progStep2) progStep2.classList.remove('ct-progress__step--active');
+    });
+  }
+
+  // ── Notes toggle ──────────────────────────────────────
+  const btnShowNotes = document.getElementById('btn-show-notes');
+  const notesWrap    = document.getElementById('notes-wrap');
+  if (btnShowNotes && notesWrap) {
+    btnShowNotes.addEventListener('click', () => {
+      notesWrap.classList.toggle('notes-wrap--hidden');
+      btnShowNotes.innerHTML = notesWrap.classList.contains('notes-wrap--hidden')
+        ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add a note (optional)'
+        : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg> Hide note';
+    });
+  }
+
+  // ── Append chips ──────────────────────────────────────
+  const textarea = document.getElementById('notes');
+  document.querySelectorAll('.chip--append').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (!textarea) return;
+      const add = btn.dataset.append;
+      const cur = textarea.value.trim();
+      textarea.value = cur ? cur + ', ' + add : add;
+      textarea.dispatchEvent(new Event('input'));
+    });
+  });
+
+  // ── Notes counter ─────────────────────────────────────
+  const notesCounter = document.getElementById('notes-counter');
+  if (textarea && notesCounter) {
+    textarea.addEventListener('input', () => {
+      const left = 300 - textarea.value.length;
+      notesCounter.textContent = left.toString();
+      notesCounter.style.color = left < 30 ? '#c0392b' : '';
+    });
+  }
+
+  // ── Form submission ───────────────────────────────────
+  if (form) {
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      // Spam: minimum time (2 seconds)
+      const loaded = parseInt(document.getElementById('loaded_at')?.value || '0');
+      if (Date.now() - loaded < 2000) return;
+
+      // Honeypot
+      const bot = form.querySelector('[name="bot_field"]');
+      if (bot && bot.value) return;
+
+      syncHiddenFields();
+
+      // Build WhatsApp / mailto prefills from current state
+      updateAltRoutes();
+
+      const data = new FormData(form);
+      const submitBtn = document.getElementById('btn-submit');
+      const skipBtn   = document.getElementById('btn-skip');
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
+      if (skipBtn)   skipBtn.disabled = true;
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+        const json = await res.json();
+
+        // Show thank-you regardless (fail gracefully if key not set)
+        step2.classList.add('ct-step--hidden');
+        thankyou.classList.remove('ct-step--hidden');
+
+        // Personalise thank-you message
+        const method = hidMethod ? hidMethod.value : 'email';
+        const msgEl  = document.getElementById('thankyou-msg');
+        if (msgEl) {
+          msgEl.textContent = method === 'email'
+            ? 'We will email you within 4 hours (Mon-Sat, 8am-6pm EAT).'
+            : method === 'whatsapp'
+            ? 'We will message you on WhatsApp within 4 hours (Mon-Sat, 8am-6pm EAT).'
+            : 'We will call you back within 4 hours (Mon-Sat, 8am-6pm EAT).';
+        }
+      } catch {
+        // On network error, show thank-you anyway (data already sent or fail-silent)
+        step2.classList.add('ct-step--hidden');
+        thankyou.classList.remove('ct-step--hidden');
+      }
+    });
+  }
+
+  // ── Source chips (thank-you) ──────────────────────────
+  document.querySelectorAll('.chip--source').forEach(btn => {
+    btn.addEventListener('click', async function () {
+      document.querySelectorAll('.chip--source').forEach(c => c.classList.remove('is-selected'));
+      this.classList.add('is-selected');
+      const thanks = document.getElementById('source-thanks');
+      if (thanks) thanks.classList.remove('ct-step--hidden');
+      // send source as follow-up (fire and forget)
+      try {
+        const fd = new FormData();
+        fd.append('access_key', document.querySelector('[name="access_key"]')?.value || '');
+        fd.append('subject', 'Safari Quote — Source Tracking');
+        fd.append('from_name', 'L\'okawa Website');
+        fd.append('name', document.getElementById('full-name')?.value || 'Anonymous');
+        fd.append('source', this.dataset.source);
+        await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd });
+      } catch {}
+    });
+  });
+
+  // ── Build alt-route links from chips ──────────────────
+  function buildSummary() {
+    const name      = document.getElementById('full-name')?.value || '';
+    const interests = [...document.querySelectorAll('.chip__check[data-group="interests"]:checked')].map(c=>c.value).join(', ') || 'a safari';
+    const travelers = [...document.querySelectorAll('.chip--single[data-group="travelers"]:checked')].map(c=>c.value).join('') || '';
+    const budget    = [...document.querySelectorAll('.chip--single[data-group="budget"]:checked')].map(c=>c.value).join('') || '';
+    const month     = document.getElementById('travel-month')?.value
+                        ? new Date(document.getElementById('travel-month').value + '-01').toLocaleString('default',{month:'long',year:'numeric'})
+                        : '';
+
+    let body = `Hi L'okawa, I'm ${name || 'interested in a safari'}.\n`;
+    if (interests) body += `I'm interested in: ${interests}.\n`;
+    if (travelers) body += `Travelers: ${travelers}.\n`;
+    if (month)     body += `Month of travel: ${month}.\n`;
+    if (budget)    body += `Budget per person: ${budget}.\n`;
+    body += '\nPlease send me a free quote. Thank you.';
+    return body;
+  }
+
+  function updateAltRoutes() {
+    const summary  = buildSummary();
+    const encoded  = encodeURIComponent(summary);
+    const waBtn    = document.getElementById('wa-prefill');
+    const mailBtn  = document.getElementById('mailto-prefill');
+    if (waBtn)   waBtn.href   = `https://wa.me/256761512966?text=${encoded}`;
+    if (mailBtn) mailBtn.href = `mailto:lokawatoursandtravelultd@gmail.com?subject=${encodeURIComponent("Safari Quote Request")}&body=${encoded}`;
+  }
+
+  // Update alt routes whenever chips change
+  document.querySelectorAll('.chip__radio,.chip__check,.chip--append').forEach(el => {
+    el.addEventListener('change', updateAltRoutes);
+    el.addEventListener('click',  updateAltRoutes);
+  });
+  document.getElementById('travel-month')?.addEventListener('change', updateAltRoutes);
+  updateAltRoutes(); // init
+
+})();
+</script>
