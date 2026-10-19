@@ -513,7 +513,7 @@ const contactDetails = [
 /* Form header */
 .ct-form-head { background: var(--color-parchment); padding: 28px 32px 24px; border-bottom: 1px solid var(--color-card-border); }
 .ct-form-head__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
-.ct-form-head__title { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: var(--text-3xl); color: var(--color-forest); margin: 0; }
+.ct-form-head__title { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: var(--text-4xl); line-height: var(--leading-snug); color: var(--color-forest); margin: 0; }
 .ct-head-wa { display: inline-flex; align-items: center; gap: 7px; background: #25D366; color: #0b2b14; border-radius: var(--radius-full); padding: 8px 16px; font-size: var(--text-sm); font-weight: var(--weight-extrabold); white-space: nowrap; transition: opacity var(--transition-fast); }
 .ct-head-wa:hover { opacity: .88; }
 
@@ -533,12 +533,12 @@ const contactDetails = [
 .ct-form { display: flex; flex-direction: column; }
 .ct-step { padding: 28px 32px 32px; display: flex; flex-direction: column; gap: 22px; border: none; }
 .ct-step--hidden { display: none !important; }
-.step2-optional-note { font-size: var(--text-sm); color: var(--color-text-muted); background: var(--color-parchment); border-radius: var(--radius-lg); padding: 10px 14px; }
+.step2-optional-note { font-family: var(--font-body); font-size: var(--text-sm); color: var(--color-text-muted); background: var(--color-parchment); border-radius: var(--radius-lg); padding: 10px 14px; }
 
 /* Form groups / inputs */
 .form-group { display: flex; flex-direction: column; gap: 8px; }
-.form-label { font-size: var(--text-sm); font-weight: var(--weight-bold); color: var(--color-forest); }
-.form-hint { font-weight: var(--weight-regular); color: var(--color-text-muted); }
+.form-label { font-family: var(--font-body); font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--color-forest); letter-spacing: .01em; }
+.form-hint { font-family: var(--font-body); font-size: var(--text-sm); font-weight: var(--weight-regular); color: var(--color-text-muted); }
 .form-req { color: var(--color-amber); }
 .form-input {
   font-family: var(--font-body); font-size: var(--text-base); color: var(--color-text-primary);
@@ -571,7 +571,7 @@ const contactDetails = [
 .chip {
   display: inline-flex; align-items: center; gap: 5px;
   padding: 8px 14px; border-radius: var(--radius-full);
-  font-size: var(--text-sm); font-weight: var(--weight-semibold);
+  font-family: var(--font-body); font-size: var(--text-sm); font-weight: var(--weight-semibold);
   cursor: pointer; user-select: none; white-space: nowrap; flex-shrink: 0;
   border: 1.5px solid var(--color-card-border);
   background: var(--color-white); color: var(--color-text-body);
@@ -600,7 +600,7 @@ const contactDetails = [
 .chip--source.is-selected { background: var(--color-amber); color: var(--color-forest-deep); border-color: var(--color-amber); }
 
 /* ── Notes section ───────────────────────────────── */
-.notes-toggle { display: inline-flex; align-items: center; gap: 6px; font-size: var(--text-sm); font-weight: var(--weight-bold); color: var(--color-amber); background: none; border: none; cursor: pointer; padding: 0; transition: opacity var(--transition-fast); }
+.notes-toggle { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-body); font-size: var(--text-sm); font-weight: var(--weight-bold); color: var(--color-amber); background: none; border: none; cursor: pointer; padding: 0; transition: opacity var(--transition-fast); }
 .notes-toggle:hover { opacity: .75; }
 .notes-wrap { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
 .notes-wrap--hidden { display: none; }
@@ -616,8 +616,8 @@ const contactDetails = [
 /* ── Button styles ───────────────────────────────── */
 .ct-form__cta {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--color-forest); color: var(--color-white);
-  font-weight: var(--weight-extrabold); font-size: 14px;
+  background: var(--color-amber); color: var(--color-forest-deep);
+  font-family: var(--font-body); font-weight: var(--weight-extrabold); font-size: var(--text-sm);
   letter-spacing: var(--tracking-wider); text-transform: uppercase;
   padding: 16px 28px; border-radius: var(--radius-md); border: none;
   cursor: pointer; transition: opacity var(--transition-fast), transform var(--transition-fast);
@@ -653,7 +653,7 @@ const contactDetails = [
 .ct-card { background: var(--color-white); border-radius: var(--radius-xl); padding: 24px; box-shadow: var(--shadow-card); }
 .ct-card__heading { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: var(--text-xl); color: var(--color-forest); margin-bottom: 14px; }
 .ct-why { display: flex; flex-direction: column; gap: 9px; }
-.ct-why__item { display: flex; gap: 9px; align-items: flex-start; font-size: var(--text-sm); color: var(--color-text-body); line-height: 1.5; }
+.ct-why__item { display: flex; gap: 9px; align-items: flex-start; font-family: var(--font-body); font-size: var(--text-base); color: var(--color-text-body); line-height: 1.55; }
 .ct-why__check { flex-shrink: 0; width: 20px; height: 20px; margin-top: 1px; border-radius: 50%; background: var(--color-amber); display: flex; align-items: center; justify-content: center; }
 .ct-photo { border-radius: var(--radius-xl); overflow: hidden; position: relative; box-shadow: var(--shadow-card); }
 .ct-photo img { width: 100%; height: 180px; object-fit: cover; display: block; }

@@ -239,7 +239,7 @@
 
   display: flex;
   align-items: center;
-  gap: 0;
+  gap: 10px;
   overflow: hidden;
 
   background: #25D366;
@@ -248,25 +248,17 @@
   box-shadow: 0 4px 18px rgba(0, 0, 0, .25);
   text-decoration: none;
 
-  /* Start as icon-only circle */
-  width: 56px;
-  height: 56px;
-  padding: 0 14px;
-  justify-content: center;
+  /* Always show icon + label */
+  width: auto;
+  height: 52px;
+  padding: 0 20px 0 14px;
 
-  transition:
-    width 280ms cubic-bezier(.4,0,.2,1),
-    padding 280ms cubic-bezier(.4,0,.2,1),
-    box-shadow 180ms ease;
+  transition: box-shadow 180ms ease, transform 180ms ease;
 }
 
 .wa-float:hover {
-  /* Expand to show label */
-  width: 210px;
-  padding: 0 20px 0 16px;
-  justify-content: flex-start;
-  gap: 10px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, .32);
+  transform: translateY(-2px);
 }
 
 .wa-float__icon {
@@ -279,47 +271,12 @@
   font-weight: var(--weight-extrabold);
   font-size: var(--text-sm);
   white-space: nowrap;
-  /* Hidden until hover expands the button */
-  opacity: 0;
-  transform: translateX(-6px);
-  transition: opacity 200ms ease 60ms, transform 200ms ease 60ms;
-  pointer-events: none;
-}
-
-.wa-float:hover .wa-float__label {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* On mobile: always show label, no expand animation needed */
-@media (max-width: 600px) {
-  .wa-float {
-    bottom: 16px;
-    right: 16px;
-    width: auto;
-    padding: 0 18px 0 14px;
-    gap: 8px;
-    justify-content: flex-start;
-    /* always expanded */
-    transition: box-shadow 180ms ease;
-  }
-  .wa-float__label {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-  .wa-float:hover {
-    width: auto;
-    padding: 0 18px 0 14px;
-  }
 }
 
 /* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
-  .wa-float,
-  .wa-float__label { transition: none; }
-  .wa-float:hover { width: auto; padding: 0 18px 0 14px; gap: 8px; justify-content: flex-start; }
-  .wa-float:hover .wa-float__label { opacity: 1; transform: none; }
+  .wa-float { transition: none; }
+  .wa-float:hover { transform: none; }
 }
 
 /* ── Responsive ──────────────────────────────────── */
