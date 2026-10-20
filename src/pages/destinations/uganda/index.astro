@@ -1,12 +1,12 @@
-﻿---
+---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CtaBand from '../../../components/CtaBand.astro';
 
-// ══════════════════════════════════════════════════════════════
-//  COUNTRY DATA — Uganda
+// --------------------------------------------------------------
+//  COUNTRY DATA � Uganda
 //  Duplicate this file for Kenya / Tanzania / Rwanda,
 //  swap every value below, update the import depth if needed.
-// ══════════════════════════════════════════════════════════════
+// --------------------------------------------------------------
 
 const country = {
   name:        'Uganda',
@@ -17,24 +17,24 @@ const country = {
   heroImgAlt:  'Silverback mountain gorilla family in Bwindi Impenetrable National Park Uganda',
   intro: [
     'Uganda is Africa\'s most biodiverse safari destination, packing gorilla trekking, chimpanzee tracking, Big Five game drives and world-class birding into a country smaller than the United Kingdom. More than half the world\'s remaining mountain gorillas live in Uganda\'s Bwindi Impenetrable and Mgahinga National Parks.',
-    'Known as the Pearl of Africa — a title coined by Winston Churchill — Uganda rewards visitors with dramatic landscapes from the rainforests of Bwindi to the thundering Nile at Murchison Falls and the papyrus wetlands along Lake Victoria. Over 1,066 bird species have been recorded here, more than in all of North America.',
+    'Known as the Pearl of Africa � a title coined by Winston Churchill � Uganda rewards visitors with dramatic landscapes from the rainforests of Bwindi to the thundering Nile at Murchison Falls and the papyrus wetlands along Lake Victoria. Over 1,066 bird species have been recorded here, more than in all of North America.',
     'L\'okawa Tours is a Uganda-based operator with intimate on-the-ground knowledge of every park, sector and lodge in the country. We secure gorilla and chimpanzee permits directly and build itineraries around your dates, budget and the wildlife you most want to encounter.',
   ],
 };
 
-// ── Quick facts ───────────────────────────────────────────────
+// -- Quick facts -----------------------------------------------
 const facts = [
   { label: 'Capital',      value: 'Kampala' },
   { label: 'Currency',     value: 'UGX (USD accepted)' },
   { label: 'Language',     value: 'English, Swahili' },
   { label: 'Timezone',     value: 'EAT (UTC+3)' },
   { label: 'Gorilla permit', value: 'USD 800 / person' },
-  { label: 'Best months',  value: 'Jun–Sep, Dec–Feb' },
+  { label: 'Best months',  value: 'Jun�Sep, Dec�Feb' },
   { label: 'Visa',         value: 'e-Visa online, USD 50' },
   { label: 'Flights to',   value: 'Entebbe (EBB)' },
 ];
 
-// ── National parks ────────────────────────────────────────────
+// -- National parks --------------------------------------------
 const parks = [
   {
     name:    'Bwindi Impenetrable National Park',
@@ -69,7 +69,7 @@ const parks = [
     img:     '/images/primates/chimpanzees-pair-feeding.jpg',
     imgAlt:  'Wild chimpanzees feeding in Kibale Forest National Park Uganda primate safari',
     tag:     'Chimp Trekking',
-    teaser:  'Africa\'s primate capital — over 1,500 wild chimpanzees in habituated communities.',
+    teaser:  'Africa\'s primate capital � over 1,500 wild chimpanzees in habituated communities.',
     permit:  'USD 200',
   },
   {
@@ -102,15 +102,15 @@ const parks = [
   {
     name:    'Rwenzori Mountains',
     slug:    'rwenzori-mountains',
-    img:     '/images/activities/woman-at-murchison-falls.jpg',
-    imgAlt:  'Hikers climbing the Rwenzori Mountains glacier Uganda Mountains of the Moon',
+    img:     '/images/activities/lady-ziplining-jinja.jpg',
+    imgAlt:  'Outdoor adventure activity near the Rwenzori Mountains Uganda',
     tag:     'Hiking',
     teaser:  'The Mountains of the Moon. Glaciers, unique afro-alpine flora and Margherita Peak.',
     permit:  'USD 40 / day',
   },
 ];
 
-// ── Tours in Uganda ───────────────────────────────────────────
+// -- Tours in Uganda -------------------------------------------
 const tours = [
   { title:'3 Days Uganda Gorilla Safari',            slug:'3-days-uganda-gorilla-safari',            days:3,  price:'From $1,400', img:'/images/gorillas/gorilla-amber-eyes-closeup.jpg',   imgAlt:'Mountain gorilla with amber eyes Bwindi Uganda' },
   { title:'5 Days Uganda Primates Safari',           slug:'5-days-uganda-primates-safari',           days:5,  price:'From $2,100', img:'/images/primates/chimpanzees-pair-feeding.jpg',     imgAlt:'Chimpanzees feeding Kibale Forest Uganda' },
@@ -120,10 +120,10 @@ const tours = [
   { title:'9 Days Uganda Grand Safari',              slug:'9-days-uganda-safari',                    days:9,  price:'From $3,200', img:'/images/wildlife/elephant-pair-greeting.jpg',       imgAlt:'Elephants greeting Uganda wildlife safari' },
 ];
 
-// ── Best time grid ────────────────────────────────────────────
+// -- Best time grid --------------------------------------------
 const months = [
   { name:'Jan', rating:3, note:'Short rains ending' },
-  { name:'Feb', rating:5, note:'Dry — excellent' },
+  { name:'Feb', rating:5, note:'Dry � excellent' },
   { name:'Mar', rating:2, note:'Long rains begin' },
   { name:'Apr', rating:1, note:'Heavy rain' },
   { name:'May', rating:1, note:'Wettest month' },
@@ -136,15 +136,15 @@ const months = [
   { name:'Dec', rating:4, note:'Dry season returns' },
 ];
 
-// ── Travel essentials ─────────────────────────────────────────
+// -- Travel essentials -----------------------------------------
 const essentials = [
   { icon:'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z M12 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4', title:'Visa', text:'Apply online at the Uganda e-Visa portal before travel. USD 50 for single entry (90 days). East Africa Tourist Visa (USD 100) covers Uganda, Kenya and Rwanda.',  link:'/plan/uganda-visa/' },
   { icon:'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',                                       title:'Safety', text:'Uganda is one of the safest countries in East Africa for tourists. Parks are well-patrolled by Uganda Wildlife Authority rangers.', link:'/plan/is-uganda-safe/' },
-  { icon:'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 0 0 1.946-.806 3.42 3.42 0 0 1 4.438 0 3.42 3.42 0 0 0 1.946.806 3.42 3.42 0 0 1 3.138 3.138 3.42 3.42 0 0 0 .806 1.946 3.42 3.42 0 0 1 0 4.438 3.42 3.42 0 0 0-.806 1.946 3.42 3.42 0 0 1-3.138 3.138 3.42 3.42 0 0 0-1.946.806 3.42 3.42 0 0 1-4.438 0 3.42 3.42 0 0 0-1.946-.806 3.42 3.42 0 0 1-3.138-3.138 3.42 3.42 0 0 0-.806-1.946 3.42 3.42 0 0 1 0-4.438 3.42 3.42 0 0 0 .806-1.946 3.42 3.42 0 0 1 3.138-3.138z', title:'Health', text:'Yellow Fever vaccination is mandatory. Malaria prophylaxis strongly recommended. Consult your GP 4–6 weeks before travel.', link:'/plan/uganda-travel-tips/' },
+  { icon:'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 0 0 1.946-.806 3.42 3.42 0 0 1 4.438 0 3.42 3.42 0 0 0 1.946.806 3.42 3.42 0 0 1 3.138 3.138 3.42 3.42 0 0 0 .806 1.946 3.42 3.42 0 0 1 0 4.438 3.42 3.42 0 0 0-.806 1.946 3.42 3.42 0 0 1-3.138 3.138 3.42 3.42 0 0 0-1.946.806 3.42 3.42 0 0 1-4.438 0 3.42 3.42 0 0 0-1.946-.806 3.42 3.42 0 0 1-3.138-3.138 3.42 3.42 0 0 0-.806-1.946 3.42 3.42 0 0 1 0-4.438 3.42 3.42 0 0 0 .806-1.946 3.42 3.42 0 0 1 3.138-3.138z', title:'Health', text:'Yellow Fever vaccination is mandatory. Malaria prophylaxis strongly recommended. Consult your GP 4�6 weeks before travel.', link:'/plan/uganda-travel-tips/' },
   { icon:'M20 6h-2.18c.07-.44.18-.88.18-1 0-2.21-1.79-4-4-4s-4 1.79-4 4c0 .12.11.56.18 1H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 13l-4-4 1.41-1.41L14 13.17l5.59-5.59L21 9l-7 7z', title:'What to Pack', text:'Long-sleeved neutral clothing, waterproof hiking boots, rain jacket, garden gloves and a walking stick for gorilla trekking.', link:'/plan/gorilla-trekking-packing-list/' },
 ];
 
-// ── FAQ ───────────────────────────────────────────────────────
+// -- FAQ -------------------------------------------------------
 const faqs = [
   { q:'How much does a Uganda gorilla trekking permit cost?',       a:'A Uganda gorilla trekking permit costs USD 800 per person for foreign non-residents. During the low season months of April, May and November it is discounted to USD 600.' },
   { q:'What is the best time to visit Uganda for a safari?',        a:'The best times are the two dry seasons: June to September and December to February. Gorilla trekking is possible year-round, but trails are drier and easier during these months.' },
@@ -153,7 +153,7 @@ const faqs = [
   { q:'Do I need a visa to visit Uganda?',                          a:'Most nationalities need a visa, available online via the Uganda e-Visa portal. The standard tourist visa costs USD 50. The East Africa Tourist Visa (USD 100) covers Uganda, Kenya and Rwanda.' },
 ];
 
-// ── JSON-LD ───────────────────────────────────────────────────
+// -- JSON-LD ---------------------------------------------------
 const schema = JSON.stringify({
   "@context": "https://schema.org",
   "@graph": [
@@ -196,9 +196,9 @@ const schema = JSON.stringify({
   schema={schema}
 >
 
-<!-- ════════════════════════════════════════════════════
+<!-- ----------------------------------------------------
      BANNER
-════════════════════════════════════════════════════ -->
+---------------------------------------------------- -->
 <div class="cp-banner">
   <div class="cp-banner__photo" aria-hidden="true" style={`background-image:url('${country.heroImg}')`}></div>
   <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" class="cp-banner__svg" aria-hidden="true">
@@ -218,13 +218,13 @@ const schema = JSON.stringify({
     </nav>
     <p class="cp-banner__kicker">{country.tagline}</p>
     <h1 class="cp-banner__h1">{country.name} Safaris</h1>
-    <p class="cp-banner__sub">Gorilla trekking, chimpanzee tracking, game drives and more — expertly guided from Kampala.</p>
+    <p class="cp-banner__sub">Gorilla trekking, chimpanzee tracking, game drives and more � expertly guided from Kampala.</p>
   </div>
 </div>
 
-<!-- ════════════════════════════════════════════════════
+<!-- ----------------------------------------------------
      QUICK FACTS STRIP
-════════════════════════════════════════════════════ -->
+---------------------------------------------------- -->
 <div class="cp-facts" aria-label="Uganda quick facts">
   <div class="container cp-facts__inner">
     {facts.map(f => (
@@ -236,9 +236,9 @@ const schema = JSON.stringify({
   </div>
 </div>
 
-<!-- ════════════════════════════════════════════════════
+<!-- ----------------------------------------------------
      INTRO
-════════════════════════════════════════════════════ -->
+---------------------------------------------------- -->
 <section class="cp-intro section">
   <div class="container cp-intro__grid">
     <div class="cp-intro__text">
@@ -267,9 +267,9 @@ const schema = JSON.stringify({
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════════
+<!-- ----------------------------------------------------
      NATIONAL PARKS
-════════════════════════════════════════════════════ -->
+---------------------------------------------------- -->
 <section id="parks" class="cp-parks section--parchment" aria-labelledby="parks-heading">
   <div class="container">
     <div class="section-heading">
@@ -300,9 +300,9 @@ const schema = JSON.stringify({
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════════
+<!-- ----------------------------------------------------
      TOURS IN UGANDA
-════════════════════════════════════════════════════ -->
+---------------------------------------------------- -->
 <section class="cp-tours section" aria-labelledby="tours-heading">
   <div class="container">
     <div class="section-heading">
@@ -335,9 +335,9 @@ const schema = JSON.stringify({
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════════
+<!-- ----------------------------------------------------
      BEST TIME TO VISIT
-════════════════════════════════════════════════════ -->
+---------------------------------------------------- -->
 <section class="cp-besttime section--parchment" aria-labelledby="besttime-heading">
   <div class="container">
     <div class="section-heading">
@@ -359,15 +359,15 @@ const schema = JSON.stringify({
       ))}
     </div>
     <p class="cp-besttime__note">
-      <strong>Gorilla trekking is possible year-round.</strong> Dry seasons (Jun–Sep and Dec–Feb) offer easier trails and better forest visibility. Low-season permits (Apr, May, Nov) are discounted to USD 600.
+      <strong>Gorilla trekking is possible year-round.</strong> Dry seasons (Jun�Sep and Dec�Feb) offer easier trails and better forest visibility. Low-season permits (Apr, May, Nov) are discounted to USD 600.
       <a href="/plan/best-time-to-visit-uganda/" class="cp-besttime__link">Full best-time guide &rarr;</a>
     </p>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════════
+<!-- ----------------------------------------------------
      TRAVEL ESSENTIALS
-════════════════════════════════════════════════════ -->
+---------------------------------------------------- -->
 <section class="cp-essentials section" aria-labelledby="essentials-heading">
   <div class="container">
     <div class="section-heading">
@@ -390,9 +390,9 @@ const schema = JSON.stringify({
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════════
+<!-- ----------------------------------------------------
      FAQ
-════════════════════════════════════════════════════ -->
+---------------------------------------------------- -->
 <section class="cp-faq section--parchment" aria-labelledby="faq-heading">
   <div class="container cp-faq__inner">
     <div class="cp-faq__intro">
@@ -428,7 +428,7 @@ const schema = JSON.stringify({
 </BaseLayout>
 
 <style>
-/* ── Banner ──────────────────────────────────────── */
+/* -- Banner ---------------------------------------- */
 .cp-banner { position:relative; overflow:hidden; min-height:300px; background:linear-gradient(180deg,#16290f 0%,#2f4d20 40%,#b8561a 82%,#f4b41a 100%); }
 .cp-banner__photo { position:absolute; inset:0; background-size:cover; background-position:center 35%; opacity:.25; z-index:0; }
 .cp-banner__svg    { position:absolute; left:0; bottom:0; width:100%; height:100%; pointer-events:none; z-index:1; }
@@ -438,14 +438,14 @@ const schema = JSON.stringify({
 .cp-banner__h1     { font-family:var(--font-display); font-weight:var(--weight-bold); font-size:clamp(38px,5vw,60px); line-height:1.05; color:var(--color-white); margin:0 0 12px; }
 .cp-banner__sub    { font-size:var(--text-lg); color:var(--color-cream); opacity:.9; max-width:480px; line-height:var(--leading-relaxed); }
 
-/* ── Breadcrumb ──────────────────────────────────── */
+/* -- Breadcrumb ------------------------------------ */
 .breadcrumb { display:flex; align-items:center; gap:8px; font-size:var(--text-sm); font-weight:var(--weight-semibold); color:var(--color-cream); margin-bottom:14px; }
 .breadcrumb__link { color:var(--color-cream); transition:color var(--transition-fast); }
 .breadcrumb__link:hover { color:var(--color-gold); }
 .breadcrumb__sep  { opacity:.4; }
 .breadcrumb__cur  { color:var(--color-gold); }
 
-/* ── Quick facts strip ───────────────────────────── */
+/* -- Quick facts strip ----------------------------- */
 .cp-facts { background:var(--color-forest); }
 .cp-facts__inner { display:flex; flex-wrap:wrap; max-width:var(--max-width); margin-inline:auto; padding:0; }
 .cp-fact { flex:1 1 140px; display:flex; flex-direction:column; gap:3px; padding:18px 16px; border-right:1px solid rgba(243,236,216,.15); }
@@ -453,7 +453,7 @@ const schema = JSON.stringify({
 .cp-fact__label { font-size:var(--text-xs); font-weight:var(--weight-extrabold); letter-spacing:var(--tracking-widest); text-transform:uppercase; color:var(--color-gold); }
 .cp-fact__value { font-size:var(--text-sm); font-weight:var(--weight-semibold); color:var(--color-cream); line-height:1.4; }
 
-/* ── Intro ───────────────────────────────────────── */
+/* -- Intro ----------------------------------------- */
 .cp-intro__grid { display:grid; grid-template-columns:1fr 300px; gap:48px; align-items:start; }
 .cp-intro__heading { font-family:var(--font-display); font-weight:var(--weight-bold); font-size:var(--text-5xl); line-height:var(--leading-snug); text-transform:uppercase; color:var(--color-text-primary); margin:8px 0 20px; }
 .cp-intro__p { margin-bottom:16px; }
@@ -464,7 +464,7 @@ const schema = JSON.stringify({
 .cp-sidebar-wa { display:flex; align-items:center; justify-content:center; gap:8px; background:#25D366; color:#0b2b14; border-radius:var(--radius-lg); padding:10px; font-size:var(--text-sm); font-weight:var(--weight-extrabold); transition:opacity var(--transition-fast); }
 .cp-sidebar-wa:hover { opacity:.88; }
 
-/* ── Parks grid ──────────────────────────────────── */
+/* -- Parks grid ------------------------------------ */
 .cp-parks { padding-block:var(--section-pad-y); }
 .parks-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:24px; }
 .park-card { background:var(--color-white); border-radius:var(--radius-lg); box-shadow:var(--shadow-card); overflow:hidden; display:flex; flex-direction:column; text-decoration:none; color:inherit; transition:transform var(--transition-base),box-shadow var(--transition-base); }
@@ -479,7 +479,7 @@ const schema = JSON.stringify({
 .park-card__footer { display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--color-card-border); padding-top:10px; margin-top:4px; }
 .park-card__permit { font-size:var(--text-xs); font-weight:var(--weight-bold); color:var(--color-forest); }
 
-/* ── Tours grid ──────────────────────────────────── */
+/* -- Tours grid ------------------------------------ */
 .cp-tours-grid { display:flex; flex-wrap:wrap; gap:24px; }
 .tour-card { flex:1 1 240px; background:var(--color-white); border-radius:var(--radius-lg); box-shadow:var(--shadow-card-md); overflow:hidden; display:flex; flex-direction:column; }
 .tour-card__img-link { display:block; position:relative; height:180px; overflow:hidden; flex-shrink:0; }
@@ -493,7 +493,7 @@ const schema = JSON.stringify({
 .tour-card__footer { display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--color-card-border); padding-top:10px; margin-top:auto; }
 .tour-card__meta { font-size:13px; font-weight:var(--weight-bold); color:var(--color-text-body); }
 
-/* ── Best time month grid ────────────────────────── */
+/* -- Best time month grid -------------------------- */
 .cp-besttime { padding-block:var(--section-pad-y); }
 .month-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:6px; margin-bottom:20px; }
 .month-cell { background:var(--color-white); border-radius:var(--radius-lg); padding:10px 6px; text-align:center; box-shadow:var(--shadow-card); display:flex; flex-direction:column; gap:5px; }
@@ -517,7 +517,7 @@ const schema = JSON.stringify({
 .cp-besttime__link { color:var(--color-amber); font-weight:var(--weight-bold); transition:opacity var(--transition-fast); }
 .cp-besttime__link:hover { opacity:.75; }
 
-/* ── Travel essentials ───────────────────────────── */
+/* -- Travel essentials ----------------------------- */
 .essentials-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
 .essential-card { background:var(--color-white); border-radius:var(--radius-xl); padding:24px; box-shadow:var(--shadow-card); display:flex; flex-direction:column; gap:10px; border-top:4px solid var(--color-amber); }
 .essential-card__icon { width:44px; height:44px; border-radius:var(--radius-lg); background:var(--color-parchment); display:flex; align-items:center; justify-content:center; }
@@ -526,7 +526,7 @@ const schema = JSON.stringify({
 .essential-card__link  { font-size:var(--text-sm); font-weight:var(--weight-bold); color:var(--color-amber); transition:opacity var(--transition-fast); }
 .essential-card__link:hover { opacity:.75; }
 
-/* ── FAQ ─────────────────────────────────────────── */
+/* -- FAQ ------------------------------------------- */
 .cp-faq { padding-block:var(--section-pad-y); }
 .cp-faq__inner { display:grid; grid-template-columns:280px 1fr; gap:48px; align-items:start; }
 .cp-faq__intro { position:sticky; top:96px; }
@@ -543,7 +543,7 @@ const schema = JSON.stringify({
 .faq-item[open] .faq-item__chevron { transform:rotate(180deg); }
 .faq-item__a { padding:14px 20px 18px; font-size:var(--text-base); line-height:1.75; color:var(--color-text-body); }
 
-/* ── Responsive ──────────────────────────────────── */
+/* -- Responsive ------------------------------------ */
 @media (max-width: 1024px) {
   .cp-intro__grid { grid-template-columns:1fr; }
   .cp-intro__sidebar { position:static; }
