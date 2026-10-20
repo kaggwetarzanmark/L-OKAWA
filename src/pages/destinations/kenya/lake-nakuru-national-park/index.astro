@@ -1,7 +1,54 @@
-ï»¿---
-import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
+import ParkPage from '../../../../components/ParkPage.astro';
 
-<BaseLayout title="Lake Nakuru National Park â€” Flamingos & Rhinos Kenya | L'okawa Tours" description="Visit Lake Nakuru National Park, famous for flamingos, white and black rhinos, lions and leopards in Kenya's Rift Valley. Day trips and overnight safaris.">
-</BaseLayout>
+const park = {
+  name: 'Lake Nakuru National Park',
+  country: 'Kenya',
+  countrySlug: 'kenya',
+  slug: 'lake-nakuru-national-park',
+  tagline: 'Flamingos, Rhinos and Lions in the Rift Valley',
+  heroImg: '/images/birds/grey-headed-kingfisher.jpg',
+  heroImgAlt: 'Grey-headed kingfisher perched on a branch near Lake Nakuru Kenya',
+  description: 'Guide to Lake Nakuru National Park Kenya. Flamingos, black and white rhinos, lions and leopards around a scenic soda lake in Kenya\'s Rift Valley. Packages from L\'okawa Tours.',
+  bannerSub: 'Kenya\'s Rift Valley gem — flamingos, both black and white rhinos, lions and leopards around a spectacular soda lake.',
+  priceLabel: 'Park entry USD 60 / person / day',
+  priceNote: 'Compact park easily combined with Masai Mara and Amboseli. Packages from USD 250.',
+  intro: [
+    'Lake Nakuru National Park surrounds the shallow soda lake of the same name in Kenya\'s Rift Valley, approximately 160km northwest of Nairobi. The park is famous above all for its flamingo populations — at peak periods the lake shore turns pink with up to two million lesser flamingos, creating one of the most striking visual spectacles in Africa.',
+    'Flamingo numbers fluctuate with the lake\'s water level and algae content, and in recent years numbers have been lower than historical peaks as the birds have dispersed to other Rift Valley lakes. The park remains enormously rewarding regardless of flamingo numbers, with both black and white rhinos successfully established here as part of Kenya\'s rhino conservation programme.',
+    'Despite its modest size of 188 km², Lake Nakuru supports an impressive range of large mammals: lions, leopards, buffaloes, Rothschild\'s giraffes, waterbucks, reedbucks and large herds of zebras and impalas. The lake itself attracts an extraordinary diversity of waterbirds beyond the flamingos.',
+  ],
+  sidebarLinks: [
+    { label: 'Best time to visit Kenya', href: '/plan/best-time-to-visit-kenya/' },
+    { label: 'Safari packing list', href: '/plan/safari-packing-list/' },
+  ],
+};
 
+const facts = [
+  { label: 'Location', value: 'Rift Valley, 160km from Nairobi' },
+  { label: 'Area', value: '188 km²' },
+  { label: 'Park entry', value: 'USD 60 per person per day' },
+  { label: 'Key attraction', value: 'Flamingos, rhinos, leopards' },
+  { label: 'Rhino status', value: 'Both black and white rhinos present' },
+  { label: 'Bird species', value: '450+' },
+  { label: 'Best time', value: 'Year-round' },
+  { label: 'Nearest airport', value: 'Nairobi (NBO), ~2 hrs' },
+];
+
+const activities = [
+  { icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z', title: 'Game Drives', text: 'Game drives around the lake shore for rhinos, lions, leopards and Rothschild\'s giraffes. Compact park means less driving time and more wildlife encounter time.' },
+  { icon: 'M12 3l2.6 5.6 6 .7-4.4 4.1 1.2 6L12 16.6 6.6 19.4l1.2-6L3.4 9.3l6-.7z', title: 'Flamingo and Waterbird Viewing', text: 'The lake shore viewpoints offer close-range views of flamingos and thousands of other waterbirds. The Makalia Falls picnic site offers excellent birding in the southern part of the park.' },
+  { icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z', title: 'Rhino Tracking', text: 'Both black and white rhinos are present in Nakuru. Rhino sightings are more reliable here than in most Kenya parks. The southern acacia woodland is the most productive area.' },
+];
+
+const tours = [
+  { title: '10 Days Kenya Safari and Beach Holiday', slug: '10-days-kenya-safari-beach-holiday', days: 10, price: 'From $3,200', img: '/images/wildlife/lion-cub-lioness-savannah.jpg', imgAlt: 'Kenya safari' },
+];
+
+const sections = [];
+const faqs = [
+  { q: 'Are there still flamingos at Lake Nakuru?', a: 'Yes, though numbers fluctuate significantly. The flamingos respond to changes in the lake\'s water level and algae content, and have been known to mass-relocate to other Rift Valley lakes including Lake Bogoria and Lake Elementaita when conditions are less favourable at Nakuru. The park is worth visiting regardless of flamingo numbers for its rhinos, lions and other wildlife.' },
+  { q: 'Is Lake Nakuru good for a day trip from Nairobi?', a: 'Yes. At approximately 160km and 2 hours from Nairobi, Lake Nakuru is one of Kenya\'s most accessible parks for a short visit. A full day allows a morning game drive, lake shore walk and afternoon drive before returning to Nairobi. An overnight stay is recommended for a more relaxed pace.' },
+];
+---
+<ParkPage {park} {facts} {sections} {activities} {tours} {faqs} />

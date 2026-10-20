@@ -1,7 +1,71 @@
 ﻿---
-import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import ParkPage from '../../../../components/ParkPage.astro';
+
+const park = {
+  name: 'Serengeti National Park',
+  country: 'Tanzania',
+  countrySlug: 'tanzania',
+  slug: 'serengeti-national-park',
+  tagline: 'The Endless Plains and the Greatest Wildlife Migration on Earth',
+  heroImg: '/images/wildlife/safari-vehicle-lions.jpg',
+  heroImgAlt: 'Safari vehicle watching lions on the open savannah plains of the Serengeti Tanzania',
+  description: 'Complete guide to the Serengeti National Park Tanzania. Great Migration year-round calendar, Big Five game drives, river crossings and tented camp safaris. Packages from L\'okawa Tours.',
+  bannerSub: 'Tanzania\'s crown jewel — 14,750 km² of open savannah, year-round Big Five and the world\'s greatest wildlife migration in a continuous circle.',
+  priceLabel: 'Park entry USD 70 / person / day',
+  priceNote: 'All-inclusive tented camp packages from USD 500 per person per night.',
+  intro: [
+    'The Serengeti National Park is Tanzania\'s most celebrated park and one of the oldest and most studied ecosystems in the world. The name comes from the Maasai "Siringitu" meaning "endless plains," and the description holds — 14,750 km² of open grassland, acacia woodland and river ecosystems that stretch to the horizon in every direction.',
+    'The park is the southern portion of the greater Serengeti-Mara ecosystem, which extends north into Kenya\'s Masai Mara. Together they host the Great Migration — the year-round circular movement of over 1.5 million wildebeest, 200,000 zebras and 300,000 Thomson\'s gazelles. The migration passes through different sections of the Serengeti in different months, making the park rewarding for wildlife viewing every month of the year.',
+    'The Serengeti has the highest density of large carnivores in Africa. Seven lion prides, the Maasai Mara and Serengeti together support more lions than any other ecosystem on Earth. Leopards, cheetahs, wild dogs, spotted hyenas and black-backed jackals complete an extraordinary predator community.',
+  ],
+  sidebarLinks: [
+    { label: 'Best time to visit Tanzania', href: '/plan/best-time-to-visit-tanzania/' },
+    { label: 'Safari packing list', href: '/plan/safari-packing-list/' },
+    { label: 'How much does a safari cost?', href: '/plan/safari-cost-guide/' },
+  ],
+};
+
+const facts = [
+  { label: 'Location', value: 'N Tanzania, Mara Region' },
+  { label: 'Area', value: '14,750 km²' },
+  { label: 'Park entry', value: 'USD 70 per person per day' },
+  { label: 'Migration', value: 'Year-round, different zones' },
+  { label: 'Big Five', value: 'All present — lions especially abundant' },
+  { label: 'Best time', value: 'Year-round; calving Jan to Feb, crossings Jun to Oct' },
+  { label: 'Nearest airport', value: 'Kilimanjaro (JRO) or Seronera (airstrip)' },
+  { label: 'UNESCO', value: 'World Heritage Site since 1981' },
+];
+
+const sections = [
+  {
+    heading: 'The Great Migration Calendar in the Serengeti',
+    body: [
+      'The wildebeest herds move through the Serengeti in a clockwise direction throughout the year. Understanding this calendar allows you to position yourself for the specific spectacle you most want to see.',
+      'January to February: Calving season on the short grass plains of the southern Serengeti and Ngorongoro Conservation Area. Approximately 500,000 calves are born in a 3-week window. Exceptional predator concentrations. Underrated and far less crowded than peak season.',
+      'March to May: Herds on the move north through the central Serengeti as the long rains begin. Some camps close. Dramatic green landscapes and excellent birding.',
+      'June to July: Herds reach the western Serengeti and the Grumeti River crossings begin. First dramatic river crossings of the annual cycle.',
+      'August to October: Herds in the northern Serengeti near the Kenya border and crossing into the Masai Mara. The iconic Mara River crossings. Peak demand and prices.',
+      'November to December: Herds return south through the eastern Serengeti as the short rains arrive.',
+    ],
+  },
+];
+
+const activities = [
+  { icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z', title: 'Game Drives', text: 'Morning and afternoon game drives across the plains. The highest density of lions in Africa. Cheetahs, leopards and cheetahs are regularly encountered on open ground.' },
+  { icon: 'M9 20l-5.447-2.724A1 1 0 0 1 3 16.382V5.618', title: 'Migration River Crossings', text: 'Position on the Grumeti (June to July) or Mara (August to October) river banks for wildebeest crossings. The most dramatic wildlife event on Earth — unpredictable and unforgettable.' },
+  { icon: 'M3 3l18 18M3 9l18 18', title: 'Hot Air Balloon Safari', text: 'Dawn balloon flight over the Serengeti followed by a bush champagne breakfast. Available year-round from Seronera, Kogatende and other launch sites. From USD 500 per person.' },
+  { icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z', title: 'Guided Bush Walk', text: 'Guided walking safari with an armed ranger outside the core area. Get close to the savannah ecosystem on foot — tracks, insects, plants and small mammals.' },
+  { icon: 'M12 3l2.6 5.6 6 .7-4.4 4.1 1.2 6L12 16.6 6.6 19.4l1.2-6L3.4 9.3l6-.7z', title: 'Night Game Drive', text: 'Night drives available in private concession areas adjacent to the park. Servals, aardvarks, genets and the hunting behaviour of spotted hyena packs.' },
+];
+
+const tours = [
+  { title: '10 Days Kenya Safari and Beach Holiday', slug: '10-days-kenya-safari-beach-holiday', days: 10, price: 'From $3,200', img: '/images/wildlife/safari-vehicle-lions.jpg', imgAlt: 'Safari Tanzania' },
+];
+
+const faqs = [
+  { q: 'Is the Serengeti good for wildlife outside migration season?', a: 'Yes. The Serengeti has outstanding wildlife year-round. The resident population of lions, leopards, cheetahs, elephants, buffaloes, zebras and Thomson\'s gazelles is enormous regardless of whether the migrating herds are present. January and February\'s calving season is arguably the most dramatic wildlife event in the Serengeti calendar.' },
+  { q: 'How many nights should I spend in the Serengeti?', a: 'A minimum of 2 nights allows two full days of game drives. Three to four nights is much better and allows you to explore different zones — central Seronera, northern Kogatende (for river crossings) or southern short grass plains (for calving). More nights means more chances of seeing elusive species like leopard and wild dog.' },
+  { q: 'What is the difference between Serengeti camp types?', a: 'The Serengeti has three main camp tiers. Permanent tented camps and lodges offer year-round comfortable accommodation in fixed locations. Mobile camps move seasonally to follow the migration. Budget camping is available at public campsites near Seronera. We recommend permanent tented camps for the best balance of comfort, guiding quality and location.' },
+];
 ---
-
-<BaseLayout title="Serengeti National Park — The Great Migration Tanzania | L'okawa Tours" description="Complete Serengeti safari guide. Witness the Great Wildebeest Migration, spot the Big Five and experience endless savannah plains in Tanzania's most iconic park.">
-</BaseLayout>
-
+<ParkPage {park} {facts} {sections} {activities} {tours} {faqs} />

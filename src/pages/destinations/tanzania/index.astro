@@ -1,8 +1,71 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CountryPage from '../../../components/CountryPage.astro';
+
+const country = {
+  name: 'Tanzania',
+  slug: 'tanzania',
+  tagline: 'Serengeti, Ngorongoro and the Zanzibar Coast',
+  description: 'Plan your Tanzania safari with L\'okawa Tours. Serengeti Great Migration, Ngorongoro Crater, Kilimanjaro and Zanzibar beach. All-inclusive packages with expert guides.',
+  heroImg: '/images/wildlife/elephants-crossing-river.jpg',
+  heroImgAlt: 'Elephants crossing a river on safari in Tanzania with green landscape',
+  metaTitle: "Tanzania Safari Tours & Packages 2025/2026 | L'okawa Tours",
+  intro: [
+    'Tanzania is home to some of the greatest concentrations of wildlife on Earth and the continent\'s most iconic safari landscapes. The Serengeti — "endless plains" in the Maasai language — stretches across 14,750 km² of open savannah and forms the heart of the greatest wildlife migration on the planet. Each year over 1.5 million wildebeest and 200,000 zebras circle the Serengeti-Mara ecosystem in an endless search for grass and water.',
+    'The Ngorongoro Crater, a collapsed volcanic caldera 20km wide and 600m deep, is the world\'s most intact caldera ecosystem and hosts one of Africa\'s highest densities of predators and large mammals. The permanently available water and fertile grass make it productive for wildlife viewing every month of the year.',
+    'Tanzania also offers Kilimanjaro — Africa\'s highest mountain at 5,895m — the pristine beaches and coral reefs of Zanzibar, and the wild northern parks of Tarangire and Lake Manyara. L\'okawa designs Tanzania safaris for every budget and travel style, combining the northern circuit parks with Zanzibar for the classic East Africa holiday.',
+  ],
+};
+
+const facts = [
+  { label: 'Capital', value: 'Dodoma (Dar es Salaam, commercial)' },
+  { label: 'Currency', value: 'TZS (USD accepted)' },
+  { label: 'Language', value: 'Swahili, English' },
+  { label: 'Timezone', value: 'EAT (UTC+3)' },
+  { label: 'Visa', value: 'e-Visa online, USD 50' },
+  { label: 'Best months', value: 'Jun to Oct, Jan to Feb' },
+  { label: 'Migration', value: 'Year-round Serengeti circuit' },
+  { label: 'Flights to', value: 'Kilimanjaro (JRO) or Dar es Salaam (DAR)' },
+];
+
+const parks = [
+  { name: 'Serengeti National Park', slug: 'serengeti-national-park', img: '/images/wildlife/safari-vehicle-lions.jpg', imgAlt: 'Safari vehicle lions Serengeti Tanzania', tag: 'Great Migration', teaser: 'The world\'s greatest wildlife migration. 1.5 million wildebeest on the endless plains year-round.', permit: 'USD 70 / day' },
+  { name: 'Ngorongoro Crater', slug: 'ngorongoro-crater', img: '/images/wildlife/elephant-pair-greeting.jpg', imgAlt: 'Elephants Ngorongoro Crater Tanzania', tag: 'Big Five', teaser: 'The world\'s most intact volcanic caldera — exceptionally high predator density every single day.', permit: 'USD 70 crater fee + USD 70 conservation' },
+  { name: 'Tarangire National Park', slug: 'tarangire-national-park', img: '/images/wildlife/elephants-crossing-river.jpg', imgAlt: 'Elephants Tarangire National Park Tanzania', tag: 'Elephants', teaser: 'Ancient baobab trees, the largest elephant herds outside Amboseli and excellent dry-season game viewing.', permit: 'USD 53 / day' },
+  { name: 'Zanzibar', slug: 'zanzibar', img: '/images/accommodation/safari-tented-camp-daytime.jpg', imgAlt: 'Beach resort Zanzibar Tanzania Indian Ocean', tag: 'Beach', teaser: 'White sand, turquoise Indian Ocean and the historic spice island of Stone Town. Perfect post-safari retreat.', permit: 'No fee' },
+  { name: 'Ngorongoro Conservation Area', slug: 'ngorongoro-crater', img: '/images/wildlife/warthog-savannah.jpg', imgAlt: 'Warthog savannah Tanzania', tag: 'Wildlife', teaser: 'The broader Ngorongoro Conservation Area including Olduvai Gorge — the cradle of mankind.', permit: 'USD 70 / day' },
+];
+
+const tours = [
+  { title: '10 Days Kenya Safari and Beach Holiday', slug: '10-days-kenya-safari-beach-holiday', days: 10, price: 'From $3,200', img: '/images/wildlife/lion-cub-lioness-savannah.jpg', imgAlt: 'East Africa safari' },
+];
+
+const months = [
+  { name: 'Jan', rating: 4, note: 'Calving season — excellent' },
+  { name: 'Feb', rating: 5, note: 'Calving peak, predators' },
+  { name: 'Mar', rating: 3, note: 'Long rains begin' },
+  { name: 'Apr', rating: 1, note: 'Long rains — some camps close' },
+  { name: 'May', rating: 1, note: 'Long rains — lowest prices' },
+  { name: 'Jun', rating: 4, note: 'Dry season starts' },
+  { name: 'Jul', rating: 5, note: 'Grumeti River crossings' },
+  { name: 'Aug', rating: 5, note: 'Peak dry season' },
+  { name: 'Sep', rating: 5, note: 'Peak — herds moving north' },
+  { name: 'Oct', rating: 4, note: 'Quieter, still good' },
+  { name: 'Nov', rating: 2, note: 'Short rains' },
+  { name: 'Dec', rating: 3, note: 'Drying out' },
+];
+
+const essentials = [
+  { icon: 'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z M12 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4', title: 'Visa', text: 'Tanzania e-Visa available online before travel. USD 50 per person for most nationalities. Apply at eservices.immigration.go.tz.', link: '/plan/uganda-visa/' },
+  { icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z', title: 'Safety', text: 'Tanzania is a stable, safe destination for tourists. Standard precautions apply in Dar es Salaam. National parks are well-patrolled.', link: '/plan/is-uganda-safe/' },
+  { icon: 'M20 6h-2.18c.07-.44.18-.88.18-1 0-2.21-1.79-4-4-4s-4 1.79-4 4c0 .12.11.56.18 1H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 13l-4-4 1.41-1.41L14 13.17l5.59-5.59L21 9l-7 7z', title: 'What to Pack', text: 'Neutral safari clothing, binoculars, camera with zoom lens. Warm layers for early Ngorongoro Crater descents (can be cold at 1,800m).', link: '/plan/safari-packing-list/' },
+  { icon: 'M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z', title: 'Best Time', text: 'Calving season Jan to Feb in southern Serengeti. Dry season Jun to Oct for the Grumeti and Mara river crossings. Zanzibar best Jan to Feb.', link: '/plan/best-time-to-visit-tanzania/' },
+];
+
+const faqs = [
+  { q: 'What is the Great Migration and when is it in Tanzania?', a: 'The Great Migration is the continuous circular movement of over 1.5 million wildebeest around the Serengeti-Mara ecosystem. The herds are in Tanzania for approximately 9 months of the year. Calving season in the southern Serengeti peaks in February. The dramatic Grumeti River crossings occur in June and July. The herds move to Kenya from August to October before returning south.' },
+  { q: 'Can I combine Tanzania and Kenya in one trip?', a: 'Yes. The classic combination starts in Nairobi for the Masai Mara, then flies to Kilimanjaro for the Serengeti and Ngorongoro, finishing in Zanzibar. This is also possible in reverse. Allow 12 to 14 days for a meaningful combination of both countries.' },
+  { q: 'How many days do I need for a Tanzania safari?', a: 'A minimum of 5 to 6 days covers the northern circuit (Serengeti and Ngorongoro Crater) meaningfully — at least 2 nights in each. Adding Tarangire requires 8 days. A full Tanzania holiday with Zanzibar needs 10 to 12 days.' },
+  { q: 'Is Zanzibar worth adding after a Tanzania safari?', a: 'Absolutely. Zanzibar provides a perfect transition from the intensity of wildlife game drives to pure relaxation. The white sand beaches, warm Indian Ocean water, historic Stone Town and seafood restaurants make it one of Africa\'s finest beach destinations. 3 to 4 nights is the standard addition after a northern circuit safari.' },
+];
 ---
-
-<BaseLayout title="Tanzania Safari Tours & Packages 2025/2026 | L'okawa Tours" description="Discover Tanzania's legendary wildlife with L'okawa Tours. Serengeti, Ngorongoro Crater, Tarangire and Zanzibar beach holidays. All-inclusive safari packages.">
-</BaseLayout>
-
-
+<CountryPage {country} {facts} {parks} {tours} {months} {essentials} {faqs} />

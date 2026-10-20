@@ -1,7 +1,61 @@
-ï»¿---
-import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
+import ParkPage from '../../../../components/ParkPage.astro';
 
-<BaseLayout title="Volcanoes National Park â€” Rwanda Gorilla Trekking | L'okawa Tours" description="Book gorilla trekking in Rwanda's Volcanoes National Park. Golden monkey tracking, Dian Fossey Tomb hike and volcano summits. Permits and tours available.">
-</BaseLayout>
+const park = {
+  name: 'Volcanoes National Park',
+  country: 'Rwanda',
+  countrySlug: 'rwanda',
+  slug: 'volcanoes-national-park',
+  tagline: 'Gorilla Trekking on the Virunga Volcanoes',
+  heroImg: '/images/gorillas/gorilla-mother-baby-bwindi.jpg',
+  heroImgAlt: 'Mountain gorilla mother carrying baby in the bamboo forest of Volcanoes National Park Rwanda',
+  description: 'Complete guide to gorilla trekking in Volcanoes National Park Rwanda. 12 habituated gorilla families, golden monkey tracking, volcano hikes and world-class luxury lodges.',
+  bannerSub: 'Rwanda\'s crown jewel — 12 habituated gorilla families on the dramatic Virunga volcanoes, with some of Africa\'s most extraordinary luxury lodges on the crater rim.',
+  priceLabel: 'Gorilla permit USD 1,500 / person',
+  priceNote: 'Golden monkey tracking USD 100. Maximum 8 visitors per gorilla family per day. Permits book out fast — arrange in advance.',
+  intro: [
+    'Volcanoes National Park occupies the Rwandan portion of the Virunga Massif — a chain of eight volcanoes straddling the borders of Rwanda, Uganda and the Democratic Republic of Congo. The park protects six of these volcanoes and approximately half the world\'s remaining mountain gorilla population.',
+    'Rwanda has 12 habituated gorilla families available for trekking across the park, each visited by a maximum of 8 tourists per day. The gorilla permit costs USD 1,500 per person — the most expensive primate trekking permit in the world — reflecting Rwanda\'s deliberate positioning at the luxury end of the gorilla tourism market.',
+    'The average trek time to find gorillas at Volcanoes is generally shorter than at Uganda\'s Bwindi — typically 1 to 3 hours compared to Bwindi\'s 2 to 6 hour average. The terrain is also somewhat different: the Virunga slopes have more bamboo forest and open glades which can provide better light for photography. The experience of being with the gorillas — the one hour observing them at close range — is identical to Uganda.',
+  ],
+  sidebarLinks: [
+    { label: 'Uganda vs Rwanda for gorillas', href: '/plan/uganda-vs-rwanda-gorillas/' },
+    { label: 'Gorilla permit guide', href: '/plan/gorilla-permit-guide/' },
+    { label: 'How difficult is gorilla trekking?', href: '/plan/how-difficult-is-gorilla-trekking/' },
+    { label: 'Gorilla trekking packing list', href: '/plan/gorilla-trekking-packing-list/' },
+  ],
+};
 
+const facts = [
+  { label: 'Location', value: 'NW Rwanda, Virunga Massif' },
+  { label: 'Area', value: '160 km²' },
+  { label: 'Altitude', value: '2,400 to 4,507m (Mount Karisimbi)' },
+  { label: 'Gorilla permit', value: 'USD 1,500 per person' },
+  { label: 'Gorilla families', value: '12 habituated families' },
+  { label: 'Golden monkey', value: 'USD 100 per person' },
+  { label: 'Best time', value: 'Jun to Sep, Dec to Feb' },
+  { label: 'Nearest airport', value: 'Kigali (KGL), ~2.5 hrs' },
+];
+
+const activities = [
+  { icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z', title: 'Gorilla Trekking', text: 'Trek one of 12 habituated gorilla families on the Virunga volcanoes. USD 1,500 per person. Generally shorter treks than Uganda. One hour with the gorillas. Maximum 8 visitors per family.' },
+  { icon: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', title: 'Golden Monkey Tracking', text: 'Track habituated golden monkeys through the bamboo forest on the lower volcano slopes. USD 100 per person. One hour with the troop. Highly recommended alongside gorilla trekking.' },
+  { icon: 'M3 3l18 18M3 9l18 18', title: 'Volcano Hikes', text: 'Guided hikes up Mount Bisoke (3,711m, day hike with crater lake), Mount Karisimbi (4,507m, 2-day hike) and Mount Sabyinyo (3,634m). Various fitness levels catered for.' },
+  { icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z', title: 'Dian Fossey Tomb Visit', text: 'Hike to the research camp and tomb of Dian Fossey — the primatologist who habituated the first gorilla families for research and whose story was told in Gorillas in the Mist.' },
+  { icon: 'M12 3l2.6 5.6 6 .7-4.4 4.1 1.2 6L12 16.6 6.6 19.4l1.2-6L3.4 9.3l6-.7z', title: 'Community Village Walk', text: 'Guided cultural walk through the Musanze community at the park boundary. Meet local craftspeople, farmers and community conservation project beneficiaries.' },
+];
+
+const tours = [
+  { title: '4 Days Rwanda Gorilla Trekking', slug: '4-days-rwanda-gorilla-trekking', days: 4, price: 'From $2,000', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Mountain gorilla Rwanda' },
+  { title: '5 Days Uganda Primates Safari', slug: '5-days-uganda-primates-safari', days: 5, price: 'From $2,100', img: '/images/gorillas/silverback-gorilla-group.jpg', imgAlt: 'Gorilla group Uganda' },
+  { title: '3 Days Uganda Gorilla Safari', slug: '3-days-uganda-gorilla-safari', days: 3, price: 'From $1,400', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla trekking Uganda' },
+];
+
+const sections = [];
+const faqs = [
+  { q: 'Why is the Rwanda gorilla permit more expensive than Uganda?', a: 'Rwanda\'s permit costs USD 1,500 vs Uganda\'s USD 800. Rwanda has deliberately positioned itself as a premium luxury gorilla destination with higher permit fees, world-class lodges and a focus on high-value, low-volume tourism. The gorilla encounter itself is identical — one hour with a habituated family. The choice comes down to budget and travel preference.' },
+  { q: 'Are Rwanda gorilla treks easier than in Uganda?', a: 'Generally yes, on average. Volcanoes National Park treks are typically 1 to 3 hours, while Bwindi in Uganda can take 2 to 8 hours. Rwanda\'s terrain is also somewhat more accessible, though the altitude (2,400m to 3,000m) still requires good physical fitness. Both parks offer porter assistance.' },
+  { q: 'What accommodation is available near Volcanoes National Park?', a: 'The range of lodges near Volcanoes is exceptional. At the ultra-luxury end: Singita Kwitonda, One&Only Gorilla\'s Nest and Bisate Lodge are among Africa\'s finest properties. Mid-range and budget options are also available in the Musanze area nearby. We recommend booking your lodge well in advance alongside your gorilla permit, especially for peak season visits.' },
+];
+---
+<ParkPage {park} {facts} {sections} {activities} {tours} {faqs} />

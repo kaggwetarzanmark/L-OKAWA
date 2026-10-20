@@ -1,7 +1,55 @@
-ï»¿---
-import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
+import ParkPage from '../../../../components/ParkPage.astro';
 
-<BaseLayout title="Tarangire National Park â€” Elephant Herds & Baobab Trees Tanzania | L'okawa Tours" description="Safari guide to Tarangire National Park, Tanzania. Famous for massive elephant herds, ancient baobab trees and excellent birding along the Tarangire River.">
-</BaseLayout>
+const park = {
+  name: 'Tarangire National Park',
+  country: 'Tanzania',
+  countrySlug: 'tanzania',
+  slug: 'tarangire-national-park',
+  tagline: 'Ancient Baobabs, Giant Elephants and a Secret Safari Gem',
+  heroImg: '/images/wildlife/elephants-crossing-river.jpg',
+  heroImgAlt: 'Elephants crossing the Tarangire River in Tarangire National Park Tanzania',
+  description: 'Guide to Tarangire National Park Tanzania. Ancient baobab trees, largest elephant herds outside Amboseli, lions and excellent dry-season game viewing. Packages from L\'okawa Tours.',
+  bannerSub: 'Tanzania\'s underrated gem — ancient baobab trees, the largest elephant concentration outside Amboseli, and far fewer visitors than the Serengeti.',
+  priceLabel: 'Park entry USD 53 / person / day',
+  priceNote: 'Excellent dry-season destination. Best Jun to Oct. All-inclusive packages from USD 350.',
+  intro: [
+    'Tarangire National Park is Tanzania\'s most underrated safari destination. Located just 3 hours south of Arusha, this 2,850 km² park is defined by its ancient baobab trees — enormous, bulbous giants that dot the landscape and create one of the most photogenic and distinctive safari environments in East Africa.',
+    'In the dry season from June to October, the Tarangire River becomes the only water source for hundreds of kilometres, drawing enormous concentrations of wildlife to its banks. Elephant herds of 300 or more animals gather at the river — concentrations that rival or exceed Amboseli during peak dry-season months.',
+    'Tarangire receives a fraction of the visitors that crowd the Serengeti and Ngorongoro Crater despite offering comparable game viewing in the dry season. The park is an excellent addition to any northern Tanzania circuit, and is particularly recommended for visitors wanting to see large elephant herds without the vehicle congestion of the more famous parks.',
+  ],
+  sidebarLinks: [
+    { label: 'Best time to visit Tanzania', href: '/plan/best-time-to-visit-tanzania/' },
+    { label: 'Safari packing list', href: '/plan/safari-packing-list/' },
+  ],
+};
 
+const facts = [
+  { label: 'Location', value: 'N Tanzania, 3 hrs from Arusha' },
+  { label: 'Area', value: '2,850 km²' },
+  { label: 'Park entry', value: 'USD 53 per person per day' },
+  { label: 'Key attraction', value: 'Baobab trees and elephant herds' },
+  { label: 'Best time', value: 'Jun to Oct (dry season)' },
+  { label: 'Visitors', value: 'Much lower than Serengeti — private feel' },
+  { label: 'Nearest airport', value: 'Kilimanjaro (JRO), ~3 hrs' },
+  { label: 'Combines well with', value: 'Serengeti and Ngorongoro' },
+];
+
+const activities = [
+  { icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z', title: 'Game Drives', text: 'Dry-season game drives produce extraordinary elephant concentrations along the Tarangire River. Lions, leopards, buffaloes, zebras and giraffes among ancient baobab trees.' },
+  { icon: 'M3 3l18 18M3 9l18 18', title: 'Walking Safari', text: 'Guided walking safari in the wilderness areas of the park. Tarangire has some of the best walking conditions in Tanzania — open terrain and knowledgeable walking guides.' },
+  { icon: 'M12 3l2.6 5.6 6 .7-4.4 4.1 1.2 6L12 16.6 6.6 19.4l1.2-6L3.4 9.3l6-.7z', title: 'Birding', text: 'Over 550 bird species — one of the highest counts of any Tanzania park. Dry season concentrates waterbirds along the river. Yellow-collared lovebirds are endemic to the park.' },
+  { icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z', title: 'Night Game Drive', text: 'Night drives in private concession areas adjacent to the park. Nocturnal species including porcupines, bush babies, African civets and aardvarks.' },
+];
+
+const tours = [
+  { title: '10 Days Kenya Safari and Beach Holiday', slug: '10-days-kenya-safari-beach-holiday', days: 10, price: 'From $3,200', img: '/images/wildlife/elephants-crossing-river.jpg', imgAlt: 'Tanzania safari elephants' },
+];
+
+const sections = [];
+const faqs = [
+  { q: 'Is Tarangire worth visiting over the Serengeti?', a: 'Tarangire should not replace the Serengeti on a Tanzania itinerary — it complements it. The two parks offer completely different landscapes and experiences. Tarangire is particularly recommended for elephant enthusiasts, baobab tree photography and visitors who want a less crowded park experience. Adding 1 to 2 nights in Tarangire at the start or end of a Serengeti-Ngorongoro circuit adds significant value.' },
+  { q: 'When is the best time to visit Tarangire?', a: 'The dry season from June to October is when Tarangire shines. The river concentrates wildlife in extraordinary numbers — elephant herds of 200 to 300 animals are routine. The wet season (November to May) disperses the wildlife but brings lush green landscapes and calving zebras. The park is open year-round.' },
+];
+---
+<ParkPage {park} {facts} {sections} {activities} {tours} {faqs} />

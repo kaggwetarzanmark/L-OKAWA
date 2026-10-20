@@ -1,8 +1,72 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CountryPage from '../../../components/CountryPage.astro';
+
+const country = {
+  name: 'Kenya',
+  slug: 'kenya',
+  tagline: 'The Great Migration, Big Five and Indian Ocean Coast',
+  description: 'Plan your Kenya safari with L\'okawa Tours. Masai Mara Big Five game drives, Great Migration river crossings, Amboseli elephants and Diani Beach. Expert guides and all park fees included.',
+  heroImg: '/images/wildlife/lion-cub-lioness-savannah.jpg',
+  heroImgAlt: 'Lioness with cub on the open savannah of the Masai Mara National Reserve Kenya',
+  metaTitle: 'Kenya Safari Tours & Packages 2025/2026 | L\'okawa Tours',
+  intro: [
+    'Kenya is the world\'s most iconic safari destination — the country that defined the word "safari" for generations of travellers. From the vast open grasslands of the Masai Mara to the snow-capped peak of Kilimanjaro viewed across Amboseli\'s elephant plains, Kenya offers a breadth and quality of wildlife experience matched nowhere else on the continent.',
+    'The Great Migration — the annual movement of over 1.5 million wildebeest, zebras and gazelles between Tanzania\'s Serengeti and Kenya\'s Masai Mara — is the most spectacular wildlife event on Earth. The Mara River crossings between July and October draw visitors from across the world, but Kenya\'s parks are extraordinary year-round.',
+    'L\'okawa Tours designs Kenya safaris that combine the best of the country\'s wildlife parks with the beaches of the Indian Ocean coast. Whether you want 3 days in the Masai Mara or a 10-day circuit covering multiple parks and Diani Beach, we handle all logistics, transfers and accommodation.',
+  ],
+};
+
+const facts = [
+  { label: 'Capital', value: 'Nairobi' },
+  { label: 'Currency', value: 'KES (USD accepted)' },
+  { label: 'Language', value: 'English, Swahili' },
+  { label: 'Timezone', value: 'EAT (UTC+3)' },
+  { label: 'Visa', value: 'eTA online, USD 30' },
+  { label: 'Best months', value: 'Jul to Oct, Jan to Feb' },
+  { label: 'Migration', value: 'Jul to Oct in Mara' },
+  { label: 'Flights to', value: 'Nairobi (NBO)' },
+];
+
+const parks = [
+  { name: 'Masai Mara National Reserve', slug: 'masai-mara', img: '/images/wildlife/safari-vehicle-lions.jpg', imgAlt: 'Safari vehicle watching lions Masai Mara Kenya', tag: 'Big Five', teaser: 'The world\'s most famous safari destination. Big Five year-round, Great Migration July to October.', permit: 'USD 70 to 200 / day' },
+  { name: 'Amboseli National Park', slug: 'amboseli-national-park', img: '/images/wildlife/elephant-pair-greeting.jpg', imgAlt: 'Elephants with Kilimanjaro in background Amboseli Kenya', tag: 'Elephants', teaser: 'Largest elephant herds in Africa with Kilimanjaro as the backdrop. Unmissable photography destination.', permit: 'USD 60 / day' },
+  { name: 'Lake Nakuru National Park', slug: 'lake-nakuru-national-park', img: '/images/birds/grey-headed-kingfisher.jpg', imgAlt: 'Birds at Lake Nakuru National Park Kenya', tag: 'Birds and Rhinos', teaser: 'Flamingos, rhinos, lions and leopards around a scenic soda lake in the Rift Valley.', permit: 'USD 60 / day' },
+  { name: 'Samburu National Reserve', slug: 'samburu-national-reserve', img: '/images/wildlife/giraffe-uganda-murchison.jpg', imgAlt: 'Reticulated giraffe Samburu National Reserve Kenya', tag: 'Unique Species', teaser: 'The Samburu Special Five: reticulated giraffe, Grevy\'s zebra, Beisa oryx, gerenuk and Somali ostrich.', permit: 'USD 70 / day' },
+  { name: 'Tsavo National Park', slug: 'tsavo-national-park', img: '/images/wildlife/elephant-pair-greeting.jpg', imgAlt: 'Red elephants Tsavo National Park Kenya', tag: 'Wildlife', teaser: 'Kenya\'s largest park — red elephants, lions and dramatic lava flows across 20,000 km² of wilderness.', permit: 'USD 52 / day' },
+];
+
+const tours = [
+  { title: '3 Days Masai Mara Safari', slug: '3-days-masai-mara-safari', days: 3, price: 'From $900', img: '/images/wildlife/lion-cub-lioness-savannah.jpg', imgAlt: 'Lions Masai Mara Kenya' },
+  { title: '10 Days Kenya Safari and Beach Holiday', slug: '10-days-kenya-safari-beach-holiday', days: 10, price: 'From $3,200', img: '/images/wildlife/cheetah-mother-cub.jpg', imgAlt: 'Cheetah mother and cub Kenya safari' },
+];
+
+const months = [
+  { name: 'Jan', rating: 4, note: 'Short dry — excellent' },
+  { name: 'Feb', rating: 5, note: 'Dry — peak conditions' },
+  { name: 'Mar', rating: 3, note: 'Long rains begin' },
+  { name: 'Apr', rating: 1, note: 'Long rains — wettest' },
+  { name: 'May', rating: 1, note: 'Long rains — cheapest' },
+  { name: 'Jun', rating: 3, note: 'Drying out' },
+  { name: 'Jul', rating: 5, note: 'Migration arrives' },
+  { name: 'Aug', rating: 5, note: 'Peak — river crossings' },
+  { name: 'Sep', rating: 5, note: 'Peak — migration' },
+  { name: 'Oct', rating: 4, note: 'Quieter, still good' },
+  { name: 'Nov', rating: 2, note: 'Short rains' },
+  { name: 'Dec', rating: 3, note: 'Busy holidays' },
+];
+
+const essentials = [
+  { icon: 'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z M12 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4', title: 'Visa (eTA)', text: 'Kenya replaced the visa with an Electronic Travel Authorisation (eTA) in 2024. Apply online at etakenya.go.ke. USD 30 per person.', link: '/plan/uganda-visa/' },
+  { icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z', title: 'Safety', text: 'Kenya is a well-established tourism destination. Nairobi requires standard urban precautions. National parks are safe and well-patrolled.', link: '/plan/is-uganda-safe/' },
+  { icon: 'M20 6h-2.18c.07-.44.18-.88.18-1 0-2.21-1.79-4-4-4s-4 1.79-4 4c0 .12.11.56.18 1H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 13l-4-4 1.41-1.41L14 13.17l5.59-5.59L21 9l-7 7z', title: 'What to Pack', text: 'Neutral safari clothing, camera with telephoto lens, light layers for early mornings and evening game drives.', link: '/plan/safari-packing-list/' },
+  { icon: 'M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z', title: 'Best Time', text: 'Great Migration river crossings: July to October. Calving season in Amboseli: January to February. Excellent year-round.', link: '/plan/best-time-to-visit-kenya/' },
+];
+
+const faqs = [
+  { q: 'When is the Great Migration in Kenya?', a: 'The wildebeest herds typically arrive in the Masai Mara from July and remain until October. The dramatic Mara River crossings are most frequent in August and September. Outside this window the Masai Mara still offers outstanding year-round big cat and elephant sightings.' },
+  { q: 'Do I need a visa for Kenya?', a: 'Kenya replaced the tourist visa with an Electronic Travel Authorisation (eTA) in January 2024. Apply at etakenya.go.ke before travel. The eTA costs USD 30 per person and allows a 90-day stay. Most nationalities are eligible. Check current requirements before booking as the system continues to evolve.' },
+  { q: 'Can I combine Kenya and Uganda in one trip?', a: 'Yes. A popular combination spends 3 to 4 days in Uganda for gorilla trekking in Bwindi, then flies to Nairobi for the Masai Mara and optionally Diani Beach. Allow 10 to 14 days for a meaningful combination of both countries. The East Africa Tourist Visa (USD 100) covers both Kenya and Uganda.' },
+  { q: 'How many days do I need in Kenya?', a: 'A minimum of 3 days covers the Masai Mara meaningfully. A classic Kenya circuit combining Amboseli, the Masai Mara and Diani Beach needs 8 to 10 days. For a comprehensive safari including northern Kenya (Samburu) and multiple parks, plan 12 to 14 days.' },
+];
 ---
-
-<BaseLayout title="Kenya Safari Tour Packages 2025/2026 | L'okawa Tours" description="Explore Kenya's iconic wildlife with L'okawa Tours. Masai Mara, Amboseli, Tsavo and more. Tailor-made Kenya safari packages with experienced local guides.">
-</BaseLayout>
-
-
+<CountryPage {country} {facts} {parks} {tours} {months} {essentials} {faqs} />

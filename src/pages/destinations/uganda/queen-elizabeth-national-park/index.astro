@@ -1,7 +1,81 @@
 ﻿---
-import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import ParkPage from '../../../../components/ParkPage.astro';
+
+const park = {
+  name: 'Queen Elizabeth National Park',
+  country: 'Uganda',
+  countrySlug: 'uganda',
+  slug: 'queen-elizabeth-national-park',
+  tagline: 'Tree-Climbing Lions, Kazinga Channel and 600 Bird Species',
+  heroImg: '/images/wildlife/tree-climbing-lion-ishasha.jpg',
+  heroImgAlt: 'Tree-climbing lion resting in a fig tree in the Ishasha sector of Queen Elizabeth National Park Uganda',
+  description: 'Complete guide to Queen Elizabeth National Park Uganda. Tree-climbing lions in Ishasha, Kazinga Channel boat cruise, game drives and over 600 bird species. Safari packages from L\'okawa Tours.',
+  bannerSub: 'Uganda\'s most visited savannah park — tree-climbing lions, the Kazinga Channel and over 600 bird species across 1,978 km².',
+  priceLabel: 'Park entry from USD 40 / person / day',
+  priceNote: 'Game drives, boat cruises and chimp tracking available. Gorilla permits from Bwindi can be combined. All-inclusive packages from USD 600.',
+  intro: [
+    'Queen Elizabeth National Park is Uganda\'s most popular wildlife destination and one of the most biologically diverse national parks on the African continent. Spanning 1,978 km² across the Albertine Rift Valley, the park encompasses savannah, tropical rainforest, wetlands, lakes and the extraordinary Kazinga Channel — a 40km natural channel connecting Lake George and Lake Edward.',
+    'The park is famous above all for two things: the tree-climbing lions of the Ishasha sector in the south, a rare behaviour seen only in Queen Elizabeth and Tanzania\'s Lake Manyara; and the Kazinga Channel boat cruise, where hippos, crocodiles, elephants and over 100 waterbird species concentrate at the water\'s edge in extraordinary numbers.',
+    'Queen Elizabeth has been recorded with over 600 bird species — more than in any national park of similar size in the world — making it an unmissable destination for serious birders. The park also supports lions, leopards, elephants, buffaloes, Uganda kobs, topis, warthogs, giant forest hogs and habituated chimpanzees in the Kyambura Gorge.',
+  ],
+  sidebarLinks: [
+    { label: 'Best time to visit Uganda', href: '/plan/best-time-to-visit-uganda/' },
+    { label: 'Safari packing list', href: '/plan/safari-packing-list/' },
+    { label: 'How much does a safari cost?', href: '/plan/safari-cost-guide/' },
+    { label: 'Is Uganda safe?', href: '/plan/is-uganda-safe/' },
+  ],
+};
+
+const facts = [
+  { label: 'Location', value: 'SW Uganda, Albertine Rift' },
+  { label: 'Area', value: '1,978 km²' },
+  { label: 'Altitude', value: '910 to 1,390m' },
+  { label: 'Park entry', value: 'USD 40 per person per day' },
+  { label: 'Key attraction', value: 'Tree-climbing lions' },
+  { label: 'Bird species', value: '600+' },
+  { label: 'Best time', value: 'Jun to Sep, Dec to Feb' },
+  { label: 'Nearest airport', value: 'Entebbe (EBB), ~5 hrs' },
+];
+
+const sections = [
+  {
+    heading: 'The Ishasha Sector — Tree-Climbing Lions',
+    body: [
+      'The Ishasha sector in the southern part of Queen Elizabeth is one of the most celebrated wildlife areas in all of Uganda. The lions here have developed the unusual habit of climbing into the branches of giant fig trees — a behaviour documented at only two locations in the world.',
+      'Morning and late afternoon game drives through the Ishasha sector offer the best chances of spotting lions draped across branches 5 to 10 metres above the ground. The reason for this behaviour is debated — relief from insects, better vantage points for hunting, or simply learned behaviour — but the sight is extraordinary.',
+    ],
+  },
+  {
+    heading: 'Kazinga Channel Boat Cruise',
+    body: [
+      'The 2-hour Kazinga Channel boat cruise is considered one of the best wildlife experiences in East Africa. The channel banks support the highest concentration of hippos anywhere in Africa — estimates range from 2,500 to 5,000 — along with large crocodiles, elephants drinking at the water\'s edge, buffaloes, and an extraordinary diversity of waterbirds.',
+      'Boats depart from the Mweya peninsula at scheduled times throughout the day. Morning and afternoon departures both produce excellent sightings. The proximity to wildlife on the water — hippos surfacing metres from the boat — makes this a particularly memorable experience.',
+    ],
+  },
+];
+
+const activities = [
+  { icon: 'M9 20l-5.447-2.724A1 1 0 0 1 3 16.382V5.618a1 1 0 0 1 1.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0 0 21 18.382V7.618a1 1 0 0 0-1.447-.894L15 9m0 8V9m0 0L9 7', title: 'Kazinga Channel Boat Cruise', text: '2-hour boat safari on the channel connecting Lakes George and Edward. The highest hippo concentration in Africa. Departs Mweya peninsula. USD 30 per person.' },
+  { icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z', title: 'Game Drives', text: 'Kasenyi plains game drives for lions, elephants, buffaloes and Uganda kobs. Ishasha sector for tree-climbing lions. Morning and afternoon drives available.' },
+  { icon: 'M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10', title: 'Kyambura Gorge Chimp Tracking', text: 'Track habituated chimpanzees in the dramatic Kyambura Gorge — a forested river gorge cutting through the savannah. USD 50 per person for a guided chimpanzee walk.' },
+  { icon: 'M12 3l2.6 5.6 6 .7-4.4 4.1 1.2 6L12 16.6 6.6 19.4l1.2-6L3.4 9.3l6-.7z', title: 'Birding', text: 'Over 600 bird species recorded — more than any national park of similar size in the world. Shoebill stork on the Kazinga Channel. Guided birding walks available.' },
+  { icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z', title: 'Cultural Village Visit', text: 'Visit the Kikorongo salt lakes community and learn how local women extract salt from crater lakes. A fascinating insight into traditional livelihoods at the park boundary.' },
+  { icon: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', title: 'Maramagambo Forest Walk', text: 'Guided forest walk in the Maramagambo Forest on the eastern edge of the park. Python caves, forest birds and primates including red-tailed monkeys and baboons.' },
+];
+
+const tours = [
+  { title: '3 Days Queen Elizabeth National Park Safari', slug: '3-days-queen-elizabeth-national-park-safari', days: 3, price: 'From $600', img: '/images/wildlife/hippos-in-grass-kazinga.jpg', imgAlt: 'Hippos Kazinga Channel Queen Elizabeth Uganda' },
+  { title: '5 Days Uganda Gorilla and Wildlife Safari', slug: '5-days-uganda-gorilla-wildlife-safari', days: 5, price: 'From $2,200', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla trekking Uganda' },
+  { title: '4 Days Gorilla and Queen Elizabeth Safari', slug: '4-days-gorilla-queen-elizabeth-safari', days: 4, price: 'From $1,800', img: '/images/wildlife/tree-climbing-lion-ishasha.jpg', imgAlt: 'Tree climbing lion Ishasha Uganda' },
+  { title: '7 Days Uganda Gorilla, Chimp and Wildlife', slug: '7-days-uganda-gorilla-chimp-wildlife-safari', days: 7, price: 'From $2,800', img: '/images/wildlife/elephant-pair-greeting.jpg', imgAlt: 'Elephants Uganda' },
+  { title: '10 Days Uganda Wildlife Grand Circuit', slug: '10-days-uganda-wildlife-gorilla-chimp-safari', days: 10, price: 'From $3,800', img: '/images/gorillas/silverback-gorilla-group.jpg', imgAlt: 'Gorilla Uganda' },
+];
+
+const faqs = [
+  { q: 'What is Queen Elizabeth National Park famous for?', a: 'Queen Elizabeth is most famous for its tree-climbing lions in the Ishasha sector and the Kazinga Channel boat cruise. It also has over 600 bird species — one of the highest counts of any park in Africa — and habituated chimpanzees in the Kyambura Gorge.' },
+  { q: 'How far is Queen Elizabeth from Kampala?', a: 'Queen Elizabeth National Park is approximately 420km from Kampala, taking 5 to 6 hours by road via Mbarara. It is typically combined with Bwindi Impenetrable Forest (gorilla trekking) and Kibale Forest (chimpanzees) in multi-day safari circuits.' },
+  { q: 'What is the best time to visit Queen Elizabeth National Park?', a: 'Game viewing is good year-round. The dry seasons from June to September and December to February offer easier game drives with shorter vegetation. The Kazinga Channel boat cruise is excellent in all seasons. The wet season brings lush landscapes and exceptional birding.' },
+  { q: 'Can I see the Big Five in Queen Elizabeth?', a: 'Queen Elizabeth has lions, leopards, elephants and buffaloes. Rhinos are not present in the park itself but can be seen at Ziwa Rhino Sanctuary on the way to Murchison Falls. Leopards are present but rarely seen due to the dense vegetation.' },
+];
 ---
-
-<BaseLayout title="Queen Elizabeth National Park Uganda — Wildlife & Boat Safaris | L'okawa Tours" description="Explore Queen Elizabeth National Park with L'okawa Tours. Tree-climbing lions in Ishasha, Kazinga Channel boat cruise and game drives. Safari packages included.">
-</BaseLayout>
-
+<ParkPage {park} {facts} {sections} {activities} {tours} {faqs} />

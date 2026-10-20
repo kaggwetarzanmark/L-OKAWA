@@ -1,7 +1,57 @@
-ï»¿---
-import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
+import ParkPage from '../../../../components/ParkPage.astro';
 
-<BaseLayout title="Amboseli National Park â€” Elephants & Kilimanjaro Views Kenya | L'okawa Tours" description="Discover Amboseli National Park, Kenya. Famous for large elephant herds set against the backdrop of snow-capped Mount Kilimanjaro. Safari tours from Nairobi.">
-</BaseLayout>
+const park = {
+  name: 'Amboseli National Park',
+  country: 'Kenya',
+  countrySlug: 'kenya',
+  slug: 'amboseli-national-park',
+  tagline: 'Elephants Beneath Kilimanjaro — Africa\'s Greatest Photograph',
+  heroImg: '/images/wildlife/elephant-pair-greeting.jpg',
+  heroImgAlt: 'Two elephants with Mount Kilimanjaro in the background at Amboseli National Park Kenya',
+  description: 'Guide to Amboseli National Park Kenya. Largest free-roaming elephant herds in Africa with Mount Kilimanjaro as backdrop. Game drives, Maasai culture and safari packages from L\'okawa Tours.',
+  bannerSub: 'The world\'s iconic elephant photograph — vast herds dwarfed by the snow cap of Kilimanjaro rising 5,895m from the Amboseli plains.',
+  priceLabel: 'Park entry USD 60 / person / day',
+  priceNote: 'Game drives, birding walks and Maasai village visits. All-inclusive packages from USD 400.',
+  intro: [
+    'Amboseli National Park is one of Kenya\'s most visited parks and one of Africa\'s great photography destinations. The 392 km² park sits at the foot of Mount Kilimanjaro, and on clear mornings the snow-capped summit of Africa\'s highest mountain (5,895m) towers above the flat Amboseli plains in a view that has become one of the defining images of African wilderness.',
+    'Amboseli is famous for its elephant population — the park supports some of the largest free-roaming elephant herds in Africa, and the elephants here are among the most studied in the world. The Amboseli Elephant Research Project has been running continuously since 1972 and the elephants are exceptionally relaxed around vehicles, allowing extraordinarily close observations.',
+    'The Amboseli swamp areas attract enormous concentrations of wildlife, particularly in the dry season. Lions, cheetahs, buffaloes, zebras and wildebeest gather around the permanent water sources, creating some of the most reliable predator sightings in Kenya outside the Masai Mara.',
+  ],
+  sidebarLinks: [
+    { label: 'Best time to visit Kenya', href: '/plan/best-time-to-visit-kenya/' },
+    { label: 'Safari packing list', href: '/plan/safari-packing-list/' },
+    { label: 'How much does a safari cost?', href: '/plan/safari-cost-guide/' },
+  ],
+};
 
+const facts = [
+  { label: 'Location', value: 'S Kenya, Tanzania border' },
+  { label: 'Area', value: '392 km²' },
+  { label: 'Altitude', value: '1,150m' },
+  { label: 'Park entry', value: 'USD 60 per person per day' },
+  { label: 'Key attraction', value: 'Elephants and Kilimanjaro views' },
+  { label: 'Best Kili views', value: 'Early morning, Jan to Feb' },
+  { label: 'Best time', value: 'Jan to Feb, Jun to Oct' },
+  { label: 'Nearest airport', value: 'Nairobi (NBO), ~4 hrs' },
+];
+
+const activities = [
+  { icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z', title: 'Game Drives', text: 'Morning and afternoon game drives across the Amboseli plains and swamp edges. Elephant herds, lions, cheetahs, zebras and wildebeest with Kilimanjaro as the constant backdrop.' },
+  { icon: 'M3 3l18 18M3 9l18 18', title: 'Kilimanjaro Photography', text: 'Early morning photography sessions at the swamp viewpoints. Kilimanjaro is clearest from 6am to 9am before clouds build. January and February offer the most consistent clear mornings.' },
+  { icon: 'M12 3l2.6 5.6 6 .7-4.4 4.1 1.2 6L12 16.6 6.6 19.4l1.2-6L3.4 9.3l6-.7z', title: 'Birding', text: 'Over 400 bird species. The swamp areas attract large flocks of pelicans, herons, ibis and storks. African fish eagle calls echo across the water. Excellent all-year birding.' },
+  { icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z', title: 'Maasai Village Visit', text: 'Visit a traditional Maasai community on the park boundary. The Maasai and the Amboseli elephants have coexisted for centuries. Cultural visits support community conservation.' },
+];
+
+const tours = [
+  { title: '10 Days Kenya Safari and Beach Holiday', slug: '10-days-kenya-safari-beach-holiday', days: 10, price: 'From $3,200', img: '/images/wildlife/elephant-pair-greeting.jpg', imgAlt: 'Elephants Amboseli Kenya' },
+  { title: '3 Days Masai Mara Safari', slug: '3-days-masai-mara-safari', days: 3, price: 'From $900', img: '/images/wildlife/safari-vehicle-lions.jpg', imgAlt: 'Lions Masai Mara Kenya' },
+];
+
+const sections = [];
+const faqs = [
+  { q: 'When is Kilimanjaro most visible from Amboseli?', a: 'Kilimanjaro is clearest in the early morning before clouds build around the summit. The best months are January and February (short dry season) when humidity is lowest. July to October is also generally clear. The mountain is often visible for the first 2 hours after sunrise even during the rainy season.' },
+  { q: 'Are there lions in Amboseli?', a: 'Yes. Amboseli has a good lion population although sightings are less reliable than in the Masai Mara. Cheetahs are regularly seen on the open plains. The park is primarily celebrated for its elephants and Kilimanjaro views, but predator sightings are a genuine feature of any Amboseli game drive.' },
+];
+---
+<ParkPage {park} {facts} {sections} {activities} {tours} {faqs} />

@@ -1,7 +1,80 @@
 ﻿---
-import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import ParkPage from '../../../../components/ParkPage.astro';
+
+const park = {
+  name: 'Murchison Falls National Park',
+  country: 'Uganda',
+  countrySlug: 'uganda',
+  slug: 'murchison-falls-national-park',
+  tagline: 'The World\'s Most Powerful Waterfall on the Nile',
+  heroImg: '/images/parks/murchison-falls-national-park-gate.jpg',
+  heroImgAlt: 'Entrance gate to Murchison Falls National Park Uganda with savannah behind',
+  description: 'Complete guide to Murchison Falls National Park Uganda. Nile boat safari, game drives for giraffes and lions, Murchison Falls hike and shoebill stork birding. Safari packages from L\'okawa Tours.',
+  bannerSub: 'Uganda\'s largest national park — where the entire Nile is forced through a 7-metre gap before thundering 43 metres into the gorge below.',
+  priceLabel: 'Park entry from USD 40 / person / day',
+  priceNote: 'Nile boat safari, game drives and rhino tracking at Ziwa Sanctuary. All-inclusive packages from USD 650.',
+  intro: [
+    'Murchison Falls National Park is Uganda\'s largest national park at 3,840 km², stretching from the edge of the Albertine Rift Valley in the west to the vast savannah plains of the north bank. The park takes its name from the most dramatic feature on the entire length of the Nile — the point where the world\'s longest river is forced through a gap just 7 metres wide before plunging 43 metres into the gorge below in a thundering cascade of white water.',
+    'The north bank game drives are among the best in Uganda, with some of the highest densities of Rothschild\'s giraffes, elephants, buffaloes, lions and Uganda kobs anywhere on the continent. The afternoon Nile boat safari from Paraa to the base of the falls passes extraordinary concentrations of hippos and Nile crocodiles, with the falls themselves thundering directly above the boat at the end of the run.',
+    'A stop at Ziwa Rhino Sanctuary on the drive to Murchison gives visitors the opportunity to track Uganda\'s only wild white rhinos on foot — the only place in the country where this is possible since rhinos were wiped out in the 1970s. The sanctuary is a conservation success story and a highly rewarding addition to any Murchison itinerary.',
+  ],
+  sidebarLinks: [
+    { label: 'Best time to visit Uganda', href: '/plan/best-time-to-visit-uganda/' },
+    { label: 'Uganda travel tips', href: '/plan/uganda-travel-tips/' },
+    { label: 'Safari packing list', href: '/plan/safari-packing-list/' },
+    { label: 'How much does a safari cost?', href: '/plan/safari-cost-guide/' },
+  ],
+};
+
+const facts = [
+  { label: 'Location', value: 'NW Uganda, Albert Nile' },
+  { label: 'Area', value: '3,840 km²' },
+  { label: 'Falls height', value: '43 metres' },
+  { label: 'Falls gap', value: '7 metres wide' },
+  { label: 'Park entry', value: 'USD 40 per person per day' },
+  { label: 'Key species', value: 'Rothschild\'s giraffe, lion, elephant' },
+  { label: 'Best time', value: 'Year-round, drier Jun to Sep' },
+  { label: 'Nearest airport', value: 'Entebbe (EBB), ~5 hrs' },
+];
+
+const sections = [
+  {
+    heading: 'The Nile Boat Safari',
+    body: [
+      'The afternoon boat safari from Paraa to the base of Murchison Falls is one of the most celebrated wildlife experiences in all of Uganda. The 3-hour journey along the Victoria Nile passes enormous pods of hippos, 5-metre Nile crocodiles basking on every bank, elephants drinking at the water\'s edge and an extraordinary variety of waterbirds including the rare shoebill stork on the river delta.',
+      'The boat approaches within metres of the falls at the end of the run — the spray and the roar of the water at close range are genuinely overwhelming. Return is by the same route. Evening departures offer the best light for photography.',
+    ],
+  },
+  {
+    heading: 'North Bank Game Drives',
+    body: [
+      'The north bank of the Nile inside Murchison Falls is one of the finest game drive destinations in East Africa. The open savannah supports large herds of Uganda kobs, Rothschild\'s giraffes (one of the world\'s most endangered giraffe subspecies), Jackson\'s hartebeests, oribi and buffaloes. Lions are regularly seen on and around the Buligi Game Tracks.',
+      'Morning game drives at first light are the most productive for predators. Late afternoon drives catch the golden hour light on the giraffes and the large kob herds returning to the river. The south bank has denser vegetation and is particularly good for primates and forest birds.',
+    ],
+  },
+];
+
+const activities = [
+  { icon: 'M9 20l-5.447-2.724A1 1 0 0 1 3 16.382V5.618a1 1 0 0 1 1.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0 0 21 18.382V7.618a1 1 0 0 0-1.447-.894L15 9m0 8V9m0 0L9 7', title: 'Nile Boat Safari', text: '3-hour boat safari from Paraa to the base of Murchison Falls. Hippos, crocodiles, elephants and shoebill stork. USD 30 per person. Departs afternoon daily.' },
+  { icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z', title: 'North Bank Game Drives', text: 'Morning and afternoon game drives on the open savannah north of the Nile. Rothschild\'s giraffes, lions, elephants, buffaloes and Uganda kobs.' },
+  { icon: 'M3 3l18 18M3 9l18 18', title: 'Murchison Falls Hike', text: 'Hike to the top of the falls from the base after the boat safari. 45 minutes uphill to the dramatic viewpoint directly above the falls\' 7-metre gap.' },
+  { icon: 'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z M12 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4', title: 'Ziwa Rhino Sanctuary', text: 'On the drive to Murchison, stop for a guided rhino tracking walk on foot. The only place in Uganda to see wild white rhinos. USD 40 per person.' },
+  { icon: 'M12 3l2.6 5.6 6 .7-4.4 4.1 1.2 6L12 16.6 6.6 19.4l1.2-6L3.4 9.3l6-.7z', title: 'Shoebill Stork Birding', text: 'The Nile delta at the western tip of the park is one of the most reliable spots in Africa to see the prehistoric shoebill stork. Best by boat in the early morning.' },
+  { icon: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', title: 'Budongo Forest Chimp Tracking', text: 'Budongo Forest on the park\'s southern boundary is one of Uganda\'s best chimpanzee habitats. Guided chimp tracking available. USD 100 per person.' },
+];
+
+const tours = [
+  { title: '3 Days Murchison Falls Safari', slug: '3-days-murchison-falls-safari', days: 3, price: 'From $650', img: '/images/parks/murchison-falls-national-park-gate.jpg', imgAlt: 'Murchison Falls National Park Uganda' },
+  { title: '7 Days Uganda Wildlife Safari', slug: '7-days-uganda-wildlife-safari', days: 7, price: 'From $2,700', img: '/images/wildlife/giraffe-uganda-murchison.jpg', imgAlt: 'Giraffe Murchison Falls Uganda' },
+  { title: '9 Days Uganda Safari', slug: '9-days-uganda-safari', days: 9, price: 'From $3,500', img: '/images/wildlife/elephant-pair-greeting.jpg', imgAlt: 'Elephants Uganda safari' },
+  { title: '12 Days Uganda Grand Safari', slug: '12-days-uganda-grand-safari', days: 12, price: 'From $4,500', img: '/images/wildlife/giraffe-uganda-murchison.jpg', imgAlt: 'Giraffe Uganda' },
+];
+
+const faqs = [
+  { q: 'What is special about Murchison Falls?', a: 'Murchison Falls is the point where the entire flow of the River Nile is forced through a gap just 7 metres wide before plunging 43 metres into the gorge below. By volume of water per metre of width, it is the most powerful waterfall in the world. The falls can be viewed from the top (after the boat safari hike), the base (by boat), or from the air (helicopter available).' },
+  { q: 'How far is Murchison Falls from Kampala?', a: 'Murchison Falls is approximately 300km north of Kampala, taking about 5 hours by road via Masindi. A charter flight from Entebbe to Pakuba airstrip inside the park takes approximately 1 hour and is available for those wanting to save driving time.' },
+  { q: 'Can I see rhinos in Murchison Falls?', a: 'Rhinos are not present inside Murchison Falls National Park itself. However, Ziwa Rhino Sanctuary is located on the main road between Kampala and Murchison and is a standard stop on most Murchison itineraries. Guided rhino tracking walks at Ziwa take 1 to 2 hours and cost USD 40 per person.' },
+  { q: 'Is the Nile boat safari worth it?', a: 'The Nile boat safari at Murchison Falls is consistently rated as one of the best wildlife experiences in Uganda. The combination of massive hippo pods, enormous crocodiles, elephants drinking at the bank, prolific birdlife and the waterfall thundering above the boat at the end of the run is extraordinary. It is 3 hours well spent.' },
+];
 ---
-
-<BaseLayout title="Murchison Falls National Park — Africa's Most Powerful Waterfall | L'okawa Tours" description="Safari guide to Murchison Falls National Park, Uganda. Game drives, Nile boat cruise, rhino tracking at Ziwa and the world's most powerful waterfall.">
-</BaseLayout>
-
+<ParkPage {park} {facts} {sections} {activities} {tours} {faqs} />

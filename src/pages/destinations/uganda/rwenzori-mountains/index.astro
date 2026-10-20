@@ -1,7 +1,77 @@
 ﻿---
-import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import ParkPage from '../../../../components/ParkPage.astro';
+
+const park = {
+  name: 'Rwenzori Mountains',
+  country: 'Uganda',
+  countrySlug: 'uganda',
+  slug: 'rwenzori-mountains',
+  tagline: 'The Mountains of the Moon — Glaciers on the Equator',
+  heroImg: '/images/accommodation/rwenzori-mountains-glacier-hike.jpg',
+  heroImgAlt: 'Hiker on glacier trail in the Rwenzori Mountains Uganda with ice and sky',
+  description: 'Complete guide to the Rwenzori Mountains Uganda. Multi-day trekking, Margherita Peak, afro-alpine flora and glacier hiking on the equator. Safari packages from L\'okawa Tours.',
+  bannerSub: 'Africa\'s third-highest peak and the only equatorial mountains with permanent glaciers — the legendary Mountains of the Moon.',
+  priceLabel: 'Trekking from USD 80 / day',
+  priceNote: 'Day hikes from USD 80. 7-day Margherita circuit from USD 1,500. All guides, porters and hut fees included.',
+  intro: [
+    'The Rwenzori Mountains on the Uganda-DRC border are among the most remarkable mountain ranges on Earth. Rising to 5,109m at Margherita Peak — Africa\'s third-highest summit — these ancient mountains are the only equatorial range in the world with permanent glaciers, earning them the nickname "Mountains of the Moon" first recorded by the Greek geographer Ptolemy in 150 AD.',
+    'The Rwenzori offer a completely different experience from Uganda\'s wildlife parks. Rather than game drives, visitors hike through a series of dramatically changing vegetation zones: dense montane forest, bamboo, giant heath, groundsel zone and finally the surreal afro-alpine moorland above 4,000m where giant lobelias and giant groundsels rise 6 to 8 metres above the trail.',
+    'Trek options range from a half-day lower circuit walk to the full 7 to 8 day Margherita circuit reaching the glacier and summit ridge. The most popular option is the 3-day lower circuit to approximately 3,400m — a serious but achievable hike without technical mountaineering equipment. All hikes depart from Nyakalengija village near Kasese. Guides and porters are compulsory and are provided through the Rwenzori Mountaineering Services (RMS).',
+  ],
+  sidebarLinks: [
+    { label: 'Best time to visit Uganda', href: '/plan/best-time-to-visit-uganda/' },
+    { label: 'Uganda travel tips', href: '/plan/uganda-travel-tips/' },
+    { label: '7 Days Uganda Adventure Safari', href: '/tours/7-days-uganda-adventure-safari/' },
+    { label: '15 Days Uganda Adventure Safari', href: '/tours/15-days-uganda-adventure-wildlife-safari/' },
+  ],
+};
+
+const facts = [
+  { label: 'Location', value: 'W Uganda, near Kasese' },
+  { label: 'Highest peak', value: 'Margherita Peak 5,109m' },
+  { label: 'Park area', value: '996 km²' },
+  { label: 'Day hike from', value: 'USD 80 per person' },
+  { label: 'Margherita circuit', value: 'From USD 1,500 (7 days)' },
+  { label: 'Best time', value: 'Jun to Sep, Dec to Feb' },
+  { label: 'Trailhead', value: 'Nyakalengija (near Kasese)' },
+  { label: 'Nearest airport', value: 'Entebbe (EBB), ~5 hrs' },
+];
+
+const sections = [
+  {
+    heading: 'Trekking Routes and Options',
+    body: [
+      'The Rwenzori offer a range of trekking experiences from a gentle afternoon walk to a full summit ascent. The Circuit Route (7 to 8 days) is the standard full trek, circumnavigating the central peaks via the Bujuku Valley and reaching the Margherita glacier. The Lower Circuit (3 days) is the most popular option for safari visitors, reaching approximately 3,400m through the giant heather zone without requiring specialist equipment.',
+      'All trekking is managed through Rwenzori Mountaineering Services (RMS). A compulsory certified guide and porter allocation is required on all routes. Guides carry GPS tracking devices and emergency equipment. Mountain huts with meals are available on all overnight routes.',
+    ],
+  },
+  {
+    heading: 'Vegetation Zones',
+    body: [
+      'One of the most remarkable aspects of a Rwenzori trek is the transition through distinct vegetation zones within a single day\'s hiking. Starting in the montane forest zone at the base, the trail ascends through bamboo forest, giant heather zone (heathers reaching 6 metres tall), giant groundsel moorland (plants that grow nowhere else on earth in these forms) and finally the open alpine zone with permanent snow and ice above 4,500m.',
+      'The giant groundsel (Dendrosenecio sp.) and giant lobelia are the iconic plants of the Afro-alpine zone. Growing to 8 metres, these extraordinary plants evolved in isolation at high altitude and are found only on the high mountains of equatorial Africa. The otherworldly landscape they create above 3,500m is unlike anything else in Africa.',
+    ],
+  },
+];
+
+const activities = [
+  { icon: 'M3 3l18 18M3 9l18 18', title: 'Lower Circuit Trek (3 days)', text: 'The most popular Rwenzori experience: 3-day lower circuit through montane forest, bamboo and giant heather to approximately 3,400m. No specialist equipment needed. All guides and hut fees included.' },
+  { icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z', title: 'Margherita Summit Circuit (7 days)', text: 'Full 7 to 8 day circuit to Africa\'s third-highest summit at 5,109m. Glacier crossing and summit views. Requires reasonable fitness and basic mountaineering kit for the final day.' },
+  { icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z', title: 'Half-Day Trail Walk', text: 'Short guided walk into the lower forest from Nyakalengija. Good for birding, primates and a taste of the forest without committing to a multi-day trek. From USD 40.' },
+  { icon: 'M12 3l2.6 5.6 6 .7-4.4 4.1 1.2 6L12 16.6 6.6 19.4l1.2-6L3.4 9.3l6-.7z', title: 'Birding', text: 'Over 180 bird species including 19 Albertine Rift endemics. The Rwenzori turaco, handsome spurfowl and numerous sunbirds are found in the lower forest zone.' },
+  { icon: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2', title: 'Nyakalengija Cultural Walk', text: 'Village walk in the Bakonzo community at the base of the mountains. Learn about the traditional relationship between the local people and the mountains they call home.' },
+];
+
+const tours = [
+  { title: '7 Days Uganda Adventure Safari', slug: '7-days-uganda-adventure-safari', days: 7, price: 'From $3,000', img: '/images/accommodation/rwenzori-mountains-glacier-hike.jpg', imgAlt: 'Rwenzori Mountains hike Uganda' },
+  { title: '15 Days Uganda Adventure and Wildlife Safari', slug: '15-days-uganda-adventure-wildlife-safari', days: 15, price: 'From $5,800', img: '/images/accommodation/rwenzori-mountains-glacier-hike.jpg', imgAlt: 'Rwenzori Mountains Uganda adventure' },
+  { title: '12 Days Uganda Grand Safari', slug: '12-days-uganda-grand-safari', days: 12, price: 'From $4,500', img: '/images/wildlife/giraffe-uganda-murchison.jpg', imgAlt: 'Uganda grand safari' },
+];
+
+const faqs = [
+  { q: 'Do I need technical mountaineering experience for the Rwenzori?', a: 'For the lower circuit (3 days to approximately 3,400m) no technical experience or specialist equipment is required. Good fitness, waterproof hiking boots, warm layers and a rain jacket are sufficient. For the Margherita summit circuit, crampons and an ice axe are needed for the final glacier section and basic crampon technique is required.' },
+  { q: 'Are the Rwenzori glaciers disappearing?', a: 'Yes. The Rwenzori glaciers have lost over 80% of their area since 1906 due to climate change. Scientists estimate the remaining glaciers could disappear entirely by 2030 to 2060. This makes a visit to the high Rwenzori a genuinely time-sensitive experience.' },
+  { q: 'When is the best time to trek the Rwenzori?', a: 'The dry seasons from June to September and December to February offer the best conditions. The Rwenzori are famous for receiving very high rainfall even in the dry season, but drier months give better summit visibility and more manageable trail conditions. The mountains are hikeable year-round but wet season trails are very muddy and streams can be high.' },
+];
 ---
-
-<BaseLayout title="Rwenzori Mountains — Hiking the Mountains of the Moon Uganda | L'okawa Tours" description="Trek the Rwenzori Mountains National Park, the legendary Mountains of the Moon. Glaciers, unique afro-alpine flora and incredible views on Uganda's highest peaks.">
-</BaseLayout>
-
+<ParkPage {park} {facts} {sections} {activities} {tours} {faqs} />

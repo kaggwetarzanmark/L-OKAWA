@@ -1,7 +1,64 @@
-ï»¿---
-import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
+import ParkPage from '../../../../components/ParkPage.astro';
 
-<BaseLayout title="Kibale National Park â€” Chimpanzee Trekking Capital of Uganda | L'okawa Tours" description="Track wild chimpanzees in Kibale Forest National Park, Uganda's primate capital. 13 primate species, 325 bird species and the Bigodi Wetland Sanctuary.">
-</BaseLayout>
+const park = {
+  name: 'Kibale Forest National Park',
+  country: 'Uganda',
+  countrySlug: 'uganda',
+  slug: 'kibale-national-park',
+  tagline: 'Africa\'s Primate Capital — Over 1,500 Wild Chimpanzees',
+  heroImg: '/images/primates/chimpanzee-kibale-forest.jpg',
+  heroImgAlt: 'Wild chimpanzee in the canopy of Kibale Forest National Park Uganda',
+  description: 'Complete guide to chimpanzee trekking in Kibale Forest National Park Uganda. Africa\'s best chimpanzee habitat with 13 primate species. Permits, best time and safari packages from L\'okawa Tours.',
+  bannerSub: 'Uganda\'s primate paradise — 13 species including over 1,500 habituated chimpanzees in the world\'s most productive chimp trekking destination.',
+  priceLabel: 'Chimpanzee permit USD 250 / person',
+  priceNote: 'Chimp trekking permit includes park entry and ranger guide. Bigodi Wetland walk USD 30. All-inclusive packages from USD 450.',
+  intro: [
+    'Kibale Forest National Park in western Uganda is widely regarded as the best chimpanzee trekking destination in the world. The park\'s 766 km² of moist tropical forest supports the highest density of primates anywhere in Africa — 13 species including over 1,500 chimpanzees, red colobus monkeys, red-tailed monkeys, L\'Hoest\'s monkeys and black-and-white colobus.',
+    'The chimpanzees of Kibale are habituated to human presence and can be tracked on foot with ranger guides every morning from Kanyanchu Visitor Centre. Unlike gorilla trekking where you spend one hour with the gorillas, chimpanzee trekking at Kibale offers up to one hour of observation once found — watching the chimps feeding, grooming, socialising and travelling through the canopy.',
+    'The Bigodi Wetland Sanctuary adjacent to the park is an extraordinary complement to the chimp trek — a community-run guided walk through papyrus wetland and forest that produces excellent primate and bird sightings including the sitatunga antelope, 11 primate species and over 200 bird species in a 2-hour walk.',
+  ],
+  sidebarLinks: [
+    { label: 'Best time to visit Uganda', href: '/plan/best-time-to-visit-uganda/' },
+    { label: 'Uganda travel tips', href: '/plan/uganda-travel-tips/' },
+    { label: 'Safari packing list', href: '/plan/safari-packing-list/' },
+    { label: 'How much does a safari cost?', href: '/plan/safari-cost-guide/' },
+  ],
+};
 
+const facts = [
+  { label: 'Location', value: 'W Uganda, near Fort Portal' },
+  { label: 'Area', value: '766 km²' },
+  { label: 'Chimpanzees', value: '1,500+' },
+  { label: 'Primate species', value: '13' },
+  { label: 'Chimp permit', value: 'USD 250 per person' },
+  { label: 'Bird species', value: '375+' },
+  { label: 'Best time', value: 'Year-round' },
+  { label: 'Nearest airport', value: 'Entebbe (EBB), ~5 hrs' },
+];
+
+const activities = [
+  { icon: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', title: 'Chimpanzee Trekking', text: 'Track habituated chimpanzees with a ranger guide from Kanyanchu. Morning departures at 8am. Up to 1 hour with the chimpanzee community. USD 250 per person.' },
+  { icon: 'M12 3l2.6 5.6 6 .7-4.4 4.1 1.2 6L12 16.6 6.6 19.4l1.2-6L3.4 9.3l6-.7z', title: 'Bigodi Wetland Sanctuary', text: 'Community-run guided walk through papyrus wetland adjacent to the park. 11 primate species, sitatunga antelope and 200+ birds. USD 30. Excellent for birders.' },
+  { icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z', title: 'Night Walk', text: 'Guided night walk in the forest to see nocturnal wildlife: bushbabies, pottos, civets and forest birds. Fascinating complement to the daytime chimp trek.' },
+  { icon: 'M3 3l18 18M3 9l18 18', title: 'Crater Lake Walk', text: 'Walk between the scenic volcanic crater lakes in the Kibale area. Fort Portal is surrounded by over 50 explosion craters. Guided half-day walks available.' },
+  { icon: 'M9 20l-5.447-2.724A1 1 0 0 1 3 16.382V5.618a1 1 0 0 1 1.447-.894L9 7', title: 'Chimpanzee Habituation Experience', text: 'Spend from 6am to 6pm with a chimpanzee community still being habituated. USD 200 per person. Maximum 4 people. Available at Kanyanchu.' },
+  { icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z', title: 'Guided Forest Walk', text: 'Guided nature walk through the forest without chimp trekking. Excellent for birds, plants and smaller primates. Available throughout the day.' },
+];
+
+const tours = [
+  { title: '3 Days Kibale Chimpanzee Trekking', slug: '3-days-kibale-chimpanzee-trekking', days: 3, price: 'From $750', img: '/images/primates/chimpanzees-pair-feeding.jpg', imgAlt: 'Chimpanzees Kibale Forest Uganda' },
+  { title: '5 Days Uganda Primates Safari', slug: '5-days-uganda-primates-safari', days: 5, price: 'From $2,100', img: '/images/primates/chimpanzee-kibale-forest.jpg', imgAlt: 'Chimpanzee Uganda primate safari' },
+  { title: '7 Days Uganda Gorilla, Chimp and Wildlife', slug: '7-days-uganda-gorilla-chimp-wildlife-safari', days: 7, price: 'From $2,800', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla Uganda' },
+  { title: '4 Days Uganda Chimpanzee and Wildlife Safari', slug: '4-days-uganda-chimpanzee-wildlife-safari', days: 4, price: 'From $1,500', img: '/images/primates/chimpanzees-pair-feeding.jpg', imgAlt: 'Chimpanzees Uganda' },
+];
+
+const sections = [];
+const faqs = [
+  { q: 'How much does chimpanzee trekking cost in Kibale?', a: 'A chimpanzee trekking permit at Kibale Forest National Park costs USD 250 per person. This includes park entry, a Uganda Wildlife Authority ranger guide and one hour of observation time with the chimpanzee community. The permit must be booked in advance through us or the Uganda Wildlife Authority.' },
+  { q: 'Is chimpanzee trekking guaranteed in Kibale?', a: 'Kibale has a very high success rate for chimpanzee sightings — typically above 95%. The habituated communities are tracked daily by rangers and their location is known each morning. On rare occasions of forest fires, heavy rainfall or if the chimps have moved deep into the forest, the trek may be longer or the encounter shorter.' },
+  { q: 'How does Kibale chimpanzee trekking compare to gorilla trekking?', a: 'Kibale\'s chimpanzee trek is generally easier and less physically demanding than gorilla trekking in Bwindi. The forest is lower altitude and less steep. Trekking times are usually 1 to 3 hours. The chimpanzee encounter is less intimate than gorillas — chimps move fast through the canopy — but the energy and noise of a chimp community in the forest is an extraordinary experience.' },
+  { q: 'Can I combine Kibale with other Uganda parks?', a: 'Yes. Kibale is on the main road between Kampala and Queen Elizabeth National Park, making it a natural stop on any western Uganda safari circuit. Most popular combinations: Kibale + Queen Elizabeth (5 to 7 days), Kibale + Bwindi + Queen Elizabeth (7 to 10 days), or the full Uganda circuit including Murchison Falls.' },
+];
+---
+<ParkPage {park} {facts} {sections} {activities} {tours} {faqs} />

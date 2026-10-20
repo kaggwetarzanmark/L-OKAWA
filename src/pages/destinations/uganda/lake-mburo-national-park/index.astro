@@ -1,7 +1,62 @@
-ï»¿---
-import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
+import ParkPage from '../../../../components/ParkPage.astro';
 
-<BaseLayout title="Lake Mburo National Park â€” Zebras, Hippos & Birding Uganda | L'okawa Tours" description="Discover Lake Mburo National Park, Uganda's most accessible safari destination. Zebras, hippos, 332 bird species and boat safaris on the lake.">
-</BaseLayout>
+const park = {
+  name: 'Lake Mburo National Park',
+  country: 'Uganda',
+  countrySlug: 'uganda',
+  slug: 'lake-mburo-national-park',
+  tagline: 'Uganda\'s Most Accessible Safari — Zebras, Hippos and 332 Birds',
+  heroImg: '/images/wildlife/hippo-in-water-closeup.jpg',
+  heroImgAlt: 'Hippo close-up at Lake Mburo National Park Uganda',
+  description: 'Complete guide to Lake Mburo National Park Uganda. Zebras, impalas, hippos, boat safari and walking safaris just 3 hours from Kampala. Safari packages from L\'okawa Tours.',
+  bannerSub: 'Uganda\'s most accessible national park — zebras, impalas, hippos and 332 bird species just 3 hours from Kampala on the western highway.',
+  priceLabel: 'Park entry USD 40 / person / day',
+  priceNote: 'Boat ride, walking safari and game drives available. Packages from USD 380.',
+  intro: [
+    'Lake Mburo National Park is the most accessible national park in Uganda, located just 240km from Kampala on the main road to western Uganda. The compact 370 km² park is built around five interconnected lakes and is the only national park in Uganda with both zebras and impalas — species more commonly associated with the Kenyan and Tanzanian savannah.',
+    'Lake Mburo punches well above its weight for wildlife density. The acacia savannah and woodland support large numbers of topis, elands, buffaloes, warthogs and the elusive sitatunga antelope in the wetland areas. The five lakes support enormous hippo populations, large Nile crocodiles and exceptional waterbirds including the African fish eagle.',
+    'Unlike Uganda\'s larger parks, Lake Mburo permits activities not available elsewhere: walking safaris with armed rangers inside the park, mountain biking along designated trails, and horse riding through the acacia woodland. These activities make Lake Mburo an excellent choice for travellers wanting to engage with the landscape on foot rather than only from a vehicle.',
+  ],
+  sidebarLinks: [
+    { label: 'Best time to visit Uganda', href: '/plan/best-time-to-visit-uganda/' },
+    { label: 'Is Uganda safe?', href: '/plan/is-uganda-safe/' },
+    { label: 'Safari packing list', href: '/plan/safari-packing-list/' },
+    { label: 'How much does a safari cost?', href: '/plan/safari-cost-guide/' },
+  ],
+};
 
+const facts = [
+  { label: 'Location', value: 'SW Uganda, Mbarara' },
+  { label: 'Area', value: '370 km²' },
+  { label: 'Park entry', value: 'USD 40 per person per day' },
+  { label: 'Key species', value: 'Zebra, impala, hippo, eland' },
+  { label: 'Bird species', value: '332' },
+  { label: 'Distance from Kampala', value: 'Approx 240km, 3 hrs' },
+  { label: 'Best time', value: 'Year-round' },
+  { label: 'Nearest airport', value: 'Entebbe (EBB), ~3.5 hrs' },
+];
+
+const activities = [
+  { icon: 'M9 20l-5.447-2.724A1 1 0 0 1 3 16.382V5.618a1 1 0 0 1 1.447-.894L9 7m0 13l6-3m-6 3V7', title: 'Boat Safari on Lake Mburo', text: '2-hour boat safari on Lake Mburo. Hippos at very close range, large Nile crocodiles, African fish eagles and excellent waterbirds. USD 30 per person.' },
+  { icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z', title: 'Game Drives', text: 'Morning and evening game drives for zebras, impalas, topis, elands, buffaloes and warthogs across the acacia savannah. Night game drives available for hyenas and genets.' },
+  { icon: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', title: 'Walking Safari', text: 'Guided walking safari inside the park with an armed ranger. The only large Uganda park where walking safaris are offered inside the park boundaries.' },
+  { icon: 'M3 3l18 18M3 9l18 18', title: 'Horse Riding', text: 'Guided horse riding through the acacia woodland along the lake shores. Available at select lodges. One of the few parks in Uganda where this is offered.' },
+  { icon: 'M12 3l2.6 5.6 6 .7-4.4 4.1 1.2 6L12 16.6 6.6 19.4l1.2-6L3.4 9.3l6-.7z', title: 'Birding', text: '332 bird species including rare papyrus specialists in the wetlands. Shoebill stork occasionally sighted. Excellent year-round birding from the lake shores.' },
+  { icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z', title: 'Night Game Drive', text: 'Guided night game drive to see nocturnal wildlife: hyenas, genets, bush babies and the rare African civet. Available from select lodges.' },
+];
+
+const tours = [
+  { title: '2 Days Lake Mburo National Park Safari', slug: '2-days-lake-mburo-national-park-safari', days: 2, price: 'From $380', img: '/images/wildlife/hippo-walking-water.jpg', imgAlt: 'Hippo Lake Mburo Uganda' },
+  { title: '4 Days Bwindi Gorillas and Lake Mburo', slug: '4-days-bwindi-gorillas-lake-mburo', days: 4, price: 'From $1,700', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Gorilla trekking Uganda' },
+  { title: '10 Days Uganda Wildlife Grand Circuit', slug: '10-days-uganda-wildlife-gorilla-chimp-safari', days: 10, price: 'From $3,800', img: '/images/wildlife/elephant-pair-greeting.jpg', imgAlt: 'Elephants Uganda safari' },
+];
+
+const sections = [];
+const faqs = [
+  { q: 'Why visit Lake Mburo if there are no lions?', a: 'Lions were historically present in Lake Mburo but are no longer resident. The park is worth visiting for its unique combination of species not found in other Uganda parks (zebras, impalas, topis, elands), the boat safari on the lake, and the walking safari inside the park. It is also the closest national park to Kampala, making it ideal for a short break or as a stopover on the way to western Uganda.' },
+  { q: 'Is Lake Mburo good for a day trip from Kampala?', a: 'Yes, though an overnight stay is strongly recommended to get the most from the park. The drive from Kampala takes approximately 3 hours. A same-day trip is possible but leaves limited time for a game drive and boat safari. One night allows a morning game drive, boat safari and either a walking safari or night drive.' },
+  { q: 'Can I see the Big Five at Lake Mburo?', a: 'No. Lake Mburo does not have lions, leopards or rhinos within the park. It has elephants (occasionally) and buffaloes. For Big Five game viewing, Murchison Falls and Queen Elizabeth are the recommended Uganda parks. Lake Mburo is best appreciated for its unique species, accessible walking activities and relaxed atmosphere.' },
+];
+---
+<ParkPage {park} {facts} {sections} {activities} {tours} {faqs} />

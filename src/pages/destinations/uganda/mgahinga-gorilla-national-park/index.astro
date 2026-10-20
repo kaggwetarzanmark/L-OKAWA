@@ -1,7 +1,61 @@
-ï»¿---
-import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
+import ParkPage from '../../../../components/ParkPage.astro';
 
-<BaseLayout title="Mgahinga Gorilla National Park â€” Golden Monkeys & Gorillas Uganda | L'okawa Tours" description="Visit Mgahinga Gorilla National Park for gorilla trekking and golden monkey tracking in Uganda. A hidden gem on the Virunga volcanoes border.">
-</BaseLayout>
+const park = {
+  name: 'Mgahinga Gorilla National Park',
+  country: 'Uganda',
+  countrySlug: 'uganda',
+  slug: 'mgahinga-gorilla-national-park',
+  tagline: 'Gorillas and Golden Monkeys on the Virunga Volcanoes',
+  heroImg: '/images/primates/golden-monkey-bamboo.jpg',
+  heroImgAlt: 'Golden monkey sitting in bamboo forest at Mgahinga Gorilla National Park Uganda',
+  description: 'Guide to Mgahinga Gorilla National Park Uganda. Gorilla trekking, golden monkey tracking and volcano hiking on the Virunga range. Permits and packages from L\'okawa Tours.',
+  bannerSub: 'Uganda\'s most southerly park — gorilla trekking, golden monkey tracking and the three Virunga volcanoes on the Uganda-Rwanda-DRC border.',
+  priceLabel: 'Gorilla permit USD 800 / person',
+  priceNote: 'Golden monkey tracking USD 60. Volcano hiking from USD 80. Gorilla permits limited — book in advance.',
+  intro: [
+    'Mgahinga Gorilla National Park is Uganda\'s smallest national park at just 33.7 km², but it occupies one of the most dramatic landscapes in all of Africa. Set on the Ugandan slopes of the Virunga Massif — the chain of eight volcanoes straddling the borders of Uganda, Rwanda and the DRC — the park rises from 2,227m at its lowest point to the summit of Mount Muhabura at 4,127m.',
+    'The park is home to one habituated gorilla family, the Nyakagezi group, which currently has approximately 9 members. Unlike Bwindi\'s 19 habituated families, Mgahinga has only this single family available for trekking, making permit availability significantly more limited.',
+    'Mgahinga\'s other unique attraction is the golden monkey — a beautiful, bright-orange primate found only in the bamboo forests of the Virunga Massif. Mgahinga and Rwanda\'s Volcanoes National Park are the only places in the world where golden monkey tracking is available as a tourism activity. The bamboo forests where they live are spectacular, and the combination of gorilla trekking and golden monkey tracking in a single visit is exclusive to this park.',
+  ],
+  sidebarLinks: [
+    { label: 'Gorilla permit guide', href: '/plan/gorilla-permit-guide/' },
+    { label: 'Uganda vs Rwanda for gorillas', href: '/plan/uganda-vs-rwanda-gorillas/' },
+    { label: 'How difficult is gorilla trekking?', href: '/plan/how-difficult-is-gorilla-trekking/' },
+    { label: 'Gorilla trekking packing list', href: '/plan/gorilla-trekking-packing-list/' },
+  ],
+};
 
+const facts = [
+  { label: 'Location', value: 'SW Uganda, Virunga Massif' },
+  { label: 'Area', value: '33.7 km²' },
+  { label: 'Altitude', value: '2,227 to 4,127m' },
+  { label: 'Gorilla families', value: '1 (Nyakagezi group)' },
+  { label: 'Gorilla permit', value: 'USD 800 per person' },
+  { label: 'Golden monkey', value: 'USD 60 per person' },
+  { label: 'Best time', value: 'Jun to Sep, Dec to Feb' },
+  { label: 'Nearest airport', value: 'Entebbe (EBB), ~9 hrs' },
+];
+
+const activities = [
+  { icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z', title: 'Gorilla Trekking', text: 'Trek the Nyakagezi gorilla family on the Ugandan slopes of the Virunga volcanoes. USD 800 per person. Maximum 8 visitors per day. 1 hour with the gorillas.' },
+  { icon: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', title: 'Golden Monkey Tracking', text: 'Track habituated golden monkeys through the bamboo forest. USD 60 per person. One of only two places in the world to do this. A spectacular and underrated experience.' },
+  { icon: 'M3 3l18 18M3 9l18 18', title: 'Volcano Hiking', text: 'Hike Mount Sabinyo (3,669m), Mount Gahinga (3,474m) or Mount Muhabura (4,127m). Full-day guided hikes from USD 80 per person. Requires reasonable fitness.' },
+  { icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z', title: 'Batwa Trail', text: 'Cultural walk with the Batwa pygmies who lived in Mgahinga\'s forests for thousands of years before the park was gazetted. Storytelling, traditional skills and forest knowledge.' },
+  { icon: 'M12 3l2.6 5.6 6 .7-4.4 4.1 1.2 6L12 16.6 6.6 19.4l1.2-6L3.4 9.3l6-.7z', title: 'Birding', text: 'Over 180 bird species including Albertine Rift endemics. The Virunga bamboo zone holds specialist species not found in other Uganda parks.' },
+];
+
+const tours = [
+  { title: '3 Days Uganda Gorilla Safari', slug: '3-days-uganda-gorilla-safari', days: 3, price: 'From $1,400', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Mountain gorilla Uganda' },
+  { title: '4 Days Rwanda Gorilla Trekking', slug: '4-days-rwanda-gorilla-trekking', days: 4, price: 'From $2,000', img: '/images/primates/golden-monkey-bamboo.jpg', imgAlt: 'Golden monkey Uganda Rwanda' },
+  { title: '5 Days Uganda Primates Safari', slug: '5-days-uganda-primates-safari', days: 5, price: 'From $2,100', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla Uganda primates' },
+];
+
+const sections = [];
+const faqs = [
+  { q: 'What is the difference between Mgahinga and Bwindi for gorilla trekking?', a: 'Bwindi has 19 habituated gorilla families; Mgahinga has just 1. Bwindi is therefore far more accessible for permit availability. Mgahinga\'s advantage is the Virunga volcano scenery, the golden monkey tracking (not available at Bwindi), and the option to combine with Rwanda\'s Volcanoes National Park across the border. Trek difficulty is broadly similar.' },
+  { q: 'Can I cross from Mgahinga into Rwanda?', a: 'Yes. The Cyanika border crossing between Uganda and Rwanda is approximately 10km from Mgahinga. Many itineraries combine Mgahinga with Rwanda\'s Volcanoes National Park for back-to-back gorilla treks in both countries, crossing overland between them.' },
+  { q: 'Are golden monkeys worth tracking?', a: 'Absolutely. Golden monkeys are a spectacular and underrated primate — brilliant orange-gold fur with black markings, highly active in the bamboo forest. At USD 60 per person the experience is exceptional value and far less commercialised than gorilla trekking. It can be combined with gorilla trekking as a two-activity day.' },
+];
+---
+<ParkPage {park} {facts} {sections} {activities} {tours} {faqs} />

@@ -1,8 +1,69 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CountryPage from '../../../components/CountryPage.astro';
+
+const country = {
+  name: 'Rwanda',
+  slug: 'rwanda',
+  tagline: 'The Land of a Thousand Hills and Mountain Gorillas',
+  description: 'Plan your Rwanda safari with L\'okawa Tours. Gorilla trekking in Volcanoes National Park, chimpanzees in Nyungwe Forest and the remarkable story of Rwanda\'s transformation.',
+  heroImg: '/images/gorillas/gorilla-mother-infant-closeup.jpg',
+  heroImgAlt: 'Mountain gorilla mother holding her infant in the bamboo forest of Volcanoes National Park Rwanda',
+  metaTitle: "Rwanda Gorilla Trekking Tours & Packages 2025/2026 | L'okawa Tours",
+  intro: [
+    'Rwanda is one of Africa\'s most compelling travel destinations — a small country that has undergone one of the most remarkable transformations in modern history. Today it is among the safest, cleanest and best-managed countries on the continent, with a thriving wildlife tourism sector built around one of the world\'s great wildlife experiences: mountain gorilla trekking in Volcanoes National Park.',
+    'The Virunga Massif on Rwanda\'s northwestern border with Uganda and DRC is home to approximately half the world\'s remaining mountain gorillas. Rwanda\'s Volcanoes National Park has 12 habituated gorilla families available for trekking, and the experience here is often described as more intimate than in Uganda due to the shorter average trek times and the dramatic bamboo forest setting.',
+    'Rwanda\'s other wildlife destination, Nyungwe Forest National Park in the southwest, is one of Africa\'s most biodiverse montane forests. The forest is home to 13 chimpanzee communities, colobus monkey troops and the famous Canopy Walk — a suspension bridge 70 metres above the forest floor offering a bird\'s eye view of the canopy.',
+  ],
+};
+
+const facts = [
+  { label: 'Capital', value: 'Kigali' },
+  { label: 'Currency', value: 'RWF (USD accepted)' },
+  { label: 'Language', value: 'Kinyarwanda, English, French' },
+  { label: 'Timezone', value: 'CAT (UTC+2)' },
+  { label: 'Gorilla permit', value: 'USD 1,500 per person' },
+  { label: 'Visa', value: 'e-Visa online, USD 50' },
+  { label: 'Best months', value: 'Jun to Sep, Dec to Feb' },
+  { label: 'Flights to', value: 'Kigali (KGL)' },
+];
+
+const parks = [
+  { name: 'Volcanoes National Park', slug: 'volcanoes-national-park', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Mountain gorilla mother and baby in Volcanoes National Park Rwanda', tag: 'Gorilla Trekking', teaser: '12 habituated gorilla families on the Virunga volcanoes. Shorter treks than Uganda, world-class luxury lodges.', permit: 'USD 1,500' },
+  { name: 'Nyungwe Forest National Park', slug: 'nyungwe-forest', img: '/images/primates/chimpanzees-pair-feeding.jpg', imgAlt: 'Chimpanzees Nyungwe Forest National Park Rwanda', tag: 'Chimpanzees', teaser: 'Montane rainforest with 13 chimp communities, colobus monkeys and the famous 70m-high Canopy Walk.', permit: 'USD 100' },
+];
+
+const tours = [
+  { title: '4 Days Rwanda Gorilla Trekking', slug: '4-days-rwanda-gorilla-trekking', days: 4, price: 'From $2,000', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Mountain gorilla Rwanda' },
+  { title: '3 Days Uganda Gorilla Safari', slug: '3-days-uganda-gorilla-safari', days: 3, price: 'From $1,400', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla trekking Uganda' },
+];
+
+const months = [
+  { name: 'Jan', rating: 4, note: 'Short dry — good' },
+  { name: 'Feb', rating: 5, note: 'Dry — excellent' },
+  { name: 'Mar', rating: 2, note: 'Long rains begin' },
+  { name: 'Apr', rating: 1, note: 'Long rains — muddy' },
+  { name: 'May', rating: 1, note: 'Wettest month' },
+  { name: 'Jun', rating: 5, note: 'Dry — peak season' },
+  { name: 'Jul', rating: 5, note: 'Dry — best trekking' },
+  { name: 'Aug', rating: 5, note: 'Peak dry season' },
+  { name: 'Sep', rating: 4, note: 'Dry — still excellent' },
+  { name: 'Oct', rating: 2, note: 'Short rains' },
+  { name: 'Nov', rating: 2, note: 'Short rains' },
+  { name: 'Dec', rating: 4, note: 'Dry season returns' },
+];
+
+const essentials = [
+  { icon: 'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z M12 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4', title: 'Visa', text: 'Rwanda e-Visa available online. USD 50 for most nationalities. The East Africa Tourist Visa (USD 100) also covers Uganda and Kenya.', link: '/plan/uganda-visa/' },
+  { icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z', title: 'Safety', text: 'Rwanda is one of the safest countries in Africa. Kigali is exceptionally clean and safe. Parks are well-managed with excellent ranger presence.', link: '/plan/is-uganda-safe/' },
+  { icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z', title: 'Gorilla Trekking', text: 'Gorilla permit costs USD 1,500 per person in Rwanda. Shorter average trek times than Uganda. 12 habituated families across five volcanoes.', link: '/plan/gorilla-permit-guide/' },
+  { icon: 'M12 3l2.6 5.6 6 .7-4.4 4.1 1.2 6L12 16.6 6.6 19.4l1.2-6L3.4 9.3l6-.7z', title: 'Uganda vs Rwanda', text: 'Trying to decide between Uganda and Rwanda for gorilla trekking? Our comparison guide covers permit cost, trek difficulty, lodges and more.', link: '/plan/uganda-vs-rwanda-gorillas/' },
+];
+
+const faqs = [
+  { q: 'How much does gorilla trekking cost in Rwanda?', a: 'A gorilla trekking permit in Rwanda costs USD 1,500 per person — nearly double the Uganda price of USD 800. The premium reflects Rwanda\'s positioning as a luxury destination. The gorilla encounter itself (one hour with a habituated family) is not meaningfully different between the two countries.' },
+  { q: 'Is Rwanda safe for tourists?', a: 'Rwanda is consistently rated as one of the safest countries in Africa for visitors. Kigali is exceptionally clean and well-organised. Crime rates are very low. The parks are well-managed and ranger presence is strong throughout Volcanoes and Nyungwe.' },
+  { q: 'Can I combine Rwanda and Uganda gorilla trekking?', a: 'Yes. Many visitors trek gorillas in both countries on the same trip. Bwindi in Uganda and Volcanoes National Park in Rwanda are separated by approximately 4 hours of driving via the Cyanika border crossing. Allow 5 to 6 days for a combined cross-border gorilla trek itinerary.' },
+  { q: 'What else is there to do in Rwanda besides gorilla trekking?', a: 'Rwanda\'s other major attractions include: Nyungwe Forest for chimpanzee trekking and the Canopy Walk, Lake Kivu for lakeside relaxation, Akagera National Park (eastern Rwanda) for savannah game drives with lions and rhinos, and the Kigali Genocide Memorial — a sobering and important site that many visitors choose to include.' },
+];
 ---
-
-<BaseLayout title="Rwanda Gorilla Trekking Tours 2025/2026 | L'okawa Tours" description="Book Rwanda gorilla trekking in Volcanoes National Park with L'okawa Tours. Golden monkey trekking, Nyungwe Forest and Kigali day tours. Permits included.">
-</BaseLayout>
-
-
+<CountryPage {country} {facts} {parks} {tours} {months} {essentials} {faqs} />
