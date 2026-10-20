@@ -93,7 +93,7 @@ const schema = JSON.stringify({
       "touristType": "Safari",
       "offers": {
         "@type":         "Offer",
-        "price":         tour.price.replace(/[^0-9]/g,''),
+        "price":         tour.price.split('\u2013')[0].replace(/[^0-9.]/g,'').trim(),
         "priceCurrency": "USD",
         "availability":  "https://schema.org/InStock",
         "url":           `https://lokawatours.com/tours/${tour.slug}/`
@@ -265,7 +265,6 @@ const schema = JSON.stringify({
       <div class="tp-booking-card" id="booking-card">
 
         <div class="tp-booking-card__price">
-          <span class="tp-booking-card__from">from</span>
           <span class="tp-booking-card__amount">{tour.price}</span>
           <span class="tp-booking-card__per">per person</span>
         </div>
