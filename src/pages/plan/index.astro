@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CtaBand    from '../../components/CtaBand.astro';
 
@@ -15,7 +15,7 @@ const guides = [
   {
     slug: 'gorilla-permit-guide',
     title: 'Uganda Gorilla Trekking Permit Guide',
-    excerpt: 'Everything about the USD 800 permit — how to book, what it covers, low season discounts, and how to avoid common mistakes.',
+    excerpt: 'Everything about the USD 800 permit � how to book, what it covers, low season discounts, and how to avoid common mistakes.',
     img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg',
     imgAlt: 'Mountain gorilla closeup Bwindi Uganda',
     tag: 'Gorillas',
@@ -42,7 +42,7 @@ const guides = [
   {
     slug: 'safari-packing-list',
     title: 'East Africa Safari Packing List',
-    excerpt: 'A comprehensive packing list for Uganda, Kenya and Tanzania safaris — from luggage limits to camera gear and malaria prevention.',
+    excerpt: 'A comprehensive packing list for Uganda, Kenya and Tanzania safaris � from luggage limits to camera gear and malaria prevention.',
     img: '/images/wildlife/safari-vehicle-lions.jpg',
     imgAlt: 'Safari vehicle with lions in Uganda national park',
     tag: 'Safari Tips',
@@ -127,7 +127,7 @@ const schema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lokawatoursandtravel.com/" },
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lokawatours.com/" },
     { "@type": "ListItem", "position": 2, "name": "Plan Your Safari" }
   ]
 });
@@ -139,9 +139,9 @@ const schema = JSON.stringify({
   schema={schema}
 >
 
-<!-- ══════════════════════════════════════════
+<!-- ------------------------------------------
      BANNER
-══════════════════════════════════════════ -->
+------------------------------------------ -->
 <div class="plan-banner">
   <div class="plan-banner__photo" aria-hidden="true"></div>
   <svg viewBox="0 0 1440 340" preserveAspectRatio="xMidYMax slice"
@@ -170,9 +170,9 @@ const schema = JSON.stringify({
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
+<!-- ------------------------------------------
      GUIDES GRID
-══════════════════════════════════════════ -->
+------------------------------------------ -->
 <section class="plan-guides">
   <div class="container">
     <div class="plan-guides__grid">
@@ -199,11 +199,11 @@ const schema = JSON.stringify({
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
+<!-- ------------------------------------------
      CTA BAND
-══════════════════════════════════════════ -->
+------------------------------------------ -->
 <CtaBand
-  heading="Questions answered — now let's build your safari"
+  heading="Questions answered � now let's build your safari"
   btn1="Get a Free Quote"
   btn1Href="/contact/"
   btn2="Browse Tour Packages"
@@ -213,7 +213,7 @@ const schema = JSON.stringify({
 </BaseLayout>
 
 <style>
-/* ── BANNER ── */
+/* -- BANNER -- */
 .plan-banner {
   position: relative; overflow: hidden; min-height: 360px;
   background: linear-gradient(180deg, #16290f 0%, #2f4d20 40%, #b8561a 82%, #f4b41a 100%);
@@ -260,7 +260,7 @@ const schema = JSON.stringify({
   line-height: var(--leading-relaxed); max-width: 560px; opacity: .9;
 }
 
-/* ── GUIDES GRID ── */
+/* -- GUIDES GRID -- */
 .plan-guides { background: #fff; padding: 64px 0 80px; }
 .plan-guides__grid {
   display: grid;
@@ -311,7 +311,7 @@ const schema = JSON.stringify({
   font-size: 13px; font-weight: var(--weight-semibold); color: var(--color-amber);
 }
 
-/* ── RESPONSIVE ── */
+/* -- RESPONSIVE -- */
 @media (max-width: 960px) { .plan-guides__grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 580px) { .plan-guides__grid { grid-template-columns: 1fr; } }
 </style>
