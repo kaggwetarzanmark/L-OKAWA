@@ -2,68 +2,50 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CtaBand    from '../../components/CtaBand.astro';
 
-// ── Gallery photos ─────────────────────────────────────────────
-// Each photo: src, alt, category, caption, span ('normal'|'wide'|'tall')
 const photos = [
-  // GORILLAS
-  { src: '/images/gorillas/gorilla-amber-eyes-closeup.jpg',       alt: 'Mountain gorilla close-up with amber eyes in Bwindi Impenetrable Forest Uganda',         category: 'gorillas',   caption: 'Gorilla Eye to Eye — Bwindi, Uganda',            span: 'tall' },
-  { src: '/images/gorillas/gorilla-mother-baby-bwindi.jpg',       alt: 'Mountain gorilla mother carrying her baby in Bwindi Impenetrable Forest Uganda',         category: 'gorillas',   caption: 'Mother and Baby — Bwindi, Uganda',               span: 'normal' },
-  { src: '/images/gorillas/gorilla-mother-infant-closeup.jpg',    alt: 'Mountain gorilla mother holding infant close up Bwindi Uganda',                          category: 'gorillas',   caption: 'A Mother\'s Grip — Bwindi, Uganda',              span: 'normal' },
-  { src: '/images/gorillas/four-gorillas-group.jpg',              alt: 'Group of four mountain gorillas in the forest Uganda',                                   category: 'gorillas',   caption: 'The Family — Bwindi, Uganda',                    span: 'wide' },
-  { src: '/images/gorillas/young-gorilla-closeup.jpg',            alt: 'Young mountain gorilla looking directly at camera Bwindi Uganda',                        category: 'gorillas',   caption: 'Young Gorilla — Bwindi, Uganda',                 span: 'normal' },
-  { src: '/images/gorillas/mother-gorilla-carrying-baby.jpg',     alt: 'Mother gorilla carrying baby on her back through forest Uganda',                         category: 'gorillas',   caption: 'Carrying the Next Generation — Bwindi, Uganda',  span: 'normal' },
-  { src: '/images/gorillas/gorilla-closeup-bw.jpg',               alt: 'Mountain gorilla close up black and white portrait Bwindi Uganda',                      category: 'gorillas',   caption: 'Portrait — Bwindi, Uganda',                      span: 'normal' },
-
-  // PRIMATES
-  { src: '/images/primates/chimpanzees-pair-feeding.jpg',         alt: 'Two wild chimpanzees feeding together in Kibale Forest National Park Uganda',            category: 'primates',   caption: 'Chimpanzees Feeding — Kibale Forest, Uganda',    span: 'wide' },
-  { src: '/images/primates/chimpanzee-kibale-forest.jpg',         alt: 'Wild chimpanzee in the canopy of Kibale Forest National Park Uganda',                   category: 'primates',   caption: 'In the Canopy — Kibale Forest, Uganda',          span: 'tall' },
-  { src: '/images/primates/adult-chimpanzee-forest.jpg',          alt: 'Adult chimpanzee in the forest Uganda',                                                  category: 'primates',   caption: 'Adult Chimpanzee — Uganda',                      span: 'normal' },
-  { src: '/images/primates/chimpanzee-gesturing.jpg',             alt: 'Chimpanzee gesturing expressively Uganda primate safari',                                category: 'primates',   caption: 'Expression — Uganda',                            span: 'normal' },
-  { src: '/images/primates/chimpanzee-close.jpg',                 alt: 'Chimpanzee close up portrait Uganda',                                                    category: 'primates',   caption: 'Chimpanzee Portrait — Uganda',                   span: 'normal' },
-  { src: '/images/primates/golden-monkey-bamboo.jpg',             alt: 'Golden monkey sitting in bamboo forest Mgahinga National Park Uganda',                   category: 'primates',   caption: 'Golden Monkey — Mgahinga, Uganda',               span: 'normal' },
-  { src: '/images/primates/golden-monkey-mother-baby.jpg',        alt: 'Golden monkey mother with baby Volcanoes National Park Rwanda',                          category: 'primates',   caption: 'Golden Monkey Family — Volcanoes NP, Rwanda',    span: 'normal' },
-
-  // WILDLIFE
-  { src: '/images/wildlife/elephant-pair-greeting.jpg',           alt: 'Two elephants greeting each other on Uganda safari',                                     category: 'wildlife',   caption: 'Elephant Greeting — Uganda',                     span: 'wide' },
-  { src: '/images/wildlife/giraffe-uganda-murchison.jpg',         alt: 'Rothschild giraffe on the savannah Murchison Falls National Park Uganda',               category: 'wildlife',   caption: 'Rothschild\'s Giraffe — Murchison Falls, Uganda', span: 'tall' },
-  { src: '/images/wildlife/giraffe-eating-acacia.jpg',            alt: 'Giraffe eating from an acacia tree on Uganda safari',                                    category: 'wildlife',   caption: 'Browsing — Uganda',                              span: 'normal' },
-  { src: '/images/wildlife/tree-climbing-lion-ishasha.jpg',       alt: 'Tree-climbing lion resting in a fig tree Ishasha Queen Elizabeth National Park Uganda',  category: 'wildlife',   caption: 'Tree-Climbing Lion — Ishasha, Uganda',           span: 'wide' },
-  { src: '/images/wildlife/lion-on-rock-kidepo.jpg',              alt: 'Male lion resting on a rock at sunset Kidepo Valley National Park Uganda',               category: 'wildlife',   caption: 'Lion at Sunset — Kidepo Valley, Uganda',         span: 'normal' },
-  { src: '/images/wildlife/lion-cub-lioness-savannah.jpg',        alt: 'Lioness with cub on the open savannah Kenya Masai Mara',                                 category: 'wildlife',   caption: 'Lioness and Cub — Masai Mara, Kenya',            span: 'normal' },
-  { src: '/images/wildlife/cheetah-mother-cub.jpg',               alt: 'Cheetah mother and cub resting together Kenya safari',                                   category: 'wildlife',   caption: 'Cheetah Family — Kenya',                         span: 'normal' },
-  { src: '/images/wildlife/cheetah-cub-savannah.jpg',             alt: 'Cheetah cub on the African savannah',                                                    category: 'wildlife',   caption: 'Cheetah Cub — Africa',                           span: 'normal' },
-  { src: '/images/wildlife/white-rhino-ziwa.jpg',                 alt: 'White rhinoceros at Ziwa Rhino Sanctuary Uganda',                                        category: 'wildlife',   caption: 'White Rhino — Ziwa Sanctuary, Uganda',           span: 'tall' },
-  { src: '/images/wildlife/elephants-crossing-water.jpg',         alt: 'Herd of elephants crossing water on Uganda safari',                                      category: 'wildlife',   caption: 'River Crossing — Uganda',                        span: 'wide' },
-  { src: '/images/wildlife/warthog-savannah.jpg',                 alt: 'Warthog standing on the savannah Uganda national park',                                  category: 'wildlife',   caption: 'Warthog — Uganda',                               span: 'normal' },
-  { src: '/images/wildlife/safari-vehicle-lions.jpg',             alt: 'Safari vehicle watching lion pride on Uganda game drive',                                 category: 'wildlife',   caption: 'Game Drive — Uganda',                            span: 'normal' },
-
-  // WATER & HIPPOS
-  { src: '/images/wildlife/hippo-in-water-closeup.jpg',           alt: 'Hippo close up portrait in the water Uganda',                                           category: 'wildlife',   caption: 'Hippo — Uganda',                                 span: 'normal' },
-  { src: '/images/wildlife/hippo-entering-water.jpg',             alt: 'Hippo entering the water at Lake Mburo National Park Uganda',                            category: 'wildlife',   caption: 'Into the Water — Lake Mburo, Uganda',            span: 'normal' },
-  { src: '/images/wildlife/hippo-in-swamp.jpg',                   alt: 'Hippo resting in a swamp Uganda',                                                        category: 'wildlife',   caption: 'Swamp Rest — Uganda',                            span: 'normal' },
-  { src: '/images/wildlife/baby-hippos-lake.jpg',                 alt: 'Baby hippos on the shores of a lake Uganda',                                             category: 'wildlife',   caption: 'Baby Hippos — Uganda',                           span: 'wide' },
-  { src: '/images/wildlife/kazinga-channel-boats.jpg',            alt: 'Kazinga Channel boat safari Queen Elizabeth National Park Uganda',                        category: 'wildlife',   caption: 'Kazinga Channel — Queen Elizabeth, Uganda',      span: 'normal' },
-
-  // BIRDS
-  { src: '/images/birds/shoebill-stork-uganda.jpg',               alt: 'Shoebill stork standing in wetland Uganda',                                              category: 'birds',      caption: 'Shoebill Stork — Uganda',                        span: 'tall' },
-  { src: '/images/birds/grey-headed-kingfisher.jpg',              alt: 'Grey-headed kingfisher perched on a branch Uganda',                                      category: 'birds',      caption: 'Grey-Headed Kingfisher — Uganda',                span: 'normal' },
-  { src: '/images/birds/black-headed-weaver-yellow.jpg',          alt: 'Black-headed weaver bird yellow Uganda',                                                 category: 'birds',      caption: 'Black-Headed Weaver — Uganda',                   span: 'normal' },
-  { src: '/images/birds/yellow-weaver-bird.jpg',                  alt: 'Yellow and black weaver bird Uganda',                                                    category: 'birds',      caption: 'Weaver Bird — Uganda',                           span: 'normal' },
-
-  // ACTIVITIES & LANDSCAPES
-  { src: '/images/activities/lady-ziplining-jinja.jpg',           alt: 'Lady ziplining over the Nile at Jinja Uganda adventure activity',                        category: 'activities', caption: 'Ziplining over the Nile — Jinja, Uganda',        span: 'wide' },
-  { src: '/images/activities/woman-at-murchison-falls.jpg',       alt: 'Visitor at Murchison Falls on the River Nile Uganda',                                    category: 'activities', caption: 'Murchison Falls — Uganda',                       span: 'tall' },
-  { src: '/images/activities/man-at-source-of-nile-jinja.jpg',    alt: 'Man standing at the Source of the Nile monument Jinja Uganda',                          category: 'activities', caption: 'Source of the Nile — Jinja, Uganda',             span: 'normal' },
-  { src: '/images/parks/murchison-falls-national-park-gate.jpg',  alt: 'Murchison Falls National Park entrance gate Uganda',                                     category: 'activities', caption: 'Murchison Falls NP — Uganda',                    span: 'normal' },
-  { src: '/images/parks/murchison-falls-gate.jpg',                alt: 'Murchison Falls gate Uganda national park',                                              category: 'activities', caption: 'Park Gate — Murchison Falls, Uganda',             span: 'normal' },
-
-  // LODGES & ACCOMMODATION
-  { src: '/images/accommodation/safari-lodge-balcony-night.jpg',  alt: 'Safari lodge balcony overlooking the forest at night Uganda',                            category: 'lodges',     caption: 'Safari Lodge — Uganda',                          span: 'wide' },
-  { src: '/images/accommodation/safari-lodge-exterior.jpg',       alt: 'Safari lodge exterior view East Africa',                                                  category: 'lodges',     caption: 'Lodge Exterior — East Africa',                   span: 'normal' },
-
-  // DESTINATIONS
-  { src: '/images/destinations/kigali-genocide-memorial.jpg',     alt: 'Kigali Genocide Memorial entrance Rwanda',                                               category: 'destinations', caption: 'Kigali Genocide Memorial — Rwanda',              span: 'normal' },
-  { src: '/images/destinations/source-of-nile-monument.jpg',      alt: 'Source of the Nile monument Jinja Uganda',                                               category: 'destinations', caption: 'Source of the Nile — Jinja, Uganda',             span: 'normal' },
+  { src: '/images/gorillas/gorilla-amber-eyes-closeup.jpg',      alt: 'Mountain gorilla close-up with amber eyes in Bwindi Uganda',                        category: 'gorillas',    caption: 'Gorilla Eye to Eye — Bwindi, Uganda' },
+  { src: '/images/gorillas/gorilla-mother-baby-bwindi.jpg',      alt: 'Mountain gorilla mother carrying her baby in Bwindi Uganda',                        category: 'gorillas',    caption: 'Mother and Baby — Bwindi, Uganda' },
+  { src: '/images/gorillas/gorilla-mother-infant-closeup.jpg',   alt: 'Mountain gorilla mother holding infant Bwindi Uganda',                              category: 'gorillas',    caption: 'A Mother\'s Grip — Bwindi, Uganda' },
+  { src: '/images/gorillas/four-gorillas-group.jpg',             alt: 'Group of four mountain gorillas in the forest Uganda',                              category: 'gorillas',    caption: 'The Family — Bwindi, Uganda' },
+  { src: '/images/gorillas/young-gorilla-closeup.jpg',           alt: 'Young mountain gorilla looking directly at camera Bwindi Uganda',                   category: 'gorillas',    caption: 'Young Gorilla — Bwindi, Uganda' },
+  { src: '/images/gorillas/mother-gorilla-carrying-baby.jpg',    alt: 'Mother gorilla carrying baby on her back Uganda',                                   category: 'gorillas',    caption: 'Carrying the Next Generation — Bwindi, Uganda' },
+  { src: '/images/gorillas/gorilla-closeup-bw.jpg',              alt: 'Mountain gorilla black and white portrait Bwindi Uganda',                           category: 'gorillas',    caption: 'Portrait — Bwindi, Uganda' },
+  { src: '/images/primates/chimpanzees-pair-feeding.jpg',        alt: 'Two wild chimpanzees feeding together in Kibale Forest Uganda',                     category: 'primates',    caption: 'Chimpanzees Feeding — Kibale Forest, Uganda' },
+  { src: '/images/primates/chimpanzee-kibale-forest.jpg',        alt: 'Wild chimpanzee in the canopy of Kibale Forest Uganda',                             category: 'primates',    caption: 'In the Canopy — Kibale Forest, Uganda' },
+  { src: '/images/primates/adult-chimpanzee-forest.jpg',         alt: 'Adult chimpanzee in the forest Uganda',                                             category: 'primates',    caption: 'Adult Chimpanzee — Uganda' },
+  { src: '/images/primates/chimpanzee-gesturing.jpg',            alt: 'Chimpanzee gesturing expressively Uganda',                                          category: 'primates',    caption: 'Expression — Uganda' },
+  { src: '/images/primates/chimpanzee-close.jpg',                alt: 'Chimpanzee close up portrait Uganda',                                               category: 'primates',    caption: 'Chimpanzee Portrait — Uganda' },
+  { src: '/images/primates/golden-monkey-bamboo.jpg',            alt: 'Golden monkey in bamboo forest Mgahinga Uganda',                                    category: 'primates',    caption: 'Golden Monkey — Mgahinga, Uganda' },
+  { src: '/images/primates/golden-monkey-mother-baby.jpg',       alt: 'Golden monkey mother with baby Volcanoes NP Rwanda',                                category: 'primates',    caption: 'Golden Monkey Family — Rwanda' },
+  { src: '/images/wildlife/elephant-pair-greeting.jpg',          alt: 'Two elephants greeting each other on Uganda safari',                                category: 'wildlife',    caption: 'Elephant Greeting — Uganda' },
+  { src: '/images/wildlife/giraffe-uganda-murchison.jpg',        alt: 'Rothschild giraffe Murchison Falls National Park Uganda',                           category: 'wildlife',    caption: 'Rothschild\'s Giraffe — Murchison Falls, Uganda' },
+  { src: '/images/wildlife/giraffe-eating-acacia.jpg',           alt: 'Giraffe eating from an acacia tree Uganda',                                         category: 'wildlife',    caption: 'Browsing — Uganda' },
+  { src: '/images/wildlife/tree-climbing-lion-ishasha.jpg',      alt: 'Tree-climbing lion in fig tree Ishasha Uganda',                                     category: 'wildlife',    caption: 'Tree-Climbing Lion — Ishasha, Uganda' },
+  { src: '/images/wildlife/lion-on-rock-kidepo.jpg',             alt: 'Male lion on rock at sunset Kidepo Valley Uganda',                                  category: 'wildlife',    caption: 'Lion at Sunset — Kidepo Valley, Uganda' },
+  { src: '/images/wildlife/lion-cub-lioness-savannah.jpg',       alt: 'Lioness with cub on the savannah Kenya Masai Mara',                                 category: 'wildlife',    caption: 'Lioness and Cub — Masai Mara, Kenya' },
+  { src: '/images/wildlife/cheetah-mother-cub.jpg',              alt: 'Cheetah mother and cub Kenya safari',                                               category: 'wildlife',    caption: 'Cheetah Family — Kenya' },
+  { src: '/images/wildlife/cheetah-cub-savannah.jpg',            alt: 'Cheetah cub on the African savannah',                                               category: 'wildlife',    caption: 'Cheetah Cub — Africa' },
+  { src: '/images/wildlife/white-rhino-ziwa.jpg',                alt: 'White rhinoceros at Ziwa Rhino Sanctuary Uganda',                                   category: 'wildlife',    caption: 'White Rhino — Ziwa Sanctuary, Uganda' },
+  { src: '/images/wildlife/elephants-crossing-water.jpg',        alt: 'Herd of elephants crossing water Uganda safari',                                    category: 'wildlife',    caption: 'River Crossing — Uganda' },
+  { src: '/images/wildlife/warthog-savannah.jpg',                alt: 'Warthog on the savannah Uganda',                                                    category: 'wildlife',    caption: 'Warthog — Uganda' },
+  { src: '/images/wildlife/safari-vehicle-lions.jpg',            alt: 'Safari vehicle watching lion pride Uganda',                                         category: 'wildlife',    caption: 'Game Drive — Uganda' },
+  { src: '/images/wildlife/hippo-in-water-closeup.jpg',          alt: 'Hippo close up in the water Uganda',                                                category: 'wildlife',    caption: 'Hippo — Uganda' },
+  { src: '/images/wildlife/hippo-entering-water.jpg',            alt: 'Hippo entering the water Lake Mburo Uganda',                                        category: 'wildlife',    caption: 'Into the Water — Lake Mburo, Uganda' },
+  { src: '/images/wildlife/hippo-in-swamp.jpg',                  alt: 'Hippo resting in a swamp Uganda',                                                   category: 'wildlife',    caption: 'Swamp Rest — Uganda' },
+  { src: '/images/wildlife/baby-hippos-lake.jpg',                alt: 'Baby hippos on the shores of a lake Uganda',                                        category: 'wildlife',    caption: 'Baby Hippos — Uganda' },
+  { src: '/images/wildlife/kazinga-channel-boats.jpg',           alt: 'Kazinga Channel boat safari Queen Elizabeth Uganda',                                 category: 'wildlife',    caption: 'Kazinga Channel — Queen Elizabeth, Uganda' },
+  { src: '/images/birds/shoebill-stork-uganda.jpg',              alt: 'Shoebill stork standing in wetland Uganda',                                         category: 'birds',       caption: 'Shoebill Stork — Uganda' },
+  { src: '/images/birds/grey-headed-kingfisher.jpg',             alt: 'Grey-headed kingfisher perched on a branch Uganda',                                 category: 'birds',       caption: 'Grey-Headed Kingfisher — Uganda' },
+  { src: '/images/birds/black-headed-weaver-yellow.jpg',         alt: 'Black-headed weaver bird Uganda',                                                   category: 'birds',       caption: 'Black-Headed Weaver — Uganda' },
+  { src: '/images/birds/yellow-weaver-bird.jpg',                 alt: 'Yellow and black weaver bird Uganda',                                               category: 'birds',       caption: 'Weaver Bird — Uganda' },
+  { src: '/images/activities/lady-ziplining-jinja.jpg',          alt: 'Lady ziplining over the Nile at Jinja Uganda',                                      category: 'activities',  caption: 'Ziplining over the Nile — Jinja, Uganda' },
+  { src: '/images/activities/woman-at-murchison-falls.jpg',      alt: 'Visitor at Murchison Falls on the River Nile Uganda',                               category: 'activities',  caption: 'Murchison Falls — Uganda' },
+  { src: '/images/activities/man-at-source-of-nile-jinja.jpg',   alt: 'Man at the Source of the Nile monument Jinja Uganda',                              category: 'activities',  caption: 'Source of the Nile — Jinja, Uganda' },
+  { src: '/images/parks/murchison-falls-national-park-gate.jpg', alt: 'Murchison Falls National Park entrance gate Uganda',                                category: 'activities',  caption: 'Murchison Falls NP Gate — Uganda' },
+  { src: '/images/accommodation/safari-lodge-balcony-night.jpg', alt: 'Safari lodge balcony at night Uganda',                                              category: 'lodges',      caption: 'Safari Lodge — Uganda' },
+  { src: '/images/accommodation/safari-lodge-exterior.jpg',      alt: 'Safari lodge exterior East Africa',                                                 category: 'lodges',      caption: 'Lodge Exterior — East Africa' },
+  { src: '/images/destinations/kigali-genocide-memorial.jpg',    alt: 'Kigali Genocide Memorial Rwanda',                                                   category: 'destinations','caption': 'Kigali Genocide Memorial — Rwanda' },
+  { src: '/images/destinations/source-of-nile-monument.jpg',     alt: 'Source of the Nile monument Jinja Uganda',                                         category: 'destinations','caption': 'Source of the Nile — Jinja, Uganda' },
 ];
 
 const categories = [
@@ -81,20 +63,17 @@ const schema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "ImageGallery",
   "name": "L'okawa Tours Safari Photo Gallery",
-  "description": "Wildlife and safari photography from Uganda, Kenya, Tanzania and Rwanda — gorillas, chimpanzees, big game, birds and landscapes.",
+  "description": "Wildlife and safari photography from Uganda, Kenya, Tanzania and Rwanda.",
   "url": "https://lokawatours.com/gallery/"
 });
 ---
 
 <BaseLayout
   title="Safari Photo Gallery — Uganda, Kenya & Rwanda Wildlife | L'okawa Tours"
-  description="Browse our East Africa safari photo gallery. Mountain gorillas in Bwindi, chimpanzees in Kibale, Murchison Falls, Kazinga Channel wildlife and more. Real photos from real safaris."
+  description="Browse our East Africa safari photo gallery. Mountain gorillas in Bwindi, chimpanzees in Kibale, Murchison Falls and more. Real photos from real safaris."
   schema={schema}
 >
 
-<!-- ════════════════════════════════════════════════
-     BANNER
-════════════════════════════════════════════════ -->
 <div class="gal-banner">
   <div class="gal-banner__photo" aria-hidden="true"></div>
   <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" class="gal-banner__svg" aria-hidden="true">
@@ -113,91 +92,57 @@ const schema = JSON.stringify({
     <p class="gal-banner__kicker">Real photos from real safaris</p>
     <h1 class="gal-banner__h1">Safari Photo Gallery</h1>
     <p class="gal-banner__sub">Mountain gorillas, chimpanzees, big game, birds and landscapes from Uganda, Kenya, Tanzania and Rwanda.</p>
-    <p class="gal-banner__count">{photos.length} photos</p>
   </div>
 </div>
 
-<!-- ════════════════════════════════════════════════
-     FILTER BAR
-════════════════════════════════════════════════ -->
 <div class="gal-filters" id="gal-filters">
   <div class="container gal-filters__inner">
     <div class="gal-filter-pills" role="group" aria-label="Filter by category">
       {categories.map((c, i) => (
-        <button
-          class={`gal-pill ${i === 0 ? 'gal-pill--active' : ''}`}
-          data-cat={c.id}
-          aria-pressed={i === 0 ? 'true' : 'false'}
-        >
-          {c.label}
-        </button>
+        <button class={`gal-pill ${i === 0 ? 'gal-pill--active' : ''}`} data-cat={c.id} type="button">{c.label}</button>
       ))}
     </div>
-    <span class="gal-count" id="gal-count" aria-live="polite">{photos.length} photos</span>
+    <span class="gal-count" id="gal-count">{photos.length} photos</span>
   </div>
 </div>
 
-<!-- ════════════════════════════════════════════════
-     MASONRY GRID
-════════════════════════════════════════════════ -->
-<section class="gal-section" aria-label="Photo gallery">
+<section class="gal-section">
   <div class="container">
     <div class="gal-grid" id="gal-grid">
       {photos.map((p, i) => (
-        <button
-          class={`gal-item gal-item--${p.span}`}
-          data-cat={p.category}
-          data-index={i}
-          aria-label={`View photo: ${p.caption}`}
-          type="button"
-        >
-          <img
-            src={p.src}
-            alt={p.alt}
-            class="gal-img"
-            loading="lazy"
-            width="600"
-            height="400"
-          />
-          <div class="gal-item__overlay">
-            <span class="gal-item__caption">{p.caption}</span>
-            <svg class="gal-item__zoom" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-              <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
-            </svg>
+        <button class="gal-item" data-cat={p.category} data-index={String(i)} type="button" aria-label={`Open photo: ${p.caption}`}>
+          <img src={p.src} alt={p.alt} class="gal-img" loading="lazy" width="600" height="400" />
+          <div class="gal-overlay">
+            <span class="gal-caption">{p.caption}</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
           </div>
         </button>
       ))}
     </div>
-
-    <!-- No results -->
-    <div class="gal-empty" id="gal-empty" aria-live="polite">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-mid)" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <p>No photos in this category yet.</p>
+    <div class="gal-empty" id="gal-empty">
+      <p>No photos in this category.</p>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════
-     LIGHTBOX
-════════════════════════════════════════════════ -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo lightbox" hidden>
-  <button class="lightbox__close" id="lb-close" aria-label="Close photo">
+<!-- Lightbox -->
+<div class="lb" id="lb">
+  <div class="lb__backdrop" id="lb-backdrop"></div>
+  <button class="lb__close" id="lb-close" type="button" aria-label="Close">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
-  <button class="lightbox__nav lightbox__nav--prev" id="lb-prev" aria-label="Previous photo">
+  <button class="lb__prev" id="lb-prev" type="button" aria-label="Previous">
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
   </button>
-  <div class="lightbox__stage">
-    <img src="" alt="" class="lightbox__img" id="lb-img"/>
-    <div class="lightbox__caption" id="lb-caption"></div>
-    <div class="lightbox__counter" id="lb-counter"></div>
+  <div class="lb__stage">
+    <img src="" alt="" class="lb__img" id="lb-img" />
+    <p class="lb__caption" id="lb-caption"></p>
+    <p class="lb__counter" id="lb-counter"></p>
   </div>
-  <button class="lightbox__nav lightbox__nav--next" id="lb-next" aria-label="Next photo">
+  <button class="lb__next" id="lb-next" type="button" aria-label="Next">
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
   </button>
 </div>
-<div class="lightbox__backdrop" id="lb-backdrop" hidden></div>
 
 <CtaBand
   heading="Inspired? Let's plan your safari."
@@ -207,215 +152,138 @@ const schema = JSON.stringify({
   btn2Href="/tours/"
 />
 
-</BaseLayout>
-
-<!-- ════════════════════════════════════════════════
-     SCRIPTS
-════════════════════════════════════════════════ -->
 <script>
-  // ── Build photo data from DOM ──────────────────────────────
-  const items   = Array.from(document.querySelectorAll<HTMLButtonElement>('.gal-item'));
-  const grid    = document.getElementById('gal-grid')!;
-  const empty   = document.getElementById('gal-empty')!;
-  const counter = document.getElementById('gal-count')!;
-  const pills   = document.querySelectorAll<HTMLButtonElement>('.gal-pill');
-  const lb      = document.getElementById('lightbox')!;
-  const lbBack  = document.getElementById('lb-backdrop')!;
-  const lbImg   = document.getElementById('lb-img') as HTMLImageElement;
-  const lbCap   = document.getElementById('lb-caption')!;
-  const lbCtr   = document.getElementById('lb-counter')!;
+(function() {
+  var items   = Array.from(document.querySelectorAll('.gal-item'));
+  var pills   = Array.from(document.querySelectorAll('.gal-pill'));
+  var countEl = document.getElementById('gal-count');
+  var emptyEl = document.getElementById('gal-empty');
+  var lb      = document.getElementById('lb');
+  var lbImg   = document.getElementById('lb-img');
+  var lbCap   = document.getElementById('lb-caption');
+  var lbCtr   = document.getElementById('lb-counter');
+  var visible = items.slice();
+  var current = 0;
 
-  let activeItems: HTMLButtonElement[] = [...items];
-  let lbIndex = 0;
+  function applyFilter(cat) {
+    visible = [];
+    items.forEach(function(item) {
+      var show = cat === 'all' || item.getAttribute('data-cat') === cat;
+      item.style.display = show ? '' : 'none';
+      if (show) visible.push(item);
+    });
+    if (countEl) countEl.textContent = visible.length + ' photo' + (visible.length !== 1 ? 's' : '');
+    if (emptyEl) emptyEl.style.display = visible.length === 0 ? 'block' : 'none';
+  }
 
-  // ── Filter ──────────────────────────────────────────────────
-  pills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      pills.forEach(p => { p.classList.remove('gal-pill--active'); p.setAttribute('aria-pressed','false'); });
+  pills.forEach(function(pill) {
+    pill.addEventListener('click', function() {
+      pills.forEach(function(p) { p.classList.remove('gal-pill--active'); });
       pill.classList.add('gal-pill--active');
-      pill.setAttribute('aria-pressed','true');
-      const cat = pill.dataset.cat ?? 'all';
-      let visible = 0;
-      items.forEach(item => {
-        const show = cat === 'all' || item.dataset.cat === cat;
-        item.style.display = show ? '' : 'none';
-        if (show) visible++;
-      });
-      activeItems = items.filter(i => i.style.display !== 'none');
-      counter.textContent = `${visible} photo${visible !== 1 ? 's' : ''}`;
-      empty.style.display = visible === 0 ? 'flex' : 'none';
+      applyFilter(pill.getAttribute('data-cat') || 'all');
     });
   });
 
-  // ── Open lightbox ────────────────────────────────────────────
-  function openLightbox(index: number) {
-    lbIndex = index;
-    updateLightbox();
-    lb.hidden = false;
-    lbBack.hidden = false;
+  function openLb(idx) {
+    current = idx;
+    var item = visible[current];
+    var img  = item.querySelector('img');
+    var cap  = item.querySelector('.gal-caption');
+    if (lbImg) { lbImg.src = img ? img.src : ''; lbImg.alt = img ? img.alt : ''; }
+    if (lbCap) lbCap.textContent = cap ? cap.textContent : '';
+    if (lbCtr) lbCtr.textContent = (current + 1) + ' / ' + visible.length;
+    if (lb) lb.classList.add('lb--open');
     document.body.style.overflow = 'hidden';
-    lb.focus();
   }
 
-  function updateLightbox() {
-    const item = activeItems[lbIndex];
-    const img  = item.querySelector('img')!;
-    lbImg.src  = img.src;
-    lbImg.alt  = img.alt;
-    lbCap.textContent  = item.querySelector('.gal-item__caption')?.textContent ?? '';
-    lbCtr.textContent  = `${lbIndex + 1} / ${activeItems.length}`;
-  }
-
-  function closeLightbox() {
-    lb.hidden = true;
-    lbBack.hidden = true;
+  function closeLb() {
+    if (lb) lb.classList.remove('lb--open');
     document.body.style.overflow = '';
   }
 
-  items.forEach((item, i) => {
-    item.addEventListener('click', () => {
-      // Find index within currently active items
-      const idx = activeItems.indexOf(item);
-      if (idx !== -1) openLightbox(idx);
+  function navigate(dir) {
+    current = (current + dir + visible.length) % visible.length;
+    openLb(current);
+  }
+
+  items.forEach(function(item, i) {
+    item.addEventListener('click', function() {
+      var idx = visible.indexOf(item);
+      if (idx !== -1) openLb(idx);
     });
   });
 
-  document.getElementById('lb-close')?.addEventListener('click', closeLightbox);
-  lbBack.addEventListener('click', closeLightbox);
+  var closeBtn   = document.getElementById('lb-close');
+  var backdrop   = document.getElementById('lb-backdrop');
+  var prevBtn    = document.getElementById('lb-prev');
+  var nextBtn    = document.getElementById('lb-next');
 
-  document.getElementById('lb-prev')?.addEventListener('click', () => {
-    lbIndex = (lbIndex - 1 + activeItems.length) % activeItems.length;
-    updateLightbox();
-  });
+  if (closeBtn)  closeBtn.addEventListener('click', closeLb);
+  if (backdrop)  backdrop.addEventListener('click', closeLb);
+  if (prevBtn)   prevBtn.addEventListener('click', function() { navigate(-1); });
+  if (nextBtn)   nextBtn.addEventListener('click', function() { navigate(1); });
 
-  document.getElementById('lb-next')?.addEventListener('click', () => {
-    lbIndex = (lbIndex + 1) % activeItems.length;
-    updateLightbox();
+  document.addEventListener('keydown', function(e) {
+    if (!lb || !lb.classList.contains('lb--open')) return;
+    if (e.key === 'Escape')     closeLb();
+    if (e.key === 'ArrowRight') navigate(1);
+    if (e.key === 'ArrowLeft')  navigate(-1);
   });
-
-  // Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    if (lb.hidden) return;
-    if (e.key === 'Escape')      closeLightbox();
-    if (e.key === 'ArrowRight')  { lbIndex = (lbIndex + 1) % activeItems.length; updateLightbox(); }
-    if (e.key === 'ArrowLeft')   { lbIndex = (lbIndex - 1 + activeItems.length) % activeItems.length; updateLightbox(); }
-  });
+})();
 </script>
 
 <style>
-/* ── Breadcrumb ── */
-.breadcrumb { display:flex; flex-wrap:wrap; align-items:center; gap:6px 8px; font-size:13px; font-weight:var(--weight-semibold); color:var(--color-cream); margin-bottom:12px; }
-.breadcrumb__link { color:var(--color-cream); transition:color var(--transition-fast); text-decoration:none; }
+.breadcrumb { display:flex; flex-wrap:wrap; align-items:center; gap:6px 8px; font-size:13px; font-weight:600; color:var(--color-cream); margin-bottom:12px; }
+.breadcrumb__link { color:var(--color-cream); text-decoration:none; }
 .breadcrumb__link:hover { color:var(--color-gold); }
 .breadcrumb__sep { opacity:.4; }
 .breadcrumb__cur { color:var(--color-gold); }
 
-/* ── Banner ── */
-.gal-banner { position:relative; overflow:hidden; min-height:300px; background:linear-gradient(180deg,#16290f 0%,#2f4d20 40%,#b8561a 82%,#f4b41a 100%); }
+.gal-banner { position:relative; overflow:hidden; min-height:280px; background:linear-gradient(180deg,#16290f 0%,#2f4d20 40%,#b8561a 82%,#f4b41a 100%); }
 .gal-banner__photo { position:absolute; inset:0; background-image:url('/images/gorillas/four-gorillas-group.jpg'); background-size:cover; background-position:center 40%; opacity:.22; z-index:0; }
 .gal-banner__svg { position:absolute; left:0; bottom:0; width:100%; height:100%; pointer-events:none; z-index:1; }
-.gal-banner__overlay { position:absolute; inset:0; background:linear-gradient(90deg,rgba(10,20,8,.85) 0%,rgba(10,20,8,.5) 55%,rgba(10,20,8,0) 88%); z-index:1; }
-.gal-banner__content { position:relative; z-index:2; max-width:var(--max-width); margin-inline:auto; padding:52px var(--section-pad-x) 76px; box-sizing:border-box; }
-.gal-banner__kicker { font-family:var(--font-display); font-style:italic; font-weight:500; font-size:20px; color:var(--color-gold); margin-bottom:6px; display:block; }
-.gal-banner__h1 { font-family:var(--font-display); font-weight:var(--weight-bold); font-size:clamp(34px,5vw,58px); line-height:1.05; color:var(--color-white); margin:0 0 12px; }
-.gal-banner__sub { font-size:var(--text-lg); color:var(--color-cream); opacity:.9; max-width:500px; line-height:var(--leading-relaxed); margin-bottom:10px; }
-.gal-banner__count { font-size:13px; font-weight:var(--weight-bold); color:var(--color-gold); letter-spacing:.06em; text-transform:uppercase; }
+.gal-banner__overlay { position:absolute; inset:0; background:linear-gradient(90deg,rgba(10,20,8,.85) 0%,rgba(10,20,8,.45) 55%,rgba(10,20,8,0) 88%); z-index:1; }
+.gal-banner__content { position:relative; z-index:2; max-width:var(--max-width); margin-inline:auto; padding:48px var(--section-pad-x) 72px; box-sizing:border-box; }
+.gal-banner__kicker { font-family:var(--font-display); font-style:italic; font-size:20px; color:var(--color-gold); display:block; margin-bottom:6px; }
+.gal-banner__h1 { font-family:var(--font-display); font-weight:700; font-size:clamp(32px,5vw,56px); line-height:1.05; color:#fff; margin:0 0 12px; }
+.gal-banner__sub { font-size:var(--text-lg); color:var(--color-cream); opacity:.9; max-width:500px; line-height:1.6; }
 
-/* ── Filter bar ── */
 .gal-filters { background:#fff; border-bottom:1px solid #e8ede4; position:sticky; top:0; z-index:40; }
-.gal-filters__inner { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding:10px var(--section-pad-x); max-width:var(--max-width); margin-inline:auto; box-sizing:border-box; }
+.gal-filters__inner { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:10px var(--section-pad-x); max-width:var(--max-width); margin-inline:auto; box-sizing:border-box; }
 .gal-filter-pills { display:flex; flex-wrap:wrap; gap:8px; }
-.gal-pill { padding:6px 16px; border-radius:20px; border:1.5px solid #dde8d4; background:#fff; font-size:13px; font-weight:var(--weight-semibold); color:var(--color-text); cursor:pointer; transition:all .2s ease; white-space:nowrap; }
+.gal-pill { padding:6px 16px; border-radius:20px; border:1.5px solid #dde8d4; background:#fff; font-size:13px; font-weight:600; color:var(--color-text); cursor:pointer; transition:all .2s; white-space:nowrap; }
 .gal-pill:hover { border-color:var(--color-green-mid); color:var(--color-green-mid); }
 .gal-pill--active { background:var(--color-green-dark); border-color:var(--color-green-dark); color:#fff; }
-.gal-count { font-size:13px; font-weight:var(--weight-bold); color:var(--color-text-muted); white-space:nowrap; }
+.gal-count { font-size:13px; font-weight:700; color:var(--color-text-muted); white-space:nowrap; }
 
-/* ── Masonry grid ── */
-.gal-section { background:#f4f8f0; padding:48px 0 64px; }
-.gal-grid {
-  columns: 3;
-  column-gap: 16px;
-}
-.gal-item {
-  display: block;
-  width: 100%;
-  break-inside: avoid;
-  margin-bottom: 16px;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  cursor: zoom-in;
-  background: none;
-  border: none;
-  padding: 0;
-}
-.gal-item--wide { break-after: avoid; }
-.gal-item--tall { break-after: avoid; }
-.gal-img { width:100%; height:auto; display:block; transition:transform .4s ease; }
+.gal-section { background:#f4f8f0; padding:44px 0 64px; }
+.gal-grid { columns:3; column-gap:14px; }
+.gal-item { display:block; width:100%; break-inside:avoid; margin-bottom:14px; border-radius:10px; overflow:hidden; position:relative; cursor:zoom-in; background:none; border:none; padding:0; }
+.gal-img { width:100%; height:auto; display:block; transition:transform .35s ease; }
 .gal-item:hover .gal-img { transform:scale(1.04); }
-.gal-item__overlay {
-  position:absolute; inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,0) 55%);
-  opacity:0; transition:opacity .3s ease;
-  display:flex; align-items:flex-end; justify-content:space-between;
-  padding:14px 16px; gap:10px;
-}
-.gal-item:hover .gal-item__overlay,
-.gal-item:focus .gal-item__overlay { opacity:1; }
-.gal-item__caption { font-size:13px; font-weight:var(--weight-semibold); color:#fff; line-height:1.35; text-align:left; }
-.gal-item__zoom { flex-shrink:0; color:rgba(255,255,255,.8); }
+.gal-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,.7) 0%,rgba(0,0,0,0) 55%); opacity:0; transition:opacity .3s; display:flex; align-items:flex-end; justify-content:space-between; padding:12px 14px; gap:8px; }
+.gal-item:hover .gal-overlay, .gal-item:focus .gal-overlay { opacity:1; }
+.gal-caption { font-size:12px; font-weight:600; color:#fff; line-height:1.35; text-align:left; }
 .gal-item:focus { outline:3px solid var(--color-amber); outline-offset:2px; }
 
-/* ── Empty state ── */
-.gal-empty { display:none; flex-direction:column; align-items:center; gap:12px; text-align:center; padding:60px 20px; }
-.gal-empty p { font-size:var(--text-lg); color:var(--color-text-muted); }
+.gal-empty { display:none; text-align:center; padding:60px 20px; color:var(--color-text-muted); font-size:var(--text-lg); }
 
-/* ── Lightbox ── */
-.lightbox {
-  position:fixed; inset:0; z-index:9000;
-  display:flex; align-items:center; justify-content:center;
-  padding:20px;
-}
-.lightbox__backdrop { position:fixed; inset:0; z-index:8999; background:rgba(0,0,0,.92); }
-.lightbox__stage {
-  position:relative; z-index:9001;
-  max-width:90vw; max-height:90vh;
-  display:flex; flex-direction:column; align-items:center; gap:12px;
-}
-.lightbox__img {
-  max-width:88vw; max-height:80vh;
-  object-fit:contain;
-  border-radius:8px;
-  box-shadow:0 20px 60px rgba(0,0,0,.5);
-}
-.lightbox__caption { color:#fff; font-size:15px; font-weight:var(--weight-semibold); text-align:center; }
-.lightbox__counter { color:rgba(255,255,255,.6); font-size:12px; letter-spacing:.08em; }
-.lightbox__close {
-  position:fixed; top:20px; right:24px; z-index:9002;
-  background:rgba(255,255,255,.15); border:none; border-radius:50%;
-  width:44px; height:44px; cursor:pointer;
-  display:flex; align-items:center; justify-content:center;
-  color:#fff; transition:background .2s ease;
-}
-.lightbox__close:hover { background:rgba(255,255,255,.3); }
-.lightbox__nav {
-  position:fixed; top:50%; transform:translateY(-50%);
-  background:rgba(255,255,255,.15); border:none; border-radius:50%;
-  width:48px; height:48px; cursor:pointer;
-  display:flex; align-items:center; justify-content:center;
-  color:#fff; z-index:9002; transition:background .2s ease;
-}
-.lightbox__nav:hover { background:rgba(255,255,255,.3); }
-.lightbox__nav--prev { left:16px; }
-.lightbox__nav--next { right:16px; }
+/* Lightbox */
+.lb { position:fixed; inset:0; z-index:9000; display:none; align-items:center; justify-content:center; padding:20px; }
+.lb--open { display:flex; }
+.lb__backdrop { position:absolute; inset:0; background:rgba(0,0,0,.93); z-index:0; cursor:pointer; }
+.lb__stage { position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; gap:10px; max-width:90vw; }
+.lb__img { max-width:88vw; max-height:80vh; object-fit:contain; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,.5); display:block; }
+.lb__caption { color:#fff; font-size:15px; font-weight:600; text-align:center; margin:0; }
+.lb__counter { color:rgba(255,255,255,.55); font-size:12px; letter-spacing:.08em; margin:0; }
+.lb__close { position:fixed; top:18px; right:22px; z-index:3; background:rgba(255,255,255,.15); border:none; border-radius:50%; width:44px; height:44px; cursor:pointer; display:flex; align-items:center; justify-content:center; color:#fff; transition:background .2s; }
+.lb__close:hover { background:rgba(255,255,255,.3); }
+.lb__prev, .lb__next { position:fixed; top:50%; transform:translateY(-50%); z-index:3; background:rgba(255,255,255,.15); border:none; border-radius:50%; width:50px; height:50px; cursor:pointer; display:flex; align-items:center; justify-content:center; color:#fff; transition:background .2s; }
+.lb__prev:hover, .lb__next:hover { background:rgba(255,255,255,.3); }
+.lb__prev { left:14px; }
+.lb__next { right:14px; }
 
-/* ── Responsive ── */
 @media (max-width:900px) { .gal-grid { columns:2; } }
-@media (max-width:560px) {
-  .gal-grid { columns:1; }
-  .gal-filters__inner { flex-direction:column; align-items:flex-start; }
-  .gal-banner__h1 { font-size:32px; }
-  .lightbox__nav--prev { left:8px; }
-  .lightbox__nav--next { right:8px; }
-}
+@media (max-width:560px) { .gal-grid { columns:1; } .gal-filters__inner { flex-direction:column; align-items:flex-start; } }
 </style>
+</BaseLayout>
