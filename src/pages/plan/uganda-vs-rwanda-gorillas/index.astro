@@ -1,7 +1,97 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GuidePage from '../../../components/GuidePage.astro';
+
+const guide = {
+  title: 'Uganda vs Rwanda: Which is Better for Gorilla Trekking?',
+  slug: 'uganda-vs-rwanda-gorillas',
+  kicker: 'A side-by-side comparison',
+  heroImg: '/images/gorillas/gorilla-mother-infant-closeup.jpg',
+  heroImgAlt: 'Mountain gorilla mother holding infant in Bwindi Impenetrable Forest Uganda',
+  description: 'Uganda vs Rwanda gorilla trekking: honest side-by-side comparison of permit costs, number of gorilla families, trek difficulty, lodges, and which country suits your budget and travel style.',
+  readTime: '6 min read',
+  breadcrumb: 'Uganda vs Rwanda for Gorillas',
+  intro: [
+    'Both Uganda and Rwanda offer extraordinary gorilla trekking experiences. Mountain gorillas exist only in the Virunga Massif volcanic mountain range (shared by Uganda, Rwanda and DRC) and in Uganda\'s Bwindi Impenetrable Forest. The decision between the two countries comes down to budget, available time, the type of experience you want, and what else you want to combine with your trek.',
+    'This guide gives you an honest, direct comparison of the two destinations across every important factor.',
+  ],
+};
+
+const sections = [
+  {
+    heading: 'Quick Comparison at a Glance',
+    body: [''],
+    table: [
+      { col1: 'Permit cost',              col2: 'USD 800 (low season USD 600)', col3: 'USD 1,500' },
+      { col1: 'Habituated families',       col2: '19 families (Bwindi + Mgahinga)', col3: '12 families (Volcanoes NP)' },
+      { col1: 'Trek duration',             col2: '1 to 8 hours (avg 2 to 4 hrs)', col3: '1 to 4 hours (avg 1 to 2 hrs)' },
+      { col1: 'Time with gorillas',        col2: '1 hour', col3: '1 hour' },
+      { col1: 'Forest environment',        col2: 'Dense equatorial rainforest', col3: 'Afro-montane bamboo and forest' },
+      { col1: 'Combine with wildlife',     col2: 'Yes — chimps, big game, Nile', col3: 'Limited — mostly gorillas only' },
+      { col1: 'Luxury lodges',             col2: 'Good (improving fast)', col3: 'Excellent — among Africa\'s best' },
+      { col1: 'Best for',                  col2: 'Value, primate + wildlife combo', col3: 'Luxury, shorter treks, Rwanda-only trip' },
+    ],
+    tableHead: { col1: 'Factor', col2: 'Uganda', col3: 'Rwanda' },
+  },
+  {
+    heading: 'Permit Cost',
+    body: [
+      'The most significant difference between the two countries is permit cost. Uganda\'s standard permit is USD 800 for foreign non-residents, dropping to USD 600 in April and May. Rwanda\'s permit is USD 1,500 — nearly double Uganda\'s standard price.',
+      'For budget-conscious travellers, Uganda is the clear winner. A family of four saves USD 2,800 on permits alone by choosing Uganda over Rwanda. For a couple the saving is USD 1,400 — enough to cover several nights\' accommodation.',
+      'Rwanda\'s USD 1,500 permit is justified by the country\'s premium positioning as a luxury destination, but the gorilla experience itself — one hour with a habituated family — is not meaningfully different at twice the price.',
+    ],
+    tip: 'If cost is a significant consideration, Uganda wins decisively. If you are already spending USD 500+ per night on a lodge, the USD 700 permit difference may be less relevant to your decision.',
+  },
+  {
+    heading: 'Trek Difficulty and Duration',
+    body: [
+      'This is where Rwanda has a genuine practical advantage. Volcanoes National Park in Rwanda has a more compact terrain and the gorilla families are generally located at lower altitude and shorter distances from the trailhead than in Bwindi.',
+      'Rwanda trekking times average 1 to 2 hours to find the gorillas. Uganda\'s Bwindi treks average 2 to 4 hours, with some lasting 6 to 8 hours on long days. Bwindi\'s forest is genuinely dense, steep and demanding.',
+      'For older travellers, those with physical limitations, or anyone with limited time, Rwanda\'s shorter and generally easier treks are a meaningful advantage. That said, hiring a porter in Uganda significantly reduces the physical demands, and many seniors complete Bwindi treks comfortably.',
+    ],
+    bullets: [
+      'Rwanda: shorter, less strenuous treks on average',
+      'Uganda (Bwindi): more variable, can be short or very long',
+      'Uganda: porters available and recommended',
+      'Rwanda: also offers porters and sedan chairs',
+      'Both countries: gorilla sighting success rate above 99%',
+    ],
+  },
+  {
+    heading: 'Number of Gorilla Families',
+    body: [
+      'Uganda has significantly more habituated gorilla families available for tourism. Bwindi alone has 19 families across four trekking sectors (Buhoma, Ruhija, Nkuringo and Rushaga). Mgahinga has one family. Total Uganda capacity: 20 families, up to 160 visitors per day.',
+      'Rwanda\'s Volcanoes National Park has 12 habituated families. Daily capacity is therefore lower, and availability can be tighter during peak season.',
+      'For travellers flexible on trek date, Uganda\'s larger number of families means more permit availability and easier last-minute bookings. Rwanda\'s 12 families sell out faster.',
+    ],
+  },
+  {
+    heading: 'What Else Can You Do?',
+    body: [
+      'This is perhaps the most compelling reason to choose Uganda for many travellers. Uganda offers the complete East African safari experience alongside gorilla trekking: chimpanzee tracking in Kibale Forest, big game drives in Queen Elizabeth and Murchison Falls, the Nile boat safari, Ssese Islands, Lake Bunyonyi and more.',
+      'A classic 7-day Uganda itinerary covers gorilla trekking in Bwindi, chimpanzee trekking in Kibale, and game drives in Queen Elizabeth — three world-class wildlife experiences in a single trip.',
+      'Rwanda is a beautiful country but the safari infrastructure outside Volcanoes National Park is limited. Nyungwe Forest for chimpanzees is excellent, and Akagera National Park has been successfully restocked with lions and rhinos, but the breadth of wildlife experiences is narrower than Uganda.',
+    ],
+    tip: 'If gorilla trekking is your only wildlife goal, Rwanda\'s shorter treks and excellent lodges make it very competitive. If you want gorillas plus chimps, game drives and the Nile, Uganda is the stronger choice.',
+  },
+  {
+    heading: 'Lodges and Accommodation',
+    body: [
+      'Rwanda has invested heavily in its tourism infrastructure and Volcanoes National Park has some of the finest lodges in Africa, including Singita Kwitonda, One&Only Gorilla\'s Nest and Bisate Lodge. These are genuinely world-class properties at high-end international prices.',
+      'Uganda\'s Bwindi lodge market has improved significantly in recent years. Properties like Bwindi Lodge, Gorilla Forest Camp and Nkuringo Bwindi Gorilla Lodge offer excellent mid-range to luxury experiences. The gap with Rwanda has narrowed considerably, but Rwanda\'s top-end lodges remain in a different category for pure luxury.',
+    ],
+  },
+];
+
+const faqs = [
+  { q: 'Can I do gorilla trekking in both Uganda and Rwanda on the same trip?', a: 'Yes. This is a popular combination. Bwindi in Uganda and Volcanoes National Park in Rwanda are separated by approximately 4 hours of driving via the Cyanika border crossing. A typical combined itinerary spends 2 nights in Bwindi, crosses to Rwanda, and spends 1 to 2 nights at Volcanoes. Allow 5 to 6 days minimum for this circuit.' },
+  { q: 'Which country has better gorilla photography conditions?', a: 'This is subjective and depends on the specific gorilla family encountered. Rwanda\'s families are often found in bamboo forest and open glades which can provide better light. Bwindi\'s families are typically in denser forest with lower light levels. For serious gorilla photographers, the Gorilla Habituation Experience in Uganda (USD 1,500, 4 hours with the gorillas) offers the best conditions of any option.' },
+  { q: 'Is Rwanda safer than Uganda for tourists?', a: 'Both countries are considered safe for tourists. Rwanda has an exceptionally low crime rate and is frequently cited as one of the safest countries in Africa. Uganda is also generally safe for tourists visiting national parks, with the same standard travel precautions that apply across East Africa. Neither country presents unusual safety concerns for safari visitors.' },
+];
+
+const relatedGuides = [
+  { slug: 'gorilla-permit-guide', title: 'Uganda Gorilla Permit Guide', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Mountain gorilla Uganda', tag: 'Gorillas' },
+  { slug: 'how-difficult-is-gorilla-trekking', title: 'How Difficult Is Gorilla Trekking?', img: '/images/gorillas/young-gorilla-closeup.jpg', imgAlt: 'Young gorilla Uganda', tag: 'Gorillas' },
+  { slug: 'best-time-to-visit-uganda', title: 'Best Time to Visit Uganda', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla Uganda', tag: 'Uganda' },
+];
 ---
-
-<BaseLayout title="uganda-vs-rwanda-gorillas | L'okawa Tours" description="Safari planning guide from L'okawa Tours.">
-</BaseLayout>
-
+<GuidePage {guide} {sections} {faqs} {relatedGuides} />

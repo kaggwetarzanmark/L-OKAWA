@@ -1,7 +1,113 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GuidePage from '../../../components/GuidePage.astro';
+
+const guide = {
+  title: 'Uganda Gorilla Trekking Permit Guide',
+  slug: 'gorilla-permit-guide',
+  kicker: 'Everything about the USD 800 permit',
+  heroImg: '/images/gorillas/gorilla-amber-eyes-closeup.jpg',
+  heroImgAlt: 'Mountain gorilla close-up showing amber eyes in Bwindi Uganda',
+  description: 'Complete guide to Uganda gorilla trekking permits: cost, how to book, what is included, low season discounts, gorilla habituation experience and cancellation rules.',
+  readTime: '7 min read',
+  breadcrumb: 'Gorilla Permit Guide',
+  intro: [
+    'A Uganda gorilla trekking permit is the single most important booking in your safari. It sets your trek date, determines your gorilla family, and costs USD 800 per person — more than many travellers\' entire monthly budget. This guide explains exactly what you get for that money, how to secure a permit, and how to avoid the most common booking mistakes.',
+  ],
+};
+
+const sections = [
+  {
+    heading: 'How Much Does a Gorilla Trekking Permit Cost?',
+    body: [
+      'The standard Uganda gorilla trekking permit costs USD 800 per person for foreign non-resident tourists. This is set by the Uganda Wildlife Authority (UWA) and is non-negotiable — every operator charges the same permit fee.',
+    ],
+    table: [
+      { col1: 'Foreign Non-Resident', col2: 'USD 800',  col3: 'Standard tourist permit' },
+      { col1: 'Foreign Resident',     col2: 'USD 700',  col3: 'Proof of Uganda residency required' },
+      { col1: 'East African Citizen', col2: 'USD 80',   col3: 'Citizens of Uganda, Kenya, Tanzania, Rwanda, Burundi' },
+      { col1: 'Low Season (Apr–May)', col2: 'USD 600',  col3: 'Non-residents only, April and May only' },
+    ],
+    tableHead: { col1: 'Category', col2: 'Cost', col3: 'Notes' },
+    tip: 'April and May permits at USD 600 are genuinely excellent value. Trails are muddier but the gorillas are equally easy to find and tourist numbers are a fraction of peak season.',
+  },
+  {
+    heading: 'What Does the Permit Include?',
+    body: [
+      'The USD 800 permit covers everything you need for the trek itself. It is not simply an entry ticket — it is a comprehensive activity package managed by the Uganda Wildlife Authority.',
+    ],
+    bullets: [
+      'Bwindi Impenetrable Forest or Mgahinga Gorilla National Park entry fee',
+      'Trained Uganda Wildlife Authority ranger guide throughout the trek',
+      'Armed security escort through the forest',
+      'Up to one hour of observation time with a habituated gorilla family',
+      'A briefing by UWA staff before the trek begins',
+      'A trekking certificate issued after the successful encounter',
+    ],
+  },
+  {
+    heading: 'How Far in Advance Should I Book?',
+    body: [
+      'This is the most common mistake travelers make: leaving permit booking too late. Bwindi has 19 habituated gorilla families approved for tourism, each visited by a maximum of 8 people per day. Total daily capacity is around 152 visitors — a small number given global demand.',
+      'During the peak dry seasons (June to September and December to February) permits sell out 4 to 6 months in advance, sometimes longer for popular families like Mubare or Habinyanja. For Christmas and New Year dates, 8 to 10 months is not unusual.',
+      'We strongly recommend booking your gorilla permit as the first step in planning your Uganda safari — then build the rest of the itinerary around your confirmed trek date.',
+    ],
+    bullets: [
+      'Peak season (Jun to Sep, Dec to Feb): book 4 to 6 months ahead',
+      'Christmas and New Year: book 8 to 10 months ahead',
+      'Shoulder season (Oct to Nov): 2 to 3 months is usually sufficient',
+      'Low season (Apr to May): sometimes available with 2 to 4 weeks notice',
+    ],
+  },
+  {
+    heading: 'Bwindi vs Mgahinga: Which Park?',
+    body: [
+      'Both Bwindi Impenetrable Forest and Mgahinga Gorilla National Park are in the same volcanic mountain region near the Rwanda border. Bwindi is by far the larger option with 19 habituated families across four trekking sectors: Buhoma, Rushaga, Nkuringo and Ruhija. Mgahinga has just one habituated family — the Nyakagezi group.',
+      'For most visitors Bwindi is the clear choice because of the larger number of families and trekking sectors. Mgahinga is worth considering if you also want to see golden monkeys (the only park in Uganda where this is possible) or climb the Virunga volcanoes.',
+    ],
+    table: [
+      { col1: 'Bwindi — Buhoma',   col2: 'Northwest Bwindi', col3: '3 families, most accessible from Kampala' },
+      { col1: 'Bwindi — Ruhija',   col2: 'Northeast Bwindi', col3: '4 families, higher altitude, fewer tourists' },
+      { col1: 'Bwindi — Nkuringo', col2: 'Southwest Bwindi', col3: '3 families, steeper terrain, dramatic scenery' },
+      { col1: 'Bwindi — Rushaga',  col2: 'South Bwindi',     col3: '9 families, also offers habituation experience' },
+      { col1: 'Mgahinga',          col2: 'Virunga Volcanoes', col3: '1 family (Nyakagezi), golden monkeys available' },
+    ],
+    tableHead: { col1: 'Sector', col2: 'Location', col3: 'Notes' },
+  },
+  {
+    heading: 'Gorilla Habituation Experience',
+    body: [
+      'In addition to the standard trek, the Rushaga sector of Bwindi offers the Gorilla Habituation Experience (GHEX). This allows you to spend up to 4 hours with a gorilla family that is still in the process of being habituated to human presence.',
+      'The GHEX permit costs USD 1,500 per person and a maximum of 4 people per family per day. It is the best option for photographers, researchers, and serious wildlife enthusiasts who want significantly more time with the gorillas than the standard 1-hour encounter allows.',
+    ],
+    tip: 'The Gorilla Habituation Experience must be booked through the same UWA permit system as standard treks. We handle all bookings on your behalf.',
+  },
+  {
+    heading: 'Cancellation and Refund Policy',
+    body: [
+      'Gorilla permits are purchased directly from the Uganda Wildlife Authority and are strictly non-refundable once issued. This is the most important thing to understand before booking.',
+      'UWA does allow permit transfers to another date within the same calendar year for a USD 40 administrative fee, subject to availability. If you cancel a safari and the permit cannot be transferred, the full USD 800 is lost.',
+      'This is exactly why comprehensive travel insurance is essential for any Uganda gorilla safari. Ensure your policy specifically covers pre-paid safari activities and non-refundable permits.',
+    ],
+    bullets: [
+      'Permits are non-refundable once purchased from UWA',
+      'Date changes allowed within the same calendar year (USD 40 admin fee)',
+      'Name changes are not permitted — the permit is issued to a specific individual',
+      'Travel insurance covering safari cancellation is essential',
+    ],
+  },
+];
+
+const faqs = [
+  { q: 'Can L\'okawa book my gorilla permit for me?', a: 'Yes. When you confirm your safari booking and pay the deposit, we immediately purchase your gorilla permit from the Uganda Wildlife Authority on your behalf. You do not need to contact UWA directly. We provide permit confirmation documentation once issued.' },
+  { q: 'Are permits ever available at short notice?', a: 'Occasionally, yes. Cancellations do occur and UWA sometimes releases returned permits. In the low season (April and May) permits can be available with 2 to 4 weeks notice. We monitor availability and can often secure last-minute permits for clients with flexible dates.' },
+  { q: 'What happens if the gorillas cannot be found on my trek day?', a: 'This is extremely rare. UWA rangers track the gorilla families\' position the evening before every trek using GPS data. The success rate for finding gorillas is consistently above 99% at Bwindi. In the extremely unlikely event gorillas are not found, UWA policy is to offer a complimentary permit for the following day.' },
+  { q: 'Can children do gorilla trekking?', a: 'Children must be at least 15 years old to participate in gorilla trekking, per UWA regulations. This protects the gorillas from childhood diseases and ensures all participants can manage the physical demands. There is no upper age limit, and many seniors in their 70s and 80s successfully complete the trek.' },
+];
+
+const relatedGuides = [
+  { slug: 'how-difficult-is-gorilla-trekking', title: 'How Difficult Is Gorilla Trekking?', img: '/images/gorillas/young-gorilla-closeup.jpg', imgAlt: 'Young gorilla Uganda', tag: 'Gorillas' },
+  { slug: 'uganda-vs-rwanda-gorillas', title: 'Uganda vs Rwanda for Gorillas', img: '/images/gorillas/gorilla-mother-infant-closeup.jpg', imgAlt: 'Gorilla Uganda', tag: 'Gorillas' },
+  { slug: 'best-time-to-visit-uganda', title: 'Best Time to Visit Uganda', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla Uganda', tag: 'Uganda' },
+];
 ---
-
-<BaseLayout title="gorilla-permit-guide | L'okawa Tours" description="Safari planning guide from L'okawa Tours.">
-</BaseLayout>
-
+<GuidePage {guide} {sections} {faqs} {relatedGuides} />

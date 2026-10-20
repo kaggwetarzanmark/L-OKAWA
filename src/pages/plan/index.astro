@@ -1,6 +1,317 @@
 ﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaBand    from '../../components/CtaBand.astro';
+
+const guides = [
+  {
+    slug: 'best-time-to-visit-uganda',
+    title: 'Best Time to Visit Uganda',
+    excerpt: 'Month-by-month breakdown of Uganda\'s seasons, rainfall, and when to go for gorilla trekking, game drives and birding.',
+    img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg',
+    imgAlt: 'Mountain gorilla mother with baby in Bwindi Uganda',
+    tag: 'Uganda',
+    readTime: '6 min read',
+  },
+  {
+    slug: 'gorilla-permit-guide',
+    title: 'Uganda Gorilla Trekking Permit Guide',
+    excerpt: 'Everything about the USD 800 permit — how to book, what it covers, low season discounts, and how to avoid common mistakes.',
+    img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg',
+    imgAlt: 'Mountain gorilla closeup Bwindi Uganda',
+    tag: 'Gorillas',
+    readTime: '7 min read',
+  },
+  {
+    slug: 'how-difficult-is-gorilla-trekking',
+    title: 'How Difficult Is Gorilla Trekking?',
+    excerpt: 'Honest assessment of the physical demands, trail conditions, altitude, and what you can do to prepare for your trek.',
+    img: '/images/gorillas/young-gorilla-closeup.jpg',
+    imgAlt: 'Young mountain gorilla in Bwindi Impenetrable Forest Uganda',
+    tag: 'Gorillas',
+    readTime: '5 min read',
+  },
+  {
+    slug: 'gorilla-trekking-packing-list',
+    title: 'Gorilla Trekking Packing List',
+    excerpt: 'The complete gear checklist for your gorilla trek: what to wear, what to carry, and what to leave at the lodge.',
+    img: '/images/gorillas/baby-gorilla-eating-leaf.jpg',
+    imgAlt: 'Baby gorilla eating leaf Bwindi Uganda',
+    tag: 'Gorillas',
+    readTime: '5 min read',
+  },
+  {
+    slug: 'safari-packing-list',
+    title: 'East Africa Safari Packing List',
+    excerpt: 'A comprehensive packing list for Uganda, Kenya and Tanzania safaris — from luggage limits to camera gear and malaria prevention.',
+    img: '/images/wildlife/safari-vehicle-lions.jpg',
+    imgAlt: 'Safari vehicle with lions in Uganda national park',
+    tag: 'Safari Tips',
+    readTime: '6 min read',
+  },
+  {
+    slug: 'safari-cost-guide',
+    title: 'How Much Does a Uganda Safari Cost?',
+    excerpt: 'Budget, mid-range and luxury safari costs broken down by activity, park fees, accommodation and transport.',
+    img: '/images/accommodation/safari-lodge-balcony-night.jpg',
+    imgAlt: 'Safari lodge balcony at night Uganda',
+    tag: 'Costs',
+    readTime: '7 min read',
+  },
+  {
+    slug: 'uganda-vs-rwanda-gorillas',
+    title: 'Uganda vs Rwanda: Which is Better for Gorilla Trekking?',
+    excerpt: 'Side-by-side comparison of permits, trek difficulty, lodges, costs and overall experience to help you choose.',
+    img: '/images/gorillas/gorilla-mother-infant-closeup.jpg',
+    imgAlt: 'Gorilla mother with infant Uganda',
+    tag: 'Gorillas',
+    readTime: '6 min read',
+  },
+  {
+    slug: 'best-time-to-visit-kenya',
+    title: 'Best Time to Visit Kenya',
+    excerpt: 'When to go for the Great Migration, dry season game drives, Diani Beach, and Masai Mara big cat action.',
+    img: '/images/wildlife/lion-cub-lioness-savannah.jpg',
+    imgAlt: 'Lioness with cub on the savannah Masai Mara Kenya',
+    tag: 'Kenya',
+    readTime: '5 min read',
+  },
+  {
+    slug: 'best-time-to-visit-tanzania',
+    title: 'Best Time to Visit Tanzania',
+    excerpt: 'Serengeti migration calendar, Ngorongoro Crater seasons, Zanzibar weather and when to see the most wildlife.',
+    img: '/images/wildlife/elephants-crossing-river.jpg',
+    imgAlt: 'Elephants crossing river Tanzania safari',
+    tag: 'Tanzania',
+    readTime: '5 min read',
+  },
+  {
+    slug: 'uganda-travel-tips',
+    title: 'Uganda Travel Tips',
+    excerpt: 'Essential practical advice: currency, connectivity, tipping, health, local customs and getting around Uganda.',
+    img: '/images/wildlife/giraffe-uganda-murchison.jpg',
+    imgAlt: 'Giraffe Murchison Falls National Park Uganda',
+    tag: 'Uganda',
+    readTime: '7 min read',
+  },
+  {
+    slug: 'is-uganda-safe',
+    title: 'Is Uganda Safe for Tourists?',
+    excerpt: 'Honest safety overview for visitors: national parks, Kampala, travel advisories, and what to be aware of.',
+    img: '/images/wildlife/elephant-pair-greeting.jpg',
+    imgAlt: 'Elephants Uganda safari',
+    tag: 'Uganda',
+    readTime: '5 min read',
+  },
+  {
+    slug: 'uganda-visa',
+    title: 'Uganda Visa Guide',
+    excerpt: 'How to apply for a Uganda e-Visa, the East Africa Tourist Visa, fees, processing times and entry requirements.',
+    img: '/images/parks/murchison-falls-national-park-gate.jpg',
+    imgAlt: 'Murchison Falls National Park gate Uganda',
+    tag: 'Uganda',
+    readTime: '4 min read',
+  },
+];
+
+const categories = [
+  { label: 'All Guides',   filter: '' },
+  { label: 'Gorillas',     filter: 'Gorillas' },
+  { label: 'Uganda',       filter: 'Uganda' },
+  { label: 'Kenya',        filter: 'Kenya' },
+  { label: 'Tanzania',     filter: 'Tanzania' },
+  { label: 'Safari Tips',  filter: 'Safari Tips' },
+  { label: 'Costs',        filter: 'Costs' },
+];
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lokawatoursandtravel.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Plan Your Safari" }
+  ]
+});
 ---
 
-<BaseLayout title="Plan Your East Africa Safari | Guides, Tips and Essential Information" description="Everything you need to plan your East Africa safari. Gorilla permit guides, packing lists, best time to visit, visa info and safari cost guides from L'okawa Tours.">
+<BaseLayout
+  title="Plan Your East Africa Safari | Gorilla Trekking Guides & Travel Tips | L'okawa Tours"
+  description="Expert planning guides for Uganda, Kenya and Tanzania safaris. Gorilla permit advice, packing lists, best time to visit, costs and travel safety from L'okawa Tours."
+  schema={schema}
+>
+
+<!-- ══════════════════════════════════════════
+     BANNER
+══════════════════════════════════════════ -->
+<div class="plan-banner">
+  <div class="plan-banner__photo" aria-hidden="true"></div>
+  <svg viewBox="0 0 1440 340" preserveAspectRatio="xMidYMax slice"
+    class="plan-banner__svg" aria-hidden="true">
+    <circle cx="1130" cy="230" r="110" fill="#ffd45a" opacity=".18"/>
+    <circle cx="1130" cy="230" r="72"  fill="#ffd45a"/>
+    <path d="M0 270 C220 240 400 266 580 244 C780 220 940 262 1140 242 C1280 228 1370 250 1440 244 L1440 340 L0 340Z" fill="#1d3315" opacity=".8"/>
+    <path d="M0 304 C240 282 440 304 660 292 C880 280 1100 306 1440 286 L1440 340 L0 340Z" fill="#0d1a0a"/>
+    <g fill="#0d1a0a">
+      <rect x="1246" y="206" width="9" height="90"/>
+      <ellipse cx="1250" cy="200" rx="86" ry="22"/>
+      <ellipse cx="1196" cy="214" rx="50" ry="14"/>
+      <ellipse cx="1306" cy="212" rx="50" ry="14"/>
+    </g>
+  </svg>
+  <div class="plan-banner__overlay" aria-hidden="true"></div>
+  <div class="plan-banner__content">
+    <div class="plan-banner__breadcrumb">
+      <a href="/" class="plan-banner__bc-link">Home</a>
+      <span>&nbsp;/&nbsp;</span>
+      <span class="plan-banner__bc-cur">Plan Your Safari</span>
+    </div>
+    <p class="plan-banner__kicker">Before you go</p>
+    <h1 class="plan-banner__h1">Plan Your<br/>East Africa Safari</h1>
+    <p class="plan-banner__sub">Practical guides on gorilla permits, packing, costs, visa requirements, safety and the best time to visit Uganda, Kenya and Tanzania.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     GUIDES GRID
+══════════════════════════════════════════ -->
+<section class="plan-guides">
+  <div class="container">
+    <div class="plan-guides__grid">
+      {guides.map(g => (
+        <a href={`/plan/${g.slug}/`} class="plan-card">
+          <div class="plan-card__img-wrap">
+            <img src={g.img} alt={g.imgAlt} class="plan-card__img" loading="lazy" width="480" height="280"/>
+            <span class="plan-card__tag">{g.tag}</span>
+          </div>
+          <div class="plan-card__body">
+            <h2 class="plan-card__title">{g.title}</h2>
+            <p class="plan-card__excerpt">{g.excerpt}</p>
+            <div class="plan-card__foot">
+              <span class="plan-card__time">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+                {g.readTime}
+              </span>
+              <span class="plan-card__arrow">Read guide &rarr;</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     CTA BAND
+══════════════════════════════════════════ -->
+<CtaBand
+  heading="Questions answered — now let's build your safari"
+  btn1="Get a Free Quote"
+  btn1Href="/contact/"
+  btn2="Browse Tour Packages"
+  btn2Href="/tours/"
+/>
+
 </BaseLayout>
+
+<style>
+/* ── BANNER ── */
+.plan-banner {
+  position: relative; overflow: hidden; min-height: 360px;
+  background: linear-gradient(180deg, #16290f 0%, #2f4d20 40%, #b8561a 82%, #f4b41a 100%);
+}
+.plan-banner__photo {
+  position: absolute; inset: 0;
+  background-image: url('/images/gorillas/silverback-gorilla-group.jpg');
+  background-size: cover; background-position: center 35%;
+  opacity: 0.2; z-index: 0;
+}
+.plan-banner__svg {
+  position: absolute; left: 0; bottom: 0;
+  width: 100%; height: 100%; pointer-events: none; z-index: 1;
+}
+.plan-banner__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(10,20,8,.85) 0%, rgba(10,20,8,.5) 55%, rgba(10,20,8,0) 88%);
+  z-index: 1;
+}
+.plan-banner__content {
+  position: relative; z-index: 2;
+  max-width: var(--max-width); margin-inline: auto;
+  padding: 72px var(--section-pad-x) 110px; box-sizing: border-box;
+}
+.plan-banner__breadcrumb {
+  font-size: 13px; font-weight: var(--weight-semibold);
+  letter-spacing: .06em; color: var(--color-cream); margin-bottom: 14px;
+}
+.plan-banner__bc-link { color: var(--color-cream); transition: color var(--transition-fast); }
+.plan-banner__bc-link:hover { color: var(--color-gold); }
+.plan-banner__bc-cur { color: var(--color-gold); }
+.plan-banner__kicker {
+  font-family: var(--font-display); font-style: italic;
+  font-weight: 500; font-size: 21px;
+  color: var(--color-gold); margin-bottom: 8px; display: block;
+}
+.plan-banner__h1 {
+  font-family: var(--font-display); font-weight: var(--weight-bold);
+  font-size: clamp(36px, 5.5vw, 62px); line-height: var(--leading-tight);
+  color: var(--color-white); margin: 0 0 16px;
+}
+.plan-banner__sub {
+  font-size: var(--text-lg); color: var(--color-cream);
+  line-height: var(--leading-relaxed); max-width: 560px; opacity: .9;
+}
+
+/* ── GUIDES GRID ── */
+.plan-guides { background: #fff; padding: 64px 0 80px; }
+.plan-guides__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.plan-card {
+  display: flex; flex-direction: column;
+  background: #fff; border-radius: 14px; overflow: hidden;
+  box-shadow: 0 2px 14px rgba(0,0,0,.07);
+  text-decoration: none;
+  transition: transform .25s ease, box-shadow .25s ease;
+  border: 1px solid #e8ede4;
+}
+.plan-card:hover { transform: translateY(-5px); box-shadow: 0 10px 32px rgba(0,0,0,.12); }
+.plan-card__img-wrap { position: relative; height: 200px; overflow: hidden; }
+.plan-card__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.plan-card:hover .plan-card__img { transform: scale(1.04); }
+.plan-card__tag {
+  position: absolute; top: 12px; left: 12px;
+  background: var(--color-amber); color: #fff;
+  font-size: 11px; font-weight: var(--weight-bold);
+  letter-spacing: .07em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 20px;
+}
+.plan-card__body {
+  padding: 22px 22px 20px; flex: 1;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.plan-card__title {
+  font-family: var(--font-display); font-weight: var(--weight-bold);
+  font-size: 17px; line-height: 1.35; color: var(--color-green-dark); margin: 0;
+}
+.plan-card__excerpt {
+  font-size: 14px; line-height: var(--leading-relaxed);
+  color: var(--color-text); margin: 0; flex: 1;
+}
+.plan-card__foot {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 6px; padding-top: 12px; border-top: 1px solid #e8ede4;
+}
+.plan-card__time {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 12px; font-weight: var(--weight-semibold);
+  color: #888; letter-spacing: .03em;
+}
+.plan-card__arrow {
+  font-size: 13px; font-weight: var(--weight-semibold); color: var(--color-amber);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) { .plan-guides__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 580px) { .plan-guides__grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,7 +1,111 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GuidePage from '../../../components/GuidePage.astro';
+
+const guide = {
+  title: 'Best Time to Visit Tanzania',
+  slug: 'best-time-to-visit-tanzania',
+  kicker: 'Tanzania safari seasons and migration calendar',
+  heroImg: '/images/wildlife/elephants-crossing-river.jpg',
+  heroImgAlt: 'Elephants crossing a river on safari in Tanzania',
+  description: 'Month-by-month guide to Tanzania\'s seasons. Serengeti migration calendar, Ngorongoro Crater year-round wildlife, Zanzibar beach seasons, and when to avoid the long rains.',
+  readTime: '5 min read',
+  breadcrumb: 'Best Time to Visit Tanzania',
+  intro: [
+    'Tanzania is one of the world\'s great safari destinations, home to the Serengeti, the Ngorongoro Crater, Kilimanjaro and the idyllic beaches of Zanzibar. Each of these destinations has its own seasonal logic, so the best time to visit depends on your priorities.',
+    'This guide breaks down Tanzania\'s seasons, the Great Migration calendar, and the optimal times for each major destination.',
+  ],
+};
+
+const sections = [
+  {
+    heading: 'Tanzania\'s Seasons at a Glance',
+    body: ['Tanzania has two main dry seasons and two rainy seasons, with conditions varying between the northern safari circuit and the coast.'],
+    table: [
+      { col1: 'June to October',      col2: 'Long Dry Season',    col3: 'Peak safari season, best game drives, wildebeest in Serengeti' },
+      { col1: 'November to December', col2: 'Short Rains',        col3: 'Brief showers, lush scenery, calving season starts' },
+      { col1: 'January to February',  col2: 'Short Dry Season',   col3: 'Calving season in Serengeti, excellent and less crowded' },
+      { col1: 'March to May',         col2: 'Long Rains',         col3: 'Wettest period, some camps close, lowest prices' },
+    ],
+    tableHead: { col1: 'Period', col2: 'Season', col3: 'Notes' },
+  },
+  {
+    heading: 'June to October — Peak Season and Best Game Viewing',
+    body: [
+      'The long dry season is Tanzania\'s busiest and most rewarding period for safaris. The vegetation thins, water sources concentrate wildlife in predictable locations, and the Serengeti hosts the northern portion of the Great Migration — including the famous Grumeti River crossings in June and July.',
+      'Ngorongoro Crater is excellent year-round but particularly rewarding in the dry season when predator activity peaks. The crater floor remains reliably productive even when the rest of the northern circuit is dry, as the crater\'s internal ecosystem retains water.',
+      'August to October is especially popular: the herds move north toward the Masai Mara in Kenya, and the Serengeti\'s Kogatende region (far north) offers spectacular wildlife concentrations before the wildebeest cross into Kenya.',
+    ],
+    bullets: [
+      'Best overall game viewing across the northern circuit',
+      'Grumeti River crossings: June to July',
+      'Wildebeest moving north toward Kenya: August to October',
+      'Ngorongoro Crater at its best for predator activity',
+      'Kilimanjaro climbing season (June to October)',
+      'Highest prices and most crowded camps — book well ahead',
+    ],
+  },
+  {
+    heading: 'January to February — Calving Season (Underrated Gem)',
+    body: [
+      'January and February are among the best months to visit Tanzania\'s Serengeti, yet they are significantly less crowded than the July to October peak. This is the calving season: approximately 500,000 wildebeest calves are born on the short grass plains of the southern Serengeti and Ngorongoro Conservation Area in a 3-week period, typically in February.',
+      'The calving season attracts an extraordinary concentration of predators. Cheetahs, lions, leopards, hyenas and wild dogs gather in numbers that are rarely seen at any other time of year. For wildlife photography it is arguably the best period in the entire calendar.',
+      'Ngorongoro Crater is lush and green in January and February, with the caldera floor supporting excellent lion and rhino sightings. Zanzibar is at its finest in January — hot, dry and uncrowded.',
+    ],
+    bullets: [
+      'Wildebeest calving season in southern Serengeti: late January to February',
+      'Exceptional predator concentrations drawn by calving herds',
+      'Ngorongoro Crater green and photogenic',
+      'Excellent beach weather on Zanzibar',
+      'Lower prices and fewer tourists than peak season',
+    ],
+    tip: 'The calving season is one of the world\'s greatest wildlife spectacles and one of the best kept secrets of Tanzania safari planning. February in the southern Serengeti can rival July and August for drama.',
+  },
+  {
+    heading: 'March to May — Long Rains (Budget Season)',
+    body: [
+      'The long rains bring heavy, often prolonged rainfall across Tanzania. Some camps and lodges close entirely, especially in the Serengeti. Game drives are still possible but tracks become muddy and some areas inaccessible.',
+      'April and May are the wettest months. Prices are the lowest of the year and popular destinations are pleasantly uncrowded. The landscapes are spectacularly green. Birding reaches its peak as migrants arrive. For budget-conscious travellers with flexibility, May can offer extraordinary value.',
+    ],
+  },
+  {
+    heading: 'The Serengeti Great Migration Calendar',
+    body: ['The migration follows a clockwise circuit. Here is where the herds typically are each month.'],
+    table: [
+      { col1: 'January to February',  col2: 'Southern Serengeti and Ngorongoro — calving season on short grass plains' },
+      { col1: 'March to April',       col2: 'Central Serengeti — moving north as long rains begin' },
+      { col1: 'May to June',          col2: 'Western Serengeti — Grumeti River crossings begin' },
+      { col1: 'July to August',       col2: 'Northern Serengeti — Mara River crossings, some herds enter Kenya' },
+      { col1: 'September to October', col2: 'Masai Mara, Kenya — peak river crossings, returning south from October' },
+      { col1: 'November to December', col2: 'Eastern Serengeti — returning herds, short rains begin' },
+    ],
+    tableHead: { col1: 'Period', col2: 'Migration Location' },
+  },
+  {
+    heading: 'Zanzibar Beach Seasons',
+    body: [
+      'Zanzibar\'s beach weather follows a slightly different pattern from the mainland safari parks. The island has two distinct dry seasons and the monsoon system creates predictable seasonal patterns.',
+    ],
+    table: [
+      { col1: 'December to February', col2: 'Excellent — hot, dry, low humidity. Best overall beach conditions.' },
+      { col1: 'March to May',         col2: 'Long rains — heavy rain, rough seas. Avoid for beach holidays.' },
+      { col1: 'June to October',      col2: 'Good — drier but sometimes overcast. Wind can be strong July to August.' },
+      { col1: 'November',             col2: 'Short rains — brief showers but often still sunny and warm.' },
+    ],
+    tableHead: { col1: 'Period', col2: 'Zanzibar Beach Conditions' },
+    tip: 'The ideal Tanzania combination is a northern safari circuit (Serengeti and Ngorongoro) followed by 3 to 4 nights on Zanzibar. January and February offer the best simultaneous conditions for both.',
+  },
+];
+
+const faqs = [
+  { q: 'Can I see the Great Migration year-round in the Serengeti?', a: 'The wildebeest are in the Serengeti ecosystem for about 8 to 9 months of the year. The dramatic river crossings only happen when the herds are in the north (Mara River, June to October). Outside this window you can still see large groups of wildebeest elsewhere in the Serengeti, particularly during calving season (January to February) in the south.' },
+  { q: 'Is Ngorongoro Crater worth visiting outside peak season?', a: 'Yes. Ngorongoro Crater is arguably the most reliably productive wildlife destination in all of Africa regardless of season. The crater floor retains water and supports permanent populations of lion, leopard, elephant, hippo, zebra, wildebeest and one of Africa\'s few remaining wild black rhino populations. A morning game drive in the crater is exceptional in any month.' },
+  { q: 'How many days should I spend in Tanzania?', a: 'A minimum of 5 days covers the northern circuit (Serengeti and Ngorongoro) meaningfully. Adding Tarangire National Park and Zanzibar requires 8 to 10 days. A thorough Tanzania holiday with multiple parks and beach time works best over 12 to 14 days.' },
+];
+
+const relatedGuides = [
+  { slug: 'best-time-to-visit-kenya', title: 'Best Time to Visit Kenya', img: '/images/wildlife/lion-cub-lioness-savannah.jpg', imgAlt: 'Lions Kenya', tag: 'Kenya' },
+  { slug: 'best-time-to-visit-uganda', title: 'Best Time to Visit Uganda', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla Uganda', tag: 'Uganda' },
+  { slug: 'safari-cost-guide', title: 'How Much Does a Safari Cost?', img: '/images/accommodation/safari-lodge-balcony-night.jpg', imgAlt: 'Safari lodge', tag: 'Costs' },
+];
 ---
-
-<BaseLayout title="best-time-to-visit-tanzania | L'okawa Tours" description="Safari planning guide from L'okawa Tours.">
-</BaseLayout>
-
+<GuidePage {guide} {sections} {faqs} {relatedGuides} />

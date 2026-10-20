@@ -1,7 +1,109 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GuidePage from '../../../components/GuidePage.astro';
+
+const guide = {
+  title: 'How Difficult Is Gorilla Trekking?',
+  slug: 'how-difficult-is-gorilla-trekking',
+  kicker: 'An honest assessment before you book',
+  heroImg: '/images/gorillas/young-gorilla-closeup.jpg',
+  heroImgAlt: 'Young mountain gorilla looking directly at camera in Bwindi Impenetrable Forest Uganda',
+  description: 'Honest guide to the physical demands of gorilla trekking in Uganda. Trail conditions, altitude, trek duration, fitness tips and how to prepare for your Bwindi gorilla trek.',
+  readTime: '5 min read',
+  breadcrumb: 'How Difficult Is Gorilla Trekking?',
+  intro: [
+    'The most common question we receive from first-time gorilla trekkers is some version of "can I actually do this?" The honest answer is: probably yes, but it depends. This guide gives you a realistic picture of what gorilla trekking involves so you can prepare properly and set realistic expectations.',
+  ],
+};
+
+const sections = [
+  {
+    heading: 'The Short Answer',
+    body: [
+      'Gorilla trekking is rated moderate to strenuous. It is not a gentle forest stroll — you are hiking on steep, uneven terrain through dense tropical rainforest, often in heat and humidity, at altitudes between 1,500m and 2,500m above sea level. Trek duration ranges from 30 minutes to 8 hours depending on where the gorilla family moved overnight.',
+      'That said, people of all ages and fitness levels complete gorilla treks every day. Porters are available to carry your daypack and physically assist you on difficult sections. The vast majority of healthy adults with reasonable fitness are capable of completing a gorilla trek.',
+    ],
+    tip: 'If you can walk uphill for 2 to 3 hours on a rough footpath, you are likely fit enough for a standard gorilla trek. If you have concerns about a medical condition, consult your doctor before booking.',
+  },
+  {
+    heading: 'Trail Conditions in Bwindi',
+    body: [
+      'Bwindi Impenetrable Forest lives up to its name. The trail conditions vary significantly depending on the sector, the season and the location of the gorilla family on the day.',
+    ],
+    bullets: [
+      'Slopes are steep — elevation gain of 200m to 500m is common on a single trek',
+      'Trails are narrow, often overgrown and unmarked — rangers lead at all times',
+      'Roots, loose rocks and fallen branches require constant foot placement attention',
+      'Mud is always present to some degree, and severe in the wet season',
+      'Vegetation must sometimes be pushed aside or stepped over at low altitude',
+      'The final approach to the gorillas often involves moving off-trail through dense undergrowth',
+    ],
+  },
+  {
+    heading: 'How Long Will the Trek Take?',
+    body: [
+      'This is the most unpredictable element. The gorilla families move every night and rangers track their position using GPS data from the previous evening. On a good day the trek takes 30 to 90 minutes each way. On a more challenging day it can take 4 to 6 hours of continuous hiking.',
+      'The average trek duration is 2 to 4 hours total. Once you locate the gorillas, you spend exactly 1 hour observing them at close range. The return trek is usually faster as it follows the same route downhill.',
+      'Roughly 85% of treks are completed in under 4 hours total. About 10% take 4 to 6 hours. Around 5% are genuinely long and strenuous, exceeding 6 hours. There is no way to predict which you will get — it is the nature of trekking wild gorillas.',
+    ],
+    table: [
+      { col1: '30 to 90 minutes each way', col2: 'Approx 30%', col3: 'Gorillas stayed close to previous evening position' },
+      { col1: '2 to 3 hours each way',     col2: 'Approx 55%', col3: 'Average trek — moderate terrain and distance' },
+      { col1: '4 to 6 hours each way',     col2: 'Approx 13%', col3: 'Long day — gorillas moved significantly overnight' },
+      { col1: 'Over 6 hours each way',     col2: 'Approx 2%',  col3: 'Rare — very remote gorilla position' },
+    ],
+    tableHead: { col1: 'Trek Duration', col2: 'Frequency', col3: 'Reason' },
+  },
+  {
+    heading: 'Altitude and Climate',
+    body: [
+      'Bwindi sits at 1,190m to 2,607m above sea level. Most trekking takes place between 1,500m and 2,200m. At this altitude the air is noticeably thinner than at sea level and the humidity inside the forest is high.',
+      'Visitors arriving from lower altitudes (including Kampala at 1,190m) may feel slightly short of breath during the first hour of climbing. This is normal. The body adjusts quickly. Severe altitude sickness at Bwindi\'s elevation is rare but possible for those with respiratory conditions.',
+      'Temperature inside the forest varies from cool to warm (12 to 25°C) depending on altitude and time of day. Mornings are brisk; afternoons inside the canopy can feel humid and warm.',
+    ],
+  },
+  {
+    heading: 'Who Can Do Gorilla Trekking?',
+    body: [
+      'The minimum age is 15 years, set by the Uganda Wildlife Authority. There is no upper age limit. Guests in their 70s and 80s regularly complete gorilla treks, including those with walking sticks and porter assistance.',
+      'Common medical conditions that require consideration: heart conditions, severe asthma, mobility impairments and severe arthritis. If you have any of these, consult your doctor before booking and inform us so we can assign you the most accessible gorilla family and sector.',
+    ],
+    bullets: [
+      'Minimum age: 15 years',
+      'No upper age limit',
+      'Visitors with mobility issues can use porters and sedan chairs',
+      'Visitors with cold, flu or any respiratory illness on the day cannot trek (to protect the gorillas)',
+      'Pregnant women should consult their doctor; the physical demands are significant',
+    ],
+  },
+  {
+    heading: 'How to Prepare',
+    body: [
+      'You do not need to be an athlete to trek gorillas, but arriving in reasonable fitness will make the experience significantly more enjoyable.',
+    ],
+    bullets: [
+      'Walk for 30 to 60 minutes daily in the 4 to 6 weeks before your trip',
+      'Include stair climbing or hill walking in your preparation if possible',
+      'Wear your trekking boots before travel to break them in',
+      'Bring sturdy waterproof hiking boots with ankle support',
+      'Hire a porter at the trailhead (USD 15 to 20) — they carry your daypack and assist on steep sections',
+      'Bring a walking stick if you prefer — sticks are provided free at the trailhead',
+      'Carry 1.5 to 2 litres of water and snacks for the day',
+      'Dress in layers — mornings are cold, afternoons warm',
+    ],
+    tip: 'The single best thing you can do to prepare is hire a porter. Removing the weight of your daypack from your back makes a substantial difference over a 4-hour trek on steep terrain.',
+  },
+];
+
+const faqs = [
+  { q: 'Can older travelers do gorilla trekking?', a: 'Yes. Many guests in their 60s, 70s and even 80s successfully complete gorilla treks. The key is honest self-assessment of your fitness level, hiring a porter, and informing us of any physical limitations so we can assign you the most suitable gorilla family and trekking sector. The Buhoma sector\'s Mubare family is often recommended for guests wanting a shorter, less steep trek.' },
+  { q: 'What if I cannot complete the trek?', a: 'If you need to turn back before reaching the gorillas, rangers will assist you back to the trailhead. Unfortunately the permit fee (USD 800) is non-refundable in this situation. For guests with significant fitness concerns, we recommend the Gorilla Habituation Experience in Rushaga, which allows more time and flexibility, or choosing the most accessible sector and gorilla family.' },
+  { q: 'Is gorilla trekking harder in the wet season?', a: 'Yes, noticeably so. Wet season trails are significantly muddier, steeper sections become slippery, and the approach through dense undergrowth is more physically demanding. Wet season treks average 30 to 45 minutes longer than the same route in dry conditions. Gaiters, waterproof boots and a walking stick are especially important in April, May and November.' },
+];
+
+const relatedGuides = [
+  { slug: 'gorilla-permit-guide', title: 'Uganda Gorilla Permit Guide', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Mountain gorilla Uganda', tag: 'Gorillas' },
+  { slug: 'gorilla-trekking-packing-list', title: 'Gorilla Trekking Packing List', img: '/images/gorillas/baby-gorilla-eating-leaf.jpg', imgAlt: 'Baby gorilla Uganda', tag: 'Gorillas' },
+  { slug: 'best-time-to-visit-uganda', title: 'Best Time to Visit Uganda', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla Uganda', tag: 'Uganda' },
+];
 ---
-
-<BaseLayout title="how-difficult-is-gorilla-trekking | L'okawa Tours" description="Safari planning guide from L'okawa Tours.">
-</BaseLayout>
-
+<GuidePage {guide} {sections} {faqs} {relatedGuides} />

@@ -1,7 +1,110 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GuidePage from '../../../components/GuidePage.astro';
+
+const guide = {
+  title: 'Uganda Visa Guide',
+  slug: 'uganda-visa',
+  kicker: 'Entry requirements, e-Visa and East Africa Tourist Visa',
+  heroImg: '/images/parks/murchison-falls-national-park-gate.jpg',
+  heroImgAlt: 'Murchison Falls National Park gate Uganda',
+  description: 'Complete Uganda visa guide: e-Visa application, fees, processing time, East Africa Tourist Visa for Uganda-Kenya-Rwanda, visa on arrival, and entry requirements for 2025.',
+  readTime: '4 min read',
+  breadcrumb: 'Uganda Visa Guide',
+  intro: [
+    'Most international visitors to Uganda require a visa. The good news is that Uganda\'s e-Visa system makes the process straightforward — you can apply online from home and receive approval before you travel. This guide covers everything you need to know about entering Uganda.',
+  ],
+};
+
+const sections = [
+  {
+    heading: 'Does My Nationality Need a Visa?',
+    body: [
+      'Most nationalities require a visa to enter Uganda. A small number of countries are exempt from visa requirements entirely.',
+    ],
+    bullets: [
+      'Visa-free entry: Citizens of most East African Community member states (Kenya, Tanzania, Rwanda, Burundi, South Sudan, DRC)',
+      'Visa required: Most European, American, Asian, and African nationalities outside the EAC',
+      'Check the Uganda Directorate of Citizenship and Immigration Control (DCIC) website for a full list',
+      'When in doubt, apply for a visa — it is better to have one than to be refused entry',
+    ],
+    tip: 'Always verify your specific country\'s visa requirement on the official Uganda e-Visa portal (visas.immigration.go.ug) before travel, as requirements can change.',
+  },
+  {
+    heading: 'Uganda e-Visa: The Standard Option',
+    body: [
+      'The Uganda e-Visa is the recommended and most convenient entry route for most visitors. Applications are made entirely online through the official Uganda immigration portal before travel. Approved visas are sent by email and printed to present at the port of entry.',
+    ],
+    table: [
+      { col1: 'Single Entry Tourist Visa',  col2: 'USD 50',  col3: 'Valid for 90 days from entry' },
+      { col1: 'Multiple Entry Visa',        col2: 'USD 100', col3: 'Valid for 12 months from approval' },
+      { col1: 'East Africa Tourist Visa',   col2: 'USD 100', col3: 'Uganda, Kenya and Rwanda on one visa' },
+      { col1: 'Transit Visa',               col2: 'USD 30',  col3: 'Valid for 7 days' },
+    ],
+    tableHead: { col1: 'Visa Type', col2: 'Fee', col3: 'Notes' },
+  },
+  {
+    heading: 'How to Apply for the Uganda e-Visa',
+    body: ['The application process is straightforward and takes 10 to 20 minutes to complete online.'],
+    bullets: [
+      'Go to the official portal: visas.immigration.go.ug',
+      'Create an account and complete the application form',
+      'Upload a passport photo (white background, recent)',
+      'Upload your passport biodata page (clear scan or photo)',
+      'Pay the visa fee by credit or debit card',
+      'Receive a confirmation email — print for reference',
+      'Approved visa arrives by email within 3 to 10 working days',
+      'Print the approved visa and present at Entebbe Airport immigration',
+    ],
+    tip: 'Apply at least 2 to 3 weeks before travel to allow processing time and a buffer for any queries from immigration. Some applications are processed within 48 hours but do not rely on this.',
+  },
+  {
+    heading: 'East Africa Tourist Visa — Best Value for Multi-Country Trips',
+    body: [
+      'If you are visiting Uganda in combination with Kenya and/or Rwanda, the East Africa Tourist Visa (EAV) is significantly better value than separate visas for each country.',
+      'The EAV costs USD 100 and allows multiple entries into Uganda, Kenya and Rwanda within 90 days on a single visa. It replaces the separate Uganda single-entry visa (USD 50) and Kenya e-Visa (USD 30), representing a saving of USD 80 for a Uganda-Kenya combination trip.',
+      'The EAV is applied for through the same Uganda e-Visa portal. Note: Tanzania is not part of this scheme and requires a separate visa (also USD 50 as an e-Visa).',
+    ],
+    bullets: [
+      'Covers Uganda, Kenya and Rwanda on one USD 100 visa',
+      'Multiple entries into all three countries within 90 days',
+      'Applied for through Uganda\'s e-Visa portal — specify "East Africa Tourist Visa"',
+      'Must enter the region through Uganda, Kenya or Rwanda first',
+      'Tanzania is not included — requires separate visa',
+    ],
+  },
+  {
+    heading: 'Visa on Arrival',
+    body: [
+      'Uganda does offer visa on arrival at Entebbe International Airport and some land border crossings for eligible nationalities. However, it is strongly recommended to apply for your e-Visa online before travel rather than relying on visa on arrival.',
+      'Reasons to avoid visa on arrival: queues can be very long at Entebbe after international flights, processing can take 1 to 2 hours, and there is a small risk of being asked for additional documentation that you did not bring.',
+    ],
+    tip: 'Never rely on visa on arrival if you have a connecting safari vehicle waiting for you at Entebbe. Apply online and arrive with your approved visa printed.',
+  },
+  {
+    heading: 'Entry Requirements at Entebbe Airport',
+    body: ['These documents are required at Uganda immigration. Have them all accessible before you reach the immigration desk.'],
+    bullets: [
+      'Valid passport with at least 6 months remaining validity beyond your planned departure date',
+      'Printed or digital copy of your approved Uganda e-Visa or EAV',
+      'Yellow Fever vaccination certificate (required for all visitors)',
+      'Proof of onward travel (return flight ticket or next destination itinerary)',
+      'Sufficient funds for your stay (USD 50 per day is a common benchmark used by immigration)',
+      'Accommodation details for your first night (hotel name and address)',
+    ],
+  },
+];
+
+const faqs = [
+  { q: 'How long can I stay in Uganda on a tourist visa?', a: 'A standard single-entry tourist visa is valid for 90 days from the date of entry. Extensions can be applied for at the Directorate of Citizenship and Immigration Control offices in Kampala if needed. The multiple-entry visa is valid for 12 months from the date of approval, but each stay is limited to 90 days.' },
+  { q: 'Can I get the Uganda visa at the border?', a: 'Some land border crossings do issue visas on arrival, but this depends on the specific crossing and staffing on the day. The Malaba and Busia crossings (Kenya border) and Gatuna/Katuna (Rwanda border) have historically offered this service. It is always safer to obtain your e-Visa online before travel.' },
+  { q: 'Does the Yellow Fever vaccination card need to be the original?', a: 'Yes. Immigration officials at Entebbe Airport require the original yellow International Certificate of Vaccination (the yellow card). A photocopy or digital photo on your phone is not sufficient. If you have lost your original certificate you will need to be revaccinated before travel.' },
+  { q: 'Do children need their own visa?', a: 'Yes. Every individual traveller including children requires their own visa. Children travelling on a parent\'s passport are not accepted. Each child should have their own passport and their own visa application.' },
+];
+
+const relatedGuides = [
+  { slug: 'is-uganda-safe', title: 'Is Uganda Safe for Tourists?', img: '/images/wildlife/elephant-pair-greeting.jpg', imgAlt: 'Elephants Uganda safari', tag: 'Uganda' },
+  { slug: 'uganda-travel-tips', title: 'Uganda Travel Tips', img: '/images/wildlife/giraffe-uganda-murchison.jpg', imgAlt: 'Giraffe Uganda', tag: 'Uganda' },
+  { slug: 'best-time-to-visit-uganda', title: 'Best Time to Visit Uganda', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla Uganda', tag: 'Uganda' },
+];
 ---
-
-<BaseLayout title="uganda-visa | L'okawa Tours" description="Safari planning guide from L'okawa Tours.">
-</BaseLayout>
-
+<GuidePage {guide} {sections} {faqs} {relatedGuides} />

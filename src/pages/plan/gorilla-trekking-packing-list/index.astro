@@ -1,7 +1,120 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GuidePage from '../../../components/GuidePage.astro';
+
+const guide = {
+  title: 'Gorilla Trekking Packing List',
+  slug: 'gorilla-trekking-packing-list',
+  kicker: 'What to wear and what to carry',
+  heroImg: '/images/gorillas/baby-gorilla-eating-leaf.jpg',
+  heroImgAlt: 'Baby mountain gorilla eating a leaf in Bwindi Impenetrable Forest Uganda',
+  description: 'The complete gorilla trekking packing list for Uganda. What to wear, what gear you need, what to leave behind, and how to pack for a day trek in Bwindi Impenetrable Forest.',
+  readTime: '5 min read',
+  breadcrumb: 'Gorilla Trekking Packing List',
+  intro: [
+    'Packing correctly for a gorilla trek makes the difference between a comfortable, enjoyable experience and a miserable, muddy slog. The forest environment is demanding: steep and muddy trails, humidity, temperature changes between cool mornings and warm afternoons, and stinging nettles throughout.',
+    'This list covers everything you need for the trek day itself. It assumes you are staying at a lodge near the park and packing a single daypack for the trail.',
+  ],
+};
+
+const sections = [
+  {
+    heading: 'Footwear — the Most Important Item',
+    body: [
+      'Your footwear choice will make or break the trek. The terrain is steep, muddy and uneven. Do not attempt a gorilla trek in trail runners, sandals or casual shoes.',
+    ],
+    bullets: [
+      'Sturdy waterproof hiking boots with ankle support — non-negotiable',
+      'Worn in before travel (never wear new boots on the trail)',
+      'Mid-height or high-ankle boots for lateral ankle support on steep slopes',
+      'Waterproof gaiters to keep mud and debris out of boots',
+      'Thick hiking socks — at least two pairs',
+    ],
+    tip: 'Gaiters are available to hire at most Bwindi trailheads for USD 5 to 10. Bring your own if you are particular about fit. They make a significant difference in the wet season.',
+  },
+  {
+    heading: 'Clothing',
+    body: [
+      'Dress for both cool mornings and warm afternoons inside the forest. Layers are the key.',
+    ],
+    bullets: [
+      'Long-sleeved shirt in neutral or khaki colour — protects against stinging nettles and insects',
+      'Long trousers in lightweight hiking fabric — neutral or dark earth tones',
+      'Lightweight fleece or warm layer for the early morning briefing and cold mornings',
+      'Waterproof rain jacket (light packable type) — fits in daypack',
+      'Avoid bright colours, white, or camouflage patterns',
+      'Avoid strongly scented deodorants, perfumes or cologne — these disturb the gorillas',
+      'Lightweight gloves — cotton or thin garden gloves protect hands when gripping vegetation',
+      'Wide-brimmed or cap hat for sun on open sections',
+    ],
+  },
+  {
+    heading: 'Daypack Contents',
+    body: [
+      'Keep your daypack light. If you hire a porter, they carry it for you — but even so, a lighter pack means your porter can assist you more effectively. A 20 to 25 litre daypack is the right size.',
+    ],
+    bullets: [
+      '1.5 to 2 litres of water (lodges provide bottles; carry enough for the full day)',
+      'Energy snacks: nuts, dried fruit, energy bars, chocolate',
+      'Camera (phone cameras are excellent for gorilla trekking)',
+      'Extra batteries or portable power bank',
+      'Small first-aid kit: blister plasters, antihistamine, personal medications',
+      'Insect repellent — DEET-based, at least 30% concentration',
+      'Sunscreen for open sections',
+      'Zip-lock bag to protect phone and camera from rain and mud',
+      'USD 15 to 20 cash for porter tip (small notes)',
+    ],
+  },
+  {
+    heading: 'Photography Gear',
+    body: [
+      'The gorilla encounter is one of the most photographed wildlife experiences on earth. Getting it right takes a little preparation.',
+    ],
+    bullets: [
+      'No flash photography is permitted — ever. Flash is deeply distressing to gorillas.',
+      'A fast lens (f/1.8 to f/2.8) handles low light in the forest far better than a slow zoom',
+      'A 70 to 200mm lens is ideal for frames of individuals; a 24 to 70mm is better for family scenes',
+      'Phone cameras with portrait mode perform well at the standard 7-metre minimum distance',
+      'Bring a rain cover or dry bag for camera equipment',
+      'Extra memory cards and fully charged batteries',
+    ],
+    tip: 'The gorillas are often encountered in partial shade under the forest canopy. Set your ISO to 800 to 3200 and shoot at the widest available aperture for sharp hand-held shots in low light.',
+  },
+  {
+    heading: 'What to Leave Behind',
+    body: [
+      'Several items are either not permitted or simply impractical on a gorilla trek.',
+    ],
+    bullets: [
+      'Flash units and drone cameras — strictly forbidden',
+      'Large suitcases or rolling bags — leave at the lodge',
+      'Heavy telephoto lenses over 500mm — impractical in the forest',
+      'Monopods and full-size tripods — not manageable on narrow trails',
+      'Strongly scented products — perfume, cologne, heavily scented sunscreen',
+      'Noisy or rustling clothing fabrics',
+      'Snacks with strong food smells that may attract the gorillas',
+    ],
+  },
+  {
+    heading: 'Porter and Walking Stick',
+    body: [
+      'Two items that cost very little and make a disproportionate difference to your experience.',
+      'Porters are available at every Bwindi and Mgahinga trailhead. They cost USD 15 to 20 for the day and perform two roles: carrying your daypack so you can focus on the walk, and physically assisting you on steep or slippery sections by holding your hand or steadying you from behind. We strongly recommend hiring one.',
+      'Walking sticks are provided free at most trailheads. Accept one. Even experienced hikers benefit from the additional stability on steep descent, particularly in muddy conditions.',
+    ],
+    tip: 'The porter fee goes directly to the local community. Hiring a porter is both a practical decision and a meaningful contribution to the families who live around Bwindi.',
+  },
+];
+
+const faqs = [
+  { q: 'Can I rent gear at Bwindi?', a: 'Yes. Most Bwindi trekking sectors have gear hire available at the trailhead including gaiters, walking sticks and basic rain ponchos. Quality varies. If you are particular about footwear and clothing, bring your own. Gaiters and sticks are the most useful hire items.' },
+  { q: 'What should I wear if I do not have hiking trousers?', a: 'Tight-fitting jeans are a poor substitute — they restrict movement, get heavy when wet and dry slowly. Loose cotton trousers are better than jeans. Lightweight quick-dry hiking trousers are available inexpensively at most outdoor shops and are worth buying specifically for this trip.' },
+  { q: 'Is there a luggage limit for the lodge transfer?', a: 'Many safari vehicles and lodges near Bwindi are accessible by 4x4 on rough forest roads. There is typically no strict luggage limit for the vehicle transfer, but lodges do not have large luggage storage. A mid-size wheeled suitcase plus daypack is the standard combination.' },
+];
+
+const relatedGuides = [
+  { slug: 'how-difficult-is-gorilla-trekking', title: 'How Difficult Is Gorilla Trekking?', img: '/images/gorillas/young-gorilla-closeup.jpg', imgAlt: 'Young gorilla Uganda', tag: 'Gorillas' },
+  { slug: 'gorilla-permit-guide', title: 'Uganda Gorilla Permit Guide', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Mountain gorilla Uganda', tag: 'Gorillas' },
+  { slug: 'safari-packing-list', title: 'East Africa Safari Packing List', img: '/images/wildlife/safari-vehicle-lions.jpg', imgAlt: 'Safari vehicle Uganda', tag: 'Safari Tips' },
+];
 ---
-
-<BaseLayout title="gorilla-trekking-packing-list | L'okawa Tours" description="Safari planning guide from L'okawa Tours.">
-</BaseLayout>
-
+<GuidePage {guide} {sections} {faqs} {relatedGuides} />

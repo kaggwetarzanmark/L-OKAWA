@@ -1,7 +1,132 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GuidePage from '../../../components/GuidePage.astro';
+
+const guide = {
+  title: 'How Much Does a Uganda Safari Cost?',
+  slug: 'safari-cost-guide',
+  kicker: 'Budget, mid-range and luxury breakdowns',
+  heroImg: '/images/accommodation/safari-lodge-balcony-night.jpg',
+  heroImgAlt: 'Safari lodge balcony overlooking the forest at night Uganda',
+  description: 'Honest Uganda safari cost breakdown: gorilla permits, accommodation tiers, transport, park fees and total per-person costs for budget, mid-range and luxury safaris.',
+  readTime: '7 min read',
+  breadcrumb: 'Safari Cost Guide',
+  intro: [
+    'Uganda safari costs are often misunderstood. The gorilla permit alone costs USD 800 per person, which immediately positions Uganda as a mid-range to premium destination — but the overall cost of a Uganda safari varies enormously depending on the accommodation tier, group size, and number of activities.',
+    'This guide breaks down every cost category honestly so you can budget accurately for your trip.',
+  ],
+};
+
+const sections = [
+  {
+    heading: 'The Three Safari Tiers',
+    body: ['Uganda safari packages broadly fall into three tiers. Here is what each looks like in practice.'],
+    table: [
+      { col1: 'Budget',     col2: 'USD 300 to 500 per person/day', col3: 'Basic guesthouses, shared vehicle transfers, standard activities' },
+      { col1: 'Mid-range',  col2: 'USD 500 to 900 per person/day', col3: 'Comfortable lodges, private 4x4, all activities included' },
+      { col1: 'Luxury',     col2: 'USD 900 to 2,000+ per person/day', col3: 'Premium lodges, private guide, exclusive experiences' },
+    ],
+    tableHead: { col1: 'Tier', col2: 'Cost per Person per Day', col3: 'What\'s Included' },
+    tip: 'Per-person costs decrease significantly in groups. A couple pays more per person than a group of 4 to 6, because the private vehicle and guide cost is shared across more participants.',
+  },
+  {
+    heading: 'Gorilla Trekking Permit — USD 800',
+    body: [
+      'The gorilla permit is the largest single fixed cost on any Uganda safari. At USD 800 per person, it is the same price regardless of operator, accommodation tier or group size. It is set by the Uganda Wildlife Authority and is non-negotiable.',
+      'Important: the permit is non-refundable once purchased. This is the single most important reason to have comprehensive travel insurance covering pre-paid safari activities.',
+    ],
+    table: [
+      { col1: 'Standard permit (foreign non-resident)', col2: 'USD 800' },
+      { col1: 'Foreign resident permit',                col2: 'USD 700' },
+      { col1: 'Low season permit (April and May)',       col2: 'USD 600' },
+      { col1: 'East African citizen',                   col2: 'USD 80' },
+      { col1: 'Gorilla Habituation Experience',          col2: 'USD 1,500' },
+    ],
+    tableHead: { col1: 'Permit Type', col2: 'Cost Per Person' },
+  },
+  {
+    heading: 'Accommodation Costs',
+    body: [
+      'Accommodation is the most variable cost on an East Africa safari. The same destination can have guesthouses at USD 50 per night or luxury tented camps at USD 700 per night. Here is a realistic range.',
+    ],
+    table: [
+      { col1: 'Basic guesthouse',      col2: 'USD 40 to 80',    col3: 'Clean, functional, limited amenities' },
+      { col1: 'Mid-range lodge',        col2: 'USD 120 to 250',  col3: 'En-suite rooms, meals included, reliable hot water' },
+      { col1: 'Comfort lodge',          col2: 'USD 250 to 450',  col3: 'Higher quality finishes, good food, pool at some' },
+      { col1: 'Luxury lodge',           col2: 'USD 450 to 800',  col3: 'Premium suites, exceptional food, private decks' },
+      { col1: 'Ultra-luxury camp',      col2: 'USD 800 to 2,000+', col3: 'All-inclusive, private guide, bespoke experiences' },
+    ],
+    tableHead: { col1: 'Tier', col2: 'Cost per Night (per room)', col3: 'Description' },
+    tip: 'Most mid-range and luxury lodges are fully inclusive — accommodation, all meals, park fees and specified activities are bundled. Budget properties typically charge for meals and activities separately.',
+  },
+  {
+    heading: 'Transport and Vehicle Costs',
+    body: [
+      'Private 4x4 Land Cruiser with driver-guide is the standard for Uganda safaris. The daily vehicle rate varies by the quality of the vehicle and operator.',
+    ],
+    table: [
+      { col1: 'Budget (shared transfer)',   col2: 'USD 60 to 90 per person per day',   col3: 'Shared vehicle, group departures' },
+      { col1: 'Standard private 4x4',       col2: 'USD 120 to 160 per vehicle per day', col3: 'Private Land Cruiser, driver-guide' },
+      { col1: 'Premium private 4x4',        col2: 'USD 160 to 220 per vehicle per day', col3: 'Newer vehicle, experienced guide' },
+      { col1: 'Domestic charter flight',    col2: 'USD 180 to 350 per person one way',  col3: 'Entebbe to Kidepo, Bwindi, Murchison' },
+    ],
+    tableHead: { col1: 'Transport Type', col2: 'Approximate Cost', col3: 'Notes' },
+  },
+  {
+    heading: 'Park Fees and Activity Costs',
+    body: ['Park fees are typically included in L\'okawa tour packages but here is a full reference of what each activity costs.'],
+    table: [
+      { col1: 'Gorilla permit (Bwindi)',           col2: 'USD 800' },
+      { col1: 'Chimpanzee permit (Kibale)',         col2: 'USD 250' },
+      { col1: 'Gorilla Habituation Experience',     col2: 'USD 1,500' },
+      { col1: 'Murchison Falls National Park entry', col2: 'USD 40 per person per day' },
+      { col1: 'Queen Elizabeth NP entry',           col2: 'USD 40 per person per day' },
+      { col1: 'Bwindi park entry',                  col2: 'Included in gorilla permit' },
+      { col1: 'Kazinga Channel boat cruise',        col2: 'USD 30 per person' },
+      { col1: 'Murchison Falls Nile boat safari',   col2: 'USD 30 per person' },
+      { col1: 'Ziwa Rhino Sanctuary',               col2: 'USD 40 per person' },
+      { col1: 'White water rafting Jinja',          col2: 'USD 100 to 125 per person' },
+    ],
+    tableHead: { col1: 'Activity', col2: 'Cost Per Person' },
+  },
+  {
+    heading: 'Sample Total Costs by Itinerary',
+    body: ['Here are indicative all-inclusive per-person costs for common L\'okawa itineraries at mid-range accommodation level. Prices assume a group of 2 people.'],
+    table: [
+      { col1: '3 Days Uganda Gorilla Safari',                 col2: 'From USD 1,400 pp', col3: 'Gorilla permit + 2 nights lodge + transport' },
+      { col1: '5 Days Uganda Gorilla and Wildlife Safari',    col2: 'From USD 2,200 pp', col3: 'Gorilla + Queen Elizabeth, 4 nights' },
+      { col1: '7 Days Gorilla, Chimp and Wildlife Safari',    col2: 'From USD 2,800 pp', col3: 'Gorilla + chimp + QE, 6 nights' },
+      { col1: '10 Days Uganda Wildlife Grand Circuit',        col2: 'From USD 3,800 pp', col3: 'All permits + 4 parks, 9 nights' },
+      { col1: '10 Days Kenya Safari and Beach Holiday',       col2: 'From USD 3,200 pp', col3: 'Masai Mara + Diani Beach, 9 nights' },
+    ],
+    tableHead: { col1: 'Itinerary', col2: 'From Price', col3: 'What\'s Covered' },
+    tip: 'All L\'okawa packages are quoted all-inclusive: vehicle, driver-guide, accommodation, meals, park fees and named permits. Flights, visas and insurance are excluded.',
+  },
+  {
+    heading: 'What is Not Included',
+    body: ['Every L\'okawa tour package excludes the following — budget for these separately.'],
+    bullets: [
+      'International flights to Entebbe, Nairobi or Kigali',
+      'Uganda, Kenya or Rwanda visa fees',
+      'Comprehensive travel insurance (required)',
+      'Alcohol and soft drinks at lodges',
+      'Tips and gratuities (recommend USD 10 to 15 per person per day for driver-guide)',
+      'Porter hire for gorilla trekking (USD 15 to 20)',
+      'Optional activities not listed in the itinerary',
+      'Personal shopping and laundry',
+    ],
+  },
+];
+
+const faqs = [
+  { q: 'Why are Uganda safaris more expensive than some other African destinations?', a: 'The gorilla permit (USD 800) is the main cost driver. This is set by the Uganda Wildlife Authority and is the same regardless of operator. The permit fee goes directly to gorilla conservation and community development around Bwindi. Without it, Uganda is competitively priced compared to Kenya and Tanzania at equivalent accommodation levels.' },
+  { q: 'Can I do a Uganda safari on a tight budget?', a: 'Yes, within limits. The gorilla permit is fixed at USD 800 and cannot be reduced. Around it, budget accommodations in guesthouses and shared vehicle transfers can bring the rest of the trip to a manageable cost. A 3-day budget gorilla safari can be arranged from around USD 1,400 per person including permit, basic accommodation, meals and transport.' },
+  { q: 'Do prices change by season?', a: 'Yes. Most lodges in Uganda apply high season rates from June to September and December to February. Low season rates in April and May can be 20 to 40% lower. Gorilla permits are USD 600 in April and May vs USD 800 the rest of the year. A May safari is genuinely the best value window for a Uganda gorilla trek.' },
+];
+
+const relatedGuides = [
+  { slug: 'gorilla-permit-guide', title: 'Uganda Gorilla Permit Guide', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Mountain gorilla Uganda', tag: 'Gorillas' },
+  { slug: 'safari-packing-list', title: 'East Africa Safari Packing List', img: '/images/wildlife/safari-vehicle-lions.jpg', imgAlt: 'Safari vehicle Uganda', tag: 'Safari Tips' },
+  { slug: 'best-time-to-visit-uganda', title: 'Best Time to Visit Uganda', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla Uganda', tag: 'Uganda' },
+];
 ---
-
-<BaseLayout title="safari-cost-guide | L'okawa Tours" description="Safari planning guide from L'okawa Tours.">
-</BaseLayout>
-
+<GuidePage {guide} {sections} {faqs} {relatedGuides} />

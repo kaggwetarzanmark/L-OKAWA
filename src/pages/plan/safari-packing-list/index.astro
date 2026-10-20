@@ -1,7 +1,134 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GuidePage from '../../../components/GuidePage.astro';
+
+const guide = {
+  title: 'East Africa Safari Packing List',
+  slug: 'safari-packing-list',
+  kicker: 'Everything you need, nothing you don\'t',
+  heroImg: '/images/wildlife/safari-vehicle-lions.jpg',
+  heroImgAlt: 'Safari vehicle watching lions on the savannah in Uganda national park',
+  description: 'Complete East Africa safari packing list for Uganda, Kenya and Tanzania. Luggage limits, clothing, camera gear, medications, money and what to leave at home.',
+  readTime: '6 min read',
+  breadcrumb: 'Safari Packing List',
+  intro: [
+    'Packing for an East Africa safari is different from packing for a beach holiday or city trip. Weight limits are real, neutral colours matter, and the right gear genuinely improves your experience. This list covers everything for a Uganda, Kenya or Tanzania safari, including gorilla trekking gear where applicable.',
+    'The golden rule: pack light. Most safari vehicles and small charter aircraft have a 15kg luggage limit. Soft-sided bags are strongly preferred over hard-shell suitcases.',
+  ],
+};
+
+const sections = [
+  {
+    heading: 'Luggage: What Type and How Much',
+    body: [
+      'Luggage choice on an East Africa safari matters more than most travellers expect. Game drive vehicles, small lodge transfers and charter aircraft all impose constraints that a rigid suitcase cannot accommodate.',
+    ],
+    bullets: [
+      'Use a soft-sided duffel bag or soft holdall as your main bag — most lodges and charter aircraft require soft bags',
+      'Maximum weight is typically 15kg including hand luggage for charter flights',
+      'A 20 to 25 litre daypack is essential — used as your game drive bag, gorilla trek bag and carry-on',
+      'Hard-shell suitcases work fine if you are not taking charter flights, but are inconvenient in 4x4 vehicles',
+      'Lock your main bag with a TSA-approved lock for international flights',
+    ],
+    tip: 'Leave non-essential items in a storage bag at your Entebbe, Nairobi or Kigali hotel at the start of your safari, and collect them on the way out. This keeps your safari bag within weight limits.',
+  },
+  {
+    heading: 'Clothing',
+    body: [
+      'Safari clothing serves two purposes: camouflage (neutral colours that do not disturb wildlife or mark you out visually) and function (protection from sun, insects and cold early mornings). Pack for layering.',
+    ],
+    bullets: [
+      '3 to 4 lightweight safari shirts in khaki, olive, beige or tan — long-sleeved preferred',
+      '2 pairs of lightweight hiking or safari trousers — zip-off styles are versatile',
+      '1 pair of shorts for afternoons at the lodge',
+      '1 warm fleece or light down jacket for cold early morning game drives (essential at altitude)',
+      '1 lightweight waterproof rain jacket that packs into its own pocket',
+      'Comfortable walking shoes or trail runners for lodge grounds',
+      'Sturdy waterproof hiking boots — essential for gorilla trekking',
+      '4 to 5 sets of underwear and socks',
+      'Wide-brimmed sun hat',
+      'Swimsuit — many lodges have pools',
+      'Avoid: bright colours, white, camouflage, black (attracts heat and tsetse flies)',
+    ],
+  },
+  {
+    heading: 'Camera and Technology',
+    body: [
+      'Photography is central to the safari experience. Here is what works best in the field.',
+    ],
+    bullets: [
+      'Camera body with a zoom lens — 100 to 400mm covers most safari needs effectively',
+      'Wide-angle lens for landscapes (24 to 70mm or similar)',
+      'Extra batteries — charge every evening at the lodge',
+      'Large memory cards — shoot raw if your camera supports it',
+      'Dust and rain cover for your camera bag',
+      'Portable power bank for phone and smaller devices',
+      'Universal power adapter (Uganda uses British 3-pin sockets)',
+      'Laptop or tablet if needed — optional, many guests intentionally go offline',
+      'Binoculars — 8x42 or 10x42 are the most versatile for safari use',
+    ],
+    tip: 'A beanbag rests on the vehicle window ledge and acts as a stable camera support during game drives. They weigh almost nothing and dramatically improve telephoto shot sharpness.',
+  },
+  {
+    heading: 'Health and Medical Essentials',
+    body: [
+      'Remote safari locations have limited medical facilities. Come prepared.',
+    ],
+    bullets: [
+      'Malaria prophylaxis — consult your doctor at least 4 weeks before travel',
+      'DEET insect repellent (30% to 50% concentration) — apply daily especially at dusk',
+      'High-SPF sunscreen (50+)',
+      'Personal prescription medications with sufficient supply plus a backup',
+      'Antihistamine tablets and cream for insect bites',
+      'Imodium for stomach upsets',
+      'Rehydration sachets',
+      'Blister plasters for gorilla trekking',
+      'Small first-aid kit: antiseptic wipes, bandages, paracetamol, ibuprofen',
+      'Yellow Fever vaccination certificate (required for entry into Uganda)',
+    ],
+  },
+  {
+    heading: 'Money and Documents',
+    body: [
+      'Uganda, Kenya and Tanzania all use their own currencies but USD is widely accepted at lodges, parks and tour operators across the region.',
+    ],
+    bullets: [
+      'USD cash in small denominations (USD 1, 5, 10, 20) for tips, purchases and markets',
+      'Debit or credit card with low international transaction fees as backup',
+      'Valid passport with at least 6 months remaining validity',
+      'Uganda e-Visa or visa on arrival documentation',
+      'Yellow Fever certificate (required for Uganda)',
+      'Travel insurance documentation',
+      'Printed or offline copies of hotel and safari booking confirmations',
+      'Emergency contact numbers including L\'okawa\'s WhatsApp (+256 761 512 966)',
+    ],
+    tip: 'Bring USD 10 to 15 per person per day for tipping your driver-guide and lodge staff. This is expected and forms a significant part of local guide income.',
+  },
+  {
+    heading: 'What to Leave at Home',
+    body: ['These items are either prohibited, impractical or unnecessary on an East Africa safari.'],
+    bullets: [
+      'Drone cameras — strictly prohibited in all Uganda and Kenya national parks',
+      'Flash camera equipment — forbidden during gorilla and chimpanzee trekking',
+      'Bright coloured clothing — disturbs wildlife and marks you out unnecessarily',
+      'Large amounts of jewellery — risk of theft and impractical in the bush',
+      'Hard-sided suitcases if taking charter flights',
+      'Heavy hiking boots for non-gorilla portions — unnecessary weight',
+      'Full-size hair dryers — most lodges provide these',
+      'Multiple pairs of shoes — one trail shoe and one hiking boot is sufficient',
+    ],
+  },
+];
+
+const faqs = [
+  { q: 'Is there laundry service at safari lodges?', a: 'Yes. Almost all mid-range and luxury lodges in Uganda, Kenya and Tanzania offer a laundry service, usually within 24 hours. This is why 3 to 4 changes of safari clothing is usually sufficient for a 10-day safari. Budget camps may not have laundry facilities — check in advance.' },
+  { q: 'What power sockets are used in Uganda?', a: 'Uganda uses British-style 3-pin rectangular sockets (Type G) at 240V. Kenya and Tanzania also predominantly use Type G sockets. A universal adapter is the safest option. Most lodges have USB charging points available. Bring a small multi-port USB charger for charging multiple devices from a single socket.' },
+  { q: 'Do I need a yellow fever certificate for Tanzania and Kenya?', a: 'Yellow fever vaccination is mandatory for entry into Uganda if arriving from or transiting through a yellow fever endemic country. Kenya and Tanzania also require it under certain routing conditions. The safest approach is to get vaccinated regardless of routing and carry your Yellow Card certificate with your passport at all times.' },
+];
+
+const relatedGuides = [
+  { slug: 'gorilla-trekking-packing-list', title: 'Gorilla Trekking Packing List', img: '/images/gorillas/baby-gorilla-eating-leaf.jpg', imgAlt: 'Baby gorilla Uganda', tag: 'Gorillas' },
+  { slug: 'uganda-travel-tips', title: 'Uganda Travel Tips', img: '/images/wildlife/giraffe-uganda-murchison.jpg', imgAlt: 'Giraffe Uganda', tag: 'Uganda' },
+  { slug: 'safari-cost-guide', title: 'How Much Does a Safari Cost?', img: '/images/accommodation/safari-lodge-balcony-night.jpg', imgAlt: 'Safari lodge', tag: 'Costs' },
+];
 ---
-
-<BaseLayout title="safari-packing-list | L'okawa Tours" description="Safari planning guide from L'okawa Tours.">
-</BaseLayout>
-
+<GuidePage {guide} {sections} {faqs} {relatedGuides} />

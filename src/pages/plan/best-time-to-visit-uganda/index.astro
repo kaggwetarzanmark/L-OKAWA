@@ -1,7 +1,118 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GuidePage from '../../../components/GuidePage.astro';
+
+const guide = {
+  title: 'Best Time to Visit Uganda',
+  slug: 'best-time-to-visit-uganda',
+  kicker: 'Uganda travel planning',
+  heroImg: '/images/gorillas/gorilla-mother-baby-bwindi.jpg',
+  heroImgAlt: 'Mountain gorilla mother carrying baby in Bwindi Impenetrable Forest Uganda',
+  description: 'Month-by-month guide to Uganda\'s seasons. Find the best time for gorilla trekking, chimpanzee tracking, game drives and birding across Uganda\'s national parks.',
+  readTime: '6 min read',
+  breadcrumb: 'Best Time to Visit Uganda',
+  intro: [
+    'Uganda sits on the equator and can be visited year-round. Unlike many safari destinations, gorilla trekking and most other wildlife activities never close — but the two dry seasons offer significantly better trail conditions, clearer skies and easier game viewing.',
+    'This guide breaks down Uganda\'s seasons month by month so you can choose the best time for your specific interests, whether that\'s gorilla trekking, chimpanzee tracking in Kibale, game drives in Murchison Falls, or birding in Bwindi.',
+  ],
+};
+
+const sections = [
+  {
+    heading: 'Uganda\'s Two Seasons',
+    body: [
+      'Uganda has two dry seasons and two wet (rainy) seasons each year. The dry seasons are the most popular for safaris but the wet seasons have their own distinct appeal.',
+    ],
+    table: [
+      { col1: 'June to September',    col2: 'Long Dry Season',    col3: 'Peak season — best overall conditions' },
+      { col1: 'October to November',  col2: 'Short Rainy Season', col3: 'Fewer crowds, lower prices, lush landscapes' },
+      { col1: 'December to February', col2: 'Short Dry Season',   col3: 'Excellent second choice, busy over Christmas' },
+      { col1: 'March to May',         col2: 'Long Rainy Season',  col3: 'Wettest months, discounted permits available' },
+    ],
+    tableHead: { col1: 'Period', col2: 'Season', col3: 'Notes' },
+    tip: 'Gorilla trekking operates every single day of the year. The "best" season refers to trail conditions and comfort, not to availability.',
+  },
+  {
+    heading: 'June to September — Long Dry Season (Best Overall)',
+    body: [
+      'The long dry season from June to September is Uganda\'s peak tourist period and the most popular time for safaris. Rainfall is minimal, forest trails dry out significantly, and the vegetation thins enough to improve wildlife visibility in the savannah parks.',
+      'For gorilla trekking in Bwindi, the dry season means firmer, less muddy trails and shorter trek times on average. The gorillas tend to move less far from their previous night\'s position in cooler weather, reducing average trek duration.',
+      'In Queen Elizabeth National Park the dry season concentrates wildlife around the remaining water sources, making game drives more predictable. Murchison Falls is excellent year-round but the north bank game drives are at their best in the dry months when the grass is shorter.',
+    ],
+    bullets: [
+      'Best gorilla trekking trail conditions in Bwindi and Mgahinga',
+      'Excellent game drives in Queen Elizabeth and Murchison Falls',
+      'Good chimpanzee trekking in Kibale Forest',
+      'Clearer mountain views in the Rwenzori Mountains',
+      'Highest demand for gorilla permits — book at least 4 to 6 months ahead',
+    ],
+  },
+  {
+    heading: 'December to February — Short Dry Season (Excellent Second Choice)',
+    body: [
+      'The short dry season from December to February is the second most popular period. Conditions are very similar to the long dry season, with dry trails, good visibility and comfortable temperatures. December is particularly busy due to the holiday season, so permits sell out quickly.',
+      'January and February are often overlooked by travelers but offer near-identical conditions to July and August with slightly less competition for permits and accommodation. Birding in Bwindi is exceptional in January and February as many species are breeding.',
+    ],
+    bullets: [
+      'Near-identical gorilla trekking conditions to the long dry season',
+      'January and February are quieter and often better value',
+      'Christmas and New Year period is very busy — book early',
+      'Excellent birding across all parks in January and February',
+    ],
+    tip: 'January is arguably the single best month to trek gorillas in Uganda: dry trails, good temperatures, lower demand, and the New Year crowds have gone home.',
+  },
+  {
+    heading: 'March to May — Long Rainy Season',
+    body: [
+      'The long rainy season from March to May brings the heaviest rainfall, often in prolonged afternoon storms. Bwindi\'s forest trails become steep, muddy and physically demanding. Trek times lengthen as the gorillas move further to find shelter and food.',
+      'However, the wet season has genuine advantages. The Uganda Wildlife Authority reduces gorilla permit prices to USD 600 (from USD 800) during April and May — a 25% saving. The forests turn brilliantly green, the waterfalls are at full force, and bird activity peaks as migrants arrive. Visitor numbers drop sharply, giving a more private experience at every park.',
+      'Game viewing in Murchison Falls and Queen Elizabeth is still productive in the wet season; wildlife continues its normal routine and the reduced bush makes some animals easier to spot.',
+    ],
+    bullets: [
+      'Gorilla permits discounted to USD 600 in April and May',
+      'Far fewer tourists at all parks',
+      'Lush, photogenic landscapes',
+      'Excellent birding — peak activity for many species',
+      'Trails are muddy and physically demanding in Bwindi',
+    ],
+  },
+  {
+    heading: 'October to November — Short Rainy Season',
+    body: [
+      'October and November bring a shorter rainy period. Rainfall is less intense than the March to May long rains and the season can be quite variable — some years October is almost dry, others it rains heavily through November.',
+      'This is a good shoulder season for visitors with flexibility. Permit prices return to USD 800 but crowds are still relatively low and many lodges offer off-peak rates in October. Birding remains excellent. Chimpanzee trekking in Kibale is largely unaffected by rainfall.',
+    ],
+  },
+  {
+    heading: 'Month-by-Month Quick Reference',
+    body: ['A quick overview of conditions by month across Uganda\'s main safari activities.'],
+    table: [
+      { col1: 'January',   col2: 'Dry — excellent gorilla trekking, quiet, great birding' },
+      { col1: 'February',  col2: 'Dry — very good, some short showers possible' },
+      { col1: 'March',     col2: 'Rains begin — trails get muddy from mid-month' },
+      { col1: 'April',     col2: 'Wet — discounted permits (USD 600), lush, few tourists' },
+      { col1: 'May',       col2: 'Wet — discounted permits (USD 600), heaviest rains' },
+      { col1: 'June',      col2: 'Dry season starts — trails dry out, increasing demand' },
+      { col1: 'July',      col2: 'Dry — peak season, best conditions overall' },
+      { col1: 'August',    col2: 'Dry — peak season, highest demand for permits' },
+      { col1: 'September', col2: 'Dry — peak season, excellent but book well ahead' },
+      { col1: 'October',   col2: 'Short rains begin — variable, still good conditions' },
+      { col1: 'November',  col2: 'Wet — moderate rains, shoulder season rates' },
+      { col1: 'December',  col2: 'Drying out — Christmas period is very busy' },
+    ],
+    tableHead: { col1: 'Month', col2: 'Conditions Summary' },
+  },
+];
+
+const faqs = [
+  { q: 'Can I go gorilla trekking in the rain?', a: 'Yes. Gorilla treks run every day regardless of weather. Rain gear, sturdy waterproof boots and gaiters are essential in the wet season. The gorillas are often easier to approach during rain as they tend to shelter in the undergrowth rather than moving through the canopy.' },
+  { q: 'Are gorilla permits available year-round?', a: 'Yes. The Uganda Wildlife Authority issues permits every day of the year. Availability varies — dry season permits sell out months in advance while wet season dates are often available with shorter notice.' },
+  { q: 'Does temperature change much throughout the year?', a: 'Bwindi sits at 1,500m to 2,500m above sea level and stays relatively cool year-round (12 to 22°C). Mornings are crisp and afternoons can be warm. The savannah parks at lower altitude are warmer (24 to 32°C). The Rwenzori Mountains are cold year-round at high altitude.' },
+];
+
+const relatedGuides = [
+  { slug: 'gorilla-permit-guide', title: 'Uganda Gorilla Permit Guide', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Mountain gorilla Bwindi Uganda', tag: 'Gorillas' },
+  { slug: 'how-difficult-is-gorilla-trekking', title: 'How Difficult Is Gorilla Trekking?', img: '/images/gorillas/young-gorilla-closeup.jpg', imgAlt: 'Young gorilla Uganda', tag: 'Gorillas' },
+  { slug: 'gorilla-trekking-packing-list', title: 'Gorilla Trekking Packing List', img: '/images/gorillas/baby-gorilla-eating-leaf.jpg', imgAlt: 'Baby gorilla Uganda', tag: 'Gorillas' },
+];
 ---
-
-<BaseLayout title="best-time-to-visit-uganda | L'okawa Tours" description="Safari planning guide from L'okawa Tours.">
-</BaseLayout>
-
+<GuidePage {guide} {sections} {faqs} {relatedGuides} />

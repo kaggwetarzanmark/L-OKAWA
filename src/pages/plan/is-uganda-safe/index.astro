@@ -1,7 +1,116 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GuidePage from '../../../components/GuidePage.astro';
+
+const guide = {
+  title: 'Is Uganda Safe for Tourists?',
+  slug: 'is-uganda-safe',
+  kicker: 'An honest safety overview for visitors',
+  heroImg: '/images/wildlife/elephant-pair-greeting.jpg',
+  heroImgAlt: 'Two elephants greeting each other in a Uganda national park',
+  description: 'Is Uganda safe for tourists? Honest overview of safety in Uganda\'s national parks, Kampala, border areas, travel advisories, and practical safety tips for visitors.',
+  readTime: '5 min read',
+  breadcrumb: 'Is Uganda Safe?',
+  intro: [
+    'Uganda is generally considered one of the safer countries in East Africa for tourists visiting national parks and major tourist destinations. The gorilla trekking areas, Murchison Falls, Kibale Forest and Queen Elizabeth National Park receive thousands of international visitors every year without significant incident.',
+    'Like any country, Uganda has areas that require more caution than others. This guide gives an honest, practical overview of safety for safari visitors.',
+  ],
+};
+
+const sections = [
+  {
+    heading: 'Safety in Uganda\'s National Parks',
+    body: [
+      'Uganda\'s national parks are well-managed and generally very safe for tourists. The Uganda Wildlife Authority employs armed rangers who accompany all gorilla treks, chimpanzee treks and some game drives. Poaching incidents that plagued the parks in earlier decades have been substantially reduced.',
+      'The main safety consideration in national parks is wildlife, not crime. All activities involving close-range wildlife encounters (gorilla trekking, chimpanzee tracking, walking safaris in Lake Mburo) are led by trained rangers with strict protocols. Following your guide\'s instructions at all times is the single most important safety rule.',
+    ],
+    bullets: [
+      'Armed rangers escort all gorilla and chimpanzee treks',
+      'Never approach wildlife without a ranger guide',
+      'Keep minimum distances: 7 metres from gorillas, follow ranger instructions for all other species',
+      'Do not leave your safari vehicle during game drives unless instructed by your guide',
+      'Report any suspicious activity to your guide immediately',
+    ],
+    tip: 'The vast majority of safety incidents in Uganda\'s parks involve tourists ignoring ranger instructions and approaching wildlife too closely. Follow your guide without exception.',
+  },
+  {
+    heading: 'Safety in Kampala',
+    body: [
+      'Kampala is a busy, vibrant capital city with the usual considerations of any urban environment in a developing country. Petty theft (pickpocketing, bag snatching) occurs, particularly in crowded areas like the old taxi park, Owino Market, and around busy shopping streets.',
+      'Tourists in Kampala are generally safe if they take standard urban precautions. Violent crime against tourists is relatively rare but does occur. Keep valuables out of sight, use recommended hotel transport rather than walking after dark, and be aware of your surroundings.',
+    ],
+    bullets: [
+      'Use hotel-recommended taxis or rideshare apps (Uber, Bolt) rather than street taxis at night',
+      'Do not walk alone after dark in unfamiliar areas',
+      'Keep phones and cameras out of sight in crowded public areas',
+      'Carry only the cash you need for the day',
+      'Use ATMs in secure locations (supermarkets, hotel lobbies)',
+      'Keep your passport and travel documents in the hotel safe',
+    ],
+  },
+  {
+    heading: 'Current Travel Advisories',
+    body: [
+      'Travel advisories change over time and you should always check your government\'s current advice before travel. As a general guide:',
+      'Most Western government travel advisories for Uganda advise "exercise normal caution" or "exercise increased caution" for the country overall, with heightened warnings for border regions near DRC and South Sudan. Tourist destinations including Kampala, Bwindi, Queen Elizabeth, Murchison Falls and Kibale are not subject to specific heightened warnings in most current advisories.',
+      'The DRC border region in far western Uganda (near the Virunga Mountains) requires more caution due to instability in eastern DRC, but Bwindi and Mgahinga — the gorilla trekking destinations — are on the Uganda side of the border and are not affected.',
+    ],
+    bullets: [
+      'Check your government\'s travel advisory website before booking',
+      'Standard advice: exercise normal caution in tourist areas',
+      'Avoid areas near the DRC and South Sudan borders unless with specialist guides',
+      'The Kidepo Valley border areas (South Sudan border) are monitored by UWA rangers',
+      'Register with your embassy when visiting remote areas',
+    ],
+  },
+  {
+    heading: 'Health Safety',
+    body: [
+      'Health risks are a more significant practical concern for Uganda visitors than crime. Malaria is the most common serious health risk for visitors to Uganda.',
+    ],
+    bullets: [
+      'Malaria: take prescribed prophylaxis before, during and after travel',
+      'Yellow Fever: vaccination certificate required for entry',
+      'Altitude sickness: possible above 3,000m in the Rwenzori Mountains',
+      'Animal bites: seek immediate medical attention for any animal bite, including from dogs',
+      'Water: drink only bottled or filtered water throughout Uganda',
+      'Food safety: eat well-cooked food from reputable sources',
+      'Medical evacuation insurance is essential — hospitals outside Kampala have limited facilities',
+    ],
+  },
+  {
+    heading: 'LGBTQ+ Visitors',
+    body: [
+      'Uganda has restrictive laws regarding same-sex relationships. The Anti-Homosexuality Act was passed in 2023 and imposes severe criminal penalties. LGBTQ+ visitors should be aware that public displays of affection between same-sex couples can attract serious legal consequences.',
+      'Most international hotels, safari lodges and tour operators are professional and discreet in their service. However, the legal environment requires that LGBTQ+ visitors exercise significant discretion throughout their time in Uganda.',
+      'We strongly recommend consulting your government\'s current travel advisory for LGBTQ+ travellers to Uganda before booking.',
+    ],
+  },
+  {
+    heading: 'Practical Safety Summary',
+    body: ['A quick reference of the most important safety practices for Uganda visitors.'],
+    bullets: [
+      'Always travel with a reputable, licensed tour operator',
+      'Share your itinerary with someone at home before departure',
+      'Save your hotel\'s address and phone number offline',
+      'Keep L\'okawa\'s WhatsApp number (+256 761 512 966) saved on your phone',
+      'Register with your country\'s embassy or consular service',
+      'Carry colour copies of your passport and visa',
+      'Ensure travel insurance includes emergency medical evacuation',
+      'Follow all park rules and guide instructions without exception',
+    ],
+  },
+];
+
+const faqs = [
+  { q: 'Has there been any terrorist activity in Uganda?', a: 'Uganda experienced a bomb attack in Kampala in 2021. The country\'s security services have significantly increased vigilance since then. Crowded public places in Kampala (shopping malls, markets) carry a standard elevated risk common to many East African capitals. National parks and safari destinations have not been targeted and the threat level there is considered low.' },
+  { q: 'Is it safe to travel as a solo woman in Uganda?', a: 'Many solo women travel to Uganda successfully every year. The key precautions are: use reputable operators and licensed guides, do not travel alone at night, use hotel-recommended transport, dress modestly outside tourist areas, and trust your instincts in unfamiliar situations. Within the context of an organised safari, Uganda is generally considered safe for solo women travellers.' },
+  { q: 'What should I do in an emergency in Uganda?', a: 'For medical emergencies, the best facilities are in Kampala (International Hospital Kampala, Aga Khan University Hospital). Police emergency: 999. Your tour operator should be your first call for safari-related emergencies — we provide 24-hour contact during all L\'okawa tours. Ensure your travel insurance emergency assistance number is saved on your phone before departure.' },
+];
+
+const relatedGuides = [
+  { slug: 'uganda-travel-tips', title: 'Uganda Travel Tips', img: '/images/wildlife/giraffe-uganda-murchison.jpg', imgAlt: 'Giraffe Uganda', tag: 'Uganda' },
+  { slug: 'uganda-visa', title: 'Uganda Visa Guide', img: '/images/parks/murchison-falls-national-park-gate.jpg', imgAlt: 'Uganda national park', tag: 'Uganda' },
+  { slug: 'safari-cost-guide', title: 'How Much Does a Safari Cost?', img: '/images/accommodation/safari-lodge-balcony-night.jpg', imgAlt: 'Safari lodge', tag: 'Costs' },
+];
 ---
-
-<BaseLayout title="is-uganda-safe | L'okawa Tours" description="Safari planning guide from L'okawa Tours.">
-</BaseLayout>
-
+<GuidePage {guide} {sections} {faqs} {relatedGuides} />

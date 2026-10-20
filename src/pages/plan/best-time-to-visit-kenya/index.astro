@@ -1,7 +1,109 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GuidePage from '../../../components/GuidePage.astro';
+
+const guide = {
+  title: 'Best Time to Visit Kenya',
+  slug: 'best-time-to-visit-kenya',
+  kicker: 'Kenya safari seasons explained',
+  heroImg: '/images/wildlife/lion-cub-lioness-savannah.jpg',
+  heroImgAlt: 'Lioness with cub on the open savannah of the Masai Mara Kenya',
+  description: 'Month-by-month guide to Kenya\'s seasons. When to see the Great Migration, best time for Masai Mara big cats, Diani Beach weather, and when to avoid the long rains.',
+  readTime: '5 min read',
+  breadcrumb: 'Best Time to Visit Kenya',
+  intro: [
+    'Kenya is a year-round safari destination with wildlife viewing possible in every month. However, timing your visit to match the seasons makes a significant difference to the experience — particularly if the Great Migration or specific weather conditions are priorities.',
+    'Kenya has two dry seasons and two rainy seasons each year, and the climate varies considerably between the coast, the highlands and the savannah parks.',
+  ],
+};
+
+const sections = [
+  {
+    heading: 'Kenya\'s Four Seasons at a Glance',
+    body: ['Understanding Kenya\'s seasonal pattern is the starting point for any trip planning.'],
+    table: [
+      { col1: 'July to October',       col2: 'Long Dry Season',    col3: 'Peak safari season, Great Migration in Masai Mara' },
+      { col1: 'November to December',  col2: 'Short Rains',        col3: 'Brief afternoon showers, lush landscapes, good value' },
+      { col1: 'January to March',      col2: 'Short Dry Season',   col3: 'Excellent game viewing, less crowded than peak' },
+      { col1: 'April to June',         col2: 'Long Rains',         col3: 'Wettest period, reduced game drives, lowest prices' },
+    ],
+    tableHead: { col1: 'Period', col2: 'Season', col3: 'Highlights' },
+  },
+  {
+    heading: 'July to October — Peak Safari Season and the Great Migration',
+    body: [
+      'This is Kenya\'s most popular period and for good reason. The long dry season from July to October brings the Great Migration into the Masai Mara — the annual movement of over 1.5 million wildebeest, zebras and gazelles from Tanzania\'s Serengeti into the Mara ecosystem.',
+      'The Mara River crossings, where enormous herds plunge into crocodile-infested water, are most frequent in August and September. These are among the most dramatic wildlife spectacles on earth and are the primary reason many travellers choose Kenya specifically in these months.',
+      'Beyond the Migration, game viewing across all Kenyan parks is excellent during the dry season. Animals concentrate around the remaining water sources, vegetation thins out improving visibility, and predator activity is at its peak.',
+    ],
+    bullets: [
+      'Great Migration river crossings: August and September',
+      'Excellent big cat sightings across the Masai Mara',
+      'Best game viewing in Amboseli, Samburu and Tsavo',
+      'Clear skies for Mount Kilimanjaro views from Amboseli (early morning)',
+      'Highest demand and prices — book well in advance',
+    ],
+    tip: 'For the best river crossing positions in the Masai Mara, plan 3 nights minimum in the reserve. River crossings happen unpredictably; patience and positioning are everything.',
+  },
+  {
+    heading: 'January to March — Short Dry Season (Excellent and Less Crowded)',
+    body: [
+      'The short dry season from January to March is the second best time for safaris in Kenya. Conditions are excellent — dry, clear skies and good game viewing across all parks — but visitor numbers are significantly lower than the July to October peak.',
+      'January and February are some of the best months for Amboseli National Park, where Kilimanjaro views are clearest and the elephant herds are large and active at the swamp edges. The Masai Mara offers superb year-round lion and cheetah sightings in these months.',
+      'The Kenyan coast (Diani Beach, Watamu, Lamu) is at its finest in January and February: hot, sunny days, low humidity and warm Indian Ocean water ideal for snorkelling and diving.',
+    ],
+    bullets: [
+      'Excellent alternative to peak season with fewer crowds',
+      'Best time for Kilimanjaro views from Amboseli',
+      'Ideal beach weather on the Kenyan coast',
+      'No Great Migration river crossings (herds in Serengeti)',
+      'Good value — many camps offer January and February rates',
+    ],
+  },
+  {
+    heading: 'April to June — Long Rains (Budget Season)',
+    body: [
+      'The long rains from April to June bring Kenya\'s wettest period. Game drives are still possible and wildlife is still present, but muddier tracks limit access to some areas, particularly in the Masai Mara. Many luxury tented camps close in April and May for maintenance.',
+      'The upside is dramatic landscapes: the Mara turns brilliantly green, waterfalls fill up, and resident wildlife is active. Prices drop significantly — some camps offer 40 to 50% discounts in the shoulder months. For budget-conscious travellers with flexibility, May and June can offer exceptional value.',
+    ],
+  },
+  {
+    heading: 'November to December — Short Rains',
+    body: [
+      'The short rains in November and December are milder than the long rains. Showers are typically brief and fall in the afternoon, leaving mornings and early evenings clear for game drives. Landscapes are green and photogenic, and visitor numbers remain moderate.',
+      'December is popular due to the holiday season — Christmas and New Year generate a spike in demand, especially in the Masai Mara. January 1 to 20 sees another surge. If visiting in December, book 4 to 6 months in advance.',
+    ],
+  },
+  {
+    heading: 'Month-by-Month Kenya Quick Reference',
+    body: ['A fast-reference guide to conditions across Kenya\'s main activities each month.'],
+    table: [
+      { col1: 'January',   col2: 'Short dry — excellent game drives, great coast weather, clear Kilimanjaro views' },
+      { col1: 'February',  col2: 'Short dry — very good, warm and clear, low season rates available' },
+      { col1: 'March',     col2: 'Long rains begin mid-month — game viewing still good' },
+      { col1: 'April',     col2: 'Long rains — some camps close, muddy tracks, good value' },
+      { col1: 'May',       col2: 'Long rains — cheapest month, lush landscapes, fewer tourists' },
+      { col1: 'June',      col2: 'Rains taper off — drying season, prices beginning to rise' },
+      { col1: 'July',      col2: 'Dry season starts — Migration arrives in Mara, peak season begins' },
+      { col1: 'August',    col2: 'Peak season — river crossings at maximum, highest demand' },
+      { col1: 'September', col2: 'Peak season — river crossings still frequent, last of the migration' },
+      { col1: 'October',   col2: 'Dry season continues — migration departing, quieter, great value' },
+      { col1: 'November',  col2: 'Short rains — afternoon showers, green landscapes, moderate crowds' },
+      { col1: 'December',  col2: 'Short rains — busy Christmas period, book well in advance' },
+    ],
+    tableHead: { col1: 'Month', col2: 'Conditions Summary' },
+  },
+];
+
+const faqs = [
+  { q: 'Is the Great Migration only in Kenya?', a: 'No. The Great Migration is a continuous circular movement between Tanzania\'s Serengeti and Kenya\'s Masai Mara ecosystem. The herds are in Tanzania from November to June (calving season in January to February) and in Kenya from July to October. The dramatic Mara River crossings only happen when the herds are in Kenya.' },
+  { q: 'What is the best time for Diani Beach?', a: 'January, February, and July to October offer the best beach weather on the Kenyan coast. The Indian Ocean is warm year-round (25 to 28°C). The long rains (April to June) can be heavy on the coast. September and October are also excellent with warm weather and fewer tourists than the holiday peaks.' },
+  { q: 'Can you combine Kenya and Uganda in one trip?', a: 'Yes — it is one of our most popular combinations. A typical itinerary is 3 to 4 days in Uganda for gorilla trekking in Bwindi, then a flight to Nairobi for the Masai Mara and optionally Diani Beach. Alternatively, start in Nairobi, fly to Entebbe, and safari Uganda. Allow 10 to 14 days for a meaningful combination of both countries.' },
+];
+
+const relatedGuides = [
+  { slug: 'best-time-to-visit-uganda', title: 'Best Time to Visit Uganda', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla Uganda', tag: 'Uganda' },
+  { slug: 'best-time-to-visit-tanzania', title: 'Best Time to Visit Tanzania', img: '/images/wildlife/elephants-crossing-river.jpg', imgAlt: 'Elephants Tanzania', tag: 'Tanzania' },
+  { slug: 'safari-cost-guide', title: 'How Much Does a Safari Cost?', img: '/images/accommodation/safari-lodge-balcony-night.jpg', imgAlt: 'Safari lodge', tag: 'Costs' },
+];
 ---
-
-<BaseLayout title="best-time-to-visit-kenya | L'okawa Tours" description="Safari planning guide from L'okawa Tours.">
-</BaseLayout>
-
+<GuidePage {guide} {sections} {faqs} {relatedGuides} />
