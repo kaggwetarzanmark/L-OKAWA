@@ -1,6 +1,350 @@
 ﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaBand    from '../../components/CtaBand.astro';
+
+const tours = [
+  // ── 2-day ──────────────────────────────────────────────────
+  { slug:'2-days-jinja-white-water-rafting',         title:'2 Days Jinja White Water Rafting',                days:2,  price:'From $350',   country:'Uganda',  category:'adventure',  tag:'Adventure',       img:'/images/activities/jinja-zipline-adventure.jpg',            imgAlt:'White water rafting Jinja Nile Uganda' },
+  { slug:'2-days-lake-mburo-national-park-safari',   title:'2 Days Lake Mburo National Park Safari',          days:2,  price:'From $380',   country:'Uganda',  category:'wildlife',   tag:'Wildlife',        img:'/images/wildlife/hippo-walking-water.jpg',                  imgAlt:'Hippo Lake Mburo National Park Uganda' },
+  // ── 3-day ──────────────────────────────────────────────────
+  { slug:'3-days-uganda-gorilla-safari',             title:'3 Days Uganda Gorilla Safari',                    days:3,  price:'From $1,400', country:'Uganda',  category:'gorillas',   tag:'Gorilla Trek',    img:'/images/gorillas/gorilla-amber-eyes-closeup.jpg',           imgAlt:'Mountain gorilla closeup Bwindi Uganda' },
+  { slug:'3-days-murchison-falls-safari',            title:'3 Days Murchison Falls Safari',                   days:3,  price:'From $650',   country:'Uganda',  category:'wildlife',   tag:'Wildlife',        img:'/images/parks/murchison-falls-national-park-gate.jpg',      imgAlt:'Murchison Falls National Park Uganda' },
+  { slug:'3-days-queen-elizabeth-national-park-safari', title:'3 Days Queen Elizabeth National Park Safari',  days:3,  price:'From $600',   country:'Uganda',  category:'wildlife',   tag:'Wildlife',        img:'/images/wildlife/tree-climbing-lion-ishasha.jpg',           imgAlt:'Tree climbing lion Ishasha Queen Elizabeth Uganda' },
+  { slug:'3-days-kibale-chimpanzee-trekking',        title:'3 Days Kibale Chimpanzee Trekking',               days:3,  price:'From $750',   country:'Uganda',  category:'primates',   tag:'Chimp Trek',      img:'/images/primates/chimpanzees-pair-feeding.jpg',             imgAlt:'Chimpanzees Kibale Forest Uganda' },
+  { slug:'3-days-ssese-islands-uganda',              title:'3 Days Ssese Islands Uganda',                     days:3,  price:'From $350',   country:'Uganda',  category:'leisure',    tag:'Beach',           img:'/images/accommodation/safari-tented-camp-daytime.jpg',      imgAlt:'Ssese Islands Lake Victoria Uganda' },
+  { slug:'3-days-ngamba-island-chimpanzee-tour',     title:'3 Days Ngamba Island Chimpanzee Tour',            days:3,  price:'From $450',   country:'Uganda',  category:'primates',   tag:'Chimp Tour',      img:'/images/primates/chimpanzee-gesturing.jpg',                 imgAlt:'Chimpanzee Ngamba Island Uganda' },
+  { slug:'3-days-masai-mara-safari',                 title:'3 Days Masai Mara Safari',                        days:3,  price:'From $900',   country:'Kenya',   category:'wildlife',   tag:'Big Five',        img:'/images/wildlife/lion-cub-lioness-savannah.jpg',            imgAlt:'Lions Masai Mara Kenya safari' },
+  // ── 4-day ──────────────────────────────────────────────────
+  { slug:'4-days-gorilla-trekking-lake-bunyonyi',    title:'4 Days Gorilla Trekking and Lake Bunyonyi',       days:4,  price:'From $1,800', country:'Uganda',  category:'gorillas',   tag:'Gorilla Trek',    img:'/images/gorillas/gorilla-mother-baby-bwindi.jpg',           imgAlt:'Gorilla trekking Bwindi Uganda' },
+  { slug:'4-days-bwindi-gorillas-lake-mburo',        title:'4 Days Bwindi Gorillas and Lake Mburo',           days:4,  price:'From $1,700', country:'Uganda',  category:'gorillas',   tag:'Gorilla Trek',    img:'/images/gorillas/silverback-gorilla-group.jpg',             imgAlt:'Silverback gorilla group Bwindi Uganda' },
+  { slug:'4-days-gorilla-queen-elizabeth-safari',    title:'4 Days Gorilla and Queen Elizabeth Safari',       days:4,  price:'From $1,600', country:'Uganda',  category:'gorillas',   tag:'Gorilla + Game',  img:'/images/gorillas/gorilla-amber-eyes-closeup.jpg',           imgAlt:'Gorilla trekking and game drive Uganda' },
+  { slug:'4-days-uganda-gorilla-trekking-wildlife',  title:'4 Days Uganda Gorilla Trekking and Wildlife',     days:4,  price:'From $1,650', country:'Uganda',  category:'gorillas',   tag:'Gorilla Trek',    img:'/images/gorillas/gorilla-mother-infant-closeup.jpg',        imgAlt:'Mountain gorilla Uganda' },
+  { slug:'4-days-double-gorilla-trekking-bwindi',    title:'4 Days Double Gorilla Trekking Bwindi',           days:4,  price:'From $2,400', country:'Uganda',  category:'gorillas',   tag:'Double Trek',     img:'/images/gorillas/baby-gorilla-eating-leaf.jpg',             imgAlt:'Baby gorilla Bwindi Uganda' },
+  { slug:'4-days-uganda-chimpanzee-wildlife-safari', title:'4 Days Uganda Chimpanzee and Wildlife Safari',    days:4,  price:'From $1,100', country:'Uganda',  category:'primates',   tag:'Primates',        img:'/images/primates/chimpanzees-pair-feeding.jpg',             imgAlt:'Chimpanzees Uganda wildlife safari' },
+  { slug:'4-days-mount-elgon-hiking-safari',         title:'4 Days Mount Elgon Hiking Safari',                days:4,  price:'From $550',   country:'Uganda',  category:'adventure',  tag:'Hiking',          img:'/images/accommodation/rwenzori-mountains-glacier-hike.jpg', imgAlt:'Mountain hiking Uganda' },
+  { slug:'4-days-rwanda-gorilla-trekking',           title:'4 Days Rwanda Gorilla Trekking',                  days:4,  price:'From $2,500', country:'Rwanda',  category:'gorillas',   tag:'Gorilla Trek',    img:'/images/primates/golden-monkey-mother-baby.jpg',            imgAlt:'Gorilla trekking Rwanda Volcanoes' },
+  // ── 5-day ──────────────────────────────────────────────────
+  { slug:'5-days-uganda-gorilla-wildlife-safari',    title:'5 Days Uganda Gorilla and Wildlife Safari',       days:5,  price:'From $2,200', country:'Uganda',  category:'gorillas',   tag:'Gorilla + Game',  img:'/images/gorillas/gorilla-mother-baby-bwindi.jpg',           imgAlt:'Gorilla trekking and wildlife Uganda' },
+  { slug:'5-days-uganda-primates-safari',            title:'5 Days Uganda Primates Safari',                   days:5,  price:'From $2,100', country:'Uganda',  category:'primates',   tag:'Primates',        img:'/images/primates/chimpanzee-kibale-forest.jpg',             imgAlt:'Primates safari Uganda' },
+  { slug:'5-days-gorilla-safari-white-water-rafting',title:'5 Days Gorilla Safari and White Water Rafting',   days:5,  price:'From $2,300', country:'Uganda',  category:'adventure',  tag:'Gorilla + Action',img:'/images/gorillas/gorilla-mother-baby-bwindi.jpg',           imgAlt:'Gorilla trekking and Nile rafting Uganda' },
+  // ── 6-day ──────────────────────────────────────────────────
+  { slug:'6-days-uganda-family-gorilla-safari',      title:'6 Days Uganda Family Gorilla Safari',             days:6,  price:'From $2,600', country:'Uganda',  category:'gorillas',   tag:'Family Safari',   img:'/images/gorillas/gorilla-mother-infant-closeup.jpg',        imgAlt:'Family gorilla safari Uganda' },
+  // ── 7-day ──────────────────────────────────────────────────
+  { slug:'7-days-uganda-gorilla-chimp-wildlife-safari',title:'7 Days Uganda Gorilla, Chimp and Wildlife',     days:7,  price:'From $2,800', country:'Uganda',  category:'gorillas',   tag:'Grand Circuit',   img:'/images/gorillas/silverback-gorilla-group.jpg',             imgAlt:'Gorilla chimp wildlife Uganda 7 days' },
+  { slug:'7-days-uganda-adventure-safari',           title:'7 Days Uganda Adventure Safari',                  days:7,  price:'From $3,000', country:'Uganda',  category:'adventure',  tag:'Adventure',       img:'/images/accommodation/rwenzori-mountains-glacier-hike.jpg', imgAlt:'Rwenzori Mountains Uganda adventure safari' },
+  { slug:'7-days-uganda-wildlife-safari',            title:'7 Days Uganda Wildlife Safari',                   days:7,  price:'From $2,700', country:'Uganda',  category:'wildlife',   tag:'Wildlife',        img:'/images/wildlife/safari-vehicle-lions.jpg',                 imgAlt:'Wildlife safari Uganda 7 days' },
+  // ── 8-day ──────────────────────────────────────────────────
+  { slug:'8-days-explore-uganda-safari',             title:'8 Days Explore Uganda Safari',                    days:8,  price:'From $3,200', country:'Uganda',  category:'wildlife',   tag:'Wildlife',        img:'/images/wildlife/elephant-pair-greeting.jpg',               imgAlt:'Explore Uganda safari 8 days elephants' },
+  // ── 9-day ──────────────────────────────────────────────────
+  { slug:'9-days-uganda-safari',                     title:'9 Days Uganda Safari',                            days:9,  price:'From $3,500', country:'Uganda',  category:'wildlife',   tag:'Grand Circuit',   img:'/images/wildlife/giraffe-uganda-murchison.jpg',             imgAlt:'9 day Uganda safari giraffe' },
+  // ── 10-day ─────────────────────────────────────────────────
+  { slug:'10-days-uganda-wildlife-gorilla-chimp-safari',title:'10 Days Uganda Wildlife, Gorilla and Chimp',   days:10, price:'From $3,800', country:'Uganda',  category:'gorillas',   tag:'Grand Circuit',   img:'/images/gorillas/silverback-gorilla-group.jpg',             imgAlt:'Uganda grand circuit gorilla chimp safari' },
+  { slug:'10-days-kenya-safari-beach-holiday',       title:'10 Days Kenya Safari and Beach Holiday',          days:10, price:'From $3,200', country:'Kenya',   category:'wildlife',   tag:'Safari + Beach',  img:'/images/wildlife/lion-cub-lioness-savannah.jpg',            imgAlt:'Kenya safari and Diani Beach holiday' },
+  // ── 12-day+ ────────────────────────────────────────────────
+  { slug:'12-days-uganda-grand-safari',              title:'12 Days Uganda Grand Safari',                     days:12, price:'From $4,500', country:'Uganda',  category:'wildlife',   tag:'Grand Safari',    img:'/images/wildlife/giraffe-uganda-murchison.jpg',             imgAlt:'Uganda grand safari 12 days Kidepo' },
+  { slug:'14-days-uganda-safari-vacation',           title:'14 Days Uganda Safari Vacation',                  days:14, price:'From $5,200', country:'Uganda',  category:'wildlife',   tag:'Grand Safari',    img:'/images/gorillas/gorilla-mother-baby-bwindi.jpg',           imgAlt:'14 day Uganda safari vacation' },
+  { slug:'15-days-uganda-adventure-wildlife-safari', title:'15 Days Uganda Adventure and Wildlife Safari',    days:15, price:'From $5,800', country:'Uganda',  category:'adventure',  tag:'Expedition',      img:'/images/accommodation/rwenzori-mountains-glacier-hike.jpg', imgAlt:'15 day Uganda adventure wildlife safari Rwenzori' },
+  { slug:'18-days-uganda-wildlife-safari',           title:'18 Days Uganda Wildlife Safari',                  days:18, price:'From $6,500', country:'Uganda',  category:'wildlife',   tag:'Ultimate Safari', img:'/images/gorillas/silverback-gorilla-group.jpg',             imgAlt:'18 day ultimate Uganda wildlife safari' },
+];
+
+const categories = [
+  { id: 'all',       label: 'All Safaris' },
+  { id: 'gorillas',  label: 'Gorilla Trekking' },
+  { id: 'wildlife',  label: 'Wildlife' },
+  { id: 'primates',  label: 'Primates' },
+  { id: 'adventure', label: 'Adventure' },
+  { id: 'leisure',   label: 'Beach / Leisure' },
+];
+
+const countries = ['All Countries', 'Uganda', 'Kenya', 'Rwanda', 'Tanzania'];
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",  "item": "https://lokawatoursandtravel.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Tours" }
+  ]
+});
 ---
 
-<BaseLayout title="East Africa Safari Packages & Tours 2025/2026 | L'okawa Tours" description="Browse 32 handpicked East Africa safari packages. Uganda gorilla treks, Kenya wildlife safaris, Tanzania tours and Rwanda gorilla packages. All-inclusive from USD 350pp.">
+<BaseLayout
+  title="East Africa Safari Packages 2025/2026 | L'okawa Tours Uganda"
+  description="Browse 32 East Africa safari packages — Uganda gorilla trekking, Kenya Masai Mara, Tanzania Serengeti and Rwanda. All-inclusive prices from USD 350. Expert guides, all permits included."
+  schema={schema}
+>
+
+<!-- ════════════════════════════════════════════
+     BANNER
+════════════════════════════════════════════ -->
+<div class="tours-banner">
+  <div class="tours-banner__photo" aria-hidden="true"></div>
+  <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" class="tours-banner__svg" aria-hidden="true">
+    <circle cx="1130" cy="200" r="100" fill="#ffd45a" opacity=".18"/>
+    <circle cx="1130" cy="200" r="65"  fill="#ffd45a"/>
+    <path d="M0 240 C220 210 400 236 580 214 C780 190 940 232 1140 212 C1280 198 1370 220 1440 214 L1440 300 L0 300Z" fill="#1d3315" opacity=".8"/>
+    <path d="M0 272 C240 252 440 272 660 262 C880 250 1100 274 1440 256 L1440 300 L0 300Z" fill="#0d1a0a"/>
+  </svg>
+  <div class="tours-banner__overlay" aria-hidden="true"></div>
+  <div class="tours-banner__content">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <a href="/" class="breadcrumb__link">Home</a>
+      <span class="breadcrumb__sep" aria-hidden="true">/</span>
+      <span class="breadcrumb__cur">Tours</span>
+    </nav>
+    <p class="tours-banner__kicker">32 handpicked itineraries</p>
+    <h1 class="tours-banner__h1">East Africa<br/>Safari Packages</h1>
+    <p class="tours-banner__sub">Uganda gorilla trekking, Kenya Masai Mara, Tanzania Serengeti and Rwanda — every itinerary built around your dates, budget and the wildlife you want to see.</p>
+    <div class="tours-banner__stats">
+      <div class="tours-stat"><strong>32</strong><span>Safari packages</span></div>
+      <div class="tours-stat"><strong>4</strong><span>Countries</span></div>
+      <div class="tours-stat"><strong>From $350</strong><span>Per person</span></div>
+      <div class="tours-stat"><strong>All permits</strong><span>Included</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     FILTER BAR
+════════════════════════════════════════════ -->
+<div class="tours-filters" id="tours-filters">
+  <div class="container tours-filters__inner">
+    <!-- Category pills -->
+    <div class="tours-filters__cats" role="group" aria-label="Filter by activity">
+      {categories.map((c, i) => (
+        <button
+          class={`filter-pill ${i === 0 ? 'filter-pill--active' : ''}`}
+          data-filter={c.id}
+          aria-pressed={i === 0 ? 'true' : 'false'}
+        >
+          {c.label}
+        </button>
+      ))}
+    </div>
+    <!-- Country select -->
+    <div class="tours-filters__right">
+      <label for="country-filter" class="sr-only">Filter by country</label>
+      <select id="country-filter" class="country-select" aria-label="Filter by country">
+        {countries.map(c => <option value={c}>{c}</option>)}
+      </select>
+      <span class="tours-count" id="tours-count">{tours.length} tours</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     TOUR GRID
+════════════════════════════════════════════ -->
+<section class="tours-grid-section" aria-label="Safari packages">
+  <div class="container">
+    <div class="tours-grid" id="tours-grid">
+      {tours.map(t => (
+        <article
+          class="tcard"
+          data-category={t.category}
+          data-country={t.country}
+        >
+          <a href={`/tours/${t.slug}/`} class="tcard__img-link" tabindex="-1" aria-hidden="true">
+            <img src={t.img} alt={t.imgAlt} class="tcard__img" loading="lazy" width="480" height="280"/>
+            <span class="tcard__tag">{t.tag}</span>
+            <span class="tcard__days">{t.days} Days</span>
+          </a>
+          <div class="tcard__body">
+            <div class="tcard__meta">
+              <span class="tcard__country">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                {t.country}
+              </span>
+            </div>
+            <h2 class="tcard__title">
+              <a href={`/tours/${t.slug}/`} class="tcard__title-link">{t.title}</a>
+            </h2>
+            <div class="tcard__footer">
+              <div class="tcard__price">
+                <span class="tcard__from">From</span>
+                <span class="tcard__amount">{t.price.replace('From ', '')}</span>
+                <span class="tcard__pp">/ person</span>
+              </div>
+              <a href={`/tours/${t.slug}/`} class="btn btn--primary btn--sm">View Tour</a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- No results message (hidden by default) -->
+    <div class="tours-empty" id="tours-empty" aria-live="polite">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-mid)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <p>No tours match your filter. <button class="tours-empty__reset" id="reset-filters">Reset filters</button></p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CUSTOM SAFARI STRIP
+════════════════════════════════════════════ -->
+<section class="tours-custom" aria-labelledby="custom-heading">
+  <div class="container tours-custom__inner">
+    <div class="tours-custom__text">
+      <span class="kicker">Don't see what you need?</span>
+      <h2 id="custom-heading" class="tours-custom__h2">We Build Custom Safaris Too</h2>
+      <p>Every itinerary on this page can be modified. Want more nights, a different park, a different budget? Tell us your dates, group size and interests and we will build a tailored itinerary within 24 hours — no obligation.</p>
+      <div class="tours-custom__actions">
+        <a href="/contact/" class="btn btn--primary">Get a Custom Quote</a>
+        <a href="https://wa.me/256761512966" target="_blank" rel="noopener noreferrer" class="btn btn--wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+    <div class="tours-custom__img" aria-hidden="true">
+      <img src="/images/gorillas/gorilla-amber-eyes-closeup.jpg" alt="" width="420" height="340" loading="lazy"/>
+    </div>
+  </div>
+</section>
+
+<CtaBand
+  heading="Not sure which safari is right for you?"
+  btn1="Talk to Our Team"
+  btn1Href="/contact/"
+  btn2="Read Planning Guides"
+  btn2Href="/plan/"
+/>
+
 </BaseLayout>
+
+<!-- ════════════════════════════════════════════
+     FILTER SCRIPT
+════════════════════════════════════════════ -->
+<script>
+  const grid      = document.getElementById('tours-grid');
+  const empty     = document.getElementById('tours-empty');
+  const countEl   = document.getElementById('tours-count');
+  const pills     = document.querySelectorAll('.filter-pill');
+  const countryEl = document.getElementById('country-filter') as HTMLSelectElement;
+  const resetBtn  = document.getElementById('reset-filters');
+
+  let activeCategory = 'all';
+  let activeCountry  = 'All Countries';
+
+  function applyFilters() {
+    const cards = grid!.querySelectorAll<HTMLElement>('.tcard');
+    let visible = 0;
+    cards.forEach(card => {
+      const cat     = card.dataset.category ?? '';
+      const country = card.dataset.country   ?? '';
+      const catMatch     = activeCategory === 'all' || cat === activeCategory;
+      const countryMatch = activeCountry  === 'All Countries' || country === activeCountry;
+      const show = catMatch && countryMatch;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    countEl!.textContent = `${visible} tour${visible !== 1 ? 's' : ''}`;
+    empty!.style.display = visible === 0 ? 'flex' : 'none';
+  }
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => { p.classList.remove('filter-pill--active'); p.setAttribute('aria-pressed','false'); });
+      pill.classList.add('filter-pill--active');
+      pill.setAttribute('aria-pressed','true');
+      activeCategory = (pill as HTMLElement).dataset.filter ?? 'all';
+      applyFilters();
+    });
+  });
+
+  countryEl?.addEventListener('change', () => {
+    activeCountry = countryEl.value;
+    applyFilters();
+  });
+
+  resetBtn?.addEventListener('click', () => {
+    activeCategory = 'all';
+    activeCountry  = 'All Countries';
+    countryEl!.value = 'All Countries';
+    pills.forEach(p => { p.classList.remove('filter-pill--active'); p.setAttribute('aria-pressed','false'); });
+    pills[0]?.classList.add('filter-pill--active');
+    pills[0]?.setAttribute('aria-pressed','true');
+    applyFilters();
+  });
+</script>
+
+<style>
+/* ── Banner ── */
+.tours-banner {
+  position:relative; overflow:hidden; min-height:340px;
+  background:linear-gradient(180deg,#16290f 0%,#2f4d20 40%,#b8561a 82%,#f4b41a 100%);
+}
+.tours-banner__photo {
+  position:absolute; inset:0;
+  background-image:url('/images/gorillas/gorilla-mother-baby-bwindi.jpg');
+  background-size:cover; background-position:center 30%;
+  opacity:.2; z-index:0;
+}
+.tours-banner__svg { position:absolute; left:0; bottom:0; width:100%; height:100%; pointer-events:none; z-index:1; }
+.tours-banner__overlay { position:absolute; inset:0; background:linear-gradient(90deg,rgba(10,20,8,.85) 0%,rgba(10,20,8,.5) 55%,rgba(10,20,8,0) 88%); z-index:1; }
+.tours-banner__content { position:relative; z-index:2; max-width:var(--max-width); margin-inline:auto; padding:56px var(--section-pad-x) 80px; box-sizing:border-box; }
+.tours-banner__kicker { font-family:var(--font-display); font-style:italic; font-weight:500; font-size:20px; color:var(--color-gold); margin-bottom:6px; display:block; }
+.tours-banner__h1 { font-family:var(--font-display); font-weight:var(--weight-bold); font-size:clamp(34px,5vw,60px); line-height:1.05; color:var(--color-white); margin:0 0 14px; }
+.tours-banner__sub { font-size:var(--text-lg); color:var(--color-cream); opacity:.9; max-width:540px; line-height:var(--leading-relaxed); margin-bottom:28px; }
+.tours-banner__stats { display:flex; flex-wrap:wrap; gap:24px; }
+.tours-stat { display:flex; flex-direction:column; gap:2px; }
+.tours-stat strong { font-family:var(--font-display); font-size:22px; font-weight:var(--weight-bold); color:var(--color-gold); }
+.tours-stat span { font-size:12px; font-weight:var(--weight-semibold); color:var(--color-cream); opacity:.8; letter-spacing:.05em; text-transform:uppercase; }
+/* ── Breadcrumb ── */
+.breadcrumb { display:flex; flex-wrap:wrap; align-items:center; gap:6px 8px; font-size:13px; font-weight:var(--weight-semibold); color:var(--color-cream); margin-bottom:12px; }
+.breadcrumb__link { color:var(--color-cream); transition:color var(--transition-fast); text-decoration:none; }
+.breadcrumb__link:hover { color:var(--color-gold); }
+.breadcrumb__sep { opacity:.4; }
+.breadcrumb__cur { color:var(--color-gold); }
+/* ── Filter bar ── */
+.tours-filters { background:#fff; border-bottom:1px solid #e8ede4; position:sticky; top:0; z-index:40; }
+.tours-filters__inner { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px var(--section-pad-x); max-width:var(--max-width); margin-inline:auto; box-sizing:border-box; flex-wrap:wrap; }
+.tours-filters__cats { display:flex; flex-wrap:wrap; gap:8px; }
+.filter-pill { padding:7px 16px; border-radius:20px; border:1.5px solid #dde8d4; background:#fff; font-size:13px; font-weight:var(--weight-semibold); color:var(--color-text); cursor:pointer; transition:all .2s ease; white-space:nowrap; }
+.filter-pill:hover { border-color:var(--color-green-mid); color:var(--color-green-mid); }
+.filter-pill--active { background:var(--color-green-dark); border-color:var(--color-green-dark); color:#fff; }
+.tours-filters__right { display:flex; align-items:center; gap:14px; }
+.country-select { padding:7px 32px 7px 12px; border-radius:8px; border:1.5px solid #dde8d4; font-size:13px; font-weight:var(--weight-semibold); color:var(--color-text); background:#fff; cursor:pointer; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 10px center; }
+.tours-count { font-size:13px; font-weight:var(--weight-bold); color:var(--color-text-muted); white-space:nowrap; }
+/* ── Tour grid ── */
+.tours-grid-section { background:#f8faf6; padding:52px 0 72px; }
+.tours-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+/* ── Tour card ── */
+.tcard { background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 2px 14px rgba(0,0,0,.07); display:flex; flex-direction:column; border:1px solid #e8ede4; transition:transform .25s ease, box-shadow .25s ease; }
+.tcard:hover { transform:translateY(-5px); box-shadow:0 10px 32px rgba(0,0,0,.13); }
+.tcard__img-link { display:block; position:relative; height:210px; overflow:hidden; flex-shrink:0; text-decoration:none; }
+.tcard__img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .4s ease; }
+.tcard:hover .tcard__img { transform:scale(1.04); }
+.tcard__tag { position:absolute; top:12px; left:12px; background:var(--color-amber); color:#fff; font-size:11px; font-weight:var(--weight-bold); letter-spacing:.07em; text-transform:uppercase; padding:3px 10px; border-radius:20px; }
+.tcard__days { position:absolute; bottom:12px; right:12px; background:rgba(10,20,8,.75); color:#fff; font-size:12px; font-weight:var(--weight-bold); padding:3px 10px; border-radius:20px; backdrop-filter:blur(4px); }
+.tcard__body { padding:18px 20px 20px; flex:1; display:flex; flex-direction:column; gap:10px; }
+.tcard__meta { display:flex; align-items:center; gap:10px; }
+.tcard__country { display:flex; align-items:center; gap:4px; font-size:12px; font-weight:var(--weight-semibold); color:var(--color-text-muted); letter-spacing:.03em; }
+.tcard__title { font-family:var(--font-display); font-weight:var(--weight-bold); font-size:16px; line-height:1.35; color:var(--color-green-dark); margin:0; flex:1; }
+.tcard__title-link { color:inherit; text-decoration:none; transition:color .2s ease; }
+.tcard__title-link:hover { color:var(--color-amber); }
+.tcard__footer { display:flex; align-items:center; justify-content:space-between; gap:10px; padding-top:12px; border-top:1px solid #e8ede4; margin-top:auto; }
+.tcard__price { display:flex; align-items:baseline; gap:3px; }
+.tcard__from { font-size:11px; color:var(--color-text-muted); }
+.tcard__amount { font-family:var(--font-display); font-size:20px; font-weight:var(--weight-bold); color:var(--color-green-dark); }
+.tcard__pp { font-size:11px; color:var(--color-text-muted); }
+/* ── Empty state ── */
+.tours-empty { display:none; flex-direction:column; align-items:center; gap:14px; text-align:center; padding:64px 20px; }
+.tours-empty p { font-size:var(--text-lg); color:var(--color-text-muted); }
+.tours-empty__reset { color:var(--color-amber); font-weight:var(--weight-bold); background:none; border:none; cursor:pointer; font-size:inherit; text-decoration:underline; }
+/* ── Custom safari strip ── */
+.tours-custom { background:var(--color-green-dark); padding:64px 0; }
+.tours-custom__inner { display:grid; grid-template-columns:1fr 380px; gap:56px; align-items:center; max-width:var(--max-width); margin-inline:auto; padding-inline:var(--section-pad-x); box-sizing:border-box; }
+.tours-custom .kicker { color:var(--color-gold); }
+.tours-custom__h2 { font-family:var(--font-display); font-weight:var(--weight-bold); font-size:clamp(24px,3vw,38px); color:#fff; margin:6px 0 16px; line-height:1.15; }
+.tours-custom__text p { font-size:var(--text-lg); color:rgba(255,255,255,.85); line-height:var(--leading-relaxed); margin:0 0 28px; }
+.tours-custom__actions { display:flex; flex-wrap:wrap; gap:12px; }
+.btn--wa { display:inline-flex; align-items:center; gap:8px; background:#25d366; color:#0b2b14; font-weight:var(--weight-extrabold); padding:12px 22px; border-radius:var(--radius-lg); text-decoration:none; font-size:var(--text-sm); transition:opacity .2s ease; }
+.btn--wa:hover { opacity:.88; }
+.tours-custom__img { border-radius:16px; overflow:hidden; aspect-ratio:420/340; }
+.tours-custom__img img { width:100%; height:100%; object-fit:cover; display:block; }
+/* ── Responsive ── */
+@media (max-width:1024px) { .tours-grid { grid-template-columns:repeat(2,1fr); } .tours-custom__inner { grid-template-columns:1fr; } .tours-custom__img { display:none; } }
+@media (max-width:640px) { .tours-grid { grid-template-columns:1fr; } .tours-filters__inner { flex-direction:column; align-items:flex-start; } .tours-filters__right { width:100%; justify-content:space-between; } }
+</style>
