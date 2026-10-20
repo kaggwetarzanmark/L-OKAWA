@@ -1,7 +1,29 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = {
+  title: '3 Days Ssese Islands Uganda', slug: '3-days-ssese-islands-uganda',
+  country: 'Uganda', countrySlug: 'uganda', tagline: 'Uganda\'s Hidden Beach Paradise on Lake Victoria',
+  heroImg: '/images/wildlife/hippo-walking-water.jpg', heroImgAlt: 'Hippo walking through water at Lake Victoria near Ssese Islands Uganda',
+  description: '3-day Ssese Islands tour on Lake Victoria. White sandy beaches, birding, canoe rides and complete relaxation on Uganda\'s hidden island paradise.',
+  price: 'From $350', priceNote: 'per person, ferry and all meals included', days: 3, startEnd: 'Kampala / Entebbe', groupSize: '2 to 10 people', difficulty: 'Easy',
+  highlights: ['Ferry crossing to the beautiful Ssese Islands on Lake Victoria', 'Relax on white sandy beaches in a natural tropical forest setting', 'Canoe rides between neighbouring islands', 'Birding in the island forests and along the lake shore', 'Swimming in the clean, bilharzia-free lake waters'],
+  facts: [{ label: 'Duration', value: '3 Days / 2 Nights' }, { label: 'Starts', value: 'Kampala or Entebbe' }, { label: 'Ends', value: 'Kampala or Entebbe' }, { label: 'Lake', value: 'Lake Victoria' }, { label: 'Group size', value: '2 to 10 people' }, { label: 'Difficulty', value: 'Easy' }, { label: 'Accommodation', value: 'Island lodge or camp' }, { label: 'Best time', value: 'Year-round' }],
+  overview: ['The Ssese Islands are a chain of 84 islands in the northwest of Lake Victoria, Uganda\'s most overlooked tourism gem. White sandy beaches fringed with tropical forest, fresh lake breezes and near-total peace make this the perfect counterpoint to Uganda\'s more adventurous safaris.', 'The ferry from Nakiwogo near Entebbe carries you to Bugala Island, the largest of the archipelago. From here you can explore by canoe, swim, birdwatch or simply read a book in the shade. The island has almost no traffic and very little noise.', 'This 3-day tour is ideal as a standalone retreat or as a relaxing finale after gorilla trekking or a game drive safari.'],
+};
+const itinerary = [
+  { day: 1, title: 'Kampala to Ssese Islands by Ferry', body: 'Drive from Kampala to the Nakiwogo ferry jetty near Entebbe. Board the MV Kalangala ferry and enjoy a 2-hour crossing over Lake Victoria, with views of numerous islands and water birds. Arrive at Bugala Island, check in to your lodge and relax on the beach. Dinner and overnight.' },
+  { day: 2, title: 'Island Exploration by Canoe', body: 'A full free day on the island. Options include a canoe ride to neighbouring islands, swimming in the clean lake, birding walks through the forest, sport fishing or simply relaxing on the beach. Your guide can arrange a visit to local island communities if you wish to meet the islanders and learn about their fishing way of life. Meals at the lodge.' },
+  { day: 3, title: 'Return to Kampala', body: 'After breakfast, board the morning ferry back to the mainland. Drive to Kampala or Entebbe, arriving in the afternoon.' },
+];
+const includes = ['Ferry tickets (return)', 'Private vehicle to and from the ferry', 'Driver-guide', 'All accommodation (2 nights)', 'All meals', 'Bottled water', 'Canoe ride'];
+const excludes = ['International flights', 'Uganda visa', 'Travel insurance', 'Alcohol', 'Gratuities', 'Sport fishing equipment hire'];
+const faqs = [
+  { q: 'Is the lake safe for swimming?', a: 'Yes. The Ssese Islands area of Lake Victoria is bilharzia-free and safe for swimming. The island resorts and camps have designated swimming areas.' },
+  { q: 'Can I combine Ssese Islands with a safari?', a: 'Yes. Many travelers end their Uganda safari with a 2 or 3 night stay on Ssese Islands as a relaxing finish before flying home.' },
+];
+const relatedTours = [
+  { title: '3 Days Uganda Gorilla Safari', slug: '3-days-uganda-gorilla-safari', days: 3, price: 'From $1,400', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Gorilla Uganda' },
+  { title: '3 Days Murchison Falls Safari', slug: '3-days-murchison-falls-safari', days: 3, price: 'From $650', img: '/images/wildlife/giraffe-uganda-murchison.jpg', imgAlt: 'Giraffe Murchison Uganda' },
+];
 ---
-
-<BaseLayout title="3 Days Ssese Islands Uganda | Beach, Birding and Lake Victoria | L'okawa Tours" description="3-day Ssese Islands tour on Lake Victoria. Sandy beaches, birding, canoe rides and relaxation.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

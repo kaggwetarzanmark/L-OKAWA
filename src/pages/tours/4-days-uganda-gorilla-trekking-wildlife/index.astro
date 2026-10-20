@@ -1,7 +1,20 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = { title: '4 Days Uganda Gorilla Trekking and Wildlife Safari', slug: '4-days-uganda-gorilla-trekking-wildlife', country: 'Uganda', countrySlug: 'uganda', tagline: 'Mountain Gorillas and Big Five in Four Days', heroImg: '/images/gorillas/gorilla-mother-infant-closeup.jpg', heroImgAlt: 'Mountain gorilla mother with infant in Bwindi Impenetrable Forest Uganda', description: 'Mountain gorillas in Bwindi and Big Five game drives in Queen Elizabeth. 4-day all-inclusive Uganda safari with gorilla permit and Kazinga boat cruise.', price: 'From $1,650', priceNote: 'per person, gorilla permit included', days: 4, startEnd: 'Kampala / Entebbe', groupSize: '2 to 8 people', difficulty: 'Moderate', highlights: ['Gorilla trekking permit (USD 800) fully included', 'Game drive in Queen Elizabeth National Park', 'Kazinga Channel boat safari', 'Ishasha sector — search for tree-climbing lions', 'Private 4x4 vehicle throughout'], facts: [{ label: 'Duration', value: '4 Days / 3 Nights' }, { label: 'Gorilla permit', value: 'USD 800 — included' }, { label: 'Group size', value: '2 to 8' }, { label: 'Difficulty', value: 'Moderate' }, { label: 'Best time', value: 'Year-round' }, { label: 'Starts', value: 'Kampala or Entebbe' }, { label: 'Ends', value: 'Kampala or Entebbe' }, { label: 'Accommodation', value: 'Lodge' }], overview: ['A compact but extraordinarily rich 4-day safari covering Uganda\'s two most famous wildlife experiences: mountain gorilla trekking in Bwindi Impenetrable Forest and game drives in Queen Elizabeth National Park, Uganda\'s most visited park.', 'Queen Elizabeth NP holds the Big Five — lions (including the tree-climbing lions of Ishasha), elephants, buffaloes, leopards and hippos — plus over 600 bird species. The Kazinga Channel connecting Lakes George and Edward is one of the finest wildlife corridors in Africa.'] };
+const itinerary = [
+  { day: 1, title: 'Kampala to Bwindi', body: 'Drive southwest from Kampala with equator photo stop and lunch in Mbarara. Arrive Bwindi in the late afternoon. Briefing and overnight.' },
+  { day: 2, title: 'Gorilla Trekking then to Queen Elizabeth', body: 'Morning gorilla trek (2–8 hours in the forest, 1 hour with the gorillas). Lunch at the lodge. Afternoon drive via Ishasha sector watching for tree-climbing lions. Arrive Queen Elizabeth for dinner and overnight.' },
+  { day: 3, title: 'Game Drives and Kazinga Channel Cruise', body: 'Early morning game drive on Kasenyi plains. Breakfast. Afternoon 2-hour Kazinga Channel boat cruise with hippos, crocodiles and birds. Dinner and overnight.' },
+  { day: 4, title: 'Return to Kampala', body: 'Morning game drive or leisure. Drive back to Kampala via Mbarara. Arrive evening.' },
+];
+const includes = ['Gorilla permit', 'Private 4x4 vehicle', 'Driver-guide', 'All accommodation (3 nights)', 'All meals', 'Water', 'Park fees', 'Kazinga boat cruise'];
+const excludes = ['Flights', 'Visa', 'Insurance', 'Alcohol', 'Tips'];
+const faqs = [
+  { q: 'Is this the same as the gorilla and Queen Elizabeth safari?', a: 'This tour is similar but focuses specifically on combining gorilla trekking with a comprehensive wildlife game drive package including Kazinga Channel boat cruise and Ishasha lion search.' },
+];
+const relatedTours = [
+  { title: '4 Days Gorilla and Queen Elizabeth Safari', slug: '4-days-gorilla-queen-elizabeth-safari', days: 4, price: 'From $1,600', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Gorilla Uganda' },
+  { title: '5 Days Uganda Gorilla and Wildlife Safari', slug: '5-days-uganda-gorilla-wildlife-safari', days: 5, price: 'From $2,200', img: '/images/wildlife/tree-climbing-lion-ishasha.jpg', imgAlt: 'Tree climbing lion Uganda' },
+];
 ---
-
-<BaseLayout title="4 Days Uganda Gorilla Trekking and Wildlife Safari | Bwindi and Queen Elizabeth | L'okawa Tours" description="Mountain gorillas in Bwindi and Big 5 game drives in Queen Elizabeth. 4-day all-inclusive Uganda safari.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

@@ -1,7 +1,21 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = { title: '4 Days Rwanda Gorilla Trekking Safari', slug: '4-days-rwanda-gorilla-trekking', country: 'Rwanda', countrySlug: 'rwanda', tagline: 'Mountain Gorillas and Golden Monkeys in Volcanoes National Park', heroImg: '/images/primates/golden-monkey-mother-baby.jpg', heroImgAlt: 'Golden monkey mother and baby in Volcanoes National Park Rwanda gorilla trekking', description: 'Trek mountain gorillas in Rwanda\'s Volcanoes National Park. 4-day safari includes gorilla permit, golden monkey trekking and Kigali city tour.', price: 'From $2,500', priceNote: 'per person, gorilla permit (USD 1,500) included', days: 4, startEnd: 'Kigali', groupSize: '2 to 8 people', difficulty: 'Moderate', highlights: ['Rwanda gorilla trekking permit (USD 1,500) included', 'Trek to see mountain gorillas in Volcanoes National Park', 'Golden monkey trekking on the volcanic slopes', 'Kigali city tour and Genocide Memorial visit', 'Short treks to the gorillas compared to Uganda'], facts: [{ label: 'Duration', value: '4 Days / 3 Nights' }, { label: 'Gorilla permit', value: 'USD 1,500 — included' }, { label: 'Group size', value: '2 to 8' }, { label: 'Difficulty', value: 'Moderate' }, { label: 'Best time', value: 'Jun–Sep, Dec–Feb' }, { label: 'Starts', value: 'Kigali' }, { label: 'Ends', value: 'Kigali' }, { label: 'Accommodation', value: 'Lodge' }], overview: ['Rwanda\'s Volcanoes National Park is home to 12 habituated mountain gorilla families, nestled in the dramatic Virunga volcano range on the borders of Rwanda, Uganda and the Democratic Republic of Congo. Rwanda is known for its shorter, more accessible gorilla treks and world-class luxury lodge options.', 'This 4-day itinerary from Kigali includes a Kigali city tour, the gorilla trek in Volcanoes National Park, golden monkey trekking, and a visit to the Kigali Genocide Memorial. Rwanda\'s permit costs USD 1,500 per person, which is included in the price.', 'Rwanda is ideal for travelers who want gorillas combined with luxury and a shorter forest walk.'] };
+const itinerary = [
+  { day: 1, title: 'Arrive Kigali and City Tour', body: 'Arrive at Kigali International Airport. Transfer to hotel. Afternoon Kigali city tour including the Genocide Memorial, Kimironko market and Kigali city centre. Dinner and overnight.' },
+  { day: 2, title: 'Kigali to Volcanoes National Park', body: 'Drive northwest to Musanze (Ruhengeri), approximately 2 hours. Check in at your lodge. Afternoon briefing about gorilla trekking rules and regulations. Optional walk to Dian Fossey Tomb and Karisimbi base camp. Dinner and overnight.' },
+  { day: 3, title: 'Gorilla Trekking in Volcanoes National Park', body: '7:00am briefing at park headquarters. Trek with rangers and trackers into the forest to find your allocated gorilla family. Spend one hour with the gorillas. Return for lunch. Afternoon golden monkey trekking on the bamboo slopes — a more relaxed activity after the morning trek. Dinner and overnight.' },
+  { day: 4, title: 'Return to Kigali and Departure', body: 'Breakfast and check out. Drive back to Kigali for departure or to continue onward.' },
+];
+const includes = ['Gorilla permit (USD 1,500)', 'Golden monkey permit', 'Private vehicle', 'Driver-guide', 'All accommodation (3 nights)', 'All meals', 'Water', 'Kigali city tour', 'Genocide Memorial entry'];
+const excludes = ['International flights', 'Rwanda visa', 'Insurance', 'Alcohol', 'Tips'];
+const faqs = [
+  { q: 'Why is Rwanda more expensive than Uganda for gorilla trekking?', a: 'Rwanda\'s gorilla permit costs USD 1,500 compared to Uganda\'s USD 800. Rwanda markets itself as a premium destination with shorter treks and more accessible gorilla families. Uganda offers better value, more habituated families and the opportunity to combine gorilla trekking with chimpanzees and savannah game drives.' },
+  { q: 'Can I combine Rwanda with Uganda?', a: 'Yes. Many travelers visit gorillas in both countries, crossing the border between Cyanika (Rwanda) and Kisoro (Uganda). Our multi-country packages combine both destinations.' },
+];
+const relatedTours = [
+  { title: '3 Days Uganda Gorilla Safari', slug: '3-days-uganda-gorilla-safari', days: 3, price: 'From $1,400', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Gorilla Uganda' },
+  { title: '7 Days Uganda Wildlife Safari', slug: '7-days-uganda-gorilla-chimp-wildlife-safari', days: 7, price: 'From $2,800', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla Bwindi Uganda' },
+];
 ---
-
-<BaseLayout title="4 Days Rwanda Gorilla Trekking Safari | Volcanoes National Park | L'okawa Tours" description="Trek mountain gorillas in Rwanda's Volcanoes National Park. Gorilla permit, golden monkey trekking and Kigali tour.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

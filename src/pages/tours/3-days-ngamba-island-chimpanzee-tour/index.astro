@@ -1,7 +1,28 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = {
+  title: '3 Days Ngamba Island Chimpanzee Sanctuary Tour', slug: '3-days-ngamba-island-chimpanzee-tour',
+  country: 'Uganda', countrySlug: 'uganda', tagline: 'Get Close to Rescued Chimpanzees on Lake Victoria',
+  heroImg: '/images/primates/chimpanzee-gesturing.jpg', heroImgAlt: 'Chimpanzee gesturing at Ngamba Island Sanctuary Uganda',
+  description: '3-day Ngamba Island Chimpanzee Sanctuary tour. Boat to the island on Lake Victoria, watch chimpanzee feeding sessions and explore Entebbe. All meals included.',
+  price: 'From $450', priceNote: 'per person', days: 3, startEnd: 'Entebbe', groupSize: '2 to 10 people', difficulty: 'Easy',
+  highlights: ['Boat transfer to Ngamba Island on Lake Victoria', 'Watch rescued chimpanzees during their feeding time', 'Optional behind-the-scenes sanctuary tour', 'Explore Entebbe Botanical Gardens', 'Relaxing lake views and island atmosphere'],
+  facts: [{ label: 'Duration', value: '3 Days / 2 Nights' }, { label: 'Starts', value: 'Entebbe' }, { label: 'Ends', value: 'Entebbe' }, { label: 'Chimps', value: '50+ rescued chimps' }, { label: 'Group size', value: '2 to 10 people' }, { label: 'Difficulty', value: 'Easy' }, { label: 'Accommodation', value: 'Entebbe or island' }, { label: 'Best time', value: 'Year-round' }],
+  overview: ['Ngamba Island Chimpanzee Sanctuary is a 100-acre forested island in Lake Victoria managed by Chimpanzee Trust. It is home to over 50 rescued chimpanzees that cannot be returned to the wild due to injury or orphaning. Visitors observe the chimps from a viewing platform during twice-daily feeding sessions.', 'This 3-day tour from Entebbe includes the boat transfer to the island, guided feeding session viewing, and time to explore Entebbe town and its famous Botanical Gardens. It is an ideal add-on for travelers arriving or departing through Entebbe International Airport.', 'For those wanting a deeper experience, an optional behind-the-scenes tour is available where you accompany a keeper during morning feeding.'],
+};
+const itinerary = [
+  { day: 1, title: 'Arrive Entebbe and Botanical Gardens', body: 'Arrive at Entebbe International Airport. Transfer to your hotel. In the afternoon, visit the Entebbe Botanical Gardens, one of the oldest in East Africa and used as a filming location for Tarzan. Dinner and overnight in Entebbe.' },
+  { day: 2, title: 'Ngamba Island Chimpanzee Sanctuary', body: 'Morning boat ride to Ngamba Island. Arrive in time for the morning chimpanzee feeding session when 50+ chimps gather at the feeding platform. Your guide explains the story of each chimp. You spend approximately 2 hours on the island before taking the boat back to Entebbe. Afternoon at leisure. Dinner and overnight.' },
+  { day: 3, title: 'Depart Entebbe', body: 'Breakfast at the hotel. Transfer to Entebbe International Airport for your departure or continue to your next Uganda destination.' },
+];
+const includes = ['Boat transfer to Ngamba Island (return)', 'Chimpanzee sanctuary entry and guided tour', 'All accommodation (2 nights)', 'All meals', 'Bottled water', 'Entebbe Botanical Gardens visit', 'Airport transfers'];
+const excludes = ['International flights', 'Uganda visa', 'Travel insurance', 'Alcohol', 'Gratuities', 'Optional keeper experience upgrade'];
+const faqs = [
+  { q: 'How is Ngamba Island different from Kibale Forest chimp trekking?', a: 'Ngamba is a rescue sanctuary — the chimps are not wild but live on a forested island. You observe them from a platform. Kibale Forest offers wild chimpanzee tracking in a national park, which is a more adventurous experience. Both are excellent.' },
+];
+const relatedTours = [
+  { title: '3 Days Kibale Chimpanzee Trekking', slug: '3-days-kibale-chimpanzee-trekking', days: 3, price: 'From $750', img: '/images/primates/chimpanzees-pair-feeding.jpg', imgAlt: 'Chimpanzees Kibale Uganda' },
+  { title: '3 Days Ssese Islands', slug: '3-days-ssese-islands-uganda', days: 3, price: 'From $350', img: '/images/wildlife/hippo-walking-water.jpg', imgAlt: 'Hippo Lake Victoria Uganda' },
+];
 ---
-
-<BaseLayout title="3 Days Ngamba Island Chimpanzee Sanctuary Tour Uganda | L'okawa Tours" description="Get up close with rescued chimpanzees at Ngamba Island Sanctuary on Lake Victoria. Boat transfer and feeds included.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

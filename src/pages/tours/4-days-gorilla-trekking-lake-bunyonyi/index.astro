@@ -1,7 +1,22 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = { title: '4 Days Bwindi Gorilla Trekking and Lake Bunyonyi', slug: '4-days-gorilla-trekking-lake-bunyonyi', country: 'Uganda', countrySlug: 'uganda', tagline: 'Gorillas in the Forest, Serenity on the Lake', heroImg: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', heroImgAlt: 'Mountain gorilla mother carrying baby on her back in Bwindi forest Uganda', description: 'Trek mountain gorillas in Bwindi then relax at Africa\'s second deepest lake. 4-day Uganda safari with gorilla permit and canoe ride on Lake Bunyonyi included.', price: 'From $1,800', priceNote: 'per person, gorilla permit included', days: 4, startEnd: 'Kampala / Entebbe', groupSize: '2 to 8 people', difficulty: 'Moderate', highlights: ['Mountain gorilla trek in Bwindi with permit included', 'Canoe ride on Lake Bunyonyi — Africa\'s second deepest lake', 'Scenic drive through the Kigezi highlands', 'Optional Batwa cultural experience at Bwindi', 'Relaxing lake setting after the forest adventure'], facts: [{ label: 'Duration', value: '4 Days / 3 Nights' }, { label: 'Gorilla permit', value: 'USD 800 — included' }, { label: 'Group size', value: '2 to 8' }, { label: 'Difficulty', value: 'Moderate' }, { label: 'Accommodation', value: 'Lodge and lake resort' }, { label: 'Best time', value: 'Jun–Sep, Dec–Feb' }, { label: 'Starts', value: 'Kampala or Entebbe' }, { label: 'Ends', value: 'Kampala or Entebbe' }], overview: ['This 4-day itinerary combines the intensity of gorilla trekking in Bwindi Impenetrable Forest with a day of peaceful relaxation on Lake Bunyonyi, Uganda\'s most beautiful lake. The word Bunyonyi means "place of small birds" and the lake is surrounded by 29 terraced islands.', 'After your gorilla trek on day 2, you have the rest of the day to recover before moving to Lake Bunyonyi the following morning for a canoe ride among the islands. This pacing makes the itinerary ideal for travelers who want adventure balanced with rest.', 'The gorilla permit (USD 800), all accommodation, meals, transport and a private guide are included in the price.'] };
+const itinerary = [
+  { day: 1, title: 'Kampala to Bwindi', body: 'Early departure from Kampala. Drive through Masaka and Mbarara with stops at the equator and for lunch. Arrive at Bwindi in the late afternoon. Briefing about gorilla trekking. Dinner and overnight.' },
+  { day: 2, title: 'Gorilla Trekking in Bwindi', body: 'Early breakfast and drive to park headquarters for the 7:30am briefing. Trek into the forest with Uganda Wildlife Authority rangers to find your allocated gorilla family. Spend one hour with the gorillas. Return to the lodge for lunch. Optional Batwa cultural experience in the afternoon. Dinner and overnight.' },
+  { day: 3, title: 'Bwindi to Lake Bunyonyi', body: 'After breakfast drive east to Lake Bunyonyi in Kabale district — approximately 1.5 hours. Check in to your lake resort. Afternoon canoe ride among the 29 islands with your guide. Learn the stories of each island, including the famous Punishment Island. Dinner and overnight at the lake.' },
+  { day: 4, title: 'Lake Bunyonyi to Kampala', body: 'Morning at leisure on the lake. After breakfast drive back to Kampala, arriving in the evening.' },
+];
+const includes = ['Gorilla permit (USD 800)', 'Private 4x4 vehicle', 'Driver-guide', 'All accommodation (3 nights)', 'All meals', 'Bottled water', 'Park fees', 'Canoe ride on Lake Bunyonyi'];
+const excludes = ['International flights', 'Uganda visa', 'Travel insurance', 'Alcohol', 'Gratuities', 'Porter hire (optional)', 'Batwa cultural experience (optional extra)'];
+const faqs = [
+  { q: 'Why combine gorillas with Lake Bunyonyi?', a: 'Gorilla trekking is physically demanding and emotionally intense. Lake Bunyonyi provides a peaceful recovery day before the long drive back to Kampala. The canoe ride and lake scenery are highlights in themselves.' },
+  { q: 'How deep is Lake Bunyonyi?', a: 'Lake Bunyonyi is approximately 44 metres deep in parts, making it the second deepest lake in Africa. The water is clean and bilharzia-free, ideal for swimming.' },
+];
+const relatedTours = [
+  { title: '3 Days Uganda Gorilla Safari', slug: '3-days-uganda-gorilla-safari', days: 3, price: 'From $1,400', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Gorilla Uganda' },
+  { title: '4 Days Bwindi Gorillas and Lake Mburo', slug: '4-days-bwindi-gorillas-lake-mburo', days: 4, price: 'From $1,700', img: '/images/gorillas/silverback-gorilla-group.jpg', imgAlt: 'Silverback gorilla Uganda' },
+  { title: '5 Days Uganda Primates Safari', slug: '5-days-uganda-primates-safari', days: 5, price: 'From $2,100', img: '/images/primates/chimpanzees-pair-feeding.jpg', imgAlt: 'Chimpanzees Uganda' },
+];
 ---
-
-<BaseLayout title="4 Days Bwindi Gorilla Trekking and Lake Bunyonyi Safari Uganda | L'okawa Tours" description="Trek gorillas in Bwindi then relax at Africa's second deepest lake. Gorilla permit and canoe ride included.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

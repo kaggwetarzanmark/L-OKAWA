@@ -1,7 +1,96 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+
+const tour = {
+  title:       '3 Days Uganda Gorilla Safari',
+  slug:        '3-days-uganda-gorilla-safari',
+  country:     'Uganda',
+  countrySlug: 'uganda',
+  tagline:     'Face-to-Face with Wild Mountain Gorillas',
+  heroImg:     '/images/gorillas/gorilla-amber-eyes-closeup.jpg',
+  heroImgAlt:  'Mountain gorilla with amber eyes in Bwindi Impenetrable Forest Uganda',
+  description: 'Trek wild mountain gorillas in Bwindi Impenetrable Forest on this 3-day Uganda gorilla safari from Kampala or Entebbe. Gorilla permit and all meals included.',
+  price:       'From $1,400',
+  priceNote:   'per person, gorilla permit included',
+  days:        3,
+  startEnd:    'Kampala / Entebbe',
+  groupSize:   '2 to 8 people',
+  difficulty:  'Moderate',
+  highlights: [
+    'One hour face-to-face with a wild mountain gorilla family in Bwindi Impenetrable Forest',
+    'Gorilla trekking permit (USD 800 value) fully included in the tour price',
+    'Small private group in a dedicated 4x4 safari vehicle with roof hatch',
+    'Option to visit the Batwa community for a cultural experience after trekking',
+    'Scenic drive through the Kigezi highlands and equator photo stop',
+  ],
+  facts: [
+    { label: 'Duration',      value: '3 Days / 2 Nights' },
+    { label: 'Starts',        value: 'Kampala or Entebbe' },
+    { label: 'Ends',          value: 'Kampala or Entebbe' },
+    { label: 'Gorilla permit',value: 'USD 800 — included' },
+    { label: 'Group size',    value: '2 to 8 people' },
+    { label: 'Difficulty',    value: 'Moderate' },
+    { label: 'Accommodation', value: 'Lodge or tented camp' },
+    { label: 'Best time',     value: 'Jun–Sep, Dec–Feb' },
+  ],
+  overview: [
+    'This 3-day Uganda gorilla safari is the most popular way to experience mountain gorillas for travelers with limited time. You travel from Kampala or Entebbe to Bwindi Impenetrable National Park, trek with one of the 19 habituated gorilla families, and return the following day.',
+    'Bwindi is home to over half the world\'s remaining mountain gorillas, and the hour you spend with a wild family in the ancient forest is consistently rated one of the most powerful wildlife encounters on earth. Your Uganda Wildlife Authority ranger guide will track the gorillas from dawn and lead you to them through the dense rainforest.',
+    'L\'okawa Tours handles every detail including the permit, accommodation, transport and all meals. All you need to do is arrive with sturdy boots and a sense of wonder.',
+  ],
+};
+
+const itinerary = [
+  {
+    day: 1,
+    title: 'Kampala to Bwindi Impenetrable National Park',
+    body: 'Your driver guide collects you from your hotel in Kampala or Entebbe early in the morning. The drive to Bwindi takes approximately 8 to 9 hours through rolling hills and banana plantations. You stop at the equator for photos and in Mbarara for lunch. On arrival at the lodge in the late afternoon, you receive a briefing about tomorrow\'s gorilla trek. Dinner and overnight at your lodge near Bwindi.',
+  },
+  {
+    day: 2,
+    title: 'Gorilla Trekking in Bwindi Forest',
+    body: 'After an early breakfast, you drive to the park headquarters where Uganda Wildlife Authority rangers brief you on the rules and regulations for gorilla trekking. You are assigned to a gorilla family and the trek begins. Trekking time varies from 30 minutes to 8 hours depending on where the gorillas are located. When you find the family, you spend exactly one hour watching them feed, play and interact. This is the highlight of the entire trip. Return to the lodge for lunch, rest and dinner. In the evening you have the option to visit the local Batwa community.',
+  },
+  {
+    day: 3,
+    title: 'Return to Kampala or Entebbe',
+    body: 'After breakfast, you begin the return journey to Kampala, making stops along the way for lunch and more photographs of the scenic landscape. You arrive in Kampala in the late afternoon. Your driver guide drops you at your hotel or at Entebbe International Airport for your onward flight.',
+  },
+];
+
+const includes = [
+  'Gorilla trekking permit (USD 800 per person)',
+  'Private 4x4 safari vehicle with roof hatch',
+  'English-speaking professional driver-guide',
+  'All accommodation as specified (2 nights)',
+  'All meals: breakfast, lunch and dinner',
+  'Bottled drinking water throughout',
+  'Park entry fees',
+  'Airport or hotel pick-up and drop-off',
+];
+
+const excludes = [
+  'International and domestic flights',
+  'Uganda visa fees (USD 50)',
+  'Travel insurance (required)',
+  'Alcoholic beverages',
+  'Gratuities for guides and porters (recommended)',
+  'Porter hire at Bwindi trailhead (USD 15 to 20, optional)',
+  'Personal expenses and souvenirs',
+];
+
+const faqs = [
+  { q: 'Is the gorilla permit included in the price?', a: 'Yes. The USD 800 gorilla trekking permit is fully included in the tour price. This covers your park entry fee for the day, a Uganda Wildlife Authority ranger guide, and one hour with a habituated gorilla family.' },
+  { q: 'How difficult is the gorilla trek?', a: 'The trek is rated moderate. You walk through steep, often muddy forest at altitudes between 1,500m and 2,500m. Treks last between 30 minutes and 8 hours. We recommend bringing sturdy hiking boots and being reasonably fit. Porters are available at the trailhead for USD 15 to 20.' },
+  { q: 'Can I start the safari from Kigali instead of Kampala?', a: 'Yes. We can arrange pick-up from Kigali and drive you to Bwindi via the Cyanika border crossing. This is approximately 4 hours and is a popular option for travelers arriving into Rwanda. An extra cost may apply.' },
+  { q: 'What is the best time for gorilla trekking?', a: 'Gorilla trekking is possible all year round. The best conditions are during the dry seasons: June to September and December to February when trails are drier. The wet season (April, May and November) offers discounted permits at USD 600 and fewer crowds.' },
+  { q: 'What should I bring for the gorilla trek?', a: 'Wear long-sleeved shirts and long trousers in neutral or khaki colours. Sturdy waterproof hiking boots are essential. Bring garden gloves, a rain jacket, a hat, sunscreen and insect repellent. No flash photography is allowed with the gorillas.' },
+];
+
+const relatedTours = [
+  { title: '4 Days Gorilla Trekking and Lake Bunyonyi', slug: '4-days-gorilla-trekking-lake-bunyonyi', days: 4, price: 'From $1,800', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla mother and baby in Bwindi Uganda' },
+  { title: '5 Days Uganda Primates Safari',             slug: '5-days-uganda-primates-safari',           days: 5, price: 'From $2,100', img: '/images/primates/chimpanzees-pair-feeding.jpg',   imgAlt: 'Chimpanzees feeding in Kibale Forest Uganda' },
+  { title: '4 Days Double Gorilla Trekking Bwindi',    slug: '4-days-double-gorilla-trekking-bwindi',   days: 4, price: 'From $2,400', img: '/images/gorillas/silverback-gorilla-group.jpg',   imgAlt: 'Silverback gorilla group in Bwindi Uganda' },
+];
 ---
-
-<BaseLayout title="3 Days Uganda Gorilla Safari | Bwindi Impenetrable Forest Trekking | L'okawa Tours" description="Face-to-face with wild mountain gorillas in Bwindi Impenetrable Forest. 3-day gorilla safari from Kampala or Entebbe. Permit included.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

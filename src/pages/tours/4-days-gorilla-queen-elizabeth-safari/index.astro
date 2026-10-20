@@ -1,7 +1,20 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = { title: '4 Days Gorilla Trekking and Queen Elizabeth Safari', slug: '4-days-gorilla-queen-elizabeth-safari', country: 'Uganda', countrySlug: 'uganda', tagline: 'Gorillas, Tree-Climbing Lions and the Kazinga Channel', heroImg: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', heroImgAlt: 'Mountain gorilla in Bwindi Uganda gorilla trekking safari', description: 'Gorilla trekking in Bwindi and tree-climbing lions in Queen Elizabeth National Park. 4-day all-inclusive Uganda safari with gorilla permit and Kazinga boat cruise.', price: 'From $1,600', priceNote: 'per person, gorilla permit included', days: 4, startEnd: 'Kampala / Entebbe', groupSize: '2 to 8 people', difficulty: 'Moderate', highlights: ['Gorilla trekking in Bwindi Impenetrable Forest with permit included', 'Search for tree-climbing lions in the Ishasha sector', 'Kazinga Channel 2-hour boat cruise with hippos and hundreds of bird species', 'Two contrasting Uganda ecosystems — forest and savannah', 'Game drive through the Kasenyi plains'], facts: [{ label: 'Duration', value: '4 Days / 3 Nights' }, { label: 'Gorilla permit', value: 'USD 800 — included' }, { label: 'Group size', value: '2 to 8' }, { label: 'Difficulty', value: 'Moderate' }, { label: 'Accommodation', value: 'Lodge' }, { label: 'Best time', value: 'Year-round' }, { label: 'Starts', value: 'Kampala or Entebbe' }, { label: 'Ends', value: 'Kampala or Entebbe' }], overview: ['This is one of L\'okawa\'s most popular Uganda combinations, pairing gorilla trekking in Bwindi with the highlights of Queen Elizabeth National Park. You visit two World Heritage-listed areas in four days.', 'After gorilla trekking on day 2, you drive via the Ishasha sector — home to Uganda\'s famous tree-climbing lions — to Queen Elizabeth for a morning game drive and the Kazinga Channel boat cruise. The combination of forest and savannah, primates and plains wildlife makes this one of Africa\'s most diverse short itineraries.'] };
+const itinerary = [
+  { day: 1, title: 'Kampala to Bwindi', body: 'Early departure from Kampala. Drive southwest via the equator and Mbarara to Bwindi. Afternoon briefing about gorilla trekking. Dinner and overnight.' },
+  { day: 2, title: 'Gorilla Trekking in Bwindi', body: 'Early breakfast, then drive to the park headquarters for the 7:30am briefing. Trek into the forest to find your gorilla family. Spend one hour with the gorillas. Return to the lodge for lunch. After lunch drive via the Ishasha sector of Queen Elizabeth National Park searching for tree-climbing lions en route. Arrive at your Queen Elizabeth lodge in the evening. Dinner and overnight.' },
+  { day: 3, title: 'Queen Elizabeth Game Drive and Kazinga Cruise', body: 'Morning game drive through the Kasenyi plains — lions, elephants, buffaloes and Uganda kobs. Return for breakfast. Afternoon boat cruise on the Kazinga Channel watching hippos, crocodiles, elephants and birds at close range. Dinner and overnight.' },
+  { day: 4, title: 'Return to Kampala', body: 'Breakfast and drive back to Kampala via Mbarara. Stopover at the equator. Arrive in Kampala or Entebbe in the late afternoon.' },
+];
+const includes = ['Gorilla permit (USD 800)', 'Private 4x4 vehicle', 'Driver-guide', 'All accommodation (3 nights)', 'All meals', 'Bottled water', 'All park fees', 'Kazinga Channel boat cruise'];
+const excludes = ['International flights', 'Uganda visa', 'Travel insurance', 'Alcohol', 'Gratuities'];
+const faqs = [
+  { q: 'Can I see tree-climbing lions on this tour?', a: 'Yes. We drive through the Ishasha sector on day 2. The lions in Ishasha regularly climb fig trees and we stop to search for them en route from Bwindi to Queen Elizabeth.' },
+];
+const relatedTours = [
+  { title: '5 Days Uganda Gorilla and Wildlife Safari', slug: '5-days-uganda-gorilla-wildlife-safari', days: 5, price: 'From $2,200', img: '/images/wildlife/tree-climbing-lion-ishasha.jpg', imgAlt: 'Tree climbing lion Uganda' },
+  { title: '7 Days Uganda Wildlife Safari', slug: '7-days-uganda-wildlife-safari', days: 7, price: 'From $2,800', img: '/images/wildlife/hippos-in-grass-kazinga.jpg', imgAlt: 'Hippos Kazinga Channel Uganda' },
+];
 ---
-
-<BaseLayout title="4 Days Gorilla Trekking and Queen Elizabeth National Park Safari Uganda | L'okawa Tours" description="Gorillas in Bwindi, tree-climbing lions in Ishasha and Kazinga Channel cruise. 4-day Uganda safari.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

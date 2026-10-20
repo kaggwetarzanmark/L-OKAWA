@@ -1,7 +1,75 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = {
+  title: '7 Days Uganda Adventure Safari',
+  slug: '7-days-uganda-adventure-safari',
+  country: 'Uganda',
+  countrySlug: 'uganda',
+  tagline: 'Gorillas, Chimps, Rapids and the Rwenzori Mountains',
+  heroImg: '/images/accommodation/rwenzori-mountains-glacier-hike.jpg',
+  heroImgAlt: 'Hiker on the glacier trail in the Rwenzori Mountains Uganda',
+  description: 'Uganda\'s ultimate adventure safari: gorilla trekking in Bwindi, chimpanzee tracking in Kibale, white water rafting on the Nile and a Rwenzori Mountains hike across 7 action-packed days.',
+  price: 'From $3,000',
+  priceNote: 'per person, all permits included',
+  days: 7,
+  startEnd: 'Entebbe / Jinja',
+  groupSize: '2 to 6 people',
+  difficulty: 'Moderate to Strenuous',
+  highlights: [
+    'Gorilla trekking in Bwindi Impenetrable Forest',
+    'Chimpanzee trekking in Kibale Forest',
+    'Day hike in the Rwenzori Mountains, the Mountains of the Moon',
+    'Grade 5 white water rafting on the River Nile at Jinja',
+    'Kazinga Channel boat cruise in Queen Elizabeth National Park',
+    'Uganda\'s most action-packed 7-day itinerary',
+  ],
+  facts: [
+    { label: 'Duration', value: '7 Days / 6 Nights' },
+    { label: 'Gorilla permit', value: 'USD 800 included' },
+    { label: 'Chimp permit', value: 'USD 250 included' },
+    { label: 'Group size', value: '2 to 6' },
+    { label: 'Difficulty', value: 'Moderate to Strenuous' },
+    { label: 'Best time', value: 'Jun to Sep, Dec to Feb' },
+    { label: 'Starts', value: 'Entebbe or Kampala' },
+    { label: 'Ends', value: 'Jinja or Kampala' },
+    { label: 'Accommodation', value: 'Lodge and Guesthouse' },
+  ],
+  overview: [
+    'This 7-day adventure itinerary is designed for travellers who want to push beyond the standard safari. It combines Uganda\'s two most sought-after primate encounters with high-altitude hiking in the Rwenzori Mountains and Grade 5 white water rafting on the Nile at Jinja.',
+    'The route runs a logical loop: starting with chimpanzee trekking in Kibale, a day hike in the Rwenzoris, gorilla trekking in Bwindi, and finishing with white water rafting in Jinja. A Kazinga Channel boat cruise in Queen Elizabeth is built into the driving route.',
+    'A reasonable level of fitness is required for both the gorilla trek and the Rwenzori hike. Rafting requires no prior experience but is physically demanding. All permits, accommodation, meals and transport are included.',
+  ],
+};
+const itinerary = [
+  { day: 1, title: 'Entebbe to Kibale Forest', body: 'Pick-up from Entebbe or Kampala after breakfast. Drive west toward Fort Portal via Mubende (approximately 5 hours). Arrive Kibale Forest in the afternoon. Briefing on chimpanzee tracking. Dinner and overnight at your forest lodge.' },
+  { day: 2, title: 'Chimpanzee Trekking in Kibale', body: '7:00am briefing at Kanyanchu. Full morning tracking chimpanzees through the canopy. One hour observation with the habituated community. Return for lunch. Afternoon optional Bigodi Wetland walk for birds and primates. Dinner and overnight Kibale.' },
+  { day: 3, title: 'Rwenzori Mountains Day Hike', body: 'After breakfast drive to Kasese (1.5 hours). Day hike into the lower Rwenzori Mountains with a certified guide — Afro-alpine vegetation, waterfalls and dramatic glaciated peaks. Return to Kasese in the late afternoon. Drive to your lodge near Queen Elizabeth National Park. Dinner and overnight.' },
+  { day: 4, title: 'Kazinga Channel Cruise and Queen Elizabeth', body: 'Morning game drive in Queen Elizabeth National Park for lions, elephants and buffaloes. Breakfast. Afternoon 2-hour Kazinga Channel boat cruise. Continue south toward Ishasha in the evening. Dinner and overnight Ishasha.' },
+  { day: 5, title: 'Ishasha to Bwindi', body: 'Early morning game drive through Ishasha in search of tree-climbing lions. Drive south to Bwindi Impenetrable Forest. Arrive late afternoon for park briefing. Dinner and overnight Bwindi.' },
+  { day: 6, title: 'Gorilla Trekking in Bwindi', body: 'Early breakfast. 7:30am briefing at park headquarters. Trek to find your habituated gorilla family deep in the impenetrable forest. One unforgettable hour observing them at close range. Return for lunch. Afternoon rest or optional Batwa community walk. Dinner and overnight Bwindi.' },
+  { day: 7, title: 'Bwindi to Jinja and White Water Rafting', body: 'Early departure from Bwindi. Long drive to Jinja via Kampala (approximately 7 hours total). Arrive Jinja mid-afternoon. Check in and rest. Late afternoon walk along the Nile bank. Overnight Jinja. Optional: arrange next-day rafting before departing for Entebbe.' },
+];
+const includes = [
+  'Gorilla trekking permit (USD 800)',
+  'Chimpanzee trekking permit (USD 250)',
+  'Rwenzori day hike fee and guide',
+  'Private 4x4 vehicle and driver-guide',
+  'All accommodation (6 nights)',
+  'All meals during safari',
+  'Drinking water',
+  'All park fees',
+  'Kazinga Channel boat cruise',
+];
+const excludes = ['White water rafting on Day 7 (bookable separately, approx USD 120)', 'Flights', 'Visa fees', 'Travel insurance', 'Alcohol', 'Tips and gratuities'];
+const faqs = [
+  { q: 'Is the Rwenzori hike on Day 3 suitable for beginners?', a: 'Yes. The Day 3 hike is a lower-altitude day excursion into the Rwenzori foothills — it does not require mountaineering experience or technical equipment. Good hiking boots, layers and reasonable fitness are all you need.' },
+  { q: 'Can I add the white water rafting on Day 7?', a: 'The rafting is listed as an optional add-on because the long drive from Bwindi arrives in Jinja in the afternoon. Most guests choose to overnight in Jinja and raft on Day 8 before returning to Entebbe. We can arrange this for you at an additional cost.' },
+  { q: 'What is the best season for this adventure safari?', a: 'The dry seasons from June to September and December to February offer the best conditions for all activities. The Rwenzori hike is manageable year-round but drier months give clearer mountain views.' },
+];
+const relatedTours = [
+  { title: '7 Days Uganda Gorilla, Chimp and Wildlife Safari', slug: '7-days-uganda-gorilla-chimp-wildlife-safari', days: 7, price: 'From $2,800', img: '/images/gorillas/silverback-gorilla-group.jpg', imgAlt: 'Gorilla group Bwindi Uganda' },
+  { title: '5 Days Gorilla Safari and White Water Rafting', slug: '5-days-gorilla-safari-white-water-rafting', days: 5, price: 'From $2,300', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla trekking and Nile rafting Uganda' },
+  { title: '10 Days Uganda Wildlife Gorilla Chimp Safari', slug: '10-days-uganda-wildlife-gorilla-chimp-safari', days: 10, price: 'From $3,800', img: '/images/primates/chimpanzee-kibale-forest.jpg', imgAlt: 'Chimpanzee Kibale Forest Uganda' },
+];
 ---
-
-<BaseLayout title="7 Days Uganda Adventure Safari | Murchison Falls, Kibale Chimps and Ishasha Lions | L'okawa Tours" description="Rhinos, Nile falls, chimps in Kibale and tree-climbing lions in Ishasha. Full 7-day Uganda adventure safari.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

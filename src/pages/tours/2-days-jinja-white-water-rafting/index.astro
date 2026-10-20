@@ -1,7 +1,67 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = {
+  title: '2 Days Jinja White Water Rafting on the Nile',
+  slug: '2-days-jinja-white-water-rafting',
+  country: 'Uganda',
+  countrySlug: 'uganda',
+  tagline: 'The World\'s Best White Water Rafting on the Source of the Nile',
+  heroImg: '/images/activities/jinja-zipline-adventure.jpg',
+  heroImgAlt: 'Adventure activity at Jinja on the Source of the Nile Uganda',
+  description: 'Two days of white water rafting and Nile adventure activities at Jinja, Uganda. Grade 5 rapids on the longest river in the world. Closest adventure destination to Kampala.',
+  price: 'From $350',
+  priceNote: 'per person, rafting and accommodation included',
+  days: 2,
+  startEnd: 'Kampala / Kampala',
+  groupSize: '2 to 12 people',
+  difficulty: 'Moderate to Strenuous',
+  highlights: [
+    'Full day Grade 3 to 5 white water rafting on the River Nile',
+    'Visit the Source of the Nile at Jinja — Africa\'s most famous river origin',
+    'Optional kayaking, bungee jumping and quad biking',
+    'Nile River sunset cruise on Day 1',
+    'Just 2 hours from Kampala — perfect weekend escape',
+    'Professional safety equipment and experienced guides throughout',
+  ],
+  facts: [
+    { label: 'Duration', value: '2 Days / 1 Night' },
+    { label: 'Group size', value: '2 to 12' },
+    { label: 'Difficulty', value: 'Moderate to Strenuous (no experience needed)' },
+    { label: 'Best time', value: 'Year-round' },
+    { label: 'Starts', value: 'Kampala or Entebbe' },
+    { label: 'Ends', value: 'Kampala or Entebbe' },
+    { label: 'Accommodation', value: 'Riverside guesthouse' },
+    { label: 'Distance from Kampala', value: 'Approx 80 km (2 hours)' },
+  ],
+  overview: [
+    'Jinja is the adventure capital of East Africa, and the white water rafting on the Nile is consistently rated among the best in the world. The river drops through a series of Grade 3 to 5 rapids over a full-day run, with dramatic churning white water, calm recovery pools and scenic riverside jungle in between.',
+    'No prior rafting experience is required. The professional operators at Jinja have excellent safety records and all rafts are accompanied by trained safety kayakers. A full safety briefing is given before the run. Wetsuits, helmets and life jackets are provided.',
+    'Beyond rafting, Jinja offers kayaking, bungee jumping over the Nile, quad biking, horseback riding along the river and boat trips to the Source of the Nile monument. This 2-day package includes the full-day rafting on Day 2 and a Nile sunset cruise on Day 1.',
+  ],
+};
+const itinerary = [
+  { day: 1, title: 'Kampala to Jinja', body: 'Depart Kampala after breakfast. Drive east to Jinja (approximately 2 hours). Check in to your riverside guesthouse. Afternoon visit to the Source of the Nile where the Nile begins its 6,650km journey to the Mediterranean Sea. Boat trip to the source monument on the island. Optional afternoon activities: kayaking, bungee jumping (additional cost) or a guided walk along the riverbank. Evening sunset boat cruise on the Nile. Dinner at a riverside restaurant. Overnight Jinja.' },
+  { day: 2, title: 'Full Day White Water Rafting on the Nile', body: 'Early breakfast. Transfer to the launch site (7:30am departure). Full safety briefing and wetsuit fitting. Full day on the river tackling 8 to 12 rapids ranging from Grade 3 to Grade 5 including the famous Bujagali rapids. Riverside lunch included. Complete the run in the afternoon. Shower and change at the rafting base. Drive back to Kampala. Arrive in Kampala by 7pm. End of trip.' },
+];
+const includes = [
+  'Private vehicle and driver Kampala to Jinja and return',
+  'All accommodation (1 night, riverside guesthouse)',
+  'Dinner Day 1 and breakfast Day 2',
+  'Nile sunset boat cruise Day 1',
+  'Source of the Nile boat trip',
+  'Full day white water rafting Day 2 (all safety gear, riverside lunch, guides)',
+];
+const excludes = ['Bungee jumping (optional, approx USD 115)', 'Kayaking lessons (optional, approx USD 60)', 'Quad biking (optional)', 'Alcohol and soft drinks', 'Tips and gratuities', 'Travel insurance'];
+const faqs = [
+  { q: 'Do I need rafting experience?', a: 'No experience is required at all. The professional operators at Jinja run introductory sessions before every launch. Guests who have never rafted before are fully briefed and supervised throughout. The rapids are challenging and exciting but are run safely every day by thousands of visitors.' },
+  { q: 'What is the minimum age for rafting?', a: 'The minimum age for the full Grade 5 rafting run is 18 years. For the Grade 3 family raft (calmer option), children aged 12 and above are permitted. Please specify if you are travelling with younger participants when booking.' },
+  { q: 'Is rafting available year-round?', a: 'Yes. The Nile runs year-round and rafting is available every day. Water levels vary with the seasons — the rapids are generally larger and more powerful during and after the rainy seasons (March to May and October to November).' },
+  { q: 'Can we combine this with a safari?', a: 'Yes. Jinja is easily combined with a longer Uganda safari. Many itineraries finish at Jinja on the way back from Bwindi or Queen Elizabeth to Entebbe. See our 5 Days Gorilla Safari and White Water Rafting itinerary for a combined package.' },
+];
+const relatedTours = [
+  { title: '5 Days Gorilla Safari and White Water Rafting', slug: '5-days-gorilla-safari-white-water-rafting', days: 5, price: 'From $2,300', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla trekking and Nile rafting Uganda' },
+  { title: '3 Days Ssese Islands Uganda', slug: '3-days-ssese-islands-uganda', days: 3, price: 'From $450', img: '/images/accommodation/safari-tented-camp-daytime.jpg', imgAlt: 'Ssese Islands Lake Victoria Uganda' },
+  { title: '7 Days Uganda Adventure Safari', slug: '7-days-uganda-adventure-safari', days: 7, price: 'From $3,000', img: '/images/accommodation/rwenzori-mountains-glacier-hike.jpg', imgAlt: 'Uganda adventure safari' },
+];
 ---
-
-<BaseLayout title="2 Days Jinja White Water Rafting and Source of the Nile Uganda | L'okawa Tours" description="Raft Grade 5 Nile rapids and visit the Source of the Nile. 2-day adventure tour from Kampala.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

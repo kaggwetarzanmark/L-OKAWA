@@ -1,7 +1,20 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = { title: '4 Days Bwindi Gorillas and Lake Mburo Safari', slug: '4-days-bwindi-gorillas-lake-mburo', country: 'Uganda', countrySlug: 'uganda', tagline: 'From Ancient Rainforest to Open Savannah', heroImg: '/images/gorillas/silverback-gorilla-group.jpg', heroImgAlt: 'Silverback gorilla family on trail in Bwindi Uganda', description: 'Gorilla trekking in Bwindi then zebras and hippos at Lake Mburo National Park. 4-day Uganda safari with gorilla permit and boat cruise.', price: 'From $1,700', priceNote: 'per person, gorilla permit included', days: 4, startEnd: 'Kampala / Entebbe', groupSize: '2 to 8 people', difficulty: 'Moderate', highlights: ['Gorilla trekking in Bwindi Impenetrable Forest', 'Boat cruise on Lake Mburo spotting hippos and birds', 'Game drive in Lake Mburo National Park for zebras, impalas and buffaloes', 'Gorilla permit (USD 800) included in tour price', 'Uganda\'s only park accessible to zebras east of the Rift Valley'], facts: [{ label: 'Duration', value: '4 Days / 3 Nights' }, { label: 'Gorilla permit', value: 'USD 800 — included' }, { label: 'Group size', value: '2 to 8' }, { label: 'Difficulty', value: 'Moderate' }, { label: 'Accommodation', value: 'Lodge' }, { label: 'Best time', value: 'Year-round' }, { label: 'Starts', value: 'Kampala or Entebbe' }, { label: 'Ends', value: 'Kampala or Entebbe' }], overview: ['This 4-day safari gives you two contrasting Uganda habitats: the ancient equatorial rainforest of Bwindi where mountain gorillas live, and the savannah grasslands of Lake Mburo National Park where zebras, impalas and hippos roam.', 'Lake Mburo is Uganda\'s smallest national park but one of its most rewarding. It is the only park in Uganda where Burchell\'s zebras are found, and the boat safari on the lake itself is one of the best wildlife experiences in the country.', 'Both gorilla permit and boat safari are included in the price.'] };
+const itinerary = [
+  { day: 1, title: 'Kampala to Bwindi', body: 'Depart Kampala after breakfast and drive southwest to Bwindi Impenetrable National Park via Mbarara. Stop at the equator for photos and in Mbarara for lunch. Arrive in the late afternoon, check in and receive a briefing about tomorrow\'s trek. Dinner and overnight.' },
+  { day: 2, title: 'Gorilla Trekking', body: 'Early breakfast. Drive to park headquarters for the 7:30am briefing. Trek with rangers into the forest to find your gorilla family. Spend one hour with the gorillas. Return to the lodge for lunch and rest. Optional Batwa community visit in the afternoon. Dinner and overnight.' },
+  { day: 3, title: 'Bwindi to Lake Mburo National Park', body: 'After breakfast drive east to Lake Mburo National Park, passing through Mbarara. Arrive in the afternoon and check in at your lodge. Evening game drive through the park. Dinner and overnight.' },
+  { day: 4, title: 'Lake Mburo Game Drive and Boat Cruise then Return', body: 'Early morning game drive for zebras, impalas, buffaloes and birds. Breakfast at the lodge. Afternoon boat cruise on Lake Mburo watching hippos, crocodiles and the crested crane. Drive back to Kampala, arriving in the evening.' },
+];
+const includes = ['Gorilla permit', 'Private 4x4 vehicle', 'Driver-guide', 'All accommodation (3 nights)', 'All meals', 'Bottled water', 'Park fees', 'Lake Mburo boat safari'];
+const excludes = ['International flights', 'Uganda visa', 'Travel insurance', 'Alcohol', 'Gratuities', 'Porter hire'];
+const faqs = [
+  { q: 'What wildlife is in Lake Mburo National Park?', a: 'Lake Mburo has zebras, impalas, topis, hippos, crocodiles, warthogs, buffaloes and over 332 bird species including the African finfoot. It is one of the best parks for boat safaris in Uganda.' },
+];
+const relatedTours = [
+  { title: '4 Days Gorilla Trekking and Lake Bunyonyi', slug: '4-days-gorilla-trekking-lake-bunyonyi', days: 4, price: 'From $1,800', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla Bwindi Uganda' },
+  { title: '7 Days Uganda Wildlife Safari', slug: '7-days-uganda-wildlife-safari', days: 7, price: 'From $2,800', img: '/images/wildlife/hippos-in-grass-kazinga.jpg', imgAlt: 'Hippos Uganda' },
+];
 ---
-
-<BaseLayout title="4 Days Bwindi Gorillas and Lake Mburo National Park Safari | L'okawa Tours" description="Gorilla trekking in Bwindi then zebras and hippos at Lake Mburo. 4-day Uganda safari with boat cruise.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

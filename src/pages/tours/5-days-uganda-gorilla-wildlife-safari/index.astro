@@ -1,7 +1,21 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = { title: '5 Days Uganda Gorilla and Wildlife Safari', slug: '5-days-uganda-gorilla-wildlife-safari', country: 'Uganda', countrySlug: 'uganda', tagline: 'Uganda\'s Most Popular Safari Route', heroImg: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', heroImgAlt: 'Mountain gorilla mother carrying baby in Bwindi Impenetrable Forest Uganda', description: 'Uganda\'s most popular route: gorilla trekking in Bwindi, tree-climbing lions in Ishasha and Kazinga Channel boat cruise in Queen Elizabeth. 5-day all-inclusive safari.', price: 'From $2,200', priceNote: 'per person, gorilla permit included', days: 5, startEnd: 'Kampala / Entebbe', groupSize: '2 to 8 people', difficulty: 'Moderate', highlights: ['Gorilla trekking in Bwindi with permit included', 'Tree-climbing lions in Ishasha — unique in Africa', 'Kazinga Channel boat safari with hundreds of hippos', 'Game drives in Queen Elizabeth National Park', 'Five nights covering Uganda\'s two most iconic wildlife areas'], facts: [{ label: 'Duration', value: '5 Days / 4 Nights' }, { label: 'Gorilla permit', value: 'USD 800 — included' }, { label: 'Group size', value: '2 to 8' }, { label: 'Difficulty', value: 'Moderate' }, { label: 'Best time', value: 'Year-round' }, { label: 'Starts', value: 'Kampala or Entebbe' }, { label: 'Ends', value: 'Kampala or Entebbe' }, { label: 'Accommodation', value: 'Lodge' }], overview: ['This is L\'okawa\'s most popular itinerary, combining Uganda\'s two greatest wildlife experiences: mountain gorilla trekking in Bwindi Impenetrable Forest and game drives in Queen Elizabeth National Park.', 'The route passes through the Ishasha sector en route between the two parks, giving you the opportunity to see the famous tree-climbing lions before settling in at your Queen Elizabeth lodge for game drives and the Kazinga Channel boat cruise.', 'Five days allows time to fully experience both parks without rushing. All gorilla permits, park fees, accommodation, meals and transport are included.'] };
+const itinerary = [
+  { day: 1, title: 'Kampala to Bwindi', body: 'Depart Kampala after breakfast. Drive to Bwindi via Masaka, Mbarara and the Kigezi highlands. Equator stop and lunch en route. Arrive Bwindi in the late afternoon. Briefing and overnight.' },
+  { day: 2, title: 'Gorilla Trekking in Bwindi', body: 'Early breakfast. 7:30am briefing at park headquarters. Trek into the forest to find your gorilla family. One hour with the gorillas. Return for lunch. Afternoon optional Batwa cultural experience. Dinner and overnight.' },
+  { day: 3, title: 'Bwindi to Queen Elizabeth via Ishasha', body: 'After breakfast drive via the Ishasha sector of Queen Elizabeth National Park searching for tree-climbing lions in the giant fig trees. Continue to the Mweya peninsula. Arrive in the afternoon for a game drive on the way to your lodge. Dinner and overnight.' },
+  { day: 4, title: 'Queen Elizabeth Game Drive and Kazinga Cruise', body: 'Early morning game drive through Kasenyi plains for lions, elephants, buffaloes and Uganda kobs. Breakfast. Afternoon 2-hour Kazinga Channel boat cruise. Dinner and overnight.' },
+  { day: 5, title: 'Return to Kampala', body: 'Morning game drive or leisure. Drive back to Kampala, arriving in the evening.' },
+];
+const includes = ['Gorilla permit (USD 800)', 'Private 4x4 vehicle', 'Driver-guide', 'All accommodation (4 nights)', 'All meals', 'Water', 'All park fees', 'Kazinga Channel boat cruise'];
+const excludes = ['Flights', 'Visa', 'Insurance', 'Alcohol', 'Tips', 'Porter hire'];
+const faqs = [
+  { q: 'Why is this the most popular Uganda itinerary?', a: 'It combines the two experiences most visitors come to Uganda for — gorilla trekking and savannah game drives — in a logical 5-day loop from Kampala without repeating any route. The Ishasha tree-climbing lions are a bonus that few other itineraries include.' },
+];
+const relatedTours = [
+  { title: '7 Days Uganda Wildlife Safari', slug: '7-days-uganda-gorilla-chimp-wildlife-safari', days: 7, price: 'From $2,800', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla Uganda' },
+  { title: '5 Days Uganda Primates Safari', slug: '5-days-uganda-primates-safari', days: 5, price: 'From $2,100', img: '/images/primates/chimpanzees-pair-feeding.jpg', imgAlt: 'Chimpanzees Uganda' },
+];
 ---
-
-<BaseLayout title="5 Days Uganda Safari | Gorilla Trekking Bwindi and Queen Elizabeth | L'okawa Tours" description="Uganda's most popular route: gorillas in Bwindi, tree-climbing lions in Ishasha and Kazinga boat cruise.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

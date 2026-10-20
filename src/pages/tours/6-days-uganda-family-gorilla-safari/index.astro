@@ -1,7 +1,72 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = {
+  title: '6 Days Uganda Family Gorilla Safari',
+  slug: '6-days-uganda-family-gorilla-safari',
+  country: 'Uganda',
+  countrySlug: 'uganda',
+  tagline: 'The Perfect Family Wildlife Adventure in Africa',
+  heroImg: '/images/gorillas/gorilla-mother-infant-closeup.jpg',
+  heroImgAlt: 'Mountain gorilla mother holding infant in Bwindi Impenetrable Forest Uganda',
+  description: 'A family-friendly 6-day Uganda safari combining gorilla trekking in Bwindi, game drives in Queen Elizabeth, and a Kazinga Channel boat cruise — safe, comfortable and unforgettable.',
+  price: 'From $2,600',
+  priceNote: 'per person, gorilla permit included',
+  days: 6,
+  startEnd: 'Kampala / Entebbe',
+  groupSize: '2 to 8 people',
+  difficulty: 'Easy to Moderate',
+  highlights: [
+    'Gorilla trekking permit included (USD 800 per adult)',
+    'Game drives in Queen Elizabeth National Park',
+    'Kazinga Channel boat cruise — close hippo and elephant encounters',
+    'Optional Batwa cultural experience for children',
+    'Family-friendly lodges with spacious rooms',
+    'Flexible pace suited to families with children',
+  ],
+  facts: [
+    { label: 'Duration', value: '6 Days / 5 Nights' },
+    { label: 'Gorilla permit', value: 'USD 800 (adult), USD 400 (child under 15)' },
+    { label: 'Group size', value: '2 to 8' },
+    { label: 'Difficulty', value: 'Easy to Moderate' },
+    { label: 'Best time', value: 'Year-round' },
+    { label: 'Starts', value: 'Kampala or Entebbe' },
+    { label: 'Ends', value: 'Kampala or Entebbe' },
+    { label: 'Accommodation', value: 'Family lodges' },
+  ],
+  overview: [
+    'This 6-day itinerary has been crafted for families who want a genuine African wildlife experience without an exhausting schedule. The pace is relaxed, the lodges are family-friendly, and every activity has been chosen for broad age appeal.',
+    'You will trek mountain gorillas in Bwindi Impenetrable Forest, one of the most profound wildlife encounters available anywhere on Earth. The second half of the safari takes you to Queen Elizabeth National Park for game drives and the famous Kazinga Channel boat cruise, where hippos, elephants, and hundreds of bird species come to the water\'s edge.',
+    'Children under 15 pay a reduced gorilla permit fee of USD 400. Children under 12 are not permitted on gorilla treks but can enjoy a guided nature walk in the forest as an alternative.',
+  ],
+};
+const itinerary = [
+  { day: 1, title: 'Kampala to Bwindi', body: 'Early departure from Kampala after breakfast. Scenic drive via Masaka and Mbarara through the Kigezi highlands. Equator stop for photos and a brief explanation of the phenomenon. Arrive Bwindi in the late afternoon. Park briefing. Dinner and overnight at your family lodge.' },
+  { day: 2, title: 'Gorilla Trekking in Bwindi', body: '6:30am breakfast. Mandatory 7:30am briefing at park headquarters. Trek into the impenetrable forest with an expert ranger guide. One hour with a habituated gorilla family, observing them feeding, playing and interacting. Return for lunch. Afternoon free for rest or an optional village walk. Dinner and overnight Bwindi.' },
+  { day: 3, title: 'Bwindi to Queen Elizabeth National Park', body: 'After breakfast begin the drive north through Kabale and Mbarara toward Queen Elizabeth National Park. Stop for lunch en route. Arrive in the afternoon for a short afternoon game drive through the Kasenyi plains. Check in to your lodge on the Mweya peninsula. Dinner and overnight.' },
+  { day: 4, title: 'Kazinga Channel Boat Cruise and Game Drive', body: 'Early morning game drive seeking lions, elephants, buffaloes and Uganda kobs. Return for breakfast. Midday rest. Afternoon 2-hour Kazinga Channel boat cruise — an exceptional family experience with hippos, crocodiles, and elephants often at arm\'s length from the boat. Dinner and overnight.' },
+  { day: 5, title: 'Ishasha Sector Game Drive', body: 'Morning drive to the Ishasha sector in search of the park\'s famous tree-climbing lions resting in the giant fig trees. Return for lunch. Afternoon at leisure at the lodge — children can use the pool at many Mweya properties. Dinner and overnight.' },
+  { day: 6, title: 'Return to Kampala', body: 'After breakfast begin the drive back to Kampala or Entebbe. Stop at the Equator for a final photo. Arrive in Kampala by early evening. Drop-off at hotel or airport. End of safari.' },
+];
+const includes = [
+  'Gorilla trekking permit (USD 800 per adult)',
+  'Private family 4x4 vehicle',
+  'Driver-guide',
+  'All accommodation (5 nights)',
+  'All meals during safari',
+  'Drinking water',
+  'All park and game drive fees',
+  'Kazinga Channel boat cruise',
+];
+const excludes = ['Flights', 'Visa fees', 'Travel insurance', 'Alcohol and soft drinks', 'Tips and gratuities', 'Optional porter hire in Bwindi'];
+const faqs = [
+  { q: 'What is the minimum age for gorilla trekking?', a: 'Children must be at least 15 years old to participate in gorilla trekking in Uganda. Children aged 12 to 14 can join a guided forest walk in Bwindi as an alternative while adults complete the trek.' },
+  { q: 'Are family lodges available near Bwindi and Queen Elizabeth?', a: 'Yes. We book family-friendly properties with interconnecting rooms or family suites at both destinations. All lodges on this itinerary have been selected for their family-appropriate facilities and safety.' },
+  { q: 'Can we extend this safari?', a: 'Absolutely. Common extensions include Kibale Forest chimpanzee trekking, Lake Bunyonyi for a relaxing day on the water, or Jinja for white water rafting. Contact us for a customised family quote.' },
+];
+const relatedTours = [
+  { title: '5 Days Uganda Gorilla and Wildlife Safari', slug: '5-days-uganda-gorilla-wildlife-safari', days: 5, price: 'From $2,200', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla trekking Bwindi Uganda' },
+  { title: '8 Days Explore Uganda Safari', slug: '8-days-explore-uganda-safari', days: 8, price: 'From $3,200', img: '/images/wildlife/elephant-pair-greeting.jpg', imgAlt: 'Elephants Uganda safari' },
+  { title: '4 Days Gorilla Trekking and Lake Bunyonyi', slug: '4-days-gorilla-trekking-lake-bunyonyi', days: 4, price: 'From $1,800', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Mountain gorilla Uganda' },
+];
 ---
-
-<BaseLayout title="6 Days Uganda Family Safari with Gorilla Trekking | Kid-Friendly Itinerary | L'okawa Tours" description="Family-friendly Uganda safari with gorilla trekking, game drives, boat cruises and wildlife walks. Designed for all ages.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

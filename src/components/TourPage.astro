@@ -1,0 +1,586 @@
+---
+/**
+ * TourPage.astro
+ * ─────────────────────────────────────────────────────────────
+ * Reusable template for every individual safari tour page.
+ * Pass all content as props — zero repeated markup or CSS.
+ *
+ * USAGE:
+ *   import TourPage from '../../../components/TourPage.astro';
+ *   <TourPage tour={tour} itinerary={itinerary} includes={includes}
+ *             excludes={excludes} faqs={faqs} relatedTours={relatedTours} />
+ * ─────────────────────────────────────────────────────────────
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBand    from '../components/CtaBand.astro';
+
+// ── Type definitions ──────────────────────────────────────────
+interface Day {
+  day:   number;
+  title: string;
+  body:  string;
+}
+interface Include {
+  icon: 'check' | 'x';
+  text: string;
+}
+interface Faq {
+  q: string;
+  a: string;
+}
+interface RelatedTour {
+  title:  string;
+  slug:   string;
+  days:   number;
+  price:  string;
+  img:    string;
+  imgAlt: string;
+}
+interface Fact {
+  label: string;
+  value: string;
+}
+interface Tour {
+  title:       string;           // page H1
+  slug:        string;
+  country:     string;           // badge label e.g. "Uganda"
+  countrySlug: string;           // e.g. "uganda"
+  tagline:     string;           // italic kicker
+  heroImg:     string;
+  heroImgAlt:  string;
+  description: string;           // meta description
+  overview:    string[];         // 2–3 intro paragraphs
+  price:       string;           // "From $1,400"
+  priceNote?:  string;           // "per person, gorilla permit included"
+  days:        number;
+  startEnd:    string;           // "Kampala / Entebbe"
+  groupSize:   string;           // "2 – 8 people"
+  difficulty:  string;           // "Moderate"
+  highlights:  string[];         // bullet list above itinerary
+  facts:       Fact[];           // quick-facts strip (8 items max)
+}
+
+interface Props {
+  tour:         Tour;
+  itinerary:    Day[];
+  includes:     string[];
+  excludes:     string[];
+  faqs:         Faq[];
+  relatedTours: RelatedTour[];
+}
+
+const { tour, itinerary, includes, excludes, faqs, relatedTours } = Astro.props;
+
+// ── JSON-LD: TouristTrip + BreadcrumbList + FAQPage ───────────
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type":"ListItem","position":1,"name":"Home",  "item":"https://lokawatours.com/" },
+        { "@type":"ListItem","position":2,"name":"Tours", "item":"https://lokawatours.com/tours/" },
+        { "@type":"ListItem","position":3,"name":tour.title,"item":`https://lokawatours.com/tours/${tour.slug}/` }
+      ]
+    },
+    {
+      "@type": "TouristTrip",
+      "name":        tour.title,
+      "description": tour.description,
+      "url":         `https://lokawatours.com/tours/${tour.slug}/`,
+      "image":       `https://lokawatours.com${tour.heroImg}`,
+      "touristType": "Safari",
+      "offers": {
+        "@type":         "Offer",
+        "price":         tour.price.replace(/[^0-9]/g,''),
+        "priceCurrency": "USD",
+        "availability":  "https://schema.org/InStock",
+        "url":           `https://lokawatours.com/tours/${tour.slug}/`
+      },
+      "provider": {
+        "@type": "TravelAgency",
+        "name":  "L'okawa Tours & Travel (U) Ltd",
+        "url":   "https://lokawatours.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name":  f.q,
+        "acceptedAnswer": { "@type":"Answer","text":f.a }
+      }))
+    }
+  ]
+});
+---
+
+<BaseLayout
+  title={`${tour.title} | L'okawa Tours`}
+  description={tour.description}
+  ogImage={tour.heroImg}
+  schema={schema}
+>
+
+<!-- ════════════════════════════════════════════════════
+     BANNER
+════════════════════════════════════════════════════ -->
+<div class="tp-banner">
+  <div class="tp-banner__photo" style={`background-image:url('${tour.heroImg}')`} aria-hidden="true"></div>
+  <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" class="tp-banner__svg" aria-hidden="true">
+    <circle cx="1130" cy="200" r="100" fill="#ffd45a" opacity=".2"/>
+    <circle cx="1130" cy="200" r="65"  fill="#ffd45a"/>
+    <path d="M0 240 C220 210 400 236 580 214 C780 190 940 232 1140 212 C1280 198 1370 220 1440 214 L1440 300 L0 300Z" fill="#1d3315" opacity=".8"/>
+    <path d="M0 272 C240 252 440 272 660 262 C880 250 1100 274 1440 256 L1440 300 L0 300Z" fill="#0d1a0a"/>
+  </svg>
+  <div class="tp-banner__overlay" aria-hidden="true"></div>
+  <div class="tp-banner__content">
+    <nav aria-label="Breadcrumb" class="tp-breadcrumb">
+      <a href="/" class="tp-breadcrumb__link">Home</a>
+      <span class="tp-breadcrumb__sep" aria-hidden="true">/</span>
+      <a href="/tours/" class="tp-breadcrumb__link">Tours</a>
+      <span class="tp-breadcrumb__sep" aria-hidden="true">/</span>
+      <span class="tp-breadcrumb__cur">{tour.title}</span>
+    </nav>
+    <p class="tp-banner__kicker">{tour.tagline}</p>
+    <h1 class="tp-banner__h1">{tour.title}</h1>
+    <div class="tp-banner__badges">
+      <span class="tp-badge tp-badge--country">{tour.country}</span>
+      <span class="tp-badge">{tour.days} Days</span>
+      <span class="tp-badge">{tour.difficulty}</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     QUICK FACTS STRIP
+════════════════════════════════════════════════════ -->
+<div class="tp-facts" aria-label="Tour quick facts">
+  <div class="container tp-facts__inner">
+    {tour.facts.map(f => (
+      <div class="tp-fact">
+        <span class="tp-fact__label">{f.label}</span>
+        <span class="tp-fact__value">{f.value}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     MAIN BODY — overview left + booking sidebar right
+════════════════════════════════════════════════════ -->
+<div class="tp-body section">
+  <div class="container tp-layout">
+
+    <!-- ── LEFT COLUMN ── -->
+    <main class="tp-main">
+
+      <!-- Overview -->
+      <section class="tp-overview" aria-labelledby="overview-heading">
+        <h2 id="overview-heading" class="tp-section-heading">Tour Overview</h2>
+        {tour.overview.map(p => <p class="tp-para">{p}</p>)}
+      </section>
+
+      <!-- Highlights -->
+      <section class="tp-highlights" aria-labelledby="highlights-heading">
+        <h2 id="highlights-heading" class="tp-section-heading">Tour Highlights</h2>
+        <ul class="tp-hl-list">
+          {tour.highlights.map(h => (
+            <li class="tp-hl-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-amber)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {h}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <!-- Day-by-day itinerary -->
+      <section class="tp-itinerary section--parchment" aria-labelledby="itinerary-heading">
+        <h2 id="itinerary-heading" class="tp-section-heading">Day by Day Itinerary</h2>
+        <div class="tp-days">
+          {itinerary.map(d => (
+            <details class="tp-day" name="itinerary">
+              <summary class="tp-day__summary">
+                <span class="tp-day__num">Day {d.day}</span>
+                <span class="tp-day__title">{d.title}</span>
+                <svg class="tp-day__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="tp-day__body"><p>{d.body}</p></div>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <!-- Includes / Excludes -->
+      <section class="tp-incexc" aria-labelledby="incexc-heading">
+        <h2 id="incexc-heading" class="tp-section-heading">What's Included</h2>
+        <div class="tp-incexc__grid">
+          <div class="tp-incexc__col">
+            <h3 class="tp-incexc__sub tp-incexc__sub--inc">Included</h3>
+            <ul class="tp-incexc__list">
+              {includes.map(item => (
+                <li class="tp-incexc__item tp-incexc__item--inc">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="tp-incexc__col">
+            <h3 class="tp-incexc__sub tp-incexc__sub--exc">Not Included</h3>
+            <ul class="tp-incexc__list">
+              {excludes.map(item => (
+                <li class="tp-incexc__item tp-incexc__item--exc">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="tp-faq" aria-labelledby="faq-heading">
+        <h2 id="faq-heading" class="tp-section-heading">Frequently Asked Questions</h2>
+        <div class="tp-faq__list">
+          {faqs.map(f => (
+            <details class="faq-item" name="tour-faq">
+              <summary class="faq-item__q">
+                <span>{f.q}</span>
+                <svg class="faq-item__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="faq-item__a"><p>{f.a}</p></div>
+            </details>
+          ))}
+        </div>
+        <a href="/plan/faq/" class="tp-faq__more">View all safari FAQs &rarr;</a>
+      </section>
+
+    </main>
+
+    <!-- ── RIGHT SIDEBAR ── -->
+    <aside class="tp-sidebar">
+      <div class="tp-booking-card" id="booking-card">
+
+        <div class="tp-booking-card__price">
+          <span class="tp-booking-card__from">from</span>
+          <span class="tp-booking-card__amount">{tour.price}</span>
+          <span class="tp-booking-card__per">per person</span>
+        </div>
+        {tour.priceNote && <p class="tp-booking-card__note">{tour.priceNote}</p>}
+
+        <div class="tp-booking-card__facts">
+          <div class="tp-bc-fact">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>{tour.days} Days</span>
+          </div>
+          <div class="tp-bc-fact">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>{tour.startEnd}</span>
+          </div>
+          <div class="tp-bc-fact">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>{tour.groupSize}</span>
+          </div>
+          <div class="tp-bc-fact">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l3-6 4 4 4-8 3 5"/></svg>
+            <span>{tour.difficulty}</span>
+          </div>
+        </div>
+
+        <a href="/contact/" class="tp-booking-card__cta">
+          Get a Free Quote
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+
+        <a href="https://wa.me/256761512966" target="_blank" rel="noopener noreferrer" class="tp-booking-card__wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          Chat on WhatsApp
+        </a>
+
+        <p class="tp-booking-card__reply">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Reply in under 4 hours (Mon–Sat)
+        </p>
+
+        <div class="tp-booking-card__links">
+          <a href={`/destinations/${tour.countrySlug}/`} class="tp-bc-link">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            About {tour.country}
+          </a>
+          <a href="/plan/safari-cost-guide/" class="tp-bc-link">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            Safari cost guide
+          </a>
+          <a href="/plan/safari-packing-list/" class="tp-bc-link">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6h-2.18c.07-.44.18-.88.18-1 0-2.21-1.79-4-4-4s-4 1.79-4 4c0 .12.11.56.18 1H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
+            Packing list
+          </a>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     RELATED TOURS
+════════════════════════════════════════════════════ -->
+{relatedTours.length > 0 && (
+  <section class="tp-related section--parchment" aria-labelledby="related-heading">
+    <div class="container">
+      <div class="section-heading">
+        <span class="kicker">You might also like</span>
+        <h2 id="related-heading">Similar Safari Packages</h2>
+        <div class="section-heading__divider"></div>
+      </div>
+      <div class="tp-related-grid">
+        {relatedTours.map(t => (
+          <article class="tour-card">
+            <a href={`/tours/${t.slug}/`} class="tour-card__img-link" tabindex="-1" aria-hidden="true">
+              <img src={t.img} alt={t.imgAlt} class="tour-card__img" loading="lazy"/>
+              <span class="badge tour-card__badge">{t.days} Days</span>
+            </a>
+            <div class="tour-card__body">
+              <h3 class="tour-card__title">
+                <a href={`/tours/${t.slug}/`} class="tour-card__title-link">{t.title}</a>
+              </h3>
+              <div class="tour-card__footer">
+                <span class="tour-card__meta">{t.days} Days &middot; {t.price}</span>
+                <a href={`/tours/${t.slug}/`} class="arrow-circle" aria-label={`View ${t.title}`}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div style="text-align:center;margin-top:36px;">
+        <a href="/tours/" class="btn btn--secondary btn--lg">View All Safari Packages</a>
+      </div>
+    </div>
+  </section>
+)}
+
+<CtaBand
+  heading={`Book Your ${tour.title}`}
+  sub="Permits are limited. We respond within 4 hours and secure your gorilla permits immediately on deposit."
+  btn1="Get a Free Quote"
+  btn1Href="/contact/"
+  btn2="View All Tours"
+  btn2Href="/tours/"
+/>
+
+</BaseLayout>
+
+<style>
+/* ── Banner ──────────────────────────────────────── */
+.tp-banner {
+  position: relative; overflow: hidden; min-height: 340px;
+  background: linear-gradient(180deg,#16290f 0%,#2f4d20 40%,#b8561a 82%,#f4b41a 100%);
+}
+.tp-banner__photo {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center 40%;
+  opacity: .3; z-index: 0;
+}
+.tp-banner__svg    { position:absolute;left:0;bottom:0;width:100%;height:100%;pointer-events:none;z-index:1; }
+.tp-banner__overlay{ position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,20,8,.85) 0%,rgba(10,20,8,.5) 50%,rgba(10,20,8,.1) 80%,transparent);z-index:1; }
+.tp-banner__content{ position:relative;z-index:2;max-width:var(--max-width);margin-inline:auto;padding:56px var(--section-pad-x) 72px;box-sizing:border-box; }
+.tp-banner__kicker { font-family:var(--font-display);font-style:italic;font-weight:500;font-size:20px;color:var(--color-gold);margin-bottom:6px;display:block; }
+.tp-banner__h1     { font-family:var(--font-display);font-weight:var(--weight-bold);font-size:clamp(28px,4vw,52px);line-height:1.1;color:var(--color-white);margin:0 0 18px; }
+.tp-banner__badges { display:flex;flex-wrap:wrap;gap:8px; }
+.tp-badge {
+  background: rgba(255,255,255,.15);
+  color: var(--color-cream);
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: var(--radius-full);
+  padding: 5px 14px;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-extrabold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+.tp-badge--country { background:var(--color-amber);color:var(--color-forest-deep);border-color:var(--color-amber); }
+
+/* ── Breadcrumb ──────────────────────────────────── */
+.tp-breadcrumb { display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:var(--text-sm);font-weight:var(--weight-semibold);color:var(--color-cream);margin-bottom:14px; }
+.tp-breadcrumb__link { color:var(--color-cream);transition:color var(--transition-fast); }
+.tp-breadcrumb__link:hover { color:var(--color-gold); }
+.tp-breadcrumb__sep { opacity:.4; }
+.tp-breadcrumb__cur { color:var(--color-gold); }
+
+/* ── Quick facts strip ───────────────────────────── */
+.tp-facts { background:var(--color-forest); }
+.tp-facts__inner { display:flex;flex-wrap:wrap;max-width:var(--max-width);margin-inline:auto; }
+.tp-fact { flex:1 1 130px;display:flex;flex-direction:column;gap:3px;padding:16px 14px;border-right:1px solid rgba(243,236,216,.15); }
+.tp-fact:last-child { border-right:none; }
+.tp-fact__label { font-size:var(--text-xs);font-weight:var(--weight-extrabold);letter-spacing:var(--tracking-widest);text-transform:uppercase;color:var(--color-gold); }
+.tp-fact__value { font-size:var(--text-sm);font-weight:var(--weight-semibold);color:var(--color-cream);line-height:1.4; }
+
+/* ── Main layout: content + sidebar ─────────────── */
+.tp-layout { display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:start; }
+.tp-main  { display:flex;flex-direction:column;gap:48px; }
+
+/* ── Shared section heading ──────────────────────── */
+.tp-section-heading {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-3xl);
+  color: var(--color-forest);
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--color-card-border);
+}
+
+.tp-para {
+  font-size: var(--text-md);
+  line-height: var(--leading-loose);
+  color: var(--color-text-body);
+  margin-bottom: 14px;
+}
+.tp-para:last-child { margin-bottom: 0; }
+
+/* ── Highlights list ─────────────────────────────── */
+.tp-hl-list { display:flex;flex-direction:column;gap:10px; }
+.tp-hl-item { display:flex;gap:10px;align-items:flex-start;font-size:var(--text-base);color:var(--color-text-body);line-height:1.55; }
+.tp-hl-item svg { flex-shrink:0;margin-top:3px; }
+
+/* ── Itinerary accordion ─────────────────────────── */
+.tp-itinerary { background:var(--color-parchment);border-radius:var(--radius-xl);padding:28px; }
+.tp-days { display:flex;flex-direction:column;gap:4px; }
+.tp-day { border:1px solid var(--color-card-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--color-white);transition:border-color var(--transition-fast); }
+.tp-day[open] { border-color:var(--color-amber); }
+.tp-day__summary {
+  display:flex;align-items:center;gap:14px;padding:16px 20px;
+  cursor:pointer;list-style:none;
+  transition:background var(--transition-fast);
+}
+.tp-day__summary::-webkit-details-marker { display:none; }
+.tp-day__summary:hover { background:var(--color-parchment); }
+.tp-day[open] .tp-day__summary { background:var(--color-parchment);border-bottom:1px solid var(--color-card-border); }
+.tp-day__num {
+  flex-shrink:0;
+  background:var(--color-forest);color:var(--color-gold);
+  font-family:var(--font-display);font-weight:var(--weight-bold);font-size:var(--text-sm);
+  padding:4px 10px;border-radius:var(--radius-full);
+  white-space:nowrap;
+}
+.tp-day[open] .tp-day__num { background:var(--color-amber);color:var(--color-forest-deep); }
+.tp-day__title { flex:1;font-weight:var(--weight-bold);font-size:var(--text-base);color:var(--color-forest);line-height:var(--leading-normal); }
+.tp-day__chevron { flex-shrink:0;color:var(--color-amber);transition:transform var(--transition-base); }
+.tp-day[open] .tp-day__chevron { transform:rotate(180deg); }
+.tp-day__body { padding:16px 20px 20px;font-size:var(--text-base);line-height:1.75;color:var(--color-text-body); }
+
+/* ── Includes / Excludes ─────────────────────────── */
+.tp-incexc__grid { display:grid;grid-template-columns:1fr 1fr;gap:24px; }
+.tp-incexc__sub { font-family:var(--font-display);font-weight:var(--weight-bold);font-size:var(--text-xl);margin-bottom:14px; }
+.tp-incexc__sub--inc { color:var(--color-forest); }
+.tp-incexc__sub--exc { color:#c0392b; }
+.tp-incexc__list { display:flex;flex-direction:column;gap:9px; }
+.tp-incexc__item { display:flex;gap:10px;align-items:flex-start;font-size:var(--text-base);color:var(--color-text-body);line-height:1.5; }
+.tp-incexc__item svg { flex-shrink:0;margin-top:2px; }
+
+/* ── FAQ ─────────────────────────────────────────── */
+.tp-faq__list { display:flex;flex-direction:column;gap:3px; }
+.tp-faq__more { display:inline-block;margin-top:16px;font-size:var(--text-sm);font-weight:var(--weight-bold);color:var(--color-amber);transition:opacity var(--transition-fast); }
+.tp-faq__more:hover { opacity:.75; }
+
+/* Reuse global faq-item classes from global.css / park pages */
+.faq-item { border:1px solid var(--color-card-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--color-white);transition:border-color var(--transition-fast); }
+.faq-item[open] { border-color:var(--color-amber); }
+.faq-item__q { display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 20px;font-weight:var(--weight-bold);font-size:var(--text-base);color:var(--color-forest);cursor:pointer;list-style:none;transition:background var(--transition-fast);line-height:var(--leading-normal); }
+.faq-item__q::-webkit-details-marker { display:none; }
+.faq-item__q:hover { background:var(--color-parchment); }
+.faq-item[open] .faq-item__q { background:var(--color-parchment);color:var(--color-amber);border-bottom:1px solid var(--color-card-border); }
+.faq-item__chevron { flex-shrink:0;color:var(--color-amber);transition:transform var(--transition-base); }
+.faq-item[open] .faq-item__chevron { transform:rotate(180deg); }
+.faq-item__a { padding:14px 20px 18px;font-size:var(--text-base);line-height:1.75;color:var(--color-text-body); }
+
+/* ── Booking sidebar card ────────────────────────── */
+.tp-sidebar { position:sticky;top:96px; }
+.tp-booking-card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card-md);
+  overflow: hidden;
+}
+.tp-booking-card__price {
+  background: var(--color-forest);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+.tp-booking-card__from { font-size:var(--text-xs);font-weight:var(--weight-extrabold);letter-spacing:var(--tracking-widest);text-transform:uppercase;color:var(--color-cream);opacity:.7; }
+.tp-booking-card__amount { font-family:var(--font-display);font-weight:var(--weight-bold);font-size:var(--text-5xl);color:var(--color-gold);line-height:1; }
+.tp-booking-card__per { font-size:var(--text-sm);color:var(--color-cream);opacity:.8; }
+.tp-booking-card__note { padding:10px 24px 0;font-size:var(--text-xs);color:var(--color-text-muted);background:var(--color-forest);opacity:.85; }
+.tp-booking-card__facts { padding:18px 24px;display:flex;flex-direction:column;gap:10px;border-bottom:1px solid var(--color-card-border); }
+.tp-bc-fact { display:flex;align-items:center;gap:8px;font-size:var(--text-sm);font-weight:var(--weight-semibold);color:var(--color-text-body); }
+.tp-bc-fact svg { color:var(--color-amber);flex-shrink:0; }
+.tp-booking-card__cta {
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin:20px 24px 0;
+  background:var(--color-amber);color:var(--color-forest-deep);
+  font-weight:var(--weight-extrabold);font-size:var(--text-sm);
+  letter-spacing:var(--tracking-widest);text-transform:uppercase;
+  padding:16px;border-radius:var(--radius-md);
+  transition:opacity var(--transition-fast);
+}
+.tp-booking-card__cta:hover { opacity:.88; }
+.tp-booking-card__wa {
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin:10px 24px 0;
+  background:#25D366;color:#0b2b14;
+  font-weight:var(--weight-extrabold);font-size:var(--text-sm);
+  padding:12px;border-radius:var(--radius-md);
+  transition:opacity var(--transition-fast);
+}
+.tp-booking-card__wa:hover { opacity:.88; }
+.tp-booking-card__reply {
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  padding:10px 24px;
+  font-size:var(--text-xs);color:var(--color-text-muted);
+}
+.tp-booking-card__links {
+  padding:14px 24px 20px;
+  display:flex;flex-direction:column;gap:8px;
+  border-top:1px solid var(--color-card-border);
+}
+.tp-bc-link { display:flex;align-items:center;gap:7px;font-size:var(--text-sm);font-weight:var(--weight-semibold);color:var(--color-forest);transition:color var(--transition-fast); }
+.tp-bc-link:hover { color:var(--color-amber); }
+
+/* ── Related tours grid ──────────────────────────── */
+.tp-related { padding-block:var(--section-pad-y); }
+.tp-related-grid { display:flex;flex-wrap:wrap;gap:24px; }
+.tour-card { flex:1 1 240px;background:var(--color-white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card-md);overflow:hidden;display:flex;flex-direction:column; }
+.tour-card__img-link { display:block;position:relative;height:180px;overflow:hidden;flex-shrink:0; }
+.tour-card__img { position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .4s ease; }
+.tour-card:hover .tour-card__img { transform:scale(1.04); }
+.tour-card__badge { position:absolute;left:10px;top:10px; }
+.tour-card__body { padding:16px;display:flex;flex-direction:column;gap:8px;flex:1; }
+.tour-card__title { font-weight:var(--weight-extrabold);font-size:var(--text-base);line-height:var(--leading-normal);color:var(--color-forest); }
+.tour-card__title-link { color:inherit;transition:color var(--transition-fast); }
+.tour-card__title-link:hover { color:var(--color-amber); }
+.tour-card__footer { display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--color-card-border);padding-top:10px;margin-top:auto; }
+.tour-card__meta { font-size:13px;font-weight:var(--weight-bold);color:var(--color-text-body); }
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 1024px) {
+  .tp-layout { grid-template-columns:1fr; }
+  .tp-sidebar { position:static; }
+}
+@media (max-width: 768px) {
+  .tp-banner__h1  { font-size:clamp(24px,6vw,40px); }
+  .tp-incexc__grid{ grid-template-columns:1fr; }
+  .tp-main        { gap:36px; }
+}
+@media (max-width: 600px) {
+  .tp-banner__content { padding:48px 24px 64px; }
+  .tp-fact { border-right:none;border-bottom:1px solid rgba(243,236,216,.15); }
+}
+</style>

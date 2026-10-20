@@ -1,7 +1,74 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = {
+  title: '7 Days Uganda Gorilla, Chimp and Wildlife Safari',
+  slug: '7-days-uganda-gorilla-chimp-wildlife-safari',
+  country: 'Uganda',
+  countrySlug: 'uganda',
+  tagline: 'Uganda\'s Three Great Primate and Wildlife Encounters',
+  heroImg: '/images/gorillas/silverback-gorilla-group.jpg',
+  heroImgAlt: 'Silverback gorilla with family group in Bwindi Impenetrable Forest Uganda',
+  description: 'Seven days covering Uganda\'s three best wildlife experiences: gorilla trekking in Bwindi, chimpanzee trekking in Kibale Forest, and big game drives in Queen Elizabeth National Park.',
+  price: 'From $2,800',
+  priceNote: 'per person, all permits included',
+  days: 7,
+  startEnd: 'Kampala / Entebbe',
+  groupSize: '2 to 8 people',
+  difficulty: 'Moderate',
+  highlights: [
+    'Mountain gorilla trekking in Bwindi (permit included)',
+    'Chimpanzee trekking in Kibale Forest (permit included)',
+    'Game drives in Queen Elizabeth National Park',
+    'Kazinga Channel boat cruise',
+    'Tree-climbing lions in Ishasha sector',
+    'Covers Uganda\'s three top wildlife destinations in one trip',
+  ],
+  facts: [
+    { label: 'Duration', value: '7 Days / 6 Nights' },
+    { label: 'Gorilla permit', value: 'USD 800 included' },
+    { label: 'Chimp permit', value: 'USD 250 included' },
+    { label: 'Group size', value: '2 to 8' },
+    { label: 'Difficulty', value: 'Moderate' },
+    { label: 'Best time', value: 'Year-round' },
+    { label: 'Starts', value: 'Kampala or Entebbe' },
+    { label: 'Ends', value: 'Kampala or Entebbe' },
+    { label: 'Accommodation', value: 'Lodge' },
+  ],
+  overview: [
+    'Uganda is home to more primate species than any other country of similar size, and this 7-day itinerary captures the three experiences that define a Uganda safari: gorilla trekking, chimpanzee trekking, and big-game drives.',
+    'Starting in Kibale Forest, you will track habituated chimpanzees through the canopy before driving south to Bwindi Impenetrable Forest for a day with mountain gorillas. The final two days are spent in Queen Elizabeth National Park, where the Kazinga Channel boat cruise and Ishasha tree-climbing lions round out an exceptional week.',
+    'All permits, accommodation, meals and transport are included. This is the itinerary most recommended for first-time visitors to Uganda who want to see everything the country is famous for.',
+  ],
+};
+const itinerary = [
+  { day: 1, title: 'Kampala to Kibale Forest', body: 'Depart Kampala after breakfast. Drive west via Fort Portal (approximately 5 hours). Stop at Amabere Caves en route. Arrive Kibale in the afternoon. Evening nature walk around the lodge grounds. Dinner and overnight Kibale.' },
+  { day: 2, title: 'Chimpanzee Trekking in Kibale Forest', body: '7:00am briefing at Kanyanchu Visitor Centre. Trek into Kibale Forest in search of habituated chimpanzee communities. Up to one hour with the chimps observing feeding, grooming and socialising behaviour. Return for lunch. Afternoon optional Bigodi Wetland Sanctuary walk for birds and red-tailed monkeys. Dinner and overnight Kibale.' },
+  { day: 3, title: 'Kibale to Queen Elizabeth National Park', body: 'After breakfast drive through the Kibale corridor to Queen Elizabeth National Park. Game drive through Kasenyi plains on arrival. Check in to your Mweya lodge. Evening sundowner on the peninsula. Dinner and overnight.' },
+  { day: 4, title: 'Kazinga Channel Cruise and Game Drive', body: 'Early morning game drive for lions, elephants and buffaloes on the Kasenyi plains. Return for breakfast. Afternoon 2-hour Kazinga Channel boat cruise with hippos, crocodiles, elephants and prolific birdlife at close range. Dinner and overnight Mweya.' },
+  { day: 5, title: 'Ishasha to Bwindi', body: 'Morning game drive in the Ishasha sector of Queen Elizabeth in search of tree-climbing lions perched in fig trees — a remarkable sight. Continue south to Bwindi Impenetrable Forest. Arrive late afternoon. Park briefing. Dinner and overnight Bwindi.' },
+  { day: 6, title: 'Gorilla Trekking in Bwindi', body: 'Early breakfast. 7:30am briefing at park headquarters. Trek into the forest with ranger guides to find your gorilla family. One hour spent at close range with these magnificent great apes. Return for lunch. Afternoon optional Batwa cultural walk. Dinner and overnight Bwindi.' },
+  { day: 7, title: 'Return to Kampala', body: 'After breakfast begin the long drive back to Kampala via Kabale and Mbarara. Equator photo stop. Arrive Kampala in the evening. Transfer to hotel or airport. End of safari.' },
+];
+const includes = [
+  'Gorilla trekking permit (USD 800)',
+  'Chimpanzee trekking permit (USD 250)',
+  'Private 4x4 vehicle and driver-guide',
+  'All accommodation (6 nights)',
+  'All meals during safari',
+  'Drinking water',
+  'All park fees',
+  'Kazinga Channel boat cruise',
+];
+const excludes = ['Flights', 'Visa fees', 'Travel insurance', 'Alcohol and soft drinks', 'Tips and gratuities', 'Optional porter hire'];
+const faqs = [
+  { q: 'Can I do gorilla trekking and chimpanzee trekking in the same trip?', a: 'Yes, and this itinerary is designed exactly for that purpose. Kibale Forest is Uganda\'s best chimpanzee destination and Bwindi is the world\'s premier gorilla trekking location. The route between them passes through Queen Elizabeth National Park, making it a natural 7-day circuit.' },
+  { q: 'Is 7 days enough for this itinerary?', a: 'Seven days is the ideal minimum for covering Kibale, Queen Elizabeth and Bwindi comfortably. You spend a night in each area and have full days for the key activities without feeling rushed.' },
+  { q: 'Which permit should I book first?', a: 'Book your gorilla permit first as availability is more limited. We handle all permit bookings on your behalf once you confirm your reservation.' },
+];
+const relatedTours = [
+  { title: '5 Days Uganda Primates Safari', slug: '5-days-uganda-primates-safari', days: 5, price: 'From $2,100', img: '/images/primates/chimpanzees-pair-feeding.jpg', imgAlt: 'Chimpanzees Kibale Forest Uganda' },
+  { title: '7 Days Uganda Wildlife Safari', slug: '7-days-uganda-wildlife-safari', days: 7, price: 'From $2,700', img: '/images/wildlife/safari-vehicle-lions.jpg', imgAlt: 'Lions Uganda wildlife safari' },
+  { title: '10 Days Uganda Wildlife Gorilla Chimp Safari', slug: '10-days-uganda-wildlife-gorilla-chimp-safari', days: 10, price: 'From $3,800', img: '/images/gorillas/silverback-gorilla-group.jpg', imgAlt: 'Gorilla group Bwindi Uganda' },
+];
 ---
-
-<BaseLayout title="7 Days Uganda Safari | Gorillas, Chimpanzees and Wildlife in 3 National Parks | L'okawa Tours" description="Classic 7-day Uganda circuit: gorillas in Bwindi, chimps in Kibale and Big 5 in Queen Elizabeth. All permits included.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

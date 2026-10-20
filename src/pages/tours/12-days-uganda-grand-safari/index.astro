@@ -1,7 +1,84 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = {
+  title: '12 Days Uganda Grand Safari',
+  slug: '12-days-uganda-grand-safari',
+  country: 'Uganda',
+  countrySlug: 'uganda',
+  tagline: 'The Grand Tour of the Pearl of Africa',
+  heroImg: '/images/wildlife/giraffe-uganda-murchison.jpg',
+  heroImgAlt: 'Rothschild\'s giraffe at sunset in Murchison Falls National Park Uganda',
+  description: '12 days covering Uganda\'s five best parks: Kidepo Valley, Murchison Falls, Kibale Forest, Queen Elizabeth and Bwindi — gorilla trekking, chimps, big game and Africa\'s most remote savannah.',
+  price: 'From $4,500',
+  priceNote: 'per person, all permits included',
+  days: 12,
+  startEnd: 'Entebbe / Entebbe',
+  groupSize: '2 to 8 people',
+  difficulty: 'Moderate',
+  highlights: [
+    'Kidepo Valley National Park — Africa\'s most remote and spectacular savannah',
+    'Mountain gorilla trekking in Bwindi Impenetrable Forest',
+    'Chimpanzee trekking in Kibale Forest',
+    'Murchison Falls boat safari on the Nile',
+    'Kazinga Channel cruise in Queen Elizabeth',
+    'Ziwa Rhino Sanctuary — wild white rhinos on foot',
+    'Tree-climbing lions in Ishasha',
+  ],
+  facts: [
+    { label: 'Duration', value: '12 Days / 11 Nights' },
+    { label: 'Gorilla permit', value: 'USD 800 included' },
+    { label: 'Chimp permit', value: 'USD 250 included' },
+    { label: 'Rhino visit', value: 'Included' },
+    { label: 'Group size', value: '2 to 8' },
+    { label: 'Difficulty', value: 'Moderate' },
+    { label: 'Best time', value: 'Year-round' },
+    { label: 'Starts', value: 'Entebbe' },
+    { label: 'Ends', value: 'Entebbe' },
+    { label: 'Accommodation', value: 'Lodge and Tented Camp' },
+  ],
+  overview: [
+    'The 12-day Grand Safari is L\'okawa\'s flagship itinerary — a comprehensive north-to-south sweep of Uganda that begins in the remote wilderness of Kidepo Valley, one of the most scenically dramatic national parks in all of Africa, and ends in the dense rainforest of Bwindi with mountain gorillas.',
+    'Kidepo Valley in the far northeast is a destination in a category of its own. Vast open plains ringed by mountains, enormous herds of buffaloes, lions, cheetahs, ostriches and the endangered Eland antelope. It receives fewer visitors than any other major Ugandan park, which makes every game drive feel like a private safari.',
+    'The route then moves through Murchison Falls, Kibale Forest, Queen Elizabeth and Bwindi before returning to Entebbe. With two nights at each major destination, the pace is relaxed and every park can be properly explored.',
+  ],
+};
+const itinerary = [
+  { day: 1, title: 'Entebbe to Kidepo Valley National Park', body: 'Depart Entebbe by scheduled charter flight to Kidepo Valley (approximately 1.5 hours). Arrive at Apoka airstrip. Afternoon game drive through the vast Narus Valley plains. Kidepo receives fewer visitors than any major Ugandan park — the herds of buffaloes, lions and cheetahs are remarkably undisturbed. Dinner and overnight Kidepo.' },
+  { day: 2, title: 'Kidepo Valley — Full Day Safari', body: 'Full day game drives across both the Narus Valley and the more remote Kidepo Valley (dry season only). Lions, cheetahs, ostriches, Burchell\'s zebras, greater kudus and enormous buffalo herds. Visit the Narus waterhole where predators congregate. Dinner and overnight Kidepo.' },
+  { day: 3, title: 'Kidepo to Murchison Falls', body: 'Morning game drive. Fly or drive south to Murchison Falls National Park. Afternoon game drive on the north bank on arrival. Dinner and overnight Murchison.' },
+  { day: 4, title: 'Ziwa Rhino Sanctuary and Murchison Game Drive', body: 'Morning stop at Ziwa Rhino Sanctuary for a guided walk with wild white rhinos. Continue into Murchison for a full afternoon game drive. Dinner and overnight Murchison.' },
+  { day: 5, title: 'Murchison Falls Nile Boat Safari', body: 'Morning game drive on the north bank. Afternoon boat safari along the Nile to the base of Murchison Falls — the world\'s most powerful waterfall by flow volume. Hippos, crocodiles, elephants and the shoebill stork. Dinner and overnight Murchison.' },
+  { day: 6, title: 'Murchison to Kibale Forest', body: 'Drive south to Fort Portal and Kibale Forest (approximately 5 hours). Arrive late afternoon. Evening briefing on chimpanzee trekking. Dinner and overnight Kibale.' },
+  { day: 7, title: 'Chimpanzee Trekking in Kibale', body: '7:00am briefing at Kanyanchu. Track habituated chimpanzees through the rich tropical forest. One hour with the chimpanzee community. Return for lunch. Afternoon Bigodi Wetland Sanctuary guided walk. Dinner and overnight Kibale.' },
+  { day: 8, title: 'Kibale to Queen Elizabeth National Park', body: 'Morning drive through the Kibale corridor to the Mweya peninsula in Queen Elizabeth. Afternoon game drive through the Kasenyi sector. Check in to lodge. Sundowner overlooking Lake Edward. Dinner and overnight.' },
+  { day: 9, title: 'Queen Elizabeth Kazinga Channel Cruise', body: 'Early morning game drive for lions, elephants and topi. Breakfast. Afternoon 2-hour Kazinga Channel boat cruise with dense hippo and elephant concentrations. Dinner and overnight Queen Elizabeth.' },
+  { day: 10, title: 'Ishasha Sector to Bwindi', body: 'Morning game drive in the Ishasha sector for tree-climbing lions in the fig trees. Drive south to Bwindi Impenetrable Forest. Arrive late afternoon. Park briefing. Dinner and overnight Bwindi.' },
+  { day: 11, title: 'Gorilla Trekking in Bwindi', body: 'Early breakfast. 7:30am gorilla trek briefing at park headquarters. Trek into the forest with ranger guides. One hour with your habituated gorilla family. Return for lunch. Afternoon optional Batwa cultural walk. Dinner and overnight Bwindi.' },
+  { day: 12, title: 'Return to Entebbe', body: 'After breakfast begin the long drive back to Kampala via Kabale and Mbarara. Equator stop. Arrive Kampala in the evening. Transfer to Entebbe airport. End of safari.' },
+];
+const includes = [
+  'Gorilla trekking permit (USD 800)',
+  'Chimpanzee trekking permit (USD 250)',
+  'Ziwa Rhino Sanctuary guided walk',
+  'Charter flight Entebbe to Kidepo (Day 1)',
+  'Private 4x4 vehicle and driver-guide',
+  'All accommodation (11 nights)',
+  'All meals during safari',
+  'Drinking water',
+  'All park and entrance fees',
+  'Murchison Falls Nile boat safari',
+  'Kazinga Channel boat cruise',
+];
+const excludes = ['Return charter flight from Kidepo (can be arranged, approx USD 250)', 'Flights to Uganda', 'Visa fees', 'Travel insurance', 'Alcohol', 'Tips and gratuities'];
+const faqs = [
+  { q: 'Is the charter flight to Kidepo mandatory?', a: 'Kidepo Valley is approximately 10 hours by road from Kampala. We strongly recommend the charter flight (approximately 1.5 hours) for comfort and time efficiency. The flight is included in this package. If you prefer overland, we can adjust the itinerary with an additional driving day.' },
+  { q: 'What makes Kidepo different from other Ugandan parks?', a: 'Kidepo receives fewer visitors than any other major Ugandan national park, which means you will often have the plains entirely to yourself. The scenery is dramatic — the Narus Valley is ringed by rocky mountains — and the wildlife includes species not found in other Ugandan parks: ostriches, greater kudus, Burchell\'s zebras, and caracals.' },
+  { q: 'What is the best time of year for the 12-day grand safari?', a: 'This itinerary can be run year-round. The dry seasons from June to September and December to February are generally preferred for game drives. Kidepo\'s remote Kidepo Valley (different from the Narus Valley) can only be accessed in the dry season.' },
+];
+const relatedTours = [
+  { title: '10 Days Uganda Wildlife Gorilla Chimp Safari', slug: '10-days-uganda-wildlife-gorilla-chimp-safari', days: 10, price: 'From $3,800', img: '/images/gorillas/silverback-gorilla-group.jpg', imgAlt: 'Gorilla group Bwindi Uganda' },
+  { title: '14 Days Uganda Safari Vacation', slug: '14-days-uganda-safari-vacation', days: 14, price: 'From $5,200', img: '/images/wildlife/elephant-pair-greeting.jpg', imgAlt: 'Elephants Uganda safari' },
+  { title: '9 Days Uganda Safari', slug: '9-days-uganda-safari', days: 9, price: 'From $3,500', img: '/images/wildlife/giraffe-uganda-murchison.jpg', imgAlt: 'Giraffe Murchison Falls Uganda' },
+];
 ---
-
-<BaseLayout title="12 Days Uganda Grand Safari | Gorillas, Chimps, Murchison Falls and More | L'okawa Tours" description="12-day all-inclusive Uganda safari from north to south. Rhinos, Nile falls, chimps, climbing lions and mountain gorillas.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

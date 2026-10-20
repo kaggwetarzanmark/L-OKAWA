@@ -1,7 +1,69 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = {
+  title: '5 Days Uganda Gorilla Safari and White Water Rafting',
+  slug: '5-days-gorilla-safari-white-water-rafting',
+  country: 'Uganda',
+  countrySlug: 'uganda',
+  tagline: 'Gorillas in the Forest, Rapids on the Nile',
+  heroImg: '/images/gorillas/gorilla-mother-baby-bwindi.jpg',
+  heroImgAlt: 'Mountain gorilla mother and baby in Bwindi Impenetrable Forest Uganda',
+  description: 'Trek mountain gorillas in Bwindi then raft Grade 5 Nile rapids in Jinja. Uganda\'s most adventurous 5-day itinerary combining primates and white water.',
+  price: 'From $2,300',
+  priceNote: 'per person, gorilla permit included',
+  days: 5,
+  startEnd: 'Entebbe / Jinja',
+  groupSize: '2 to 8 people',
+  difficulty: 'Moderate to Strenuous',
+  highlights: [
+    'Gorilla trekking permit included (USD 800)',
+    'Grade 5 white water rafting on the River Nile at Jinja',
+    'Bwindi Impenetrable Forest UNESCO World Heritage Site',
+    'Optional Batwa cultural community walk',
+    'Adventure and wildlife in one seamless itinerary',
+  ],
+  facts: [
+    { label: 'Duration', value: '5 Days / 4 Nights' },
+    { label: 'Gorilla permit', value: 'USD 800 included' },
+    { label: 'Group size', value: '2 to 8' },
+    { label: 'Difficulty', value: 'Moderate to Strenuous' },
+    { label: 'Best time', value: 'Year-round' },
+    { label: 'Starts', value: 'Entebbe or Kampala' },
+    { label: 'Ends', value: 'Jinja or Kampala' },
+    { label: 'Accommodation', value: 'Lodge and Guesthouse' },
+  ],
+  overview: [
+    'This 5-day itinerary is designed for travellers who want more than a standard safari. It pairs the most sought-after wildlife encounter in Africa, mountain gorilla trekking in Bwindi, with the best white water rafting on the continent at Jinja on the River Nile.',
+    'Days 1 and 2 are spent reaching Bwindi and completing your gorilla trek. Days 3 and 4 bring you back towards Kampala and on to Jinja, where Day 5 is a full day on the water tackling Grade 3 to 5 rapids on the longest river in the world.',
+    'All gorilla permits, accommodation, meals and transport between destinations are included. Rafting gear is provided by the operator on Day 5.',
+  ],
+};
+const itinerary = [
+  { day: 1, title: 'Entebbe to Bwindi', body: 'Pick-up from Entebbe or Kampala hotel after breakfast. Long but scenic drive through Masaka, Mbarara and the Kigezi highlands to Bwindi Impenetrable Forest. Equator stop and lunch break en route. Arrive late afternoon. Park briefing and overnight at your Bwindi lodge.' },
+  { day: 2, title: 'Gorilla Trekking', body: '6:00am breakfast. 7:30am mandatory briefing at the park headquarters. Trek into the rainforest with your ranger guides to find your allocated gorilla family. One hour spent observing the gorillas at close range. Return to camp for lunch. Afternoon optional Batwa community cultural walk. Dinner and overnight Bwindi.' },
+  { day: 3, title: 'Bwindi to Kampala', body: 'After breakfast drive back through Kabale and Mbarara toward Kampala. Stop at the Equator for photos. Arrive Kampala in the evening. Overnight Kampala guesthouse.' },
+  { day: 4, title: 'Kampala to Jinja', body: 'Morning at leisure in Kampala. Optional visit to Kampala markets or Ndere Cultural Centre. Early afternoon drive to Jinja (2 hours). Arrive and check in to your riverside guesthouse. Evening walk along the Nile bank. Overnight Jinja.' },
+  { day: 5, title: 'White Water Rafting on the Nile', body: 'Full day Grade 3 to 5 white water rafting on the River Nile with a professional rafting company. All safety equipment, guides and a riverside lunch are provided. Transfer back to Kampala or Entebbe in the late afternoon. End of safari.' },
+];
+const includes = [
+  'Gorilla trekking permit (USD 800)',
+  'Private 4x4 vehicle and driver-guide',
+  'All accommodation (4 nights)',
+  'All meals during safari',
+  'Drinking water',
+  'All park and entrance fees',
+  'White water rafting on Day 5 (full day, all gear)',
+];
+const excludes = ['Flights', 'Visa fees', 'Travel insurance', 'Alcohol and soft drinks', 'Tips and gratuities', 'Optional porter hire in Bwindi'];
+const faqs = [
+  { q: 'Is white water rafting safe on the Nile?', a: 'Yes. The rafting operators at Jinja are highly experienced and have an excellent safety record. All participants wear life jackets and helmets and are accompanied by trained safety kayakers throughout the run.' },
+  { q: 'Can I skip the rafting and extend the gorilla portion?', a: 'Absolutely. We can customise this itinerary to add a second gorilla trek in Bwindi or extend into Queen Elizabeth National Park instead of Jinja. Contact us for a tailored quote.' },
+  { q: 'What fitness level is required?', a: 'Gorilla trekking requires moderate fitness as you may hike for 2 to 6 hours on uneven terrain. The rafting is physically demanding but no prior experience is needed. We recommend a reasonable level of general fitness for both.' },
+];
+const relatedTours = [
+  { title: '3 Days Uganda Gorilla Safari', slug: '3-days-uganda-gorilla-safari', days: 3, price: 'From $1,400', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Mountain gorilla closeup Bwindi Uganda' },
+  { title: '2 Days Jinja White Water Rafting', slug: '2-days-jinja-white-water-rafting', days: 2, price: 'From $350', img: '/images/activities/jinja-zipline-adventure.jpg', imgAlt: 'Adventure activities Jinja Uganda' },
+  { title: '5 Days Uganda Gorilla and Wildlife Safari', slug: '5-days-uganda-gorilla-wildlife-safari', days: 5, price: 'From $2,200', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla trekking Bwindi Uganda' },
+];
 ---
-
-<BaseLayout title="5 Days Uganda Gorilla Safari and White Water Rafting on the Nile | L'okawa Tours" description="Trek mountain gorillas in Bwindi then raft Grade 5 Nile rapids in Jinja. Uganda's most adventurous 5-day itinerary.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

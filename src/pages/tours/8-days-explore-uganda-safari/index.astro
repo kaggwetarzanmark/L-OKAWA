@@ -1,7 +1,76 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = {
+  title: '8 Days Explore Uganda Safari',
+  slug: '8-days-explore-uganda-safari',
+  country: 'Uganda',
+  countrySlug: 'uganda',
+  tagline: 'From the Nile to the Impenetrable Forest',
+  heroImg: '/images/wildlife/elephant-pair-greeting.jpg',
+  heroImgAlt: 'Two elephants greeting each other in Uganda national park',
+  description: 'Eight days exploring Uganda\'s finest parks: Murchison Falls, Kibale Forest, Queen Elizabeth, and Bwindi for gorilla trekking. The most complete Uganda safari at an accessible price.',
+  price: 'From $3,200',
+  priceNote: 'per person, all permits included',
+  days: 8,
+  startEnd: 'Entebbe / Entebbe',
+  groupSize: '2 to 8 people',
+  difficulty: 'Moderate',
+  highlights: [
+    'Gorilla trekking in Bwindi Impenetrable Forest',
+    'Chimpanzee trekking in Kibale Forest',
+    'Murchison Falls boat safari on the River Nile',
+    'Game drives across three national parks',
+    'Kazinga Channel boat cruise in Queen Elizabeth',
+    'Tree-climbing lions in Ishasha sector',
+  ],
+  facts: [
+    { label: 'Duration', value: '8 Days / 7 Nights' },
+    { label: 'Gorilla permit', value: 'USD 800 included' },
+    { label: 'Chimp permit', value: 'USD 250 included' },
+    { label: 'Group size', value: '2 to 8' },
+    { label: 'Difficulty', value: 'Moderate' },
+    { label: 'Best time', value: 'Year-round' },
+    { label: 'Starts', value: 'Entebbe' },
+    { label: 'Ends', value: 'Entebbe' },
+    { label: 'Accommodation', value: 'Lodge' },
+  ],
+  overview: [
+    'Eight days is the sweet spot for a thorough Uganda safari — long enough to reach all four major parks without feeling rushed, yet short enough to maintain pace and energy throughout. This itinerary is a favourite among travellers who have one to two weeks and want to see everything Uganda is known for.',
+    'The circuit begins in the north with Murchison Falls, then swings west through Kibale Forest for chimpanzees, south through Queen Elizabeth for the Kazinga Channel and Ishasha tree-climbing lions, and finishes in Bwindi for the headline attraction: mountain gorilla trekking.',
+    'All permits, accommodation, game drives, boat cruises and meals are included. The only route back to Entebbe after Bwindi passes through Kampala, so airport drop-off is straightforward.',
+  ],
+};
+const itinerary = [
+  { day: 1, title: 'Entebbe to Murchison Falls', body: 'Morning pick-up from Entebbe or Kampala. Drive north to Murchison Falls National Park via Masindi (approximately 5 hours). Optional stop at Ziwa Rhino Sanctuary to see the only wild white rhinos in Uganda. Afternoon game drive on arrival. Dinner and overnight Murchison.' },
+  { day: 2, title: 'Murchison Falls Game Drive and Nile Boat Safari', body: 'Early morning game drive along the north bank for lions, giraffes, elephants, Rothschild\'s giraffes and Jackson\'s hartebeests. Return for breakfast. Afternoon boat trip along the Nile to the thundering base of Murchison Falls. Hippos, crocodiles and elephants line the banks. Dinner and overnight Murchison.' },
+  { day: 3, title: 'Murchison to Kibale Forest', body: 'Morning drive south via Masindi and Fort Portal to Kibale Forest (approximately 5 hours). Arrive in the afternoon. Briefing for tomorrow\'s chimpanzee trek. Dinner and overnight Kibale.' },
+  { day: 4, title: 'Chimpanzee Trekking in Kibale', body: '7:00am briefing at Kanyanchu. Track habituated chimpanzees through the rich equatorial forest. One hour with the chimps. Return for lunch. Afternoon optional Bigodi Wetland walk. Dinner and overnight Kibale.' },
+  { day: 5, title: 'Kibale to Queen Elizabeth National Park', body: 'Drive south through the Kibale corridor to the Mweya peninsula. Afternoon game drive through the Kasenyi plains. Check in. Sundowner overlooking the Kazinga Channel. Dinner and overnight.' },
+  { day: 6, title: 'Kazinga Channel Cruise', body: 'Early morning game drive for lions and elephants. Breakfast at the lodge. Afternoon 2-hour Kazinga Channel boat cruise with exceptional concentrations of hippos, crocodiles, elephants and waterbirds. Dinner and overnight Queen Elizabeth.' },
+  { day: 7, title: 'Ishasha to Bwindi', body: 'Morning Ishasha sector game drive seeking tree-climbing lions in the giant fig trees. Continue south to Bwindi Impenetrable Forest. Arrive late afternoon. Park briefing. Dinner and overnight Bwindi.' },
+  { day: 8, title: 'Gorilla Trekking and Return to Entebbe', body: 'Early breakfast. 7:30am gorilla trek briefing. Trek to find your gorilla family. One hour with mountain gorillas. Return for lunch. Begin the drive back to Kampala (approximately 8 hours). Arrive at Entebbe airport or Kampala hotel. End of safari.' },
+];
+const includes = [
+  'Gorilla trekking permit (USD 800)',
+  'Chimpanzee trekking permit (USD 250)',
+  'Private 4x4 vehicle and driver-guide',
+  'All accommodation (7 nights)',
+  'All meals during safari',
+  'Drinking water',
+  'All park fees',
+  'Murchison Nile boat safari',
+  'Kazinga Channel boat cruise',
+];
+const excludes = ['Ziwa Rhino Sanctuary entry (USD 40, optional on Day 1)', 'Flights', 'Visa fees', 'Travel insurance', 'Alcohol', 'Tips and gratuities'];
+const faqs = [
+  { q: 'Is Day 8 too tiring with a trek in the morning and long drive in the evening?', a: 'The Day 8 schedule is manageable. Gorilla treks are typically completed by early afternoon. The drive from Bwindi to Kampala takes 7 to 8 hours, so guests arrive in Kampala between 9pm and 10pm. For early morning flights the following day, we recommend overnight in Entebbe or Kampala the night before departure.' },
+  { q: 'Can the Ziwa Rhino stop be added?', a: 'Yes. Ziwa Rhino Sanctuary is located on the drive to Murchison and adds about 1.5 hours to the Day 1 journey. It is the only place to see wild white rhinos in Uganda. Entry is USD 40 per person and can be added to your package.' },
+  { q: 'What accommodation is used on this safari?', a: 'We use comfortable mid-range lodges at each destination. Upgrades to luxury properties are available at additional cost. Contact us for a full accommodation menu.' },
+];
+const relatedTours = [
+  { title: '10 Days Uganda Wildlife Gorilla Chimp Safari', slug: '10-days-uganda-wildlife-gorilla-chimp-safari', days: 10, price: 'From $3,800', img: '/images/gorillas/silverback-gorilla-group.jpg', imgAlt: 'Gorilla group Bwindi Uganda' },
+  { title: '7 Days Uganda Gorilla, Chimp and Wildlife Safari', slug: '7-days-uganda-gorilla-chimp-wildlife-safari', days: 7, price: 'From $2,800', img: '/images/primates/chimpanzee-kibale-forest.jpg', imgAlt: 'Chimpanzee Kibale Forest Uganda' },
+  { title: '12 Days Uganda Grand Safari', slug: '12-days-uganda-grand-safari', days: 12, price: 'From $4,500', img: '/images/wildlife/giraffe-uganda-murchison.jpg', imgAlt: 'Giraffe Murchison Falls Uganda' },
+];
 ---
-
-<BaseLayout title="8 Days Uganda Safari | Kibale Chimps, Queen Elizabeth, Bwindi Gorillas and Lake Bunyonyi | L'okawa Tours" description="Chimps, gorillas, game drives and Lake Bunyonyi on Uganda's grand 8-day tour.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

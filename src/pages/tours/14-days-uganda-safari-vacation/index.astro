@@ -1,7 +1,88 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = {
+  title: '14 Days Uganda Safari Vacation',
+  slug: '14-days-uganda-safari-vacation',
+  country: 'Uganda',
+  countrySlug: 'uganda',
+  tagline: 'Two Weeks Discovering Every Corner of Uganda',
+  heroImg: '/images/gorillas/gorilla-mother-baby-bwindi.jpg',
+  heroImgAlt: 'Mountain gorilla mother and baby in Bwindi Impenetrable Forest Uganda',
+  description: 'A 14-day Uganda safari covering Kidepo Valley, Murchison Falls, Kibale, Queen Elizabeth, Bwindi gorilla trekking, Lake Bunyonyi and Jinja — the most complete Uganda vacation available.',
+  price: 'From $5,200',
+  priceNote: 'per person, all permits included',
+  days: 14,
+  startEnd: 'Entebbe / Entebbe',
+  groupSize: '2 to 8 people',
+  difficulty: 'Moderate',
+  highlights: [
+    'Gorilla trekking in Bwindi Impenetrable Forest',
+    'Chimpanzee trekking in Kibale Forest',
+    'Kidepo Valley National Park — Africa\'s most unspoilt savannah',
+    'Murchison Falls Nile boat safari',
+    'Kazinga Channel cruise in Queen Elizabeth',
+    'Lake Bunyonyi — relaxing island-studded crater lake',
+    'White water rafting on the Nile at Jinja (optional)',
+    'Ziwa Rhino Sanctuary',
+  ],
+  facts: [
+    { label: 'Duration', value: '14 Days / 13 Nights' },
+    { label: 'Gorilla permit', value: 'USD 800 included' },
+    { label: 'Chimp permit', value: 'USD 250 included' },
+    { label: 'Rhino visit', value: 'Included' },
+    { label: 'Group size', value: '2 to 8' },
+    { label: 'Difficulty', value: 'Moderate' },
+    { label: 'Best time', value: 'Year-round' },
+    { label: 'Starts', value: 'Entebbe' },
+    { label: 'Ends', value: 'Entebbe' },
+    { label: 'Accommodation', value: 'Lodge, Tented Camp, Island Resort' },
+  ],
+  overview: [
+    'Two weeks allows a genuinely unhurried exploration of Uganda — the parks, the landscapes and the people. This itinerary covers six distinct regions of the country, from the remote northeastern savannah of Kidepo Valley to the tranquil crater lake of Bunyonyi near the Rwanda border.',
+    'The first week follows the classic north-to-west circuit: Kidepo for wild, remote big game, then Murchison Falls for the dramatic Nile boat safari, then Kibale Forest for chimpanzee trekking. The second week moves south through Queen Elizabeth for the Kazinga Channel and Ishasha lions, then Bwindi for gorillas, and Lake Bunyonyi for a peaceful two-night rest before returning to Entebbe via Jinja.',
+    'Three nights are allocated to both Murchison and Queen Elizabeth, giving plenty of time for multiple game drives and boat activities. Two nights at Lake Bunyonyi provide a complete change of atmosphere at the end of the trip.',
+  ],
+};
+const itinerary = [
+  { day: 1, title: 'Entebbe to Kidepo Valley', body: 'Morning charter flight from Entebbe to Kidepo Valley (1.5 hours). Afternoon game drive across the Narus Valley plains. Dinner and overnight Kidepo.' },
+  { day: 2, title: 'Kidepo Valley Full Day', body: 'Full day game drives across both Narus and Kidepo valleys. Lions, cheetahs, ostriches, zebras, buffaloes and greater kudus. Visit the community cultural village in the afternoon. Dinner and overnight Kidepo.' },
+  { day: 3, title: 'Kidepo to Murchison Falls', body: 'Morning game drive. Fly or drive south to Murchison Falls National Park. Afternoon game drive on north bank arrival. Dinner and overnight Murchison.' },
+  { day: 4, title: 'Ziwa Rhino and Murchison Game Drive', body: 'Morning visit to Ziwa Rhino Sanctuary. Guided rhino tracking walk. Continue to Murchison for afternoon north bank game drive. Dinner and overnight Murchison.' },
+  { day: 5, title: 'Murchison Falls Nile Boat Safari', body: 'Full morning game drive. Afternoon boat safari along the Nile to the base of the falls. Hippos, crocodiles, shoebill stork. Dinner and overnight Murchison.' },
+  { day: 6, title: 'Murchison to Kibale Forest', body: 'Drive south to Kibale Forest via Fort Portal. Arrive afternoon. Briefing for tomorrow\'s chimpanzee trek. Dinner and overnight Kibale.' },
+  { day: 7, title: 'Chimpanzee Trekking in Kibale', body: 'Morning chimpanzee trek with ranger guides. One hour with habituated community. Lunch. Afternoon Bigodi Wetland walk for primates and birds. Dinner and overnight Kibale.' },
+  { day: 8, title: 'Kibale to Queen Elizabeth National Park', body: 'Drive south through Kibale corridor to Mweya peninsula. Afternoon game drive through Kasenyi. Check in. Sundowner overlooking Lake Edward. Dinner and overnight.' },
+  { day: 9, title: 'Queen Elizabeth Game Drive and Kazinga Cruise', body: 'Early morning game drive for lions and elephants. Breakfast. Afternoon 2-hour Kazinga Channel boat cruise. Dinner and overnight Queen Elizabeth.' },
+  { day: 10, title: 'Ishasha Tree-Climbing Lions', body: 'Full day in the Ishasha sector seeking tree-climbing lions in the giant fig trees. Picnic lunch in the field. Return to lodge for dinner. Overnight Queen Elizabeth.' },
+  { day: 11, title: 'Ishasha to Bwindi Impenetrable Forest', body: 'Morning game drive in Ishasha. Drive south to Bwindi. Arrive late afternoon. Park briefing. Dinner and overnight Bwindi.' },
+  { day: 12, title: 'Gorilla Trekking in Bwindi', body: 'Early breakfast. 7:30am gorilla trek briefing. Trek to find your gorilla family. One hour at close range with mountain gorillas. Return for lunch. Afternoon optional Batwa cultural walk. Dinner and overnight Bwindi.' },
+  { day: 13, title: 'Bwindi to Lake Bunyonyi', body: 'After breakfast drive to Lake Bunyonyi (1.5 hours). Arrive at your island resort. Afternoon boat excursion across the crater lake visiting Punishment Island and other crater lake islands. Swim in the bilharzia-free lake. Dinner and overnight Lake Bunyonyi.' },
+  { day: 14, title: 'Lake Bunyonyi to Entebbe', body: 'Morning at leisure on the lake. After breakfast drive back to Kampala and Entebbe (approximately 7 hours) via Kabale and Mbarara. Optional Jinja stop for white water rafting. Arrive Entebbe airport. End of safari.' },
+];
+const includes = [
+  'Gorilla trekking permit (USD 800)',
+  'Chimpanzee trekking permit (USD 250)',
+  'Ziwa Rhino Sanctuary guided walk',
+  'Charter flight Entebbe to Kidepo',
+  'Private 4x4 vehicle and driver-guide',
+  'All accommodation (13 nights)',
+  'All meals during safari',
+  'Drinking water',
+  'All park fees',
+  'Murchison Falls Nile boat safari',
+  'Kazinga Channel boat cruise',
+  'Lake Bunyonyi boat excursion',
+];
+const excludes = ['International flights', 'Uganda visa', 'Travel insurance', 'White water rafting Jinja (optional, approx USD 120)', 'Alcohol and soft drinks', 'Tips and gratuities'];
+const faqs = [
+  { q: 'Is Lake Bunyonyi safe for swimming?', a: 'Yes. Lake Bunyonyi is one of the few lakes in Uganda that is free from bilharzia (schistosomiasis), making it safe for swimming. It is also one of the deepest lakes in Africa at over 900 metres.' },
+  { q: 'Can I add a second gorilla trek on Day 13?', a: 'Yes. An additional gorilla permit (USD 800) can be added for a second trek on Day 12 or a trek in a different sector of Bwindi. Contact us to arrange this in advance.' },
+  { q: 'How do we get from Kidepo to Murchison on Day 3?', a: 'The default option is a charter flight back to Entebbe followed by a drive to Murchison, or a direct charter to Pakuba airstrip inside Murchison Falls. Overland from Kidepo to Murchison is possible (approximately 8 hours) and can be arranged for guests who prefer the road.' },
+];
+const relatedTours = [
+  { title: '12 Days Uganda Grand Safari', slug: '12-days-uganda-grand-safari', days: 12, price: 'From $4,500', img: '/images/wildlife/giraffe-uganda-murchison.jpg', imgAlt: 'Giraffe Murchison Falls Uganda' },
+  { title: '15 Days Uganda Adventure and Wildlife Safari', slug: '15-days-uganda-adventure-wildlife-safari', days: 15, price: 'From $5,800', img: '/images/accommodation/rwenzori-mountains-glacier-hike.jpg', imgAlt: 'Rwenzori Mountains hike Uganda' },
+  { title: '18 Days Uganda Wildlife Safari', slug: '18-days-uganda-wildlife-safari', days: 18, price: 'From $6,500', img: '/images/gorillas/silverback-gorilla-group.jpg', imgAlt: 'Gorilla group Bwindi Uganda' },
+];
 ---
-
-<BaseLayout title="14 Days Uganda Safari Vacation Experience | Complete Pearl of Africa Tour | L'okawa Tours" description="Complete 14-day Uganda safari: Murchison Falls, gorilla trekking, chimp tracking, Lake Bunyonyi and Lake Mburo.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

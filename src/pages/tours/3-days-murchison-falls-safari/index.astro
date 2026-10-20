@@ -1,7 +1,94 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+
+const tour = {
+  title:       '3 Days Murchison Falls Safari',
+  slug:        '3-days-murchison-falls-safari',
+  country:     'Uganda',
+  countrySlug: 'uganda',
+  tagline:     'Africa\'s Most Powerful Waterfall and Nile Wildlife',
+  heroImg:     '/images/wildlife/giraffe-uganda-murchison.jpg',
+  heroImgAlt:  'Rothschild giraffe in Murchison Falls National Park Uganda safari',
+  description: 'Visit the world\'s most powerful waterfall, track rhinos at Ziwa Sanctuary and cruise the Nile. 3-day Murchison Falls safari from Kampala, all meals and park fees included.',
+  price:       'From $650',
+  priceNote:   'per person, all park fees included',
+  days:        3,
+  startEnd:    'Kampala / Entebbe',
+  groupSize:   '2 to 8 people',
+  difficulty:  'Easy',
+  highlights: [
+    'Boat cruise on the Nile to the base of Murchison Falls — the world\'s most powerful waterfall',
+    'Morning and afternoon game drives spotting lions, elephants, giraffes and buffaloes',
+    'Rhino tracking on foot at Ziwa Rhino Sanctuary',
+    'Spectacular views from the top of the falls where the Nile squeezes through an 8-metre gorge',
+    'Over 451 bird species including the rare Shoebill Stork',
+  ],
+  facts: [
+    { label: 'Duration',      value: '3 Days / 2 Nights' },
+    { label: 'Starts',        value: 'Kampala or Entebbe' },
+    { label: 'Ends',          value: 'Kampala or Entebbe' },
+    { label: 'Park fees',     value: 'USD 40/day — included' },
+    { label: 'Group size',    value: '2 to 8 people' },
+    { label: 'Difficulty',    value: 'Easy' },
+    { label: 'Accommodation', value: 'Lodge or tented camp' },
+    { label: 'Best time',     value: 'Year-round' },
+  ],
+  overview: [
+    'Murchison Falls National Park is Uganda\'s largest protected area and home to some of the most dramatic scenery in East Africa. At the park\'s centrepiece, the entire volume of the Nile River is forced through a gorge just 8 metres wide, creating a thunderous waterfall that can be heard kilometres away.',
+    'This 3-day safari combines a game drive on the northern bank of the Nile, a river boat cruise to the base of the falls, and a stop at Ziwa Rhino Sanctuary for white rhino tracking on foot. Wildlife in the park includes the Big Five, Rothschild\'s giraffes, Jackson\'s hartebeest and hundreds of bird species.',
+    'The tour departs from Kampala or Entebbe and all logistics are handled by L\'okawa Tours including a private 4x4 vehicle, experienced guide, accommodation and all meals.',
+  ],
+};
+
+const itinerary = [
+  {
+    day: 1,
+    title: 'Kampala to Murchison Falls National Park',
+    body: 'Depart Kampala after breakfast. Drive north through the Luwero triangle and stop at Ziwa Rhino Sanctuary for white and black rhino tracking on foot — the only place in Uganda where you can see rhinos in the wild. Continue to Masindi for lunch. Arrive at the park in the afternoon and drive to the top of the falls to view the Nile squeezing through the narrow gorge. Dinner and overnight at your lodge.',
+  },
+  {
+    day: 2,
+    title: 'Game Drive and Nile Boat Cruise',
+    body: 'Rise early for a morning game drive through the park\'s northern circuit. You may spot lions, buffaloes, elephants, Uganda kobs, Rothschild\'s giraffes and waterbucks. After lunch at the lodge, board a boat for the afternoon cruise along the Nile to the base of Murchison Falls. You will see hippos, Nile crocodiles, elephants drinking at the bank and a spectacular range of water birds. The boat drops you at the base of the falls where you hike up to meet your vehicle. Dinner and overnight.',
+  },
+  {
+    day: 3,
+    title: 'Morning Game Drive then Return to Kampala',
+    body: 'An early morning game drive in the park as animals are most active at dawn. After breakfast, depart for Kampala. Stop in Masindi for lunch along the way. Arrive in Kampala or Entebbe in the late afternoon. Your guide drops you at your hotel or airport.',
+  },
+];
+
+const includes = [
+  'Private 4x4 safari vehicle with roof hatch',
+  'English-speaking professional driver-guide',
+  'All accommodation (2 nights)',
+  'All meals: breakfast, lunch and dinner',
+  'Bottled drinking water throughout',
+  'Park entry fees (USD 40 per day)',
+  'Boat cruise on the Nile',
+  'Rhino tracking at Ziwa Sanctuary',
+];
+
+const excludes = [
+  'International and domestic flights',
+  'Uganda visa fees (USD 50)',
+  'Travel insurance (required)',
+  'Alcoholic beverages',
+  'Gratuities for guides (recommended USD 10 to 15/day)',
+  'Personal expenses and souvenirs',
+];
+
+const faqs = [
+  { q: 'Is the boat cruise included?', a: 'Yes. The afternoon Nile boat cruise from the delta to the base of Murchison Falls is included in the tour price.' },
+  { q: 'Can I see the Big Five at Murchison Falls?', a: 'Murchison Falls has lions, elephants, buffaloes and leopards. Rhinos are found at Ziwa Sanctuary, which is included in this itinerary. The park does not have wild rhinos inside its boundaries.' },
+  { q: 'How far is Murchison Falls from Kampala?', a: 'The drive is approximately 5 to 6 hours from Kampala, passing through Masindi. We depart early to maximise time in the park.' },
+  { q: 'What wildlife is most commonly seen?', a: 'Rothschild\'s giraffes, elephants, Uganda kobs, hippos, Nile crocodiles, lions, buffaloes and waterbucks are regularly seen. The Shoebill Stork can sometimes be spotted on the delta.' },
+];
+
+const relatedTours = [
+  { title: '7 Days Uganda Adventure Safari',           slug: '7-days-uganda-adventure-safari',           days: 7, price: 'From $2,400', img: '/images/wildlife/elephant-pair-greeting.jpg',    imgAlt: 'Elephants on Uganda wildlife safari' },
+  { title: '9 Days Uganda Safari',                     slug: '9-days-uganda-safari',                     days: 9, price: 'From $3,200', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla mother and baby Bwindi Uganda' },
+  { title: '3 Days Queen Elizabeth National Park',     slug: '3-days-queen-elizabeth-national-park-safari', days: 3, price: 'From $600', img: '/images/wildlife/tree-climbing-lion-ishasha.jpg',  imgAlt: 'Tree climbing lion Ishasha Uganda' },
+];
 ---
-
-<BaseLayout title="3 Days Murchison Falls Safari Uganda | Boat Cruise and Rhino Tracking | L'okawa Tours" description="Visit the world's most powerful waterfall, track rhinos at Ziwa and cruise the Nile. 3-day all-inclusive.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

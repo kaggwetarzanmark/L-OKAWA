@@ -1,7 +1,92 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+
+const tour = {
+  title:       '3 Days Queen Elizabeth National Park Safari',
+  slug:        '3-days-queen-elizabeth-national-park-safari',
+  country:     'Uganda',
+  countrySlug: 'uganda',
+  tagline:     'Tree-Climbing Lions, Kazinga Channel and 600 Bird Species',
+  heroImg:     '/images/wildlife/tree-climbing-lion-ishasha.jpg',
+  heroImgAlt:  'Lioness in a fig tree in the Ishasha sector of Queen Elizabeth National Park Uganda',
+  description: 'Track tree-climbing lions in Ishasha, cruise the Kazinga Channel and enjoy game drives in Queen Elizabeth National Park. 3-day safari from Kampala, all meals included.',
+  price:       'From $600',
+  priceNote:   'per person, all park fees included',
+  days:        3,
+  startEnd:    'Kampala / Entebbe',
+  groupSize:   '2 to 8 people',
+  difficulty:  'Easy',
+  highlights: [
+    'Track the famous tree-climbing lions of the Ishasha sector — unique in all of Africa',
+    'Two-hour boat cruise on the Kazinga Channel with the world\'s highest concentration of hippos',
+    'Game drives through the Kasenyi plains spotting elephants, buffaloes and Uganda kobs',
+    'Over 600 bird species including the iconic African Fish Eagle',
+    'Views of the Rwenzori Mountains and crater lakes',
+  ],
+  facts: [
+    { label: 'Duration',      value: '3 Days / 2 Nights' },
+    { label: 'Starts',        value: 'Kampala or Entebbe' },
+    { label: 'Ends',          value: 'Kampala or Entebbe' },
+    { label: 'Park fees',     value: 'USD 40/day — included' },
+    { label: 'Group size',    value: '2 to 8 people' },
+    { label: 'Difficulty',    value: 'Easy' },
+    { label: 'Accommodation', value: 'Lodge or tented camp' },
+    { label: 'Best time',     value: 'Year-round' },
+  ],
+  overview: [
+    'Queen Elizabeth National Park is Uganda\'s most visited national park, covering 1,978 km² of savannah, forests, wetlands and crater lakes along the western Albertine Rift Valley. It borders the Democratic Republic of Congo and Lake Edward to the west.',
+    'The park is famous for two extraordinary experiences: the Kazinga Channel boat cruise, which gives close-up views of hippos, crocodiles and elephants, and the Ishasha sector in the south, where lions have the unusual habit of resting in the branches of large fig trees.',
+    'This 3-day safari covers both highlights with game drives on the Kasenyi plains and the full 2-hour Kazinga Channel boat safari included in the price.',
+  ],
+};
+
+const itinerary = [
+  {
+    day: 1,
+    title: 'Kampala to Queen Elizabeth National Park',
+    body: 'Depart Kampala after breakfast and drive southwest towards Queen Elizabeth National Park, a journey of approximately 6 hours. Stop at the equator for photos. Continue through the stunning Rift Valley escarpment with views of Lakes George and Edward. Arrive at your lodge in the afternoon and enjoy a game drive on the way to check in. Dinner and overnight.',
+  },
+  {
+    day: 2,
+    title: 'Game Drive and Kazinga Channel Boat Cruise',
+    body: 'Start with an early morning game drive through the Kasenyi plains to spot lions, elephants, Uganda kobs, waterbucks and warthogs. Return to the lodge for breakfast. In the afternoon, board the boat at the Mweya peninsula for the famous 2-hour Kazinga Channel cruise. You will see hundreds of hippos at close range, Nile crocodiles basking on the banks, elephants and buffaloes drinking, and a remarkable variety of water birds. Return to the lodge for dinner and overnight.',
+  },
+  {
+    day: 3,
+    title: 'Ishasha Sector Tree-Climbing Lions and Return',
+    body: 'Drive south to the remote Ishasha sector where lions regularly climb into the branches of large fig and sycamore trees — a behaviour seen in very few places in Africa. Spend the morning searching for the lions and other wildlife including topis and Uganda kobs. After lunch en route, drive back towards Kampala, arriving in the evening. Your guide drops you at your hotel or Entebbe airport.',
+  },
+];
+
+const includes = [
+  'Private 4x4 safari vehicle with roof hatch',
+  'English-speaking professional driver-guide',
+  'All accommodation (2 nights)',
+  'All meals: breakfast, lunch and dinner',
+  'Bottled drinking water throughout',
+  'Park entry fees (USD 40 per day)',
+  'Kazinga Channel boat cruise',
+];
+
+const excludes = [
+  'International and domestic flights',
+  'Uganda visa fees (USD 50)',
+  'Travel insurance (required)',
+  'Alcoholic beverages',
+  'Gratuities for guides (recommended)',
+  'Personal expenses and souvenirs',
+];
+
+const faqs = [
+  { q: 'Is the Kazinga Channel boat cruise included?', a: 'Yes. The 2-hour afternoon boat cruise on the Kazinga Channel is included in the tour price. The channel connects Lake George and Lake Edward and has one of the highest concentrations of hippos in the world.' },
+  { q: 'Are the tree-climbing lions guaranteed?', a: 'We visit the Ishasha sector specifically to search for the tree-climbing lions. While we cannot guarantee sightings of any specific animal, the Ishasha sector consistently delivers the best chance of seeing lions in trees. The success rate is high.' },
+  { q: 'Can I combine this tour with gorilla trekking?', a: 'Absolutely. Queen Elizabeth National Park is on the route to Bwindi Impenetrable Forest. Our 5-day and 7-day packages combine gorilla trekking with a Queen Elizabeth game drive and boat cruise.' },
+];
+
+const relatedTours = [
+  { title: '4 Days Gorilla and Queen Elizabeth Safari', slug: '4-days-gorilla-queen-elizabeth-safari',    days: 4, price: 'From $1,600', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Mountain gorilla amber eyes Uganda' },
+  { title: '7 Days Uganda Wildlife Safari',             slug: '7-days-uganda-wildlife-safari',             days: 7, price: 'From $2,800', img: '/images/wildlife/hippos-in-grass-kazinga.jpg',   imgAlt: 'Hippos Kazinga Channel Uganda' },
+  { title: '3 Days Murchison Falls Safari',             slug: '3-days-murchison-falls-safari',             days: 3, price: 'From $650',   img: '/images/wildlife/giraffe-uganda-murchison.jpg',  imgAlt: 'Giraffe Murchison Falls Uganda' },
+];
 ---
-
-<BaseLayout title="3 Days Queen Elizabeth National Park Safari Uganda | L'okawa Tours" description="Tree-climbing lions, Kazinga Channel boat cruise and game drives. 3-day Queen Elizabeth safari from Kampala.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

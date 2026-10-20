@@ -1,7 +1,21 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = { title: '4 Days Double Gorilla Trekking Bwindi', slug: '4-days-double-gorilla-trekking-bwindi', country: 'Uganda', countrySlug: 'uganda', tagline: 'Trek Two Different Gorilla Families on Consecutive Days', heroImg: '/images/gorillas/silverback-gorilla-group.jpg', heroImgAlt: 'Silverback mountain gorilla group on trail in Bwindi Impenetrable Forest Uganda', description: 'Trek two different gorilla families on consecutive days in Bwindi. The ultimate gorilla experience with 2 permits and 2 unforgettable encounters. 4-day Uganda safari.', price: 'From $2,400', priceNote: 'per person, 2 gorilla permits included', days: 4, startEnd: 'Kampala / Entebbe', groupSize: '2 to 8 people', difficulty: 'Moderate to Strenuous', highlights: ['Two separate gorilla treks on days 2 and 3 — each with a different family', 'Both gorilla permits (USD 1,600 combined value) included in the tour price', 'Option to visit different sectors of Bwindi for contrasting terrain and families', 'Two full days in Bwindi with time to explore the forest environment', 'Ideal for photographers, wildlife enthusiasts and returning visitors'], facts: [{ label: 'Duration', value: '4 Days / 3 Nights' }, { label: 'Gorilla permits', value: '2 × USD 800 — included' }, { label: 'Group size', value: '2 to 8' }, { label: 'Difficulty', value: 'Moderate to Strenuous' }, { label: 'Best time', value: 'Jun–Sep, Dec–Feb' }, { label: 'Starts', value: 'Kampala or Entebbe' }, { label: 'Ends', value: 'Kampala or Entebbe' }, { label: 'Accommodation', value: 'Lodge at Bwindi' }], overview: ['This tour is designed for dedicated gorilla enthusiasts who want more than a single encounter. Two permits allow you to trek with two completely different gorilla families on consecutive mornings — each family has its own personality, social dynamics, and forest territory.', 'Many guests who do this tour describe the second trek as even more powerful than the first, as you approach the experience with greater knowledge and calm. Photographers particularly love this format as the second trek often yields completely different imagery.', 'Both permits, all accommodation at Bwindi, meals and transport are included in the price.'] };
+const itinerary = [
+  { day: 1, title: 'Kampala to Bwindi', body: 'Depart Kampala early. Drive to Bwindi via the equator and Mbarara. Arrive late afternoon. Briefing about double gorilla trekking and the two families you will visit. Dinner and overnight.' },
+  { day: 2, title: 'First Gorilla Trek', body: 'Morning gorilla trek with your first allocated family. Spend one hour with the gorillas. Return for lunch. Afternoon optional Batwa cultural experience or nature walk. Dinner and overnight at Bwindi.' },
+  { day: 3, title: 'Second Gorilla Trek', body: 'Morning gorilla trek with your second family — different terrain, different sector, different family dynamics. One hour with the gorillas. Return for lunch. Afternoon rest or forest walk. Dinner and overnight.' },
+  { day: 4, title: 'Return to Kampala', body: 'After breakfast drive back to Kampala via Mbarara. Arrive in the evening.' },
+];
+const includes = ['2 gorilla permits (USD 1,600 combined)', 'Private 4x4 vehicle', 'Driver-guide', 'All accommodation (3 nights)', 'All meals', 'Water', 'Park fees'];
+const excludes = ['Flights', 'Visa', 'Insurance', 'Alcohol', 'Tips', 'Porter hire (optional)', 'Batwa experience (optional)'];
+const faqs = [
+  { q: 'Can I trek the same family twice?', a: 'We arrange for you to be assigned to two different gorilla families to give you the most varied and rewarding experience. You will see different terrain, different social interactions and potentially different numbers in each family.' },
+  { q: 'Is double gorilla trekking too physically demanding?', a: 'Two consecutive treks are demanding. We recommend good fitness and comfortable hiking boots. Porters are available at the trailhead and are highly recommended for the second trek if you are tired.' },
+];
+const relatedTours = [
+  { title: '3 Days Uganda Gorilla Safari', slug: '3-days-uganda-gorilla-safari', days: 3, price: 'From $1,400', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Gorilla Uganda' },
+  { title: '4 Days Gorilla Trekking and Lake Bunyonyi', slug: '4-days-gorilla-trekking-lake-bunyonyi', days: 4, price: 'From $1,800', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla mother baby Bwindi' },
+];
 ---
-
-<BaseLayout title="4 Days Double Gorilla Trekking in Bwindi Impenetrable Forest Uganda | L'okawa Tours" description="Trek two different gorilla families on consecutive days in Bwindi. The ultimate gorilla experience with 2 permits.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

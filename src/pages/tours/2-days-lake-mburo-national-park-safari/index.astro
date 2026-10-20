@@ -1,7 +1,67 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = {
+  title: '2 Days Lake Mburo National Park Safari',
+  slug: '2-days-lake-mburo-national-park-safari',
+  country: 'Uganda',
+  countrySlug: 'uganda',
+  tagline: 'Uganda\'s Most Accessible Savannah Safari',
+  heroImg: '/images/wildlife/hippo-walking-water.jpg',
+  heroImgAlt: 'Hippo emerging from the water at Lake Mburo National Park Uganda',
+  description: 'A short 2-day Lake Mburo National Park safari from Kampala — zebras, hippos, impalas, topis and a boat ride on the lake. Uganda\'s closest national park to the capital.',
+  price: 'From $380',
+  priceNote: 'per person, park fees included',
+  days: 2,
+  startEnd: 'Kampala / Kampala',
+  groupSize: '2 to 8 people',
+  difficulty: 'Easy',
+  highlights: [
+    'Only national park in Uganda with zebras and impalas',
+    'Boat ride on Lake Mburo — hippos at very close range',
+    'Game drives for topis, elands, buffaloes and warthogs',
+    'Night game drive — hyenas, genets and bush babies',
+    'Walking safari inside the park with armed ranger',
+    'Just 3 hours from Kampala — ideal short break',
+  ],
+  facts: [
+    { label: 'Duration', value: '2 Days / 1 Night' },
+    { label: 'Group size', value: '2 to 8' },
+    { label: 'Difficulty', value: 'Easy' },
+    { label: 'Best time', value: 'Year-round' },
+    { label: 'Starts', value: 'Kampala or Entebbe' },
+    { label: 'Ends', value: 'Kampala or Entebbe' },
+    { label: 'Accommodation', value: 'Lodge' },
+    { label: 'Distance from Kampala', value: 'Approx 240 km (3 hours)' },
+  ],
+  overview: [
+    'Lake Mburo National Park is Uganda\'s most accessible national park and a perfect introduction to Ugandan wildlife for travellers on a short visit or arriving before a longer safari. Located just 3 hours from Kampala on the highway to western Uganda, it can be comfortably done in 2 days.',
+    'The park is compact but remarkably wildlife-rich. It is the only national park in Uganda with both zebras and impalas — unusual for East Africa. The five lakes within the park support large populations of hippos, Nile crocodiles, and exceptional waterbird diversity including the African fish eagle.',
+    'Activities include game drives, a boat ride on Lake Mburo, guided walking safaris with armed rangers, and optional night game drives to spot nocturnal animals. All activities and accommodation are included in this 2-day package.',
+  ],
+};
+const itinerary = [
+  { day: 1, title: 'Kampala to Lake Mburo National Park', body: 'Depart Kampala after an early breakfast. Drive south-west to Lake Mburo National Park (approximately 3 hours) via the Masaka highway. Stop at the Equator for photos en route. Arrive at the park gate. Afternoon game drive through the acacia woodland and open plains. Game drive for zebras, impalas, topis, elands, warthogs and buffaloes. Arrive at your lodge on the lake shore before dusk. Sundowner on the veranda. Dinner and overnight. Optional night game drive after dinner (additional cost).' },
+  { day: 2, title: 'Lake Mburo Boat Safari and Return', body: 'Early morning guided walking safari inside the park with an armed ranger — an excellent way to observe the smaller wildlife and birdlife on foot. Return to lodge for breakfast. Mid-morning 2-hour boat safari on Lake Mburo. Hippos are extremely abundant and come within metres of the boat. Nile crocodiles, African fish eagles, herons and kingfishers line the banks. Return for lunch. Afternoon game drive on the return route. Depart for Kampala. Arrive in Kampala by early evening. End of safari.' },
+];
+const includes = [
+  'Private 4x4 vehicle and driver-guide',
+  'All accommodation (1 night, lodge)',
+  'All meals (dinner Day 1, breakfast and lunch Day 2)',
+  'Drinking water',
+  'Park entrance fees',
+  'Boat ride on Lake Mburo',
+  'Guided walking safari with ranger',
+];
+const excludes = ['Night game drive (optional, approx USD 30 per vehicle)', 'Kampala hotel', 'Flights', 'Travel insurance', 'Alcohol and soft drinks', 'Tips and gratuities'];
+const faqs = [
+  { q: 'Can this be combined with other parks?', a: 'Yes. Lake Mburo is ideally positioned on the highway between Kampala and western Uganda. It is commonly added as a stopover on longer safaris to Queen Elizabeth, Bwindi or Kibale Forest. We can incorporate it into any multi-park itinerary.' },
+  { q: 'Are there lions in Lake Mburo?', a: 'Lions were historically present but are no longer resident in Lake Mburo. The park is well known for its zebras, impalas, hippos, topis and excellent birds. For lion sightings, Queen Elizabeth or Murchison Falls are the recommended parks.' },
+  { q: 'Is this suitable for children?', a: 'Yes. Lake Mburo is one of Uganda\'s most family-friendly parks. The boat safari is particularly enjoyed by children. The lack of lions and large predators makes the walking safari safer and accessible for younger visitors.' },
+];
+const relatedTours = [
+  { title: '3 Days Queen Elizabeth National Park Safari', slug: '3-days-queen-elizabeth-national-park-safari', days: 3, price: 'From $950', img: '/images/wildlife/hippos-in-grass-kazinga.jpg', imgAlt: 'Hippos Kazinga Channel Uganda' },
+  { title: '4 Days Bwindi Gorillas and Lake Mburo', slug: '4-days-bwindi-gorillas-lake-mburo', days: 4, price: 'From $1,700', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Mountain gorilla Bwindi Uganda' },
+  { title: '4 Days Gorilla Trekking and Lake Bunyonyi', slug: '4-days-gorilla-trekking-lake-bunyonyi', days: 4, price: 'From $1,800', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla trekking Uganda' },
+];
 ---
-
-<BaseLayout title="2 Days Lake Mburo Safari Uganda | Zebras, Hippos and Boat Cruise | L'okawa Tours" description="2-day Lake Mburo safari from Kampala. Spot zebras, hippos and 332 bird species. Includes boat cruise and game drive.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

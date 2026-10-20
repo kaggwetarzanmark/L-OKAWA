@@ -1,7 +1,20 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = { title: '4 Days Mount Elgon Hiking Safari Uganda', slug: '4-days-mount-elgon-hiking-safari', country: 'Uganda', countrySlug: 'uganda', tagline: 'Hike the World\'s Largest Ancient Volcano', heroImg: '/images/accommodation/rwenzori-mountains-glacier-hike.jpg', heroImgAlt: 'Hikers on mountain trail Uganda East Africa adventure safari', description: 'Hike Mount Elgon\'s Sasa Trail, explore Sipi Falls waterfalls and ancient caves. 4-day eastern Uganda adventure safari from Kampala.', price: 'From $550', priceNote: 'per person, park fees included', days: 4, startEnd: 'Kampala / Mbale', groupSize: '2 to 10 people', difficulty: 'Moderate to Strenuous', highlights: ['Hike the Sasa Trail on Mount Elgon — the world\'s widest ancient caldera', 'Walk to the spectacular Sipi Falls waterfall in Kapchorwa', 'Explore ancient lava tube caves used by local communities for centuries', 'Views over the Sipi gorge and surrounding coffee farms', 'Drive through eastern Uganda\'s distinctive landscapes'], facts: [{ label: 'Duration', value: '4 Days / 3 Nights' }, { label: 'Mountain', value: 'Mt Elgon, 4,321m' }, { label: 'Group size', value: '2 to 10' }, { label: 'Difficulty', value: 'Moderate to Strenuous' }, { label: 'Best time', value: 'Dec–Feb, Jun–Sep' }, { label: 'Starts', value: 'Kampala or Mbale' }, { label: 'Ends', value: 'Kampala or Mbale' }, { label: 'Accommodation', value: 'Lodge and campsite' }], overview: ['Mount Elgon straddles the border of Uganda and Kenya and is the world\'s largest ancient volcano by base area. Its slopes are home to the Bagisu and Sabiny communities and some of Uganda\'s finest arabica coffee farms. At the crater rim the moorland opens into an otherworldly afro-alpine landscape.', 'The Sipi Falls area on Mount Elgon\'s slopes is one of Uganda\'s most photogenic landscapes — three tiered waterfalls dropping into a deep gorge surrounded by terraced farmland. This is also Uganda\'s premier hiking destination outside the Rwenzori Mountains.'] };
+const itinerary = [
+  { day: 1, title: 'Kampala to Mount Elgon via Mbale', body: 'Drive east to Mbale, approximately 5 hours. Stop for lunch. Continue to the Sipi Falls area and check in at your lodge. Afternoon walk around the Sipi Falls viewpoints. Dinner and overnight.' },
+  { day: 2, title: 'Sipi Falls Walk and Cave Exploration', body: 'Morning guided walk to all three Sipi waterfalls, passing through local coffee farms. Visit the lava tube caves and learn about their historical use. Afternoon rest at the lodge with views of the gorge. Dinner and overnight.' },
+  { day: 3, title: 'Sasa Trail Hike on Mount Elgon', body: 'Early departure for the Kapkwai Forest Exploration Centre on Mount Elgon\'s slopes. Begin the Sasa Trail hike through bamboo forest, past gorges and into the afro-alpine moorland. Pack lunch in the forest. Return in the late afternoon. Dinner and overnight.' },
+  { day: 4, title: 'Return to Kampala', body: 'Breakfast at the lodge. Drive back to Kampala or Mbale town. Arrive in the afternoon.' },
+];
+const includes = ['Private vehicle', 'Driver-guide', 'Park and cave entry fees', 'All accommodation (3 nights)', 'All meals', 'Water', 'Guided walks'];
+const excludes = ['Flights', 'Visa', 'Insurance', 'Alcohol', 'Tips', 'Porter hire for mountain sections'];
+const faqs = [
+  { q: 'How high does the Sasa Trail go?', a: 'The day hike on the Sasa Trail typically reaches the bamboo zone at 2,800m to 3,000m. A multi-day summit attempt to 4,321m can be arranged separately.' },
+];
+const relatedTours = [
+  { title: '3 Days Uganda Gorilla Safari', slug: '3-days-uganda-gorilla-safari', days: 3, price: 'From $1,400', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Gorilla Uganda' },
+  { title: '3 Days Murchison Falls Safari', slug: '3-days-murchison-falls-safari', days: 3, price: 'From $650', img: '/images/wildlife/giraffe-uganda-murchison.jpg', imgAlt: 'Giraffe Murchison Uganda' },
+];
 ---
-
-<BaseLayout title="4 Days Mount Elgon Hiking Safari Uganda | Sipi Falls and Caves | L'okawa Tours" description="Hike Sipi Falls, caves and the Sasa trail on this 4-day Mount Elgon adventure in eastern Uganda.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

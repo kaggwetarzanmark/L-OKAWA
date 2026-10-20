@@ -1,7 +1,90 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = {
+  title: '18 Days Uganda Wildlife Safari',
+  slug: '18-days-uganda-wildlife-safari',
+  country: 'Uganda',
+  countrySlug: 'uganda',
+  tagline: 'The Complete Uganda Safari Experience',
+  heroImg: '/images/gorillas/silverback-gorilla-group.jpg',
+  heroImgAlt: 'Silverback gorilla with family group in Bwindi Impenetrable Forest Uganda',
+  description: '18 days covering every major park and experience in Uganda: Kidepo Valley, Murchison Falls, Kibale, Queen Elizabeth, Bwindi double gorilla trek, Lake Bunyonyi, Jinja and Ssese Islands.',
+  price: 'From $6,500',
+  priceNote: 'per person, all permits included',
+  days: 18,
+  startEnd: 'Entebbe / Entebbe',
+  groupSize: '2 to 8 people',
+  difficulty: 'Moderate',
+  highlights: [
+    'Double gorilla trekking in Bwindi — two days, two gorilla families',
+    'Chimpanzee trekking in Kibale Forest',
+    'Kidepo Valley National Park',
+    'Murchison Falls Nile boat safari',
+    'Kazinga Channel cruise in Queen Elizabeth',
+    'Ssese Islands beach retreat on Lake Victoria',
+    'White water rafting at Jinja',
+    'Lake Bunyonyi crater lake stay',
+  ],
+  facts: [
+    { label: 'Duration', value: '18 Days / 17 Nights' },
+    { label: 'Gorilla permits', value: '2 x USD 800 (both included)' },
+    { label: 'Chimp permit', value: 'USD 250 included' },
+    { label: 'Group size', value: '2 to 8' },
+    { label: 'Difficulty', value: 'Moderate' },
+    { label: 'Best time', value: 'Year-round' },
+    { label: 'Starts', value: 'Entebbe' },
+    { label: 'Ends', value: 'Entebbe' },
+    { label: 'Accommodation', value: 'Lodge, Island Resort, Beach Hotel' },
+  ],
+  overview: [
+    'Eighteen days is enough time to experience everything Uganda has to offer — all five major national parks, two gorilla treks in Bwindi visiting different gorilla families, chimpanzee trekking in Kibale, a beach retreat on the Ssese Islands, white water rafting at Jinja and a relaxing finale at Lake Bunyonyi.',
+    'This itinerary is for travellers who want a complete and deeply immersive East African experience without feeling rushed at any destination. Three nights are allocated to the major parks, two gorilla permits are included for consecutive days in Bwindi, and the final three days provide a complete change of pace on the water.',
+    'The route is carefully sequenced to minimise backtracking and maximise comfort. Kidepo is reached by charter flight. All other transfers are by private 4x4 vehicle.',
+  ],
+};
+const itinerary = [
+  { day: 1, title: 'Entebbe to Kidepo Valley', body: 'Charter flight from Entebbe to Kidepo airstrip. Afternoon game drive across the Narus Valley. Dinner and overnight Kidepo.' },
+  { day: 2, title: 'Kidepo Valley Safari Day 1', body: 'Full day game drives. Morning in the Narus Valley for lions, cheetahs and large buffalo herds. Afternoon visit to the Karamojong cultural village. Dinner and overnight Kidepo.' },
+  { day: 3, title: 'Kidepo Valley Safari Day 2', body: 'Full day in the remote Kidepo Valley (dry season) or extended north bank drives. Ostriches, greater kudus, Burchell\'s zebras. Dinner and overnight Kidepo.' },
+  { day: 4, title: 'Kidepo to Murchison Falls', body: 'Morning game drive. Flight or drive to Murchison Falls National Park. Afternoon north bank game drive on arrival. Dinner and overnight Murchison.' },
+  { day: 5, title: 'Murchison Falls Game Drive', body: 'Full day north bank game drives. Rothschild\'s giraffes, lions, elephants, Jackson\'s hartebeests. Dinner and overnight Murchison.' },
+  { day: 6, title: 'Murchison Falls Nile Boat Safari', body: 'Morning game drive. Afternoon boat safari along the Nile to the base of the falls. Shoebill stork on the delta. Dinner and overnight Murchison.' },
+  { day: 7, title: 'Murchison to Kibale Forest', body: 'Drive south to Kibale Forest via Masindi and Fort Portal. Arrive afternoon. Briefing on tomorrow\'s chimp trek. Dinner and overnight Kibale.' },
+  { day: 8, title: 'Chimpanzee Trekking in Kibale', body: '7:00am briefing at Kanyanchu. Track habituated chimpanzees. One hour with the community. Lunch. Afternoon Bigodi Wetland walk. Dinner and overnight Kibale.' },
+  { day: 9, title: 'Kibale to Queen Elizabeth National Park', body: 'Drive south through the Kibale corridor to Mweya peninsula. Afternoon Kasenyi game drive. Sundowner. Dinner and overnight.' },
+  { day: 10, title: 'Queen Elizabeth Game Drive and Kazinga Cruise', body: 'Early morning game drive for lions, elephants and topi. Afternoon 2-hour Kazinga Channel boat cruise. Dinner and overnight Queen Elizabeth.' },
+  { day: 11, title: 'Ishasha Sector — Tree-Climbing Lions', body: 'Full day in the Ishasha sector seeking tree-climbing lions in the giant fig trees. Picnic lunch. Dinner and overnight Ishasha.' },
+  { day: 12, title: 'Ishasha to Bwindi Impenetrable Forest', body: 'Morning game drive in Ishasha. Drive south to Bwindi. Arrive late afternoon. Park briefing. Dinner and overnight Bwindi.' },
+  { day: 13, title: 'Gorilla Trek 1 — First Gorilla Family', body: 'Early breakfast. 7:30am briefing. Trek to find your first habituated gorilla family. One hour at close range. Return for lunch. Afternoon rest. Dinner and overnight Bwindi.' },
+  { day: 14, title: 'Gorilla Trek 2 — Second Gorilla Family', body: 'Early breakfast. Second gorilla trek briefing. Trek to a different habituated gorilla family in another sector of Bwindi. Another remarkable hour with mountain gorillas. Return for lunch. Afternoon optional Batwa cultural walk. Dinner and overnight Bwindi.' },
+  { day: 15, title: 'Bwindi to Lake Bunyonyi', body: 'After breakfast drive to Lake Bunyonyi (1.5 hours). Check in to your island resort. Afternoon boat trip around the 29 islands of the lake. Swim in the bilharzia-free waters. Dinner and overnight Lake Bunyonyi.' },
+  { day: 16, title: 'Lake Bunyonyi to Jinja', body: 'After breakfast drive to Jinja via Kampala (approximately 7 hours). Check in to your riverside hotel. Evening walk along the Nile bank. Dinner and overnight Jinja.' },
+  { day: 17, title: 'White Water Rafting on the Nile at Jinja', body: 'Full day white water rafting on the River Nile. Grade 3 to 5 rapids with a professional rafting operator. All safety gear and riverside lunch provided. Return to your hotel. Dinner and overnight Jinja.' },
+  { day: 18, title: 'Jinja to Entebbe', body: 'Morning at leisure on the Nile. Optional Ssese Islands overnight or direct transfer to Entebbe airport. End of safari.' },
+];
+const includes = [
+  '2 gorilla trekking permits (USD 800 each, both included)',
+  'Chimpanzee trekking permit (USD 250)',
+  'Charter flight Entebbe to Kidepo',
+  'Private 4x4 vehicle and driver-guide',
+  'All accommodation (17 nights)',
+  'All meals during safari',
+  'Drinking water',
+  'All park fees',
+  'Murchison Falls Nile boat safari',
+  'Kazinga Channel boat cruise',
+  'White water rafting on the Nile (Day 17)',
+];
+const excludes = ['International flights', 'Uganda visa', 'Travel insurance', 'Ssese Islands extension (optional)', 'Alcohol', 'Tips and gratuities'];
+const faqs = [
+  { q: 'Why visit two different gorilla families in Bwindi?', a: 'Each gorilla family has its own territory, personality and dynamics. Visiting two families on consecutive days gives a richer and more varied experience. Bwindi has multiple habituated families spread across different sectors of the forest, so the two treks take you to entirely different parts of the park.' },
+  { q: 'Can I add the Ssese Islands to this itinerary?', a: 'Yes. The Ssese Islands on Lake Victoria are a beautiful add-on after Jinja. A ferry from Port Bell in Kampala reaches Buggala Island in 4 hours. Two nights on the islands provides a final beach retreat before departure. Contact us to extend the itinerary.' },
+  { q: 'Is 18 days too long for Uganda?', a: 'Not at all. Uganda is remarkably diverse and this itinerary covers regions and experiences that shorter trips simply cannot reach. Many guests on this itinerary comment that they wish they had even more time.' },
+];
+const relatedTours = [
+  { title: '15 Days Uganda Adventure and Wildlife Safari', slug: '15-days-uganda-adventure-wildlife-safari', days: 15, price: 'From $5,800', img: '/images/accommodation/rwenzori-mountains-glacier-hike.jpg', imgAlt: 'Rwenzori Mountains Uganda' },
+  { title: '14 Days Uganda Safari Vacation', slug: '14-days-uganda-safari-vacation', days: 14, price: 'From $5,200', img: '/images/gorillas/gorilla-mother-baby-bwindi.jpg', imgAlt: 'Gorilla trekking Bwindi Uganda' },
+  { title: '4 Days Double Gorilla Trekking Bwindi', slug: '4-days-double-gorilla-trekking-bwindi', days: 4, price: 'From $2,200', img: '/images/gorillas/young-gorilla-closeup.jpg', imgAlt: 'Young gorilla Bwindi Uganda' },
+];
 ---
-
-<BaseLayout title="18 Days Uganda Wildlife Safari | The Complete Pearl of Africa Experience | L'okawa Tours" description="Uganda's most comprehensive 18-day safari across every major national park, primate forest and scenic highlight.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

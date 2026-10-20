@@ -1,7 +1,29 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = {
+  title: '3 Days Masai Mara Safari Kenya', slug: '3-days-masai-mara-safari',
+  country: 'Kenya', countrySlug: 'kenya', tagline: 'The World\'s Most Famous Wildlife Reserve',
+  heroImg: '/images/wildlife/lion-kidepo-rock-sunset.jpg', heroImgAlt: 'Male lion on a rock at sunset Masai Mara Kenya safari',
+  description: '3-day Masai Mara safari from Nairobi. Four game drives in Africa\'s most celebrated wildlife reserve. Big Five, the Great Migration and expert guides. All meals included.',
+  price: 'From $899', priceNote: 'per person, all park fees included', days: 3, startEnd: 'Nairobi', groupSize: '2 to 8 people', difficulty: 'Easy',
+  highlights: ['Four game drives in the Masai Mara — home of the Big Five and the Great Migration', 'High chance of lion, leopard, cheetah, elephant and buffalo sightings', 'Witness the dramatic Mara River wildebeest crossings (July to October)', 'Option to add a hot air balloon safari at dawn over the Mara plains', 'Meet the Maasai people and visit a traditional village (optional)'],
+  facts: [{ label: 'Duration', value: '3 Days / 2 Nights' }, { label: 'Starts', value: 'Nairobi' }, { label: 'Ends', value: 'Nairobi' }, { label: 'Park fees', value: 'USD 80/day — included' }, { label: 'Group size', value: '2 to 8 people' }, { label: 'Difficulty', value: 'Easy' }, { label: 'Accommodation', value: 'Safari camp or lodge' }, { label: 'Best time', value: 'Jul–Oct for Migration' }],
+  overview: ['The Masai Mara National Reserve in southwestern Kenya is one of the greatest wildlife sanctuaries on earth. Covering 1,510 km² of open savannah, the Mara is home to one of the densest concentrations of predators anywhere in Africa — lions, leopards, cheetahs and hyenas all share the plains with millions of herbivores.', 'The Masai Mara is the northern extension of Tanzania\'s Serengeti ecosystem, and from July to October the Great Wildebeest Migration — the largest overland movement of animals on earth — passes through the Mara with dramatic river crossings watched by crocodiles.', 'This 3-day safari from Nairobi includes two full days of game drives with four separate drives giving you maximum time in the reserve. All meals and camp accommodation are included.'],
+};
+const itinerary = [
+  { day: 1, title: 'Nairobi to Masai Mara', body: 'Depart Nairobi after breakfast and drive southwest to the Masai Mara, approximately 5 hours. Enter the reserve in the afternoon for your first game drive. The afternoon is the best time to spot predators as they become active. Return to your camp for dinner and overnight inside or near the reserve.' },
+  { day: 2, title: 'Full Day Game Drives in the Mara', body: 'A full day of game viewing with an early morning drive at 6:30am when predators are still active from the night and the light is spectacular for photography. Return for breakfast then rest or explore around camp. Afternoon drive from 3:30pm when animals return to waterholes and predators begin hunting again. Dinner and overnight.' },
+  { day: 3, title: 'Morning Game Drive then Return to Nairobi', body: 'Final morning game drive at dawn for one last chance to see the Mara at its most beautiful and wildlife-rich. Return to camp for breakfast, check out and drive back to Nairobi, arriving in the late afternoon.' },
+];
+const includes = ['Private 4x4 safari vehicle with roof hatch', 'Professional English-speaking driver-guide', 'All accommodation (2 nights)', 'All meals', 'Bottled water', 'Masai Mara park entry fees', 'Four game drives'];
+const excludes = ['International flights', 'Kenya visa', 'Travel insurance', 'Alcohol', 'Gratuities', 'Hot air balloon (optional add-on)', 'Maasai village visit (optional)'];
+const faqs = [
+  { q: 'What is the best time to visit the Masai Mara?', a: 'The Masai Mara is excellent year-round for the Big Five. The Great Wildebeest Migration arrives in July and the dramatic Mara River crossings happen July to October. The dry season (July to October and January to February) offers the best game viewing overall.' },
+  { q: 'Can I add a hot air balloon safari?', a: 'Yes. A dawn hot air balloon safari over the Mara is one of the most spectacular experiences in Africa. It costs approximately USD 450 to 550 per person and includes a champagne bush breakfast after landing. Contact us to arrange this add-on.' },
+];
+const relatedTours = [
+  { title: '10 Days Kenya Safari and Beach Holiday', slug: '10-days-kenya-safari-beach-holiday', days: 10, price: 'From $2,800', img: '/images/wildlife/safari-vehicle-lions.jpg', imgAlt: 'Safari vehicle with lions Kenya' },
+  { title: '3 Days Uganda Gorilla Safari', slug: '3-days-uganda-gorilla-safari', days: 3, price: 'From $1,400', img: '/images/gorillas/gorilla-amber-eyes-closeup.jpg', imgAlt: 'Mountain gorilla Uganda' },
+];
 ---
-
-<BaseLayout title="3 Days Masai Mara Safari Kenya | Game Drives, Big 5 and Great Migration | L'okawa Tours" description="Spot lions, elephants and cheetahs in Africa's most iconic reserve. 3-day Masai Mara safari from Nairobi.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />

@@ -1,7 +1,75 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourPage from '../../../components/TourPage.astro';
+const tour = {
+  title: '10 Days Kenya Safari and Beach Holiday',
+  slug: '10-days-kenya-safari-beach-holiday',
+  country: 'Kenya',
+  countrySlug: 'kenya',
+  tagline: 'Masai Mara Big Five Safari Combined with Diani Beach',
+  heroImg: '/images/wildlife/lion-cub-lioness-savannah.jpg',
+  heroImgAlt: 'Lioness with cub on the savannah in Masai Mara Kenya',
+  description: 'Ten days combining a classic Masai Mara Big Five safari with a relaxing Indian Ocean beach stay at Diani Beach. Kenya\'s most popular holiday combination.',
+  price: 'From $3,200',
+  priceNote: 'per person, all safari fees and beach accommodation included',
+  days: 10,
+  startEnd: 'Nairobi / Mombasa',
+  groupSize: '2 to 8 people',
+  difficulty: 'Easy',
+  highlights: [
+    'Masai Mara National Reserve — Africa\'s most famous safari destination',
+    'Big Five game drives: lion, leopard, elephant, buffalo, rhino',
+    'Great Migration (July to October) — millions of wildebeest crossing the Mara River',
+    'Diani Beach — pristine white sand and warm Indian Ocean',
+    'Optional snorkelling, diving, and deep-sea fishing at Diani',
+    'Amboseli National Park with views of Mount Kilimanjaro',
+  ],
+  facts: [
+    { label: 'Duration', value: '10 Days / 9 Nights' },
+    { label: 'Group size', value: '2 to 8' },
+    { label: 'Difficulty', value: 'Easy' },
+    { label: 'Best time', value: 'Year-round (Migration: Jul to Oct)' },
+    { label: 'Starts', value: 'Nairobi' },
+    { label: 'Ends', value: 'Mombasa' },
+    { label: 'Safari accommodation', value: 'Tented camp / Lodge' },
+    { label: 'Beach accommodation', value: 'Beachfront hotel' },
+  ],
+  overview: [
+    'Kenya is the continent\'s most iconic safari destination, and this 10-day itinerary delivers the two experiences that define a Kenyan holiday: the raw wildlife drama of the Masai Mara and the turquoise waters of the Indian Ocean coast.',
+    'The first five days cover Nairobi, Amboseli National Park with its unmatched views of Kilimanjaro, and the Masai Mara National Reserve. Three nights in the Mara gives adequate time for multiple game drives and, between July and October, front-row seats at the Great Migration river crossings.',
+    'The second half of the trip is a complete change of pace: five days at Diani Beach south of Mombasa, consistently rated among Africa\'s best beaches. Snorkelling, kite surfing, boat trips to Wasini Island and deep-sea fishing are all available. All accommodation, game drives, park fees and domestic transfers are included.',
+  ],
+};
+const itinerary = [
+  { day: 1, title: 'Arrive Nairobi', body: 'Arrive at Jomo Kenyatta International Airport in Nairobi. Meet and greet by your L\'okawa guide. Transfer to your Nairobi hotel. Briefing on the safari programme. Dinner and overnight Nairobi.' },
+  { day: 2, title: 'Nairobi to Amboseli National Park', body: 'After breakfast drive south toward the Tanzania border to Amboseli National Park (approximately 4 hours). Afternoon game drive with stunning views of Mount Kilimanjaro across the Amboseli plains. Elephants, lions, cheetahs and massive elephant herds are commonly seen here. Dinner and overnight Amboseli.' },
+  { day: 3, title: 'Amboseli Full Day Game Drives', body: 'Full day game drives in Amboseli. Morning and afternoon drives across the dusty plains and swamp areas. Large herds of elephants gather at the swamp edges in the afternoon light. Kilimanjaro views are typically clearest in the early morning. Dinner and overnight Amboseli.' },
+  { day: 4, title: 'Amboseli to Masai Mara', body: 'After breakfast drive north toward the Masai Mara National Reserve via Narok (approximately 5 hours). Enter the reserve in the afternoon for an evening game drive. The Mara\'s rolling savannah comes alive at dusk with predator activity. Dinner and overnight Masai Mara.' },
+  { day: 5, title: 'Masai Mara Game Drives', body: 'Full day game drives in the Masai Mara. Early morning drive at first light — the best time for predator sightings. Return for breakfast. Afternoon game drive following big cat movements. The Mara Triangle and Serengeti crossing points are hotspots during the migration. Dinner and overnight.' },
+  { day: 6, title: 'Masai Mara — River Crossing Day', body: 'Dedicated day following the wildebeest herds (July to October). Position near the Mara River crossings and wait for the dramatic moment when herds plunge into the crocodile-filled water. Outside migration season this is an exceptional general game drive day. Dinner and overnight Masai Mara.' },
+  { day: 7, title: 'Masai Mara to Mombasa', body: 'Morning game drive. After breakfast drive or take a scheduled flight to Nairobi (or fly directly to Mombasa from the Mara). Transfer to Mombasa airport. Drive south 30 km to Diani Beach. Check in to your beachfront hotel. Dinner and overnight Diani.' },
+  { day: 8, title: 'Diani Beach — Rest and Water Sports', body: 'Full free day at Diani Beach. The beach is 17 km of uninterrupted white sand backing onto the Indian Ocean. Optional activities: snorkelling on the reef, stand-up paddleboarding, kite surfing, boat trip to Wasini Island, or a Colobus monkey walk in the coastal forest. Dinner and overnight Diani.' },
+  { day: 9, title: 'Diani Beach — Wasini Island Dhow Trip', body: 'Full day optional Wasini Island dhow trip: traditional wooden dhow cruise through mangroves, snorkelling on the Kisite-Mpunguti Marine Park reef (marine turtles, dolphins, colourful reef fish), and a fresh seafood lunch on Wasini Island. Return to Diani by afternoon. Dinner and overnight.' },
+  { day: 10, title: 'Diani Beach and Departure', body: 'Final morning at leisure on the beach. Checkout and transfer to Mombasa Moi International Airport for your departure flight. End of safari.' },
+];
+const includes = [
+  'Private 4x4 safari vehicle and driver-guide (safari days)',
+  'All accommodation (9 nights): Nairobi hotel, Amboseli lodge, Masai Mara tented camp, Diani beachfront hotel',
+  'All meals during safari (Days 1 to 7)',
+  'Breakfast only at Diani (Days 8 to 10)',
+  'All park and conservation fees',
+  'Airport and inter-destination transfers',
+  'Drinking water during game drives',
+];
+const excludes = ['International flights', 'Kenya visa (USD 50 eVisa)', 'Travel insurance', 'Domestic flights Mara to Mombasa (optional, approx USD 180)', 'Optional water sports at Diani', 'Wasini Island trip (optional, approx USD 90)', 'Alcohol and soft drinks', 'Tips and gratuities'];
+const faqs = [
+  { q: 'When is the Great Migration in the Masai Mara?', a: 'The wildebeest herds typically arrive in the Masai Mara from July and remain until October. The dramatic Mara River crossings are most frequent in August and September. Outside this window the Mara still offers excellent year-round game viewing with permanent resident wildlife.' },
+  { q: 'Is Diani Beach safe for swimming?', a: 'Yes. Diani Beach is protected by a coral reef that makes the water calm and safe for swimming and water sports. The beach is patrolled and well-maintained.' },
+  { q: 'Can we add a gorilla trek in Uganda to this itinerary?', a: 'Yes. A popular combination starts in Nairobi, adds 3 days in Uganda for gorilla trekking in Bwindi, then returns to Kenya for the Mara and Diani. Contact us for a custom quote on this East Africa combination.' },
+];
+const relatedTours = [
+  { title: '3 Days Masai Mara Safari', slug: '3-days-masai-mara-safari', days: 3, price: 'From $900', img: '/images/wildlife/lion-cub-lioness-savannah.jpg', imgAlt: 'Lions Masai Mara Kenya safari' },
+  { title: '12 Days Uganda Grand Safari', slug: '12-days-uganda-grand-safari', days: 12, price: 'From $4,500', img: '/images/gorillas/silverback-gorilla-group.jpg', imgAlt: 'Gorilla trekking Bwindi Uganda' },
+  { title: '10 Days Uganda Wildlife Gorilla Chimp Safari', slug: '10-days-uganda-wildlife-gorilla-chimp-safari', days: 10, price: 'From $3,800', img: '/images/wildlife/elephant-pair-greeting.jpg', imgAlt: 'Elephants Uganda safari' },
+];
 ---
-
-<BaseLayout title="10 Days Kenya Safari and Beach Holiday | Masai Mara, Amboseli and Diani Beach | L'okawa Tours" description="Kenya wildlife safari plus beach relaxation. 10 days combining Masai Mara, Amboseli and Diani Beach.">
-</BaseLayout>
-
+<TourPage {tour} {itinerary} {includes} {excludes} {faqs} {relatedTours} />
