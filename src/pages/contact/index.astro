@@ -1,4 +1,4 @@
----
+ï»¿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const contactDetails = [
@@ -107,7 +107,7 @@ const contactDetails = [
         method="POST"
         novalidate
       >
-        <!-- Web3Forms access key — replace YOUR_WEB3FORMS_KEY with your key from web3forms.com -->
+        <!-- Web3Forms access key - replace YOUR_WEB3FORMS_KEY with your key from web3forms.com -->
         <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY" />
         <input type="hidden" name="subject"    value="New Safari Quote Request from L'okawa Website" />
         <input type="hidden" name="from_name"  value="L'okawa Website" />
@@ -772,7 +772,7 @@ const contactDetails = [
   function populateCountries(selected) {
     const sel = document.getElementById('visitor-country');
     if (!sel) return;
-    // Minimal country list — common safari travelers + all EA
+    // Minimal country list - common safari travelers + all EA
     const countries = [
       ['AF','Afghanistan'],['AL','Albania'],['DZ','Algeria'],['AR','Argentina'],['AU','Australia'],
       ['AT','Austria'],['BE','Belgium'],['BR','Brazil'],['CA','Canada'],['CN','China'],
@@ -1018,7 +1018,7 @@ const contactDetails = [
       try {
         const fd = new FormData();
         fd.append('access_key', document.querySelector('[name="access_key"]')?.value || '');
-        fd.append('subject', 'Safari Quote — Source Tracking');
+        fd.append('subject', 'Safari Quote - Source Tracking');
         fd.append('from_name', 'L\'okawa Website');
         fd.append('name', document.getElementById('full-name')?.value || 'Anonymous');
         fd.append('source', this.dataset.source);
