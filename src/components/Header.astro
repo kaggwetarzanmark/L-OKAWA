@@ -147,15 +147,31 @@ const planLinks = [
     <nav aria-label="Mobile navigation">
       <a href="/" class={`nav__mobile-link ${isActive('/') ? 'nav__mobile-link--active' : ''}`}>Home</a>
 
-      <div class="nav__mobile-section">Destinations</div>
-      {destinationLinks.map((d) => (
-        <a href={d.href} class="nav__mobile-link nav__mobile-link--indent">{d.label}</a>
-      ))}
+      <!-- Destinations accordion -->
+      <div class="nav__mobile-accordion">
+        <button class="nav__mobile-acc-btn" aria-expanded="false" aria-controls="mob-destinations" type="button">
+          Destinations
+          <svg class="nav__mobile-acc-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav__mobile-acc-panel" id="mob-destinations" hidden>
+          {destinationLinks.map((d) => (
+            <a href={d.href} class="nav__mobile-link nav__mobile-link--indent">{d.label}</a>
+          ))}
+        </div>
+      </div>
 
-      <div class="nav__mobile-section">Tours</div>
-      {tourLinks.map((t) => (
-        <a href={t.href} class="nav__mobile-link nav__mobile-link--indent">{t.label}</a>
-      ))}
+      <!-- Tours accordion -->
+      <div class="nav__mobile-accordion">
+        <button class="nav__mobile-acc-btn" aria-expanded="false" aria-controls="mob-tours" type="button">
+          Tours
+          <svg class="nav__mobile-acc-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav__mobile-acc-panel" id="mob-tours" hidden>
+          {tourLinks.map((t) => (
+            <a href={t.href} class="nav__mobile-link nav__mobile-link--indent">{t.label}</a>
+          ))}
+        </div>
+      </div>
 
       <a href="/about/" class={`nav__mobile-link ${isActive('/about/') ? 'nav__mobile-link--active' : ''}`}>About Us</a>
       <a href="/gallery/" class={`nav__mobile-link ${isActive('/gallery/') ? 'nav__mobile-link--active' : ''}`}>Gallery</a>
@@ -355,6 +371,39 @@ const planLinks = [
   text-transform: uppercase;
   color: var(--color-amber);
 }
+/* Mobile accordion */
+.nav__mobile-accordion {
+  border-bottom: 1px solid var(--color-card-border);
+}
+.nav__mobile-acc-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 4px;
+  font-family: var(--font-body);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-base);
+  color: var(--color-forest);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: color var(--transition-fast);
+}
+.nav__mobile-acc-btn:hover { color: var(--color-amber); }
+.nav__mobile-acc-btn[aria-expanded="true"] { color: var(--color-amber); }
+.nav__mobile-acc-icon {
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+.nav__mobile-acc-btn[aria-expanded="true"] .nav__mobile-acc-icon {
+  transform: rotate(180deg);
+}
+.nav__mobile-acc-panel {
+  padding-bottom: 6px;
+}
+.nav__mobile-acc-panel[hidden] { display: none; }
 .nav__mobile-cta {
   display: block;
   text-align: center;
@@ -386,4 +435,18 @@ const planLinks = [
       menu.setAttribute('aria-hidden', String(!open));
     });
   }
+
+  // Mobile accordion toggles
+  document.querySelectorAll('.nav__mobile-acc-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var panelId = btn.getAttribute('aria-controls');
+      var panel = panelId ? document.getElementById(panelId) : null;
+      var isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      if (panel) {
+        if (isOpen) { panel.setAttribute('hidden', ''); }
+        else { panel.removeAttribute('hidden'); }
+      }
+    });
+  });
 </script>
