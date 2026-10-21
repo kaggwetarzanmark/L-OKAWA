@@ -215,6 +215,64 @@ const mosaicImages = [
 </section>
 
 <!-- ════════════════════════════════════════════════════
+     MEET THE TEAM
+════════════════════════════════════════════════════ -->
+<section class="about-team">
+  <div class="container">
+    <div class="section-heading">
+      <span class="kicker">The people behind every safari</span>
+      <h2 class="section-title">Meet Our Team</h2>
+      <p class="section-sub">L'okawa Tours is built on personal expertise. Every safari is planned and guided by people who have done this themselves.</p>
+    </div>
+    <div class="team-grid">
+
+      <!-- Achuka Dennis -->
+      <div class="team-card">
+        <div class="team-card__img-wrap">
+          <img
+            src="/images/people/achuka-dennis-director.jpg"
+            alt="Achuka Dennis, Director of L'okawa Tours and Travel Uganda"
+            class="team-card__img"
+            loading="lazy"
+            width="400"
+            height="480"
+          />
+        </div>
+        <div class="team-card__body">
+          <h3 class="team-card__name">Achuka Dennis</h3>
+          <p class="team-card__role">Director, L'okawa Tours and Travel</p>
+          <p class="team-card__bio">
+            Dennis founded L'okawa Tours in 2021 with a simple goal: to make East Africa's best wildlife experiences accessible to every traveller at an honest price. He oversees all safari operations, itinerary design and client relationships, bringing hands-on knowledge of Uganda's parks, lodges and communities built over years of guiding and travel.
+          </p>
+        </div>
+      </div>
+
+      <!-- Maniraguha Richard -->
+      <div class="team-card">
+        <div class="team-card__img-wrap">
+          <img
+            src="/images/people/maniraguha-richard-guide-cofounder.jpg"
+            alt="Maniraguha Richard, Driver-Guide and Co-founder of L'okawa Tours Uganda"
+            class="team-card__img"
+            loading="lazy"
+            width="400"
+            height="480"
+          />
+        </div>
+        <div class="team-card__body">
+          <h3 class="team-card__name">Maniraguha Richard</h3>
+          <p class="team-card__role">Co-founder and Lead Driver-Guide</p>
+          <p class="team-card__bio">
+            Richard is L'okawa's lead driver-guide and co-founder. He has navigated Uganda's parks for years, from the remote savannah of Kidepo Valley to the misty forest trails of Bwindi. His knowledge of wildlife behaviour, road conditions and local communities ensures every safari runs smoothly — and his warmth makes guests feel at home from the first meeting at the airport.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
      VEHICLES
 ════════════════════════════════════════════════════ -->
 <section class="about-fleet">
@@ -647,6 +705,77 @@ const mosaicImages = [
 .service-card--cta__link:hover { opacity: .7; }
 
 /* ══════════════════════════════════════════
+   TEAM
+══════════════════════════════════════════ */
+.about-team {
+  background: var(--color-white);
+  padding: 90px 0;
+}
+.about-team .section-sub {
+  max-width: 560px;
+  margin-inline: auto;
+  text-align: center;
+  color: var(--color-text-body);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  margin-top: 12px;
+  margin-bottom: 48px;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 900px;
+  margin-inline: auto;
+}
+.team-card {
+  background: var(--color-parchment);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+}
+.team-card__img-wrap {
+  height: 320px;
+  overflow: hidden;
+}
+.team-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.team-card__body {
+  padding: 28px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.team-card__name {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-2xl);
+  color: var(--color-forest);
+  margin: 0;
+}
+.team-card__role {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-extrabold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-amber);
+  margin: 0 0 8px;
+}
+.team-card__bio {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-body);
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════
    VEHICLES
 ══════════════════════════════════════════ */
 .about-fleet {
@@ -766,6 +895,7 @@ const mosaicImages = [
 ══════════════════════════════════════════ */
 @media (max-width: 960px) {
   .about-story__mosaic  { display: none; }
+  .team-grid            { grid-template-columns: 1fr; max-width: 480px; }
   .about-story__text    { flex: 1 1 100%; }
   .about-services__grid { gap: 40px; }
 }
@@ -781,6 +911,7 @@ const mosaicImages = [
   .about-banner__h1      { font-size: clamp(36px, 9vw, 48px); }
   .about-story           { padding: 64px 0 56px; }
   .about-services        { padding: 64px 0; }
+  .about-team            { padding: 64px 0; }
   .about-fleet           { padding: 64px 0; }
   .stats-band__item      { border-right: none; border-bottom: 1px solid rgba(243,236,216,.2); }
   .about-cta-band__heading { font-size: var(--text-3xl); }
